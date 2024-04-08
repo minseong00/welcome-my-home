@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class RevDelete
  */
-@WebServlet("/RevDelete")
+@WebServlet(description = "예약 삭제 컨트롤러", urlPatterns = {"/RevDelete"})
 public class RevDelete extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
