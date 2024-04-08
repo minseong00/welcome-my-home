@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>현재 모든 예약 상태를 캘린더 형태로 출력</title>
 </head>
 <body>
 
