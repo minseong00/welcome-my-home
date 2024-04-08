@@ -38,7 +38,7 @@ html,body {
     background-image: url('https://www.inspirekorea.com/sites/default/files/2023-10/content-pixie-VIh-B-bNZMc-unsplash%201.jpg');
   }
   
-  .signup {
+  .login {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -46,31 +46,6 @@ html,body {
     width: 65%;
     z-index: 5;
     -webkit-transition: all .3s ease;
-    
-    
-    &.slide-up {
-      top: 5%;
-      -webkit-transform: translate(-50%, 0%);
-      -webkit-transition: all .3s ease;
-    }
-    
-    &.form-holder,
-    &.submit-btn {
-      opacity: 0;
-      visibility: hidden;
-    }
-    
-    &.form-title {
-      font-size: 1em;
-      cursor: pointer;
-    }
-    
-    &.form-title span {
-      margin-right: 5px;
-      opacity: 1;
-      visibility: visible;
-      -webkit-transition: all .3s ease;
-    }
     
     .form-title {
       color: #fff;
@@ -137,32 +112,6 @@ html,body {
       }
     }
   }
-  
-  .login {
-    position: absolute;
-    top: 20%;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #fff;
-    z-index: 5;
-    -webkit-transition: all .3s ease;
-    
-    &::before {
-      content: '';
-      position: absolute;
-      left: 50%;
-      top: -20px;
-      -webkit-transform: translate(-50%, 0);
-      background-color: #fff;
-      width: 200%;
-      height: 250px;
-      border-radius: 50%;
-      z-index: 4;
-      -webkit-transition: all .3s ease;
-    }
- 
-    }
   }
 }
 
@@ -171,8 +120,8 @@ html,body {
 
 <body>
 	<div class="form-structor">
-	  <div class="signup">
-	    <h2 class="form-title" id="signup">로그인</h2>
+	  <div class="login">
+	    <h2 class="form-title" id="login">Login</h2>
 	    <div class="form-holder">
 	      <input type="text" class="input" placeholder="Id" name="name" />
 	      <input type="password" class="input" placeholder="Password" name="password" />
