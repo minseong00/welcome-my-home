@@ -98,12 +98,14 @@
 		</ul>
 	</nav>
 	<div class="rightside">
-		<section>
-			<div>
-				<img alt="방 사진" src="">
-			</div>
-			
-		</section>
+		<table>
+			<colgroup>
+				<col width="">
+				<col width="">
+				<col width="">
+				<col width="">
+			</colgroup>
+		</table>
 	</div>
 </body>
 </html>
