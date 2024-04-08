@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>관리자 예약 관리 눌렀을 때 나오는 테이블</title>
 </head>
 <body>
 
