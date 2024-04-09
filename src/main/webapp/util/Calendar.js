@@ -4,7 +4,7 @@
 $(function() {
 	var startDate = moment().add(1, 'day');
     var endDate = moment().add(2, 'days');
-	$('#demo').daterangepicker({
+	$('#roomRevDate').daterangepicker({
 	    "locale": {
 	        "format": "YYYY-MM-DD",
 	        "separator": " ~ ",
@@ -32,7 +32,7 @@ $(function() {
 	    console.log('New date range selected: ' + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD') + ' (predefined range: ' + label + ')');
 	});
 	
-	$('input[name="dateOne"]').daterangepicker({
+	$('.filter').daterangepicker({
 	    "locale": {
 	        "format": "YYYY-MM-DD",
 	        "separator": " ~ ",
