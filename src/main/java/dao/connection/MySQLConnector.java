@@ -56,6 +56,6 @@ public class MySQLConnector {
 				System.err.println("CLOSE ERR : " + e.getMessage());
 			}
 		}
-	} // close(rs, pstmt) end
+	} // close(rs, pstmt, conn) end
 
 }

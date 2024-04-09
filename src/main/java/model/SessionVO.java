@@ -1,9 +1,14 @@
 package model;
 
 public class SessionVO {
-
+	private String id;
+	
 	public SessionVO() {
-		// TODO Auto-generated constructor stub
+		
+	}
+
+	public String getId() {
+		return id;
 	}
 
 }
