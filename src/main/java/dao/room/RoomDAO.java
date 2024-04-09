@@ -102,6 +102,21 @@ public class RoomDAO implements RoomQuerys {
 		return roomVO;
 	}
 	
-	
+	public int deleteRoom(int roomNo) {
+		int result = 0;
+		try {
+			this.conn = DB.dbConnect();
+			this.pstmt = this.conn.prepareStatement(deleteOne);
+			this.pstmt.setInt(1, roomNo);
+			result = this.pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			System.err.println("RoomImg SelectOne ERR : " + e.getMessage());
+		} finally {
+			DB.close(this.rs, this.pstmt, this.conn);
+		}
+		
+		return result;
+	}
 	
 }

@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 /**
  * Servlet Filter implementation class EncoderFilters
  */
-@WebFilter("/*")
+@WebFilter(description = "한글 인코딩 필터", urlPatterns = { "/*" })
 public class EncoderFilter implements Filter {
 	ServletContext context;
     /**
@@ -37,14 +37,14 @@ public class EncoderFilter implements Filter {
 	 */
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 		// TODO Auto-generated method stub
-		// place your code here
+		// place your code here\
+		request.setCharacterEncoding("utf-8");
+		
 		//디버깅 용
 		String context = ((HttpServletRequest)request).getContextPath();
 		String pathInfo = ((HttpServletRequest)request).getRequestURI();
 		String msg = "Context 정보 : " + context + " \nURI 정보 : " + pathInfo;
 		System.out.println(msg);
-		
-		request.setCharacterEncoding("utf-8");
 		// pass the request along the filter chain
 		chain.doFilter(request, response);
 	}
