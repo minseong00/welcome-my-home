@@ -1,10 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+    
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>admin RoomList</title>
 <style type="text/css">
 	body{
 		line-height: normal;
@@ -30,7 +33,8 @@
 		flex-wrap: wrap;
 		padding-left: 0;
 		margin-bottom: 0;
-		list-style: none; 
+		list-style: none;
+		align-items: center;
 	}
 	
 	.sidebar .nav {
@@ -104,7 +108,43 @@
 				<col width="">
 				<col width="">
 				<col width="">
+				<col width="">
+				
 			</colgroup>
+			<thead>
+			<tr>
+				<th>룸 이름</th>
+				<th>룸 타입</th>
+				<th>최대 인원 수</th>
+				<th>가격</th>
+				<th>상세보기</th>
+				
+			</tr>
+			</thead>
+			<tbody>
+				<c:choose>
+					<c:when test="${totalCount == 0 }">
+						<tr>
+							<td colspan="5">등록된 방이 없습니다.</td>
+						</tr>
+					</c:when>
+					<c:otherwise>
+						<c:forEach var="room" items="${roomVO }">
+							<tr>
+								<input type="hidden" value="${room.roomNo }">
+								<td><!-- 룸이름 --><c:out value="${room.roomName }"></c:out></td>
+								<td><!-- 룸타입 --><c:out value="${room.roomType }"></c:out></td>
+								<td><!-- 최대 인원 --><c:out value="${room.headCount }"></c:out></td>
+								<td><!-- 가격 --><c:out value="${room.roomCost }"></c:out></td>
+								<td>
+									<span id="detail" onclick="location.href='<c:url value="/RoomDetail?num=${room.roomNo }" />' ">상세보기</span>
+								</td>
+							</tr>
+						</c:forEach>
+					</c:otherwise>
+				</c:choose>
+			</tbody>
+			
 		</table>
 	</div>
 </body>

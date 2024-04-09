@@ -18,7 +18,7 @@
 		font-family: "Poppins", sans=serif;
 		font-weight: normal;
 		padding: 0;
-		width: 236px;
+		width: 235px;
 		height: 95vh;
 		z-index: 11;
 		box-shadow: 0 5px 10px 0 rgba(230, 230, 243, 0, 0.88);
@@ -33,7 +33,8 @@
 		flex-wrap: wrap;
 		padding-left: 0;
 		margin-bottom: 0;
-		list-style: none; 
+		list-style: none;
+		align-items: center;
 	}
 	
 	.sidebar .nav {
@@ -71,9 +72,7 @@
 		flex-grow: 1;
 		margin-left: 0.5rem;
 	}
-	table {
-		text-align: center;
-	}
+	
 </style>
 </head>
 <body>
