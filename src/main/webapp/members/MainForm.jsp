@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<c:set var="contextPath" value="${pageContext.request.contextPath }"></c:set>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -11,31 +14,32 @@
     <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i" rel="stylesheet">
 
-    <link rel="stylesheet" href="../style/css/open-iconic-bootstrap.min.css">
-    <link rel="stylesheet" href="../style/css/animate.css">
+    <link rel="stylesheet" href="${contextPath}/style/css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="${contextPath}/style/css/animate.css">
     
-    <link rel="stylesheet" href="../style/css/owl.carousel.min.css">
-    <link rel="stylesheet" href="../style/css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="../style/css/magnific-popup.css">
+    <link rel="stylesheet" href="${contextPath}/style/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="${contextPath}/style/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="${contextPath}/style/css/magnific-popup.css">
 
-    <link rel="stylesheet" href="../style/css/aos.css">
+    <link rel="stylesheet" href="${contextPath}/style/css/aos.css">
 
-    <link rel="stylesheet" href="../style/css/ionicons.min.css">
+    <link rel="stylesheet" href="${contextPath}/style/css/ionicons.min.css">
 
-    <link rel="stylesheet" href="../style/css/bootstrap-datepicker.css">
-    <link rel="stylesheet" href="../style/css/jquery.timepicker.css">
+    <link rel="stylesheet" href="${contextPath}/style/css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="${contextPath}/style/css/jquery.timepicker.css">
 
     
-    <link rel="stylesheet" href="../style/css/flaticon.css">
-    <link rel="stylesheet" href="../style/css/icomoon.css">
-    <link rel="stylesheet" href="../style/css/style.css">
+    <link rel="stylesheet" href="${contextPath}/style/css/flaticon.css">
+    <link rel="stylesheet" href="${contextPath}/style/css/icomoon.css">
+    <link rel="stylesheet" href="${contextPath}/style/css/style.css">
   </head>
   <body>
-<%@ include file="../include/Header.jsp" %>
+<%-- <%@ include file="/include/Header.jsp" %> --%>
+<jsp:include page="/include/Header.jsp" flush="false"/>
     <!-- END nav -->
 
     <section class="home-slider owl-carousel">
-      <div class="slider-item" style="background-image:url(../style/images/bg_1.jpg);">
+      <div class="slider-item" style="background-image:url(${contextPath}/style/images/bg_1.jpg);">
       	<div class="overlay"></div>
         <div class="container">
           <div class="row no-gutters slider-text align-items-center justify-content-center">
@@ -49,7 +53,7 @@
         </div>
       </div>
 
-      <div class="slider-item" style="background-image:url(../style/images/bg_2.jpg);">
+      <div class="slider-item" style="background-image:url(${contextPath}/style/images/bg_2.jpg);">
       	<div class="overlay"></div>
         <div class="container">
           <div class="row no-gutters slider-text align-items-center justify-content-center">
@@ -141,7 +145,7 @@
     <section class="ftco-section ftc-no-pb ftc-no-pt">
 			<div class="container">
 				<div class="row">
-					<div class="col-md-5 p-md-5 img img-2 d-flex justify-content-center align-items-center" style="background-image: url(../style/images/bg_2.jpg);">
+					<div class="col-md-5 p-md-5 img img-2 d-flex justify-content-center align-items-center" style="background-image: url(${contextPath}/style/images/bg_2.jpg);">
 						<a href="https://vimeo.com/45830194" class="icon popup-vimeo d-flex justify-content-center align-items-center">
 							<span class="icon-play"></span>
 						</a>
@@ -237,7 +241,7 @@
     		<div class="row">
     			<div class="col-sm-6 col-6 col-lg-6 ftco-animate">
     				<div class="room">
-    					<a href="rooms.html" class="img d-flex justify-content-center align-items-center" style="background-image: url(../style/images/room-1.jpg);">
+    					<a href="rooms.html" class="img d-flex justify-content-center align-items-center" style="background-image: url(${contextPath}/style/images/room-1.jpg);">
     						<div class="icon d-flex justify-content-center align-items-center">
     							<span class="icon-search2"></span>
     						</div>
@@ -252,7 +256,7 @@
     			</div>
     			<div class="col-sm-6 col-6 col-lg-6 ftco-animate">
     				<div class="room">
-    					<a href="rooms.html" class="img d-flex justify-content-center align-items-center" style="background-image: url(../style/images/room-2.jpg);">
+    					<a href="rooms.html" class="img d-flex justify-content-center align-items-center" style="background-image: url(${contextPath}/style/images/room-2.jpg);">
     						<div class="icon d-flex justify-content-center align-items-center">
     							<span class="icon-search2"></span>
     						</div>
@@ -267,7 +271,7 @@
     			</div>
     			<div class="col-sm-6 col-6 col-lg-6 ftco-animate">
     				<div class="room">
-    					<a href="rooms.html" class="img d-flex justify-content-center align-items-center" style="background-image: url(../style/images/room-3.jpg);">
+    					<a href="rooms.html" class="img d-flex justify-content-center align-items-center" style="background-image: url(${contextPath}/style/images/room-3.jpg);">
     						<div class="icon d-flex justify-content-center align-items-center">
     							<span class="icon-search2"></span>
     						</div>
@@ -282,7 +286,7 @@
     			</div>
     			<div class="col-sm-6 col-6 col-lg-6 ftco-animate">
     				<div class="room">
-    					<a href="rooms.html" class="img d-flex justify-content-center align-items-center" style="background-image: url(../style/images/room-4.jpg);">
+    					<a href="rooms.html" class="img d-flex justify-content-center align-items-center" style="background-image: url(${contextPath}/style/images/room-4.jpg);">
     						<div class="icon d-flex justify-content-center align-items-center">
     							<span class="icon-search2"></span>
     						</div>
@@ -297,7 +301,7 @@
     			</div>
     			<div class="col-sm-6 col-6 col-lg-6 ftco-animate">
     				<div class="room">
-    					<a href="rooms.html" class="img d-flex justify-content-center align-items-center" style="background-image: url(../style/images/room-5.jpg);">
+    					<a href="rooms.html" class="img d-flex justify-content-center align-items-center" style="background-image: url(${contextPath}/style/images/room-5.jpg);">
     						<div class="icon d-flex justify-content-center align-items-center">
     							<span class="icon-search2"></span>
     						</div>
@@ -312,7 +316,7 @@
     			</div>
     			<div class="col-sm-6 col-6 col-lg-6 ftco-animate">
     				<div class="room">
-    					<a href="rooms.html" class="img d-flex justify-content-center align-items-center" style="background-image: url(../style/images/room-6.jpg);">
+    					<a href="rooms.html" class="img d-flex justify-content-center align-items-center" style="background-image: url(${contextPath}/style/images/room-6.jpg);">
     						<div class="icon d-flex justify-content-center align-items-center">
     							<span class="icon-search2"></span>
     						</div>
@@ -341,7 +345,7 @@
         <div class="row d-flex">
           <div class="col-3  ftco-animate">
             <div class="blog-entry align-self-stretch">
-              <a href="blog-single.html" class="block-20" style="background-image: url('../style/images/image_1.jpg');">
+              <a href="blog-single.html" class="block-20" style="background-image: url('${contextPath}/style/images/image_1.jpg');">
               </a>
               <div class="text mt-3 d-block">
                 <h3 class="heading mt-3"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
@@ -355,7 +359,7 @@
           </div>
           <div class="col-3  ftco-animate">
             <div class="blog-entry align-self-stretch">
-              <a href="blog-single.html" class="block-20" style="background-image: url('../style/images/image_2.jpg');">
+              <a href="blog-single.html" class="block-20" style="background-image: url('${contextPath}/style/images/image_2.jpg');">
               </a>
               <div class="text mt-3">
                 <h3 class="heading mt-3"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
@@ -369,7 +373,7 @@
           </div>
           <div class="col-3  ftco-animate">
             <div class="blog-entry align-self-stretch">
-              <a href="blog-single.html" class="block-20" style="background-image: url('../style/images/image_3.jpg');">
+              <a href="blog-single.html" class="block-20" style="background-image: url('${contextPath}/style/images/image_3.jpg');">
               </a>
               <div class="text mt-3">
                 <h3 class="heading mt-3"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
@@ -383,7 +387,7 @@
           </div>
           <div class="col-3  ftco-animate">
             <div class="blog-entry align-self-stretch">
-              <a href="blog-single.html" class="block-20" style="background-image: url('../style/images/image_4.jpg');">
+              <a href="blog-single.html" class="block-20" style="background-image: url('${contextPath}/style/images/image_4.jpg');">
               </a>
               <div class="text mt-3">
                 <h3 class="heading mt-3"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
@@ -408,35 +412,35 @@
         </div>
         <div class="row no-gutters">
           <div class="col  ftco-animate">
-            <a href="images/insta-1.jpg" class="insta-img image-popup" style="background-image: url(../style/images/insta-1.jpg);">
+            <a href="images/insta-1.jpg" class="insta-img image-popup" style="background-image: url(${contextPath}/style/images/insta-1.jpg);">
               <div class="icon  justify-content-center">
                 <span class="icon-instagram align-self-center"></span>
               </div>
             </a>
           </div>
           <div class="col  ftco-animate">
-            <a href="images/insta-2.jpg" class="insta-img image-popup" style="background-image: url(../style/images/insta-2.jpg);">
+            <a href="images/insta-2.jpg" class="insta-img image-popup" style="background-image: url(${contextPath}/style/images/insta-2.jpg);">
               <div class="icon justify-content-center">
                 <span class="icon-instagram align-self-center"></span>
               </div>
             </a>
           </div>
           <div class="col ftco-animate">
-            <a href="images/insta-3.jpg" class="insta-img image-popup" style="background-image: url(../style/images/insta-3.jpg);">
+            <a href="images/insta-3.jpg" class="insta-img image-popup" style="background-image: url(${contextPath}/style/images/insta-3.jpg);">
               <div class="icon  justify-content-center">
                 <span class="icon-instagram align-self-center"></span>
               </div>
             </a>
           </div>
           <div class="col  ftco-animate">
-            <a href="images/insta-4.jpg" class="insta-img image-popup" style="background-image: url(../style/images/insta-4.jpg);">
+            <a href="images/insta-4.jpg" class="insta-img image-popup" style="background-image: url(${contextPath}/style/images/insta-4.jpg);">
               <div class="icon  justify-content-center">
                 <span class="icon-instagram align-self-center"></span>
               </div>
             </a>
           </div>
           <div class="col  ftco-animate">
-            <a href="images/insta-5.jpg" class="insta-img image-popup" style="background-image: url(../style/images/insta-5.jpg);">
+            <a href="images/insta-5.jpg" class="insta-img image-popup" style="background-image: url(${contextPath}/style/images/insta-5.jpg);">
               <div class="icon justify-content-center">
                 <span class="icon-instagram align-self-center"></span>
               </div>
@@ -446,7 +450,7 @@
       </div>
     </section>
 
-    <%@ include file="../include/Footer.jsp" %>
+   <jsp:include page="/include/Footer.jsp" flush="false"/>
   
 
   <!-- loader -->
