@@ -1,41 +1,73 @@
 package servlets.session;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * Servlet implementation class Join
- */
+import dao.member.MemDAO;
+import model.MemVO;
+
 @WebServlet("/Join")
 public class Join extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
+	private MemDAO memDAO = null;
+
     public Join() {
         super();
-        // TODO Auto-generated constructor stub
+        
     }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 *  @see 아이디 중복 확인
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		response.setContentType("text/plain; charset=utf-8");
+		PrintWriter out = response.getWriter();
+		String id = (String)request.getParameter("id");
+		memDAO = new MemDAO();
+		
+		boolean overlappedID = memDAO.overlappedID(id);
+		
+		if(overlappedID) {
+			out.print("not_usable");
+			System.out.println("mem 값 있음");
+		}
+		else {
+			MemDAO memDAO = new MemDAO();
+			overlappedID = memDAO.overlappedID(id);
+			
+			if(overlappedID) {
+				out.print("not_usable");
+				System.out.println("admin 값 있음");
+			}
+			else
+				out.print("usable");
+		}
 	}
+	
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see 회원가입
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		
+		MemVO memVO = new MemVO();
+		memVO.setMem_id(request.getParameter("id"));
+		memVO.setMem_pw(request.getParameter("pw"));
+		memVO.setMem_name(request.getParameter("name"));
+		memVO.setMem_call(request.getParameter("call"));
+		memVO.setMem_email(request.getParameter("email"));
+		
+		memDAO = new MemDAO();
+		memDAO.insertMember(memVO);
+
+		System.out.println("" + request.getParameter(""));
 	}
 
 }

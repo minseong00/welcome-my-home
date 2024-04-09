@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<c:set var="contextPath" value="${ pageContext.request.contextPath }" />    
 <!DOCTYPE html>
 <html>
 <head>
@@ -121,7 +123,7 @@
 <body>
 	<div class="form-structor">
 		<div class="join">
-	    	<h2 class="form-title" id="join">내 정보</h2>
+	    	<h2 class="form-title" id="join">My Info</h2>
 	    <div class="form-holder">
   			<div class="input-with-button" colspan="2">
     		<input type="text" class="input" placeholder="Id" name="name" style="width:58%" readonly="readonly"; />
