@@ -28,9 +28,11 @@
     <link rel="stylesheet" href="css/flaticon.css">
     <link rel="stylesheet" href="css/icomoon.css">
     <link rel="stylesheet" href="css/style.css">
+  
 </head>
 <body>
 <%@ include file="../include/Header.jsp" %>
+
  <div class="hero-wrap" style="background-image: url('../style/images/bg.jpg');">
       <div class="overlay"></div>
       <div class="container">
@@ -46,9 +48,9 @@
     </div>
 
     <section class="ftco-section">
-      <div class="container">
+      <div class="container-fluid">
         <div class="row d-flex">
-          <div class="col-3 d-flex ftco-animate">
+          <div class="col-3  ftco-animate">
             <div class="blog-entry align-self-stretch">
               <p class="block-20" style="background-image: url('../style/images/burgerking.jpg');">
               </p>
@@ -62,7 +64,7 @@
               </div>
             </div>
           </div>
-          <div class="col-3 d-flex ftco-animate">
+          <div class="col-3 ftco-animate">
             <div class="blog-entry align-self-stretch">
               <p  class="block-20" style="background-image: url('../style/images/youktang.jpg');">
               </p>
@@ -76,7 +78,7 @@
               </div>
             </div>
           </div>
-          <div class="col-3 d-flex ftco-animate">
+          <div class="col-3  ftco-animate">
             <div class="blog-entry align-self-stretch">
               <p class="block-20" style="background-image: url('../style/images/seoul_center.jpg');">
               </p>
@@ -90,7 +92,7 @@
               </div>
             </div>
           </div>
-          <div class="col-3 d-flex ftco-animate">
+          <div class="col-3  ftco-animate">
             <div class="blog-entry align-self-stretch">
               <p class="block-20" style="background-image: url('../style/images/market.jpg');">
               </p>
@@ -104,7 +106,7 @@
               </div>
             </div>
           </div>
-          <div class="col-3 d-flex ftco-animate">
+          <div class="col-3  ftco-animate">
             <div class="blog-entry align-self-stretch">
               <p class="block-20" style="background-image: url('../style/images/hotspring.jpg');">
               </p>
@@ -118,7 +120,7 @@
               </div>
             </div>
           </div>
-          <div class="col-3 d-flex ftco-animate">
+          <div class="col-3  ftco-animate">
             <div class="blog-entry align-self-stretch">
               <p class="block-20" style="background-image: url('../style/images/airport.jpg');">
               </p>
@@ -132,7 +134,7 @@
               </div>
             </div>
           </div>
-          <div class="col-3 d-flex ftco-animate">
+          <div class="col-3 ftco-animate">
             <div class="blog-entry align-self-stretch">
               <p class="block-20" style="background-image: url('../style/images/hospital.jpg');">
               </p>
@@ -146,7 +148,7 @@
               </div>
             </div>
           </div>
-          <div class="col-3 d-flex ftco-animate">
+          <div class="col-3  ftco-animate">
             <div class="blog-entry align-self-stretch">
               <p class="block-20" style="background-image: url('../style/images/grandcanyon.jpg');">
               </p>
