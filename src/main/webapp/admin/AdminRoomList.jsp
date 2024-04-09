@@ -78,7 +78,7 @@
 
 <body >
 <div class="container">
-<%@ include file="../include/Header.jsp" %>
+<jsp:include page="/include/Header.jsp" flush="false"/>
 <div class="row justify-content-center">
 <div class="col-md-4"> 
 	<nav class="sidebar" >
