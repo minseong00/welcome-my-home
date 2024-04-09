@@ -8,13 +8,10 @@ public class MemVO {
 	private String mem_call;
 	private String mem_email;
 	
-	public MemVO(int no, String id, String pw, String name, String call, String email) {
-		this.mem_no = no;
-		this.mem_id = id;
-		this.mem_pw = pw;
-		this.mem_name = name;
-		this.mem_call = call;
-		this.mem_email = email;
+
+	
+	public MemVO() {
+		
 	}
 
 	public int getMem_no() {

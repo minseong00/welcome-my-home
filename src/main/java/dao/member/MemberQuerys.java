@@ -1,9 +1,11 @@
 package dao.member;
 
 public interface MemberQuerys {
-	String selectAll = "select * from myhome";
-	String memID="select * from myhome where mem_id=?";
-	String insertMem = "insert into myhome values(?, ?, ?, ?, ?)";
-	String updateMem = "update myhome set pwd=?, name=?, phone=?, email=?,"
+	String memID="select * from member where memId=?";
+	String insertMem = "insert into member values(?, ?, ?, ?, ?)";
+	String selectAll = "select * from member";
+	String selectOne = "select memNo, memId, memPw, memName, memCall, memEmail from member where memId=?";
+	String updateMem = "update member set memPw=?, memName=?, memCall=?, memEmail=?,"
 			+ "where id= ?";
+	String deleteMem = "delete from member where memId=?";
 }

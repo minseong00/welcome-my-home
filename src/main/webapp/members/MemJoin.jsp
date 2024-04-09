@@ -132,16 +132,16 @@
   			<input type="password" class="input" placeholder="Password" name="password" />
 		</div>
 		<div class="form-holder">
- 			 <input type="text" class="input" placeholder="Password Check" name="password" />
+ 			 <input type="text" class="input" placeholder="Password Check" name="Password Check" />
 		</div>
 		<div class="form-holder">
-  			<input type="text" class="input" placeholder="name" name="password" />
+  			<input type="text" class="input" placeholder="name" name="name" />
   		</div>
 		<div class="form-holder">
-	   		 <input type="text" class="input" placeholder="phone" name="password" />
+	   		 <input type="text" class="input" placeholder="phone" name="phone" />
 		</div>
 		<div class="form-holder">
-  			<input type="text" class="input" placeholder="email" name="password" />
+  			<input type="text" class="input" placeholder="email" name="email" required="required"/>
 		</div>
 	    	<button class="submit-btn">Sign up</button>
 	  	</div>

@@ -5,11 +5,11 @@ public class AdminVO {
 	private String admin_id;
 	private String admin_pwd;
 	
-	public AdminVO(String no, String id, String pw) {
-		this.admin_no = no;
-		this.admin_id = id;
-		this.admin_pwd= pw;
+
+	
+	public AdminVO() {
 	}
+	
 
 	public String getAdmin_no() {
 		return admin_no;
