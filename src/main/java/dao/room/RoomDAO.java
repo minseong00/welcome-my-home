@@ -11,13 +11,14 @@ import dao.connection.MySQLConnector;
 import model.RoomVO;
 
 public class RoomDAO implements RoomQuerys {
-	MySQLConnector DB = new MySQLConnector();
+	MySQLConnector DB = null;
 	
 	private Connection conn = null;
 	private PreparedStatement pstmt = null;
 	private ResultSet rs = null;
 	
 	public RoomDAO() {
+		DB = new MySQLConnector();
 	}
 	
 	/**
@@ -100,5 +101,7 @@ public class RoomDAO implements RoomQuerys {
 		
 		return roomVO;
 	}
+	
+	
 	
 }
