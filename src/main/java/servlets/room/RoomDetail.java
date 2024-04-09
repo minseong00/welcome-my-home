@@ -12,7 +12,7 @@ import dao.room.RoomDAO;
 import model.RoomVO;
 
 
-@WebServlet("/RoomDetailController")
+@WebServlet("/RoomDetail")
 public class RoomDetail extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     RoomDAO roomDAO = null;
@@ -23,18 +23,17 @@ public class RoomDetail extends HttpServlet {
     }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * 회원 룸 상세정보 조회
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * 관리자 룸 수정 요청
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+
 	}
 
 }

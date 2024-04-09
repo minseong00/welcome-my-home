@@ -99,7 +99,9 @@
 <body>
 	<div id="container"> <!-- 메인 컨테이너 -->
 		<div id="leftDiv"> <!-- 왼쪽 컨테이너 -->
-		
+			<c:forEach var="room" items="${roomVO }">
+				
+			</c:forEach>
 			<div class="lineDiv"><!-- 첫번째 라인 -->
 				<div class="room"> <!-- 첫번째 요소 -->
 					<table class="leftTable">
@@ -110,7 +112,7 @@
 						</tr>
 						<tr>
 							<td>
-								이름
+								
 							</td>
 						</tr>
 						<tr>
