@@ -31,22 +31,7 @@
     <link rel="stylesheet" href="../style/css/style.css">
   </head>
   <body>
-<nav class="navbar" id="ftco-navbar">
-    <div class="container-fluid" align="right">
-        <a class="navbar-brand" href="index.html">로고</a>
-        <!-- 삭제: 네비게이션 토글러 버튼 -->
-        <div class="navbar justify-content-end flex-row" id="ftco-nav"> <!-- 수정: 클래스 이름 변경 및 flex-row 클래스 추가 -->
-            <ul class="navbar-nav flex-row" style="margin-left: 20px;"> <!-- 수정: flex-row 클래스 추가 및 스타일 추가 -->
-                <li class="nav-item active"><a href="MainForm.html" class="nav-link">홈</a></li>
-                <li class="nav-item" style="margin-left: 20px;"><a href="rooms.html" class="nav-link">예약</a></li> <!-- 스타일 추가 -->
-                <li class="nav-item" style="margin-left: 20px;"><a href="restaurant.html" class="nav-link">객실목록</a></li> <!-- 스타일 추가 -->
-                <li class="nav-item" style="margin-left: 20px;"><a href="about.html" class="nav-link">주변정보</a></li> <!-- 스타일 추가 -->
-                <li class="nav-item" style="margin-left: 20px;"><a href="blog.html" class="nav-link">로그인</a></li> <!-- 스타일 추가 -->
-                <li class="nav-item" style="margin-left: 20px;"><a href="contact.html" class="nav-link">회원가입</a></li> <!-- 스타일 추가 -->
-            </ul>
-        </div>
-    </div>
-</nav>
+<%@ include file="../include/Header.jsp" %>
     <!-- END nav -->
 
     <section class="home-slider owl-carousel">
@@ -461,66 +446,7 @@
       </div>
     </section>
 
-    <footer class="ftco-footer ftco-bg-dark ftco-section">
-      <div class="container">
-        <div class="row mb-5">
-          <div class="col">
-            <div class="ftco-footer-widget mb-4">
-              <h2 class="ftco-heading-2">Deluxe Hotel</h2>
-              <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-              <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
-                <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
-                <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
-                <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="row">
-            <div class="ftco-footer-widget mb-4 ml-md-5">
-              <h2 class="ftco-heading-2">Useful Links</h2>
-              <ul class="list-unstyled">
-                <li><a href="#" class="py-2 d-block">Blog</a></li>
-                <li><a href="#" class="py-2 d-block">Rooms</a></li>
-                <li><a href="#" class="py-2 d-block">Amenities</a></li>
-                <li><a href="#" class="py-2 d-block">Gift Card</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="col">
-             <div class="ftco-footer-widget mb-4">
-              <h2 class="ftco-heading-2">Privacy</h2>
-              <ul class="list-unstyled">
-                <li><a href="#" class="py-2 d-block">Career</a></li>
-                <li><a href="#" class="py-2 d-block">About Us</a></li>
-                <li><a href="#" class="py-2 d-block">Contact Us</a></li>
-                <li><a href="#" class="py-2 d-block">Services</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="col">
-            <div class="ftco-footer-widget mb-4">
-            	<h2 class="ftco-heading-2">Have a Questions?</h2>
-            	<div class="block-23 mb-3">
-	              <ul>
-	                <li><span class="icon icon-map-marker"></span><span class="text">203 Fake St. Mountain View, San Francisco, California, USA</span></li>
-	                <li><a href="#"><span class="icon icon-phone"></span><span class="text">+2 392 3929 210</span></a></li>
-	                <li><a href="#"><span class="icon icon-envelope"></span><span class="text">info@yourdomain.com</span></a></li>
-	              </ul>
-	            </div>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div >
-
-            <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart color-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
-          </div>
-        </div>
-      </div>
-    </footer>
-    
+    <%@ include file="../include/Footer.jsp" %>
   
 
   <!-- loader -->
