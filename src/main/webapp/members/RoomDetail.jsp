@@ -78,6 +78,28 @@
 			룸설명 이미지
 		</div>
 		<div id="info2">
+			<table>
+				<tr>
+					<td>
+					${roomVO.roomName }
+					</td>
+				</tr>
+				<tr>
+					<td>
+					${roomVO.roomType }
+					</td>
+				</tr>
+				<tr>
+					<td>
+					${roomVO.headCount } <!-- 최대 가능 인원 수 -->
+					</td>
+				</tr>
+				<tr>
+					<td>
+					${roomVO.roomCost } 
+					</td>
+				</tr>
+			</table>
 			예약 가능한 캘린더 표시
 			<button id="revBtn">예약하기</button>
 		</div>
