@@ -1,35 +1,87 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<c:set var="contextPath" value="${pageContext.request.contextPath }"></c:set>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
+<title>방 상세 정보</title>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<!-- 캘린더 import -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+<script src="${contextPath}/util/Calendar.js"></script>
+<style>
+	div {
+		border: 1px solid;
+	}
+	body {
+    margin: 0;
+    padding: 0;
+	}
+	
+	#mainContainer {
+	    display: flex;
+	    flex-direction: column;
+	    align-items: center; /* 세로 중앙 정렬 */
+	    width: 100%;
+	    height: 100vh; /* 세로 길이를 브라우저 높이에 맞춤 */
+	}
+	
+	#imgContainer {
+	    width: 95%;
+	    max-width: 800px; /* 최대 너비 설정 */
+	    flex-grow: 1; /* 가변적인 세로 길이를 위해 */
+	    border: 1px solid #000; /* 테스트용 보더 */
+	}
+	
+	#infoContainer {
+	    display: flex;
+	    justify-content: center; /* 가로 중앙 정렬 */
+	    width: 95%;
+	    max-width: 800px; /* imgContainer에 맞춤 */
+	}
+	
+	#info1 {
+	    width: 60%;
+	    flex-grow: 1; /* 가변적인 세로 길이를 위해 */
+	    border: 1px solid #000; /* 테스트용 보더 */
+	}
+	
+	#info2 {
+	    width: 40%;
+	    flex-grow: 1; /* 가변적인 세로 길이를 위해 */
+	    border: 1px solid #000; /* 테스트용 보더 */
+	    max-width: 300px; /* 최대 너비 설정 */
+	    height: 500px;
+	}
+	
+	#revBtn {
+	    width: 100%;
+	    height: 50px; /* 예약 버튼의 높이 */
+	}
+</style>
+<script>
+
+</script>
 </head>
 <body>
-
-<div id="price-range-slider"></div>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-<script>
-    $(document).ready(function() {
-        $("#price-range-slider").slider({
-            range: true,
-            min: 0,
-            max: 1000,
-            values: [100, 800], // 초기값 설정
-            slide: function(event, ui) {
-                $("#price-range").text("$" + ui.values[0] + " - $" + ui.values[1]); // 가격 범위 업데이트
-            }
-        });
-        $("#price-range").text("$" + $("#price-range-slider").slider("values", 0) +
-            " - $" + $("#price-range-slider").slider("values", 1)); // 초기 가격 범위 표시
-    });
-</script>
-
-<p>선택된 가격 범위: <span id="price-range"></span></p>
-
+<div id="mainContainer">
+	<div id="imgContainer">
+		사진 슬라이드 기능
+	</div>
+	<div id="infoContainer">
+		<div id="info1">
+			룸설명 이미지
+		</div>
+		<div id="info2">
+			예약 가능한 캘린더 표시
+			<button id="revBtn">예약하기</button>
+		</div>
+	</div>
+</div>
 </body>
 </html>

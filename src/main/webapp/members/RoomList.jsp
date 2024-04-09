@@ -7,18 +7,21 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>룸 목록</title>
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <!-- 캘린더 import -->
 <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 <script src="${contextPath}/util/Calendar.js"></script>
+<script src="${contextPath}/util/CountHead.js"></script>
 <style>
 	div {
 		border: 1px solid;
-		
 	}
 	#container {
 	    display: flex;
@@ -44,11 +47,12 @@
 	}
 	.room {
 		width: 200px;
+		margin-left: 20px;
 	}
 	.lineDiv {
 		flex: 1;
 	    display: flex;
-	    justify-content: space-between; /* 내부 요소들 사이의 간격을 조절합니다. */
+	    justify-content: flex-end; /* 내부 요소들 사이의 간격을 조절합니다. */
 	    margin-bottom: 20px; /* 각 lineDiv 사이의 여백을 조절합니다. */
 	    width: 100%;
 	    height: 300px;
@@ -58,10 +62,36 @@
 		text-align: center;
 	}
 	.rightTable {
-		width: 80%;
-		border: 1px solid;
+		width: 200px;
 		border-collapse: separate;
-		border-spacing: 10px; 
+		border-spacing: 10px;
+		padding: 10px; 
+	}
+	#price-range-slider {
+		width: 140px;
+		margin-left: 5px;
+	}
+	.filter {
+		width: 150px;
+	}
+	.filter_select {
+		width: 155px;
+	}
+	.headCount {
+		width: 60px;
+	}
+	#headTd {
+		display: flex; /* 요소들을 가로로 나열 */
+	  	align-items: center; /* 요소들을 세로 중앙 정렬 */
+	}
+	#headTd button {
+		margin: 0 5px 0 5px; 
+	}
+	#headCount {
+		width: 50px;
+	}
+	.price {
+		width: 60px;
 	}
 
 </style>
@@ -74,16 +104,29 @@
 				<div class="room"> <!-- 첫번째 요소 -->
 					<table class="leftTable">
 						<tr>
-							<td>사진</td>
+							<td>
+								사진
+							</td>
 						</tr>
 						<tr>
-							<td>이름</td>
+							<td>
+								이름
+							</td>
 						</tr>
 						<tr>
-							<td>가격</td>
+							<td>
+								가격
+							</td>
 						</tr>
 						<tr>
-							<td>버튼</td>
+							<td>
+								룸 정보
+							</td>
+						</tr>
+						<tr>
+							<td>
+								버튼
+							</td>
 						</tr>
 						
 					</table>
@@ -91,78 +134,136 @@
 				<div class="room"><!-- 두번째 요소 -->
 					<table class="leftTable">
 						<tr>
-							<td>사진</td>
+							<td>
+								사진
+							</td>
 						</tr>
 						<tr>
-							<td>이름</td>
+							<td>
+								이름
+							</td>
 						</tr>
 						<tr>
-							<td>가격</td>
+							<td>
+								가격
+							</td>
 						</tr>
 						<tr>
-							<td>버튼</td>
+							<td>
+								룸 정보
+							</td>
 						</tr>
-						
+						<tr>
+							<td>
+								버튼
+							</td>
+						</tr>
 					</table>
 				</div>
 				<div class="room"><!-- 세번째 요소 -->
 					<table class="leftTable">
 						<tr>
-							<td>사진</td>
+							<td>
+								사진
+							</td>
 						</tr>
 						<tr>
-							<td>이름</td>
+							<td>
+								이름
+							</td>
 						</tr>
 						<tr>
-							<td>가격</td>
+							<td>
+								가격
+							</td>
 						</tr>
 						<tr>
-							<td>버튼</td>
+							<td>
+								룸 정보
+							</td>
 						</tr>
-						
+						<tr>
+							<td>
+								버튼
+							</td>
+						</tr>
 					</table>
 				</div>
 			</div>
-
+			
 		</div>
 		
 		<div id="rightDiv"> <!-- 사이드바 컨테이너 -->
-			<table class="rightTable">
-					<tr>
-						<td>
-							<input type="text" name="dateOne">
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<input type="text" name="dateOne">
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<select>
-								<option>스페셜</option>
-								<option>디럭스</option>
-								<option>스위트</option>
-								<option>스텐다드</option>
-							</select>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<select>
-								<option>1인</option>
-								<option>2인</option>
-								<option>3인</option>
-								<option>4인</option>
-								<option>5인</option>
-							</select>
-						</td>
-					</tr>
-					<tr>
-						<td>가격</td>
-					</tr>
-			</table>
+		
+			<form>
+				<table class="rightTable">
+						<tr>
+							<td>
+								체크인<br>
+								<input type="text" name="checkIn" class="filter">
+							</td>
+						</tr>
+						<tr>
+							<td>
+								체크아웃<br>
+								<input type="text" name="checkOut" class="filter">
+							</td>
+						</tr>
+						<tr>
+							<td>
+								종류<br>
+								<select class="filter_select" name="roomType">
+									<option>스페셜</option>
+									<option>디럭스</option>
+									<option>스위트</option>
+									<option>스텐다드</option>
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								인원수<br>
+								<button type="button" id="downCount" onclick="downValue()"><b>-</b></button>
+								<input type="text" name="headCount" value="1" id="headCount" readonly>
+								<button type="button" id="upCount" onclick="upValue()"><b>+</b></button>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<p>가격</p>
+								<div id="price-range-slider"></div>
+								<script>
+								    $(document).ready(function() {
+								        $("#price-range-slider").slider({
+								            range: true,
+								            min: 0,
+								            max: 30,
+								            values: [0, 30], // 초기값 설정
+								            slide: function(event, ui) {// 가격 범위 업데이트
+								                $("#price-min").val(ui.values[0]*10000);
+								                $("#price-max").val(ui.values[1]*10000);
+								            }
+								        });
+								        $("#price-min").val($("#price-range-slider").slider("values", 0));
+								        $('#price-max').val($("#price-range-slider").slider("values", 1)*10000); // 초기 가격 범위 표시
+								    });
+								</script>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<input type="text" id="price-min" name="priceMin" class="price" readonly> - 
+								<input type="text" id="price-max" name="priceMax" class="price" readonly>
+							</td>
+						</tr>
+						<tr>
+							<td align="center">
+								<input type="submit" value="조건 검색" />
+							</td>
+						</tr>
+				</table>
+			</form>
+			
 		</div>
 	</div>
 </body>
