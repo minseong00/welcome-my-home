@@ -10,7 +10,7 @@ public class MySQLConnector {
 	private Connection connector = null;
 	private final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
 	private final String DB_URL = "jdbc:mysql://127.0.0.1:3306/";
-	private final String DB_TABLE = "simple_shop";
+	private final String DB_TABLE = "myhome";
 	private final String DB_ID = "root";
 	private final String DB_PWD = "1234";
 	
@@ -56,5 +56,6 @@ public class MySQLConnector {
 				System.err.println("CLOSE ERR : " + e.getMessage());
 			}
 		}
-	}	//close(rs, pstmt) END
-}	//class MySQLConnector END
+	} // close(rs, pstmt, conn) end
+
+}
