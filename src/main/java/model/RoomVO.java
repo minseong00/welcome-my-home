@@ -11,8 +11,18 @@ public class RoomVO {
 	private int headCount;
 	/* 방 가격 */
 	private int roomCost;
+	/* 방 설명 */
+	private String roomDetail;
 	
 	public RoomVO() {
+	}
+
+	public String getRoomDetail() {
+		return roomDetail;
+	}
+
+	public void setRoomDetail(String roomDetail) {
+		this.roomDetail = roomDetail;
 	}
 
 	public int getHeadCount() {
@@ -57,9 +67,11 @@ public class RoomVO {
 
 	@Override
 	public String toString() {
-		return "RoomVO [roomNo=" + roomNo + ", roomName=" + roomName + ", roomType=" + roomType + ", numPeople="
-				+ headCount + ", roomCost=" + roomCost + "]";
+		return "RoomVO [roomNo=" + roomNo + ", roomName=" + roomName + ", roomType=" + roomType + ", headCount="
+				+ headCount + ", roomCost=" + roomCost + ", roomDetail=" + roomDetail + "]";
 	}
+
+	
 
 	
 	

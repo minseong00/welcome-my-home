@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:set var="contextPath" value="${pageContext.request.contextPath }"></c:set>
 
 <!DOCTYPE html>
@@ -9,6 +9,7 @@
 <head>
 <meta charset="UTF-8">
 <title>admin Room Add</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
 <style type="text/css">
 	body{
 		line-height: normal;
@@ -76,6 +77,43 @@
 	}
 	
 </style>
+<script src="http://code.jquery.com/jquery-2.2.1.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$("#roomAdd").submit(function(event){
+			event.preventDefault();	
+			let formData = new FormData(this);
+			$.ajax({
+				type: "post",
+				async: false,
+				url : "<c:url value='${contextPath}/RoomAdd' />",
+				data : formData,
+				enctype:'multipart/form-data',
+				processData: false,
+				contentType: false,
+				success:function(){
+					alert("등록되었습니다.");
+					window.location.replace("${contextPath}/RoomList");
+				},
+				error:function(){
+					alert("등록을 실패하였습니다.");
+				}
+			});
+		});
+	});
+	
+	function addForm() {
+		var roomCost = $(".roomCost").val();
+		
+		const regExp = /[0-9]/g;
+		if(regExp.test(roomCost)){
+			return true;
+		}else{
+			alert("숫자만 가능합니다.");
+			return false;
+		}
+	}
+</script>
 </head>
 <body>
 	<nav class="sidebar">
@@ -106,28 +144,51 @@
 	<div class="rightside">
 		<div>
 			<h4>객실 등록</h4>
-			<form action="">
+			<form id="roomAdd" onsubmit="return addForm()">
 				<div>
 					<label>객실 이름</label>
 					<input type="text" name="roomName">
 				</div>
 				<div>
 					<label>객실 타입</label>
-					<select>
-						<option value="" selected="selected">타입 선택</option>
-						<option value="">싱글 룸</option>
-						<option value="">트윈 룸</option>
-						<option value="">더블 룸</option>
-						<option value="">트리플 룸</option>
+					<select name="roomType" required="required">
+						<option selected="selected">타입 선택</option>
+						<option value="singleRoom">싱글 룸</option>
+						<option value="twinRoom">트윈 룸</option>
+						<option value="DoubleRoom">더블 룸</option>
+						<option value="TripleRoom">트리플 룸</option>
 					</select>
 				</div>
 				<div>
+					<label>수용 인원</label>
+					<select name="headCount" required="required">
+						<option selected="selected">인원 선택</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						
+					</select>
+				</div>
+				<div>
+					<label>객실 가격</label>
+					<input class="roomCost" type="text" name="roomCost">원
+				</div>
+				<div>
 					<label>객실 설명</label>
-					<textarea rows="8"></textarea>
+					<textarea rows="8" name = "detailText"></textarea>
 				</div>
 				<div>
 					<label>사진 업로드</label>
-					<input type="file" name="file">
+					<input type="file" name="file1">
+					<input type="file" name="file2">
+					<input type="file" name="file3">
+					<input type="file" name="file4">
+					<input type="file" name="file5">
+				</div>
+				<div>
+					<label>객실 설명 사진</label>
+					<input type="file" name="infoImg">
 				</div>
 				<button type="submit" >등록</button>
 			</form>
