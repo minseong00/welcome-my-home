@@ -3,7 +3,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+  <head>  
     <title>Deluxe - Free Bootstrap 4 Template by Colorlib</title>
     <meta charset="utf-8">
  
@@ -31,22 +31,7 @@
     <link rel="stylesheet" href="../style/css/style.css">
   </head>
   <body>
-<nav class="navbar" id="ftco-navbar">
-    <div class="container-fluid" align="right">
-        <a class="navbar-brand" href="index.html">Deluxe</a>
-        <!-- 삭제: 네비게이션 토글러 버튼 -->
-        <div class="navbar justify-content-end flex-row" id="ftco-nav"> <!-- 수정: 클래스 이름 변경 및 flex-row 클래스 추가 -->
-            <ul class="navbar-nav flex-row" style="margin-left: 20px;"> <!-- 수정: flex-row 클래스 추가 및 스타일 추가 -->
-                <li class="nav-item active"><a href="MainForm.html" class="nav-link">Home</a></li>
-                <li class="nav-item" style="margin-left: 20px;"><a href="rooms.html" class="nav-link">Rooms</a></li> <!-- 스타일 추가 -->
-                <li class="nav-item" style="margin-left: 20px;"><a href="restaurant.html" class="nav-link">Restaurant</a></li> <!-- 스타일 추가 -->
-                <li class="nav-item" style="margin-left: 20px;"><a href="about.html" class="nav-link">About</a></li> <!-- 스타일 추가 -->
-                <li class="nav-item" style="margin-left: 20px;"><a href="blog.html" class="nav-link">Blog</a></li> <!-- 스타일 추가 -->
-                <li class="nav-item" style="margin-left: 20px;"><a href="contact.html" class="nav-link">Contact</a></li> <!-- 스타일 추가 -->
-            </ul>
-        </div>
-    </div>
-</nav>
+<%@ include file="../include/Header.jsp" %>
     <!-- END nav -->
 
     <section class="home-slider owl-carousel">
@@ -56,7 +41,7 @@
           <div class="row no-gutters slider-text align-items-center justify-content-center">
           <div class="col-12 ftco-animate text-center">
           	<div class="text mb-5 pb-3">
-	            <h1 class="mb-3">Welcome To Deluxe</h1>
+	            <h1 class="mb-3">우리집에 놀러와</h1>
 	            <h2>Hotels &amp; Resorts</h2>
             </div>
           </div>
@@ -70,7 +55,7 @@
           <div class="row no-gutters slider-text align-items-center justify-content-center">
           <div class="col-12 ftco-animate text-center">
           	<div class="text mb-5 pb-3">
-	            <h1 class="mb-3">Enjoy A Luxury Experience</h1>
+	            <h1 class="mb-3">최고의 순간을 경험하세요</h1>
 	            <h2>Join With Us</h2>
             </div>
           </div>
@@ -88,33 +73,33 @@
                         <div class="col-3 d-flex">
                             <div class="form-group p-4 align-self-stretch">
                                 <div class="wrap">
-                                    <label for="#">Check-in Date</label>
-                                    <input type="text" class="form-control checkin_date" placeholder="Check-in date">
+                                    <label for="#">체크인</label>
+                                    <input type="text" class="form-control checkin_date" placeholder="체크인 날짜">
                                 </div>
                             </div>
                         </div>
                         <div class="col-3 d-flex">
                             <div class="form-group p-4 align-self-stretch">
                                 <div class="wrap">
-                                    <label for="#">Check-out Date</label>
-                                    <input type="text" class="form-control checkout_date" placeholder="Check-out date">
+                                    <label for="#">체크아웃</label>
+                                    <input type="text" class="form-control checkout_date" placeholder="체크아웃 날짜">
                                 </div>
                             </div>
                         </div>
                         <div class="col d-flex">
                             <div class="form-group p-4 align-self-stretch">
                                 <div class="wrap">
-                                    <label for="#">Room</label>
+                                    <label for="#">객실</label>
                                     <div class="form-field">
                                         <div class="select-wrap">
                                             <div class="icon"><span class="ion-ios-arrow-down"></span></div>
                                             <select name="" id="" class="form-control">
-                                                <option value="">Suite</option>
-                                                <option value="">Family Room</option>
-                                                <option value="">Deluxe Room</option>
-                                                <option value="">Classic Room</option>
-                                                <option value="">Superior Room</option>
-                                                <option value="">Luxury Room</option>
+                                                <option value="">싱글 룸</option>
+                                                <option value="">더블 룸</option>
+                                                <option value="">슈페리얼 룸 </option>
+                                                <option value="">슈페리얼 더블룸</option>
+                                                <option value="">럭셔리 룸 </option>
+                                                
                                             </select>
                                         </div>
                                     </div>
@@ -124,17 +109,17 @@
                         <div class="col d-flex">
                             <div class="form-group p-4 align-self-stretch">
                                 <div class="wrap">
-                                    <label for="#">Customer</label>
+                                    <label for="#">인원수</label>
                                     <div class="form-field">
                                         <div class="select-wrap">
                                             <div class="icon"><span class="ion-ios-arrow-down"></span></div>
                                             <select name="" id="" class="form-control">
-                                                <option value="">1 Adult</option>
-                                                <option value="">2 Adult</option>
-                                                <option value="">3 Adult</option>
-                                                <option value="">4 Adult</option>
-                                                <option value="">5 Adult</option>
-                                                <option value="">6 Adult</option>
+                                                <option value="">1 명</option>
+                                                <option value="">2 명</option>
+                                                <option value="">3 명</option>
+                                                <option value="">4 명</option>
+                                                <option value="">5 명</option>
+                                                <option value="">6 명</option>
                                             </select>
                                         </div>
                                     </div>
@@ -415,42 +400,42 @@
     </section>
 
     <section class="instagram">
-      <div class="container-fluid">
+      <div class="container">
         <div class="row no-gutters justify-content-center pb-5">
           <div class="col-7 text-center heading-section ftco-animate">
             <h2><span>Instagram</span></h2>
           </div>
         </div>
         <div class="row no-gutters">
-          <div class="col-12 col-md ftco-animate">
+          <div class="col  ftco-animate">
             <a href="images/insta-1.jpg" class="insta-img image-popup" style="background-image: url(../style/images/insta-1.jpg);">
               <div class="icon  justify-content-center">
                 <span class="icon-instagram align-self-center"></span>
               </div>
             </a>
           </div>
-          <div class="col-12 col-md ftco-animate">
+          <div class="col  ftco-animate">
             <a href="images/insta-2.jpg" class="insta-img image-popup" style="background-image: url(../style/images/insta-2.jpg);">
               <div class="icon justify-content-center">
                 <span class="icon-instagram align-self-center"></span>
               </div>
             </a>
           </div>
-          <div class="col-12 col-md ftco-animate">
+          <div class="col ftco-animate">
             <a href="images/insta-3.jpg" class="insta-img image-popup" style="background-image: url(../style/images/insta-3.jpg);">
               <div class="icon  justify-content-center">
                 <span class="icon-instagram align-self-center"></span>
               </div>
             </a>
           </div>
-          <div class="col-12 col-md ftco-animate">
+          <div class="col  ftco-animate">
             <a href="images/insta-4.jpg" class="insta-img image-popup" style="background-image: url(../style/images/insta-4.jpg);">
               <div class="icon  justify-content-center">
                 <span class="icon-instagram align-self-center"></span>
               </div>
             </a>
           </div>
-          <div class="col-12 col-md ftco-animate">
+          <div class="col  ftco-animate">
             <a href="images/insta-5.jpg" class="insta-img image-popup" style="background-image: url(../style/images/insta-5.jpg);">
               <div class="icon justify-content-center">
                 <span class="icon-instagram align-self-center"></span>
@@ -461,66 +446,7 @@
       </div>
     </section>
 
-    <footer class="ftco-footer ftco-bg-dark ftco-section">
-      <div class="container">
-        <div class="row mb-5">
-          <div class="col-md">
-            <div class="ftco-footer-widget mb-4">
-              <h2 class="ftco-heading-2">Deluxe Hotel</h2>
-              <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-              <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
-                <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
-                <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
-                <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-md">
-            <div class="ftco-footer-widget mb-4 ml-md-5">
-              <h2 class="ftco-heading-2">Useful Links</h2>
-              <ul class="list-unstyled">
-                <li><a href="#" class="py-2 d-block">Blog</a></li>
-                <li><a href="#" class="py-2 d-block">Rooms</a></li>
-                <li><a href="#" class="py-2 d-block">Amenities</a></li>
-                <li><a href="#" class="py-2 d-block">Gift Card</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-md">
-             <div class="ftco-footer-widget mb-4">
-              <h2 class="ftco-heading-2">Privacy</h2>
-              <ul class="list-unstyled">
-                <li><a href="#" class="py-2 d-block">Career</a></li>
-                <li><a href="#" class="py-2 d-block">About Us</a></li>
-                <li><a href="#" class="py-2 d-block">Contact Us</a></li>
-                <li><a href="#" class="py-2 d-block">Services</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-md">
-            <div class="ftco-footer-widget mb-4">
-            	<h2 class="ftco-heading-2">Have a Questions?</h2>
-            	<div class="block-23 mb-3">
-	              <ul>
-	                <li><span class="icon icon-map-marker"></span><span class="text">203 Fake St. Mountain View, San Francisco, California, USA</span></li>
-	                <li><a href="#"><span class="icon icon-phone"></span><span class="text">+2 392 3929 210</span></a></li>
-	                <li><a href="#"><span class="icon icon-envelope"></span><span class="text">info@yourdomain.com</span></a></li>
-	              </ul>
-	            </div>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-12 text-center">
-
-            <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart color-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
-          </div>
-        </div>
-      </div>
-    </footer>
-    
+    <%@ include file="../include/Footer.jsp" %>
   
 
   <!-- loader -->

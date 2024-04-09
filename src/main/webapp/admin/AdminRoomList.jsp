@@ -75,9 +75,13 @@
 	
 </style>
 </head>
-<body>
 
-	<nav class="sidebar">
+<body >
+<div class="container">
+<%@ include file="../include/Header.jsp" %>
+<div class="row justify-content-center">
+<div class="col-md-4"> 
+	<nav class="sidebar" >
 		<ul class="nav">
 			<li>
 				<a href="#">
@@ -101,14 +105,15 @@
 			</li>
 		</ul>
 	</nav>
+	</div>
 	<div class="rightside">
 		<table>
 			<colgroup>
-				<col width="">
-				<col width="">
-				<col width="">
-				<col width="">
-				<col width="">
+				<col width="20%;">
+				<col width="20%;">
+				<col width="20%;">
+				<col width="20%;">
+				<col width="20%;">
 				
 			</colgroup>
 			<thead>
@@ -131,7 +136,7 @@
 					<c:otherwise>
 						<c:forEach var="room" items="${roomVO }">
 							<tr>
-								<input type="hidden" value="${room.roomNo }">
+								<input type="hidden" value="${room.roomNo}">
 								<td><!-- 룸이름 --><c:out value="${room.roomName }"></c:out></td>
 								<td><!-- 룸타입 --><c:out value="${room.roomType }"></c:out></td>
 								<td><!-- 최대 인원 --><c:out value="${room.headCount }"></c:out></td>
@@ -146,6 +151,8 @@
 			</tbody>
 			
 		</table>
+		</div>
+		</div>
 	</div>
 </body>
 </html>
