@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>룸 목록</title>
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <!-- 캘린더 import -->
 <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
@@ -18,6 +18,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 <script src="${contextPath}/util/Calendar.js"></script>
+<script src="${contextPath}/util/CountHead.js"></script>
 <style>
 	div {
 		border: 1px solid;
@@ -75,6 +76,19 @@
 	}
 	.filter_select {
 		width: 155px;
+	}
+	.headCount {
+		width: 60px;
+	}
+	#headTd {
+		display: flex; /* 요소들을 가로로 나열 */
+	  	align-items: center; /* 요소들을 세로 중앙 정렬 */
+	}
+	#headTd button {
+		margin: 0 5px 0 5px; 
+	}
+	#headCount {
+		width: 50px;
 	}
 	.price {
 		width: 60px;
@@ -197,6 +211,7 @@
 						</tr>
 						<tr>
 							<td>
+								종류<br>
 								<select class="filter_select" name="roomType">
 									<option>스페셜</option>
 									<option>디럭스</option>
@@ -207,13 +222,10 @@
 						</tr>
 						<tr>
 							<td>
-								<select class="filter_select" name="headCount">
-									<option>1인</option>
-									<option>2인</option>
-									<option>3인</option>
-									<option>4인</option>
-									<option>5인</option>
-								</select>
+								인원수<br>
+								<button type="button" id="downCount" onclick="downValue()"><b>-</b></button>
+								<input type="text" name="headCount" value="1" id="headCount" readonly>
+								<button type="button" id="upCount" onclick="upValue()"><b>+</b></button>
 							</td>
 						</tr>
 						<tr>

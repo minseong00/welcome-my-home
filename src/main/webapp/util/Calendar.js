@@ -4,7 +4,7 @@
 $(function() {
 	var startDate = moment().add(1, 'day');
     var endDate = moment().add(2, 'days');
-	$('#demo').daterangepicker({
+	$('#roomRevDate').daterangepicker({
 	    "locale": {
 	        "format": "YYYY-MM-DD",
 	        "separator": " ~ ",
