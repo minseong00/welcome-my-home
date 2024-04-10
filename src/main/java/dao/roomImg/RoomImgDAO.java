@@ -79,5 +79,27 @@ MySQLConnector DB = null;
 		return result;
 	}
 	
+	/**
+	룸 이미지 insert
+	@param roomImgVO
+	**/
+	public void insertRoomImg (RoomImgVO roomImg) {
+	try {
+		this.conn = DB.dbConnect();
+		this.pstmt = this.conn.prepareStatement(insertImg);
+		this.pstmt.setString(1, roomImg.getImg1());
+		this.pstmt.setString(2, roomImg.getImg2());
+		this.pstmt.setString(3, roomImg.getImg3());
+		this.pstmt.setString(4, roomImg.getImg4());
+		this.pstmt.setString(5, roomImg.getImg5());
+		this.pstmt.setString(5, roomImg.getInfoImg());
+		int n = this.pstmt.executeUpdate();
+		if(n < 0) {
+			System.out.println("insert IMG ERR!!!!!");
+		}
+	} catch (SQLException e) {
+		System.err.println("insertRoomImg err : " + e.getMessage());
+	}
+}
 	
 }
