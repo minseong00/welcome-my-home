@@ -5,8 +5,43 @@
 <head>
 <meta charset="UTF-8">
 <title>MemJoin : 회원가입 페이지</title>
-<style type="text/css">
+	<script src="http://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<script>
+		/* 아이디 중복확인 */
+		function duplicate(){
+			var _id = $("#t_id").val();
+			
+			$.ajax({
+				type:"get",
+				async:false,
+				url:"http://localhost:9000/mini_project/Join",
+				dataType:"text",
+				data:{id:_id},
+				
+				success:function(data, textStatus){
+					alert(data);	//usable : 사용가능 아이디일 경우
+					
+					if(data == "usable"){
+						$("#message").text("사용 가능한 ID입니다.");
+					}else{
+						$("#message").text("중복된 ID입니다.");
+					}
+				},
+				
+				error:function(data, textStatus){
+					alert("에러발생");
+				
+				},
+				
+				complete:function(data, textStatus){
+					
+				}
+			});
+		}	//duplicate() END
+		
 
+<style type="text/css">
 	html,body {
 	  position: relative;
 	  min-height: 100vh;
@@ -114,18 +149,18 @@
 	  }
 	 }
 	}
-
 </style>
 </head>
 
 <body>
+
 	<div class="form-structor">
 		<div class="join">
 	    	<h2 class="form-title" id="join">Join</h2>
 	    <div class="form-holder">
   			<div class="input-with-button" colspan="2">
-    		<input type="text" class="input" placeholder="Id" name="name" style="width:58%;"/>
-    		<button class="check-duplicate-btn" style="border-radius:10px; padding:3px;" >check</button>
+    		<input type="text" class="input" placeholder="Id" name="Id" style="width:58%;"/>
+    		<input type="button" id="duplicate" value="Check" style="border-radius:10px; padding:3px;" onclick="duplicate()">
   		</div>
 		</div>
 		<div class="form-holder">
@@ -143,8 +178,11 @@
 		<div class="form-holder">
   			<input type="text" class="input" placeholder="email" name="email" required="required"/>
 		</div>
-	    	<button class="submit-btn">Sign up</button>
+		<form action="/admin/AdminMain.jsp" method="post">
+	    	</a><button class="submit-btn" >회원가입</button>
+		</form>	
 	  	</div>
 	</div>
+
 </body>
 </html>

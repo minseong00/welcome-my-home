@@ -57,13 +57,13 @@ public class MemDAO implements MemberQuerys{
 		
 		try {
 			conn = DB.dbConnect();
-			pstmt = conn.prepareStatement(memID);
+			pstmt = conn.prepareStatement(memCheck);
 			pstmt.setString(1, id);
 			rs = pstmt.executeQuery();
 			
-			result = rs.next();	// 결과에서 다음행이 존재하면 ID 중복 존재
+			result = rs.next();	//조회된 id가 있으면 true/없으면 false
 		} catch (Exception e) {
-			e.printStackTrace();
+			System.err.println("ID SELECT ERR : " + e.getMessage());
 		} finally {
 			DB.close(rs, pstmt, conn);
 		}

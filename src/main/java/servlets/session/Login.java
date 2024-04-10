@@ -35,17 +35,27 @@ public class Login extends HttpServlet {
 		session.invalidate();
 		response.sendRedirect(request.getContextPath() + "");
 		
+	/**
+	* @see admin / mem 로그인 여부 체크
+	*/
+		
+		
+		
 	}
 
 	/**
 	 * @see 로그인
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		AdminVO admin = null;
-		AdminDAO adminDAO = new AdminDAO();
+		AdminVO admin = null;				//VO 객체생성
+		AdminDAO adminDAO = new AdminDAO(); //DAO를 통한 로그인 처리
 		String id = request.getParameter("id");
 		String pw = request.getParameter("pw");
-		//admin = new AdminVO(id, pw);
+		admin = new AdminVO();
+		admin.setAdmin_id(id);
+		admin.setAdmin_pwd(pw);
+		adminDAO.adminLogin(admin);
+		
 		
 		session = request.getSession();
 		boolean overlappedLogin = adminDAO.adminLogin(admin);
