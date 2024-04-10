@@ -3,6 +3,7 @@ package servlets.session;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -24,39 +25,33 @@ public class Join extends HttpServlet {
     }
 
 	/**
-	 *  @see 아이디 중복 확인
+	 *  아이디 중복 확인
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.setContentType("text/plain; charset=utf-8");
+
+		request.setCharacterEncoding("utf-8");
+		response.setContentType("text/html; charset=utf-8");
+		
 		PrintWriter out = response.getWriter();
-		String id = (String)request.getParameter("id");
-		memDAO = new MemDAO();
+		String id = request.getParameter("id");
+		MemDAO member = new MemDAO();
+		boolean result = member.overlappedID(id);
 		
-		boolean overlappedID = memDAO.overlappedID(id);
-		
-		if(overlappedID) {
-			out.print("not_usable");
-			System.out.println("mem 값 있음");
-		}
-		else {
-			MemDAO memDAO = new MemDAO();
-			overlappedID = memDAO.overlappedID(id);
+		if(result == true) {	// result 가 true면 기존 id
+			out.write("이미 사용 중 입니다.");
+		}else {
+			out.write("사용 가능한 ID 입니다.");
 			
-			if(overlappedID) {
-				out.print("not_usable");
-				System.out.println("admin 값 있음");
-			}
-			else
-				out.print("usable");
 		}
+		
 	}
 	
 
 	/**
-	 * @see 회원가입
+	 * 회원가입
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+
 		MemVO memVO = new MemVO();
 		memVO.setMem_id(request.getParameter("id"));
 		memVO.setMem_pw(request.getParameter("pw"));
@@ -67,7 +62,9 @@ public class Join extends HttpServlet {
 		memDAO = new MemDAO();
 		memDAO.insertMember(memVO);
 
-		System.out.println("" + request.getParameter(""));
+		System.out.println("========> .jsp doPost()");
+   		
+		response.sendRedirect("/admin/AdminMain.jsp");
 	}
 
 }
