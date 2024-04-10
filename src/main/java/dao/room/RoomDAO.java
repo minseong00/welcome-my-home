@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import dao.connection.MySQLConnector;
+import model.RoomImgVO;
 import model.RoomVO;
 
 public class RoomDAO implements RoomQuerys {
@@ -119,4 +120,41 @@ public class RoomDAO implements RoomQuerys {
 		return result;
 	}
 	
+	/**
+		룸 insert
+		@param roomVO
+	**/
+	public void insertRoomData(RoomVO roomVO) {
+		try {
+			this.conn = DB.dbConnect();
+			this.pstmt = this.conn.prepareStatement(insertData);
+			this.pstmt.setString(1, roomVO.getRoomName());
+			this.pstmt.setString(2, roomVO.getRoomType());
+			this.pstmt.setString(3, roomVO.getRoomDetail());
+			this.pstmt.setInt(4, roomVO.getHeadCount());
+			this.pstmt.setInt(4, roomVO.getRoomCost());
+			int rs = this.pstmt.executeUpdate();
+			if(rs < 0) {
+				System.err.println("insert room rs err!! ");
+			}
+			
+		}catch (SQLException e) {
+			System.err.println("Insert room : " + e.getMessage());
+		} finally {
+			DB.close(null, this.pstmt, this.conn);
+		}
+	}
+	
+	/**
+		룸 이미지 insert
+		@param roomImgVO
+	**/
+	public void insertRoomImg (RoomImgVO roomImg) {
+		try {
+			this.conn = DB.dbConnect();
+			this.pstmt = this.conn.prepareStatement(insertImg);
+		} catch (SQLException e) {
+			System.err.println("insertRoomImg err : " + e.getMessage());
+		}
+	}
 }
