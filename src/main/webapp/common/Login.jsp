@@ -1,12 +1,43 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <c:set var="contextPath" value="${ pageContext.request.contextPath }" />
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+	<script src="http://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<script>
+		$(function() {
+			$("#login").submit(function(event){
+				event.prventDefault();
+				var formData = $(this).serialize();
+				$.ajax({
+					url: "<c:url value='/Login'/>",
+					type: "post",
+					async: false,
+					data: formData,
+					success: function(data){
+						if(data.trim == "success")
+						 	window.locatioin.replace("${contextPath}/LoginCheck");
+						else if(data.trim == "fail")
+							Swal.fire("로그인 실패");
+						else {
+							Swal.fire("비정상 접근");
+							window.location.replace("${contextPath}/LoginCheck");
+						}
+					},
+					error: function(xhr, status, error){
+						console.log("Error:" + error);
+					}
+				});
+			});
+		});
+	
+	</script>
+
 <style type="text/css">
 
 html,body {
