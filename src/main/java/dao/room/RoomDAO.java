@@ -145,16 +145,5 @@ public class RoomDAO implements RoomQuerys {
 		}
 	}
 	
-	/**
-		룸 이미지 insert
-		@param roomImgVO
-	**/
-	public void insertRoomImg (RoomImgVO roomImg) {
-		try {
-			this.conn = DB.dbConnect();
-			this.pstmt = this.conn.prepareStatement(insertImg);
-		} catch (SQLException e) {
-			System.err.println("insertRoomImg err : " + e.getMessage());
-		}
-	}
+	
 }
