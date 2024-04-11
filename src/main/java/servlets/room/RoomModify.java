@@ -114,16 +114,15 @@ public class RoomModify extends HttpServlet {
 		roomDAO.roomUpdate(roomVO);
 		
 		imgVO.setRoomNo(Integer.parseInt(request.getParameter("roomNo")));
-		imgVO.setImg1(list.get(1));
-		imgVO.setImg2(list.get(2));
-		imgVO.setImg3(list.get(3));
-		imgVO.setImg4(list.get(4));
-		imgVO.setImg5(list.get(5));
-		imgVO.setInfoImg(list.get(0));
+		imgVO.setInfoImg(list.size() > 0 ? list.get(0) : null);
+		imgVO.setImg1(list.size() > 1 ? list.get(1) : null);
+		imgVO.setImg2(list.size() > 2 ? list.get(2) : null);
+		imgVO.setImg3(list.size() > 3 ? list.get(3) : null);
+		imgVO.setImg4(list.size() > 4 ? list.get(4) : null);
+		imgVO.setImg5(list.size() > 5 ? list.get(5) : null);
 		
 		imgDAO.updateImg(imgVO);
 		
-		response.sendRedirect("RoomList");
 	}
 
 }
