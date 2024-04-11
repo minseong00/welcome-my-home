@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import dao.connection.MySQLConnector;
 import model.RoomImgVO;
@@ -20,6 +22,36 @@ MySQLConnector DB = null;
 		DB = new MySQLConnector();
 	}
 	
+	public List<RoomImgVO> selectAll() {
+		List<RoomImgVO> imgList = null;
+		try {
+			conn = DB.dbConnect();
+			this.pstmt = conn.prepareStatement(selectAll);
+			this.rs = this.pstmt.executeQuery();
+			imgList = new ArrayList<RoomImgVO>();
+			
+			while (this.rs.next()) {
+				RoomImgVO imgVO = new RoomImgVO();
+				imgVO.setRoomNo(rs.getInt("roomNo"));
+				imgVO.setImg1(rs.getString("img1"));
+				imgVO.setImg2(rs.getString("img2"));
+				imgVO.setImg3(rs.getString("img3"));
+				imgVO.setImg4(rs.getString("img4"));
+				imgVO.setImg5(rs.getString("img5"));
+				imgVO.setInfoImg("infoImg");
+				
+				imgList.add(imgVO);
+			}
+			
+		} catch (SQLException e) {
+			System.err.println("Room SelectAll ERR : " + e.getMessage());
+		} finally {
+			DB.close(this.rs, this.pstmt, this.conn);
+		}
+		
+		return imgList;
+	}
+	
 	/**
  	룸 이미지 조회
  	@param int
@@ -30,7 +62,7 @@ MySQLConnector DB = null;
 		
 		try {
 			this.conn = DB.dbConnect();
-			this.pstmt = this.conn.prepareStatement(selectOne);
+			this.pstmt = this.conn.prepareStatement(selectImg);
 			this.pstmt.setInt(1, roomNO);
 			this.rs = this.pstmt.executeQuery();
 			
@@ -61,7 +93,7 @@ MySQLConnector DB = null;
 		int result = 0;
 		try {
 			this.conn = DB.dbConnect();
-			this.pstmt = this.conn.prepareStatement(updateOne);
+			this.pstmt = this.conn.prepareStatement(updateImg);
 			this.pstmt.setString(1, imgVO.getImg1());
 			this.pstmt.setString(2, imgVO.getImg2());
 			this.pstmt.setString(3, imgVO.getImg3());
@@ -85,14 +117,19 @@ MySQLConnector DB = null;
 	**/
 	public void insertRoomImg (RoomImgVO roomImg) {
 		try {
+			if(roomImg.getRoomNo() == 0) {
+				System.out.println("insertRoomImg() ERR : 방의 번호가 일치하지 않습니다.");
+				return;
+			}
 			this.conn = DB.dbConnect();
 			this.pstmt = this.conn.prepareStatement(insertImg);
-			this.pstmt.setString(1, roomImg.getImg1());
-			this.pstmt.setString(2, roomImg.getImg2());
-			this.pstmt.setString(3, roomImg.getImg3());
-			this.pstmt.setString(4, roomImg.getImg4());
-			this.pstmt.setString(5, roomImg.getImg5());
-			this.pstmt.setString(6, roomImg.getInfoImg());
+			this.pstmt.setInt(1, roomImg.getRoomNo());
+			this.pstmt.setString(2, roomImg.getImg1());
+			this.pstmt.setString(3, roomImg.getImg2());
+			this.pstmt.setString(4, roomImg.getImg3());
+			this.pstmt.setString(5, roomImg.getImg4());
+			this.pstmt.setString(6, roomImg.getImg5());
+			this.pstmt.setString(7, roomImg.getInfoImg());
 			int n = this.pstmt.executeUpdate();
 			if(n < 0) {
 				System.out.println("insert IMG ERR!!!!!");
@@ -111,7 +148,7 @@ MySQLConnector DB = null;
 		int result = 0;
 		try {
 			this.conn = DB.dbConnect();
-			this.pstmt = this.conn.prepareStatement(deleteOne);
+			this.pstmt = this.conn.prepareStatement(deleteImg);
 			this.pstmt.setInt(1, roomNo);
 			result = this.pstmt.executeUpdate();
 			if(result < 0) {

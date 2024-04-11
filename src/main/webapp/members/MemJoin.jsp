@@ -39,7 +39,7 @@
 				}
 			});
 		}	//duplicate() END
-		
+	</script>
 
 <style type="text/css">
 	html,body {
