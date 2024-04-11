@@ -68,12 +68,13 @@ MySQLConnector DB = null;
 			
 			if (this.rs.next()) {
 				imgVO = new RoomImgVO();
-				imgVO.setImg1("img1");
-				imgVO.setImg2("img2");
-				imgVO.setImg3("img3");
-				imgVO.setImg4("img4");
-				imgVO.setImg5("img5");
-				imgVO.setInfoImg("infoImg");
+				imgVO.setImg1(this.rs.getString("img1"));
+				imgVO.setImg1(this.rs.getString("img2"));
+				imgVO.setImg1(this.rs.getString("img3"));
+				imgVO.setImg1(this.rs.getString("img4"));
+				imgVO.setImg1(this.rs.getString("img5"));
+				imgVO.setInfoImg(this.rs.getString("infoImg"));
+				
 			}
 		} catch (SQLException e) {
 			System.err.println("RoomImg SelectOne ERR : " + e.getMessage());
