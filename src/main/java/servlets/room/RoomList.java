@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dao.room.RoomDAO;
+import dao.roomImg.RoomImgDAO;
+import model.RoomImgVO;
 import model.RoomVO;
 
 /**
@@ -19,7 +21,6 @@ import model.RoomVO;
 @WebServlet("/RoomList")
 public class RoomList extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       RoomDAO roomDAO = null;
     
     public RoomList() {
         super();
@@ -27,19 +28,24 @@ public class RoomList extends HttpServlet {
 
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		this.roomDAO = new RoomDAO();
+	    RoomDAO roomDAO = new RoomDAO();
+		RoomImgDAO imgDAO = new RoomImgDAO();
+		int totalCount = roomDAO.RoomCount();
 		String type = request.getParameter("type");
-		int totalCount = this.roomDAO.RoomCount();
 		
-		List<RoomVO> roomVO = this.roomDAO.selectAll();
-		request.setAttribute("roomVO", roomVO);
-		request.setAttribute("totalCount", totalCount);
+		List<RoomVO> roomList = roomDAO.selectAll();
+		List<RoomImgVO> imgList = imgDAO.selectAll();
+		
+		request.setAttribute("roomVO", roomList);
+		request.setAttribute("imgList", imgList);
 		
 		RequestDispatcher dispatcher = null;
 		if(type.equals("member"))
 			dispatcher = request.getRequestDispatcher("/members/RoomList.jsp");
-		else
+		else {
+			request.setAttribute("totalCount", totalCount);
 			dispatcher = request.getRequestDispatcher("/admin/AdminRoomList.jsp");
+		}
 		
 		dispatcher.forward(request, response);
 		

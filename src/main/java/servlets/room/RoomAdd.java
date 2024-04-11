@@ -26,8 +26,8 @@ import util.SplitName;
 @MultipartConfig
 public class RoomAdd extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private static final String UPLOAD = "C:/projectMini/mini_project/src/main/webapp/data"; 
-
+	/* 파일 절대 경로 변수 */
+	private static final String UPLOAD = "C:/java_project/mini_project/src/main/webapp/data"; 
 	
 	RoomDAO roomDAO = null;
 	RoomImgDAO imgDAO = null;
@@ -47,7 +47,7 @@ public class RoomAdd extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=utf-8");
-		
+
 		File uploadDir = new File(UPLOAD);
 		// 폴더 없으면 정해진 주소에 폴더 생성
 		if(!uploadDir.exists()) {
@@ -90,7 +90,7 @@ public class RoomAdd extends HttpServlet {
 		roomVO.setRoomCost(Integer.parseInt(request.getParameter("roomCost")));
 		roomVO.setRoomDetail(request.getParameter("detailText"));
 		
-		roomDAO.insertRoomData(roomVO);
+		imgVO.setRoomNo(roomDAO.insertRoomData(roomVO));  
 		
 		imgVO.setInfoImg(list.size() > 0 ? list.get(0) : null);
 		imgVO.setImg1(list.size() > 1 ? list.get(1) : null);
