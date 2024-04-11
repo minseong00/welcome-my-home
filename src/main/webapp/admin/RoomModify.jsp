@@ -201,7 +201,7 @@ input[type="text"]:focus, textarea:focus, select:focus {
 					</a></li>
 				</ul>
 			</nav>
-
+		
 			<div class="rightside">
 				<div style="width: 75%;">
 
@@ -257,8 +257,7 @@ input[type="text"]:focus, textarea:focus, select:focus {
 							</div>
 							<div>
 								<label style="vertical-align: top;">객실 설명 &nbsp;&nbsp;</label>
-								<textarea rows="5" name="detailText" style="width: 38%"><c:out
-										value="${roomVO.detailText }"></c:out></textarea>
+								<textarea rows="5" name="detailText" style="width: 38%">${roomVO.roomDetail }</textarea>
 							</div>
 						
 						</div>
@@ -288,7 +287,7 @@ input[type="text"]:focus, textarea:focus, select:focus {
 										<label>사진 업로드</label>
 										<input type="file" name="file2"  value="${imgVO.img2 }" />
 										<div class="file-list"></div>
-										<img src="" width="400" height="400">
+										<img src="${contextPath }/data/${imgVO.img2 }" width="400" height="400">
 									</div>
 								</td>
 								<td>
@@ -296,7 +295,7 @@ input[type="text"]:focus, textarea:focus, select:focus {
 										<label>사진 업로드</label> 
 										<input type="file" name="file3" value="${imgVO.img3 }" />
 										<div class="file-list"></div>
-										<img src="" width="400" height="400">
+										<img src="${contextPath }/data/${imgVO.img3 }" width="400" height="400">
 									</div>
 								</td>
 							</tr>
@@ -306,7 +305,7 @@ input[type="text"]:focus, textarea:focus, select:focus {
 										<label>사진 업로드</label> 
 										<input type="file" name="file4" value="${imgVO.img4 }" />
 										<div class="file-list"></div>
-										<img src="" width="400" height="400">
+										<img src="${contextPath }/data/${imgVO.img4 }" width="400" height="400">
 									</div>
 								</td>
 								<td>
@@ -314,7 +313,7 @@ input[type="text"]:focus, textarea:focus, select:focus {
 										<label>사진 업로드</label> 
 										<input type="file" name="file5" value="${imgVO.img5 }" />
 										<div class="file-list"></div>
-										<img src="" width="400" height="400">
+										<img src="${contextPath }/data/${imgVO.img5 }" width="400" height="400">
 									</div>
 								</td>
 							</tr>

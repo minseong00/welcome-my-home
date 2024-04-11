@@ -58,6 +58,8 @@ public class RoomModify extends HttpServlet {
 		request.setAttribute("roomVO", roomVO);
 		request.setAttribute("imgVO", imgVO);
 		
+		System.out.println(roomVO.toString());
+		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/admin/RoomModify.jsp");
 		dispatcher.forward(request, response);
 	}
@@ -91,6 +93,7 @@ public class RoomModify extends HttpServlet {
 		
 		roomDAO.roomUpdate(roomVO);
 		
+		imgVO.setRoomNo(Integer.parseInt(multi.getParameter("roomNo")));
 		imgVO.setInfoImg(multi.getFilesystemName("infoImg"));
 		imgVO.setInfoImg(multi.getFilesystemName("file1"));
 		imgVO.setInfoImg(multi.getFilesystemName("file2"));
