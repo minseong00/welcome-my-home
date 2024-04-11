@@ -13,7 +13,9 @@ import javax.servlet.http.HttpSession;
 import org.apache.jasper.tagplugins.jstl.core.Out;
 
 import dao.admin.AdminDAO;
+import dao.member.MemDAO;
 import model.AdminVO;
+import model.MemVO;
 
 
 @WebServlet("/Login")
@@ -33,13 +35,8 @@ public class Login extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		session = request.getSession();
 		session.invalidate();
-		response.sendRedirect(request.getContextPath() + "");
-		
-	/**
-	* @see admin / mem 로그인 여부 체크
-	*/
-		
-		
+		response.sendRedirect(request.getContextPath() + "/loginCheck");
+			
 		
 	}
 
@@ -47,17 +44,16 @@ public class Login extends HttpServlet {
 	 * @see 로그인
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		AdminVO admin = null;				//VO 객체생성
+		session = request.getSession();
+		AdminVO admin = new AdminVO();				//VO 객체생성
 		AdminDAO adminDAO = new AdminDAO(); //DAO를 통한 로그인 처리
+		MemVO member = new MemVO();
+		MemDAO memDAO = new MemDAO();
 		String id = request.getParameter("id");
 		String pw = request.getParameter("pw");
-		admin = new AdminVO();
 		admin.setAdmin_id(id);
 		admin.setAdmin_pwd(pw);
-		adminDAO.adminLogin(admin);
 		
-		
-		session = request.getSession();
 		boolean overlappedLogin = adminDAO.adminLogin(admin);
 		
 		response.setContentType("text/html; charset=utf-8");
@@ -66,12 +62,26 @@ public class Login extends HttpServlet {
 		if(overlappedLogin) {
 			if(session.isNew() || session.getAttribute("id") == null){
 				session.setAttribute("id", admin.getAdmin_id());
-				out.print("success");
+				out.print("adminLogin");
 			}
 			else
-				out.print("already");
-		}else
-			out.print("fail");
+				out.print("Already");
+		}else {
+			member.setMem_id(id);
+			member.setMem_pw(pw);
+			overlappedLogin = memDAO.memLogin(member);
+			if(overlappedLogin) {
+				if(session.isNew() || session.getAttribute("id") == null){
+					session.setAttribute("id", admin.getAdmin_id());
+					out.print("memberLogin");
+				}
+				else
+					out.print("Already");
+			} else {
+				out.print("fail");
+			}
+		}
+			
 		
 		out.close();
 	}

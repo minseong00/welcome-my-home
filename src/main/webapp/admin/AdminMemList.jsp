@@ -1,67 +1,66 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<c:set var="contextPath" value="${ pageContext.request.contextPath }" />
-<!DOCTYPE html>
+	pageEncoding="UTF-8"
+	isELIgnored="false" 
+%>
+
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>  
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt"  prefix="fmt"%>       
+
+<c:set var="contextPath" value="${pageContext.request.contextPath}"  />  
+<%
+request.setCharacterEncoding("UTF-8");
+%>    
 <html>
 <head>
-<meta charset="UTF-8">
+
+
+   <meta  charset="UTF-8">
 <title>AdminMemList.jsp : 전체회원목록</title>
+<style>
+     .cls1 {
+       font-size:40px;
+       text-align:center;
+     }
+    
+     .cls2 {
+       font-size:20px;
+       text-align:center;
+     }
+  </style>
+  
 </head>
 <body>
-	<div class="">
-	
-	<form action=""></form>
-	<table border="1" style="text-align: center;">
-			<colgroup>
-				<col width="%">
-				<col width="%">
-				<col width="%">
-				<col width="%">
-				<col width="%">
-			</colgroup>
-	<thead>
-		<tr>
-			<th>고객명</th>
-			<th>아이디</th>
-			<th>비밀번호</th>
-			<th>이메일</th>
-			<th>전화번호</th>
-		</tr>
-	</thead>
-	<tbody></tbody>
-	
-			<tr>
-				<td>
-					<c:out value=""/>
-				</td>
-				<td>
-				
-				</td>
-				<td>
-				
-				</td>
-				<td>
-				
-				</td>
-				<td>
-				
-				</td>
-			</tr>	
-		
-	</tbody>	
-	</table>
-	</div>
-	
-	<tfoot>
-		<tr>
-			<input type = "submit" value="수정" onclick="alert('성공')">
-			<input type = "button" value="삭제" onclick="alert('삭제')">
+ <p class="cls1">회원목록</p>
+   <table align="center" border="1" >
+      <tr align="center" bgcolor="lightgreen">
+         <td width="7%" ><b>고객명</b></td>
+         <td width="7%" ><b>아이디</b></td>
+         <td width="7%" ><b>비밀번호</b></td>
+         <td width="7%"><b>이메일</b></td>
+         <td width="7%"><b>전화번호</b></td>
+         
+   </tr>
 
-		</tr>
-	
-	</tfoot>
-	
-	
+<c:choose>
+    <c:when test="${empty  MemModel}" >
+      <tr>
+        <td colspan=7>
+          <b>등록된 회원이 없습니다.</b>
+       </td>  
+      </tr>
+   </c:when>  
+   <c:otherwise>
+      <c:forEach  var="mem" items="${MemModel }" >
+        <tr align="center">
+          <td><a href="<c:url value='/MemModify?id=${mem.mem_id}' /> "><c:out value="${mem.mem_name}"/></a></td>     
+          <td><c:out value="${mem.mem_id }" /></td>
+          <td><c:out value="${mem.mem_pw }" /></td>
+          <td><c:out value="${mem.mem_call }" /></td>     
+          <td><c:out value="${mem.mem_email }" /></td>     
+       </tr>
+     </c:forEach>
+</c:otherwise>
+</c:choose>
+   </table>  
 </body>
 </html>
