@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.member.MemDAO;
 import model.MemVO;
@@ -24,16 +25,15 @@ public class MemModify extends HttpServlet {
     }
         
     	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-   		 String n = request.getParameter("id");
-
-   		MemVO memList=new MemVO();
-   		memList.setMem_id(n);
+    	HttpSession session = request.getSession();
+    	String id = (String)session.getAttribute("id"); 
    		 
    		memDAO = new MemDAO();
-   		MemVO memOne = memDAO.selectOne(n);
+   		MemVO memOne = null;
+   		memOne = memDAO.selectOne(id);
    		
    		request.setAttribute("MemOne", memOne);
-   		//System.out.println(memOne.toString());
+   		System.out.println(memOne.toString());
    		
    		//System.out.println("========> MemModifyServlet doGet()");
 		RequestDispatcher dispatcher = null;
@@ -65,14 +65,8 @@ public class MemModify extends HttpServlet {
    		memDAO.update(memModel);
    		
    		System.out.println("========> MemListServlet doPost()");
-
-		RequestDispatcher dispatcher = null;
-//		if(type.equals("member"))
-			dispatcher = request.getRequestDispatcher("/memList");
-//		else
-//			dispatcher = request.getRequestDispatcher("/members/MyInfo.jsp");
-//		
-		dispatcher.forward(request, response);
+		
+		response.sendRedirect("memList");
    	}
    		
    		

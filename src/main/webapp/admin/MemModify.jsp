@@ -61,7 +61,7 @@
 		</td>
 	</tfoot>
 	</table>
-	</div>
 	</form>
+	</div>
 </body>
 </html>
