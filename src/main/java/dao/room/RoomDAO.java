@@ -94,9 +94,10 @@ public class RoomDAO implements RoomQuerys {
 				roomVO = new RoomVO();
 				roomVO.setRoomNo(this.rs.getInt("roomNo"));
 				roomVO.setRoomName(this.rs.getString("roomName"));
+				roomVO.setRoomDetail(this.rs.getString("roomDetail"));
 				roomVO.setRoomType(this.rs.getString("roomType"));
 				roomVO.setHeadCount(this.rs.getInt("headCount"));
-				roomVO.setRoomNo(this.rs.getInt("roomCost"));
+				roomVO.setRoomCost(this.rs.getInt("roomCost"));
 			}
 		} catch (SQLException e) {
 			System.err.println("Room SelectOne ERR : " + e.getMessage());
