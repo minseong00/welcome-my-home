@@ -10,34 +10,36 @@
 	<script src="http://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 	<script>
+		/** 로그인 확인 **/
 		$(function() {
-			$("#login").submit(function(event){
-				event.prventDefault();
-				var formData = $(this).serialize();
-				$.ajax({
-					url: "<c:url value='/Login'/>",
-					type: "post",
-					async: false,
-					data: formData,
-					success: function(data){
-						if(data.trim == "success")
-						 	window.locatioin.replace("${contextPath}/LoginCheck");
-						else if(data.trim == "fail")
-							Swal.fire("로그인 실패");
-						else {
-							Swal.fire("비정상 접근");
-							window.location.replace("${contextPath}/LoginCheck");
-						}
-					},
-					error: function(xhr, status, error){
-						console.log("Error:" + error);
-					}
-				});
-			});
+			// 로그인 데이터 전송
+			 $("#login").submit(function(event){
+	                event.preventDefault(); // 기본 이벤트 제거
+	                var formData = $(this).serialize(); // 폼 데이터 가져오기
+	                $.ajax({
+	                    url: "<c:url value='/Login'/>",
+	                    type: "post",
+	                    data: formData,
+	                    dataType: "text",
+	                    success: function(data){
+	                    	if(data == "adminLogin" || data =="memberLogin")
+	                    		window.location.replace("${contextPath}/LoginCheck");
+	                    	else if(data =="already"){
+	                    		Swal.fire("이미 로그인 중입니다.");
+	                    		window.location.replace("${contextPath}/LoginCheck");
+	                    	} else {
+	                    		Swal.fire("비정상 접근입니다.");
+	                    		window.location.replace("${contextPath}/LoginCheck");
+	                    	}
+	                    },
+	                    error: function(xhr, status, error){
+	                        console.log("Error: " + error);
+	                    }
+	                });
+	            });
 		});
-	
 	</script>
-
+	
 <style type="text/css">
 
 html,body {

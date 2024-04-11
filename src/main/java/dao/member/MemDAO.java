@@ -74,15 +74,15 @@ public class MemDAO implements MemberQuerys{
 	/**
 	 * 회원가입
 	 **/
-	public void insertMember(MemVO memModel) {
+	public void insert(MemVO memModel) {
 		try {
 			conn = DB.dbConnect();
 			pstmt = conn.prepareStatement(insertMem);
 			pstmt.setString(1, memModel.getMem_id());
-			pstmt.setString(1, memModel.getMem_pw());
-			pstmt.setString(1, memModel.getMem_name());
-			pstmt.setString(1, memModel.getMem_call());
-			pstmt.setString(1, memModel.getMem_email());
+			pstmt.setString(2, memModel.getMem_pw());
+			pstmt.setString(3, memModel.getMem_name());
+			pstmt.setString(4, memModel.getMem_call());
+			pstmt.setString(5, memModel.getMem_email());
 			pstmt.executeUpdate();
 			
 		} catch (Exception e) {
@@ -96,20 +96,20 @@ public class MemDAO implements MemberQuerys{
 	 * 회원 목록조회
 	 **/
 	public ArrayList<MemVO> selectList(){
-		ArrayList memList = new ArrayList<MemVO>();
+		ArrayList<MemVO> memList = new ArrayList<MemVO>();
 		
 		   try {
 		        conn = DB.dbConnect();
 		        pstmt = conn.prepareStatement(selectAll);
 		        rs = pstmt.executeQuery();
-
+		        
 		        while (rs.next()) {
 		            MemVO memModel = new MemVO();
-		            memModel.setMem_id(rs.getString("id"));
-		            memModel.setMem_pw(rs.getString("pw"));
-		            memModel.setMem_name(rs.getString("name"));
-		            memModel.setMem_call(rs.getString("call"));
-		            memModel.setMem_email(rs.getString("email"));
+		            memModel.setMem_id(rs.getString("memid"));
+		            memModel.setMem_pw(rs.getString("mempw"));
+		            memModel.setMem_name(rs.getString("memname"));
+		            memModel.setMem_call(rs.getString("memcall"));
+		            memModel.setMem_email(rs.getString("mememail"));
 
 		            memList.add(memModel);
 		        }
@@ -125,30 +125,31 @@ public class MemDAO implements MemberQuerys{
 	/**
 	 * 회원 상세조회
 	 **/
-	public MemVO selectOne(MemVO memModel) {
+	public MemVO selectOne(String id) {
 		MemVO member = null;
 		
 		try {
 			member = new MemVO();
 			conn = DB.dbConnect();
 			pstmt = conn.prepareStatement(selectOne);
-			pstmt.setString(1, memModel.getMem_id());
+			pstmt.setString(1, id);
 			rs = pstmt.executeQuery();
 			
 			if(rs.next()) {
 				member = new MemVO();
-				member.setMem_id(rs.getString("id"));
-				member.setMem_pw(rs.getString("pw"));
-				member.setMem_name(rs.getString("name"));
-				member.setMem_call(rs.getString("call"));
-				member.setMem_email(rs.getString("email"));
+				member.setMem_id(rs.getString("memid"));
+				member.setMem_pw(rs.getString("mempw"));
+				member.setMem_name(rs.getString("memname"));
+				member.setMem_call(rs.getString("memcall"));
+				member.setMem_email(rs.getString("mememail"));
+				
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
 			DB.close(rs, pstmt, conn);
 		} 
-		return null;
+		return member;
 	}
 	
 	/**
@@ -162,6 +163,9 @@ public class MemDAO implements MemberQuerys{
 			pstmt.setString(2, memModel.getMem_name());
 			pstmt.setString(3, memModel.getMem_call());
 			pstmt.setString(4, memModel.getMem_email());
+			pstmt.setString(5, memModel.getMem_id());
+			
+			
 			int n = pstmt.executeUpdate();
 			if(n>0) {
 				System.out.println("UPDATE SUCCESS!!");
@@ -176,10 +180,11 @@ public class MemDAO implements MemberQuerys{
 	/**
 	 * 회원정보 삭제
 	 **/
-	public void delete(MemVO memModel) {
+	public void delete(String id) {
 		try {
 			conn = DB.dbConnect();
 			pstmt = this.conn.prepareStatement(deleteMem);
+			pstmt.setString(1, id);
 			int n = pstmt.executeUpdate();
 			if(n>0) {
 				System.out.println("=>DELETE SUCCESS!!");
