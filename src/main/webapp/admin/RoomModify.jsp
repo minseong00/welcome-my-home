@@ -125,6 +125,7 @@
 				contentType: false,
 		        success: function () {
 		            alert("파일업로드 성공");
+		            window.location.replace("${contextPath}/RoomList");
 		        },
 		        error: function (data, desc, err) {
 		            alert('에러가 발생 하였습니다.');

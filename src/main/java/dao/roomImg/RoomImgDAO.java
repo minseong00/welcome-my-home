@@ -92,7 +92,7 @@ MySQLConnector DB = null;
 			this.pstmt.setString(3, roomImg.getImg3());
 			this.pstmt.setString(4, roomImg.getImg4());
 			this.pstmt.setString(5, roomImg.getImg5());
-			this.pstmt.setString(5, roomImg.getInfoImg());
+			this.pstmt.setString(6, roomImg.getInfoImg());
 			int n = this.pstmt.executeUpdate();
 			if(n < 0) {
 				System.out.println("insert IMG ERR!!!!!");
