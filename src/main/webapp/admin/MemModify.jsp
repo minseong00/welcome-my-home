@@ -3,35 +3,34 @@
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>  
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt"  prefix="fmt"%>       
-
 <c:set var="contextPath" value="${pageContext.request.contextPath}"  />  
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-<c:set var="contextPath" value="${pageContext.request.contextPath }"></c:set>
 <!DOCTYPE html>
 <html>
 <head>
-
 <meta charset="UTF-8">
 <title>MemModify.jsp : 상세페이지, 수정, 삭제</title>
-
+<style>
+     .cls1 {
+       font-size:40px;
+       text-align:center;
+     }
+    
+     .cls2 {
+       font-size:20px;
+       text-align:center;
+     }
+  </style>
+  
 </head>
 <body>
-	<div class="">
+	<div>
 	
 	<form action="${contextPath}/MemModify" method="post">
 	<table border="1" style="text-align: center;">
-			<colgroup>
-				<col width="%">
-				<col width="%">
-				<col width="%">
-				<col width="%">
-				<col width="%">
-			</colgroup>
 
 	<tbody>
 		<tr>	
-			<td colspan="4" align=center>회원 정보 수정</td>
+			<td colspan="2" align=center>회원 정보 수정</td>
 		</tr>
 		<tr>
 			<td>고객명</td>
@@ -56,7 +55,7 @@
 	</tbody>	
 		
 	<tfoot>
-		<td style="text-align: right;">
+		<td style="text-align: right;" colspan="2" align=center>
   		<button type="submit" >수정</button>
  		 <button type="button" onclick="location.href='<c:url value="/MemDelete?id=${MemOne.mem_id}" />'" >삭제</button>
 		</td>

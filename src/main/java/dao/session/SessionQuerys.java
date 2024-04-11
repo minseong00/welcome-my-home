@@ -1,6 +1,6 @@
 package dao.session;
 
 public interface SessionQuerys {
-	String adminID="select adminid from admin where session adminid=?";
-	String memID="select memid from member where session memid=?";
+	String adminID="select adminId from admin where adminId = ?";
+	String memID="select memId from member where memId = ?";
 }

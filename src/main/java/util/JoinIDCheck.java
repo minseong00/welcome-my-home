@@ -1,4 +1,4 @@
-package servlets.session;
+package util;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dao.admin.AdminDAO;
 import dao.member.MemDAO;
 
 /**
@@ -30,14 +31,6 @@ public class JoinIDCheck extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doHandler(request, response);
-	}
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doHandler(request, response);
-	}
-	
-	private void doHandler(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
 		response.setContentType("text/html; charset=utf-8");
 		PrintWriter writer = response.getWriter();
@@ -45,21 +38,27 @@ public class JoinIDCheck extends HttpServlet {
 		String id = (String) request.getParameter("id");
 		System.out.println("id = " + id);
 		
-		if(id.length() > 0 && id.length() < 12) {
-			
+			AdminDAO adminDAO = new AdminDAO();
 			MemDAO memberDAO = new MemDAO();
 			boolean overlappedID = memberDAO.overlappedID(id);
 			System.out.println("overlappedID = " + overlappedID);
 			
-			if (overlappedID == true) {
+			if (overlappedID) // 회원 아이디 체크
+				overlappedID = adminDAO.overlappedID(id);
+			else
+				writer.print("usable"); // 사용가능한 아이디
+			
+			if(overlappedID) // 관리자 아이디 체크
 				writer.print("not_usable");
-			} else {
+			else
 				writer.print("usable");
-			}
-		} else {
-			writer.print("not_usable");
-		}
-		
+			
+			
 	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		doGet(request, response);
+	}
+	
 
 }

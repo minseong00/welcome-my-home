@@ -36,9 +36,13 @@ public class MemModify extends HttpServlet {
    		//System.out.println(memOne.toString());
    		
    		//System.out.println("========> MemModifyServlet doGet()");
-   		RequestDispatcher rd = request.getRequestDispatcher("/admin/MemModify.jsp");
-   		rd.forward(request, response);
-
+		RequestDispatcher dispatcher = null;
+//		if(type.equals("member"))
+			dispatcher = request.getRequestDispatcher("/members/MyInfo.jsp");
+//		else
+//			dispatcher = request.getRequestDispatcher("/admin/MemModify.jsp");
+//		
+		dispatcher.forward(request, response);
    	}
 
    	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -61,11 +65,17 @@ public class MemModify extends HttpServlet {
    		memDAO.update(memModel);
    		
    		System.out.println("========> MemListServlet doPost()");
-   		
-   		RequestDispatcher rd = request.getRequestDispatcher("MemList");
-   		rd.forward(request, response);
+
+		RequestDispatcher dispatcher = null;
+//		if(type.equals("member"))
+			dispatcher = request.getRequestDispatcher("/memList");
+//		else
+//			dispatcher = request.getRequestDispatcher("/members/MyInfo.jsp");
+//		
+		dispatcher.forward(request, response);
+   	}
    		
    		
    	}
 
-   }
+   

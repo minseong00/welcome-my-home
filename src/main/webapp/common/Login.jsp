@@ -28,8 +28,7 @@
 	                    		Swal.fire("이미 로그인 중입니다.");
 	                    		window.location.replace("${contextPath}/LoginCheck");
 	                    	} else {
-	                    		Swal.fire("비정상 접근입니다.");
-	                    		window.location.replace("${contextPath}/LoginCheck");
+	                    		Swal.fire("아이디 또는 비밀번호가 일치하지 않습니다.");
 	                    	}
 	                    },
 	                    error: function(xhr, status, error){
@@ -154,15 +153,17 @@ html,body {
 </head>
 
 <body>
+	<form id="login">
 	<div class="form-structor">
 	  <div class="login">
-	    <h2 class="form-title" id="login">Login</h2>
+	    <h2 class="form-title" id="login">로그인</h2>
 	    <div class="form-holder">
-	      <input type="text" class="input" placeholder="Id" name="name" />
-	      <input type="password" class="input" placeholder="Password" name="password" />
+	      <input type="text" class="input" placeholder="Id" name="id" />
+	      <input type="password" class="input" placeholder="Password" name="pw" />
 	    </div>
-	    <button class="submit-btn">Login up</button>
+	    <input type="submit" value="로그인" class="submit-btn">
 	  </div>
 	</div>
+	</form>
 </body>
 </html>

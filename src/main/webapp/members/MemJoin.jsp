@@ -65,22 +65,22 @@
           $('#email').prop("disabled", true);
 
          // 암호 확인 기능 구현
-          $('#pwd_confirm').keyup(function() {
-              if ($('#pwd').val() != $('#pwd_confirm').val()) {
-                  $('#pwd_message').text(''); // 클리어
-                  $('#pwd_message').html("<b>비밀번호가 틀립니다.</b>"); // 레이어에 HTML 출력
+          $('#pw_confirm').keyup(function() {
+              if ($('#pw').val() != $('#pw_confirm').val()) {
+                  $('#pw_message').text(''); // 클리어
+                  $('#pw_message').html("<b>비밀번호가 틀립니다.</b>"); // 레이어에 HTML 출력
                   
               } else {
-                  $('#pwd_message').text(''); // 클리어
-                  $('#pwd_message').html("<b>비밀번호가 맞습니다.</b>"); // 레이어에 텍스트 출력
+                  $('#pw_message').text(''); // 클리어
+                  $('#pw_message').html("<b>비밀번호가 맞습니다.</b>"); // 레이어에 텍스트 출력
                   $('#name').prop("disabled", false);
                   $('#email').prop("disabled", false);
               }
           });
          
-       	  // pwd_message 레이어 클리어
+       	  // pw_message 레이어 클리어
 		  $('#name').keydown(function() {
-              $('#pwd_message').text(''); // 클리어
+              $('#pw_message').text(''); // 클리어
           });
 
       });
@@ -92,7 +92,7 @@
 <body>
 <form method="post" action="${contextPath}/Join">
 <h1 style="text-align:center">회원 가입창</h1>
-<table align="center" border="1" cellspacing="0" celpadding="0">
+<table style="align-content: center;" border="1" cellspacing="0" celpadding="0">
     <tr>
        <td width="100"><span align="right">아이디</span></td>
        <td width="400">
@@ -103,28 +103,32 @@
     	</td>
     </tr>
     <tr>
-        <td width="100"><span align="right">비밀번호</span></td>
-        <td width="400"><input type="password"  name="pwd" id="pwd"></td>
+        <td width="100"><span style="text-align: right;">비밀번호</span></td>
+        <td width="400"><input type="password"  name="pw" id="pw"></td>
     </tr>
     <tr>
-        <td width="100"><span align="right">비밀번호확인</span></td>
-        <td width="400"><input type="password"  name="pwd_confirm" id="pwd_confirm">
-        				<div id="pwd_message"></div>
+        <td width="100"><span style="text-align: right;">비밀번호확인</span></td>
+        <td width="400"><input type="password"  name="pw_confirm" id="pw_confirm">
+        				<div id="pw_message"></div>
         </td>
     </tr>
     <tr>
-        <td width="100"><span align="right">이름</span></td>
+        <td width="100"><span style="text-align: right;">이름</span></td>
         <td width="400"><input type="text"  name="name" id="name"></td>
     </tr>
     <tr>
-        <td width="100"><span align="right">이메일</span></td>
+        <td width="100"><span style="text-align: right;">전화번호</span></td>
+        <td width="400"><input type="text"  name="call" id="call"></td>
+    </tr>
+    <tr>
+        <td width="100"><span style="text-align: right;">이메일</span></td>
         <td width="400"><input type="text"  name="email" id="email"></td>
     </tr>
     <tr>
         <td width="400" colspan="2">
 	       <input type="submit" value="가입하기">
 	       <input type="reset" value="다시입력">
-       </td>
+    </td>
     </tr>
 </table>
 </form>

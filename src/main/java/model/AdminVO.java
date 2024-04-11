@@ -1,7 +1,6 @@
 package model;
 
 public class AdminVO {	
-	private String admin_no;
 	private String admin_id;
 	private String admin_pwd;
 	
@@ -10,15 +9,6 @@ public class AdminVO {
 	public AdminVO() {
 	}
 	
-
-	public String getAdmin_no() {
-		return admin_no;
-	}
-
-	public void setAdmin_no(String admin_no) {
-		this.admin_no = admin_no;
-	}
-
 	public String getAdmin_id() {
 		return admin_id;
 	}
@@ -37,7 +27,7 @@ public class AdminVO {
 
 	@Override
 	public String toString() {
-		return "AdminVO [admin_no=" + admin_no + ", admin_id=" + admin_id + ", admin_pwd=" + admin_pwd + "]";
+		return "AdminVO [admin_id=" + admin_id + ", admin_pwd=" + admin_pwd + "]";
 	}
 
 	

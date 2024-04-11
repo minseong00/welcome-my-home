@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-<c:redirect url="/members/MainForm.jsp"></c:redirect>
+<c:redirect url="/LoginCheck"></c:redirect>
 <!DOCTYPE html>
 <html>
 <head>

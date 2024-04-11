@@ -35,7 +35,7 @@ public class Login extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		session = request.getSession();
 		session.invalidate();
-		response.sendRedirect(request.getContextPath() + "/loginCheck");
+		response.sendRedirect(request.getContextPath() + "/LoginCheck");
 			
 		
 	}
@@ -49,17 +49,19 @@ public class Login extends HttpServlet {
 		AdminDAO adminDAO = new AdminDAO(); //DAO를 통한 로그인 처리
 		MemVO member = new MemVO();
 		MemDAO memDAO = new MemDAO();
+		
 		String id = request.getParameter("id");
 		String pw = request.getParameter("pw");
+		
 		admin.setAdmin_id(id);
 		admin.setAdmin_pwd(pw);
-		
-		boolean overlappedLogin = adminDAO.adminLogin(admin);
-		
+		System.out.println("servlet id, pw 값 : " + id + " / " + pw);
+		boolean result = adminDAO.adminLogin(admin);
+		System.out.println("admin result 값 : " + result);
 		response.setContentType("text/html; charset=utf-8");
 		PrintWriter out = response.getWriter(); 
 
-		if(overlappedLogin) {
+		if(result) {
 			if(session.isNew() || session.getAttribute("id") == null){
 				session.setAttribute("id", admin.getAdmin_id());
 				out.print("adminLogin");
@@ -69,8 +71,9 @@ public class Login extends HttpServlet {
 		}else {
 			member.setMem_id(id);
 			member.setMem_pw(pw);
-			overlappedLogin = memDAO.memLogin(member);
-			if(overlappedLogin) {
+			result = memDAO.memLogin(member);
+			System.out.println("member result 값 : " + result);
+			if(result) {
 				if(session.isNew() || session.getAttribute("id") == null){
 					session.setAttribute("id", admin.getAdmin_id());
 					out.print("memberLogin");
