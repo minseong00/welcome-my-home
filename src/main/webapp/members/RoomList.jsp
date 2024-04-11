@@ -37,7 +37,7 @@
 	#leftDiv {
 	    display: flex;
 	    flex-direction: column; /* 내부 요소를 세로로 정렬합니다. */
-	    flex: 0 0 calc(60% - 10px); /* 부모 컨테이너 너비의 60%에서 10px를 뺀 값으로 설정합니다. */
+	    flex: 0 0 calc(70% - 10px); /* 부모 컨테이너 너비의 60%에서 10px를 뺀 값으로 설정합니다. */
 	    padding: 20px;
 	    margin-right: 10px;
 	    align-items: flex-end; /* 내부 요소를 오른쪽으로 정렬합니다. */
@@ -124,7 +124,7 @@
 									<table class="leftTable">
 										<tr>
 											<td>
-												사진
+												<img src="">
 											</td>
 										</tr>
 										<tr>
@@ -139,7 +139,7 @@
 										</tr>
 										<tr>
 											<td>
-												${room.roomDetail }
+												${room.headCount }
 											</td>
 										</tr>
 										<tr>

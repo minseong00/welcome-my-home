@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -60,8 +61,9 @@ public class RoomDAO implements RoomQuerys {
 				roomVO.setRoomNo(this.rs.getInt("roomNo"));
 				roomVO.setRoomName(this.rs.getString("roomName"));
 				roomVO.setRoomType(this.rs.getString("roomType"));
+				roomVO.setRoomDetail(this.rs.getString("roomDetail"));
 				roomVO.setHeadCount(this.rs.getInt("headCount"));
-				roomVO.setRoomNo(this.rs.getInt("roomCost"));
+				roomVO.setRoomCost(this.rs.getInt("roomCost"));
 				
 				roomList.add(roomVO);
 			}
@@ -116,7 +118,7 @@ public class RoomDAO implements RoomQuerys {
 		} catch (SQLException e) {
 			System.err.println("Room Delete ERR : " + e.getMessage());
 		} finally {
-			DB.close(this.rs, this.pstmt, this.conn);
+			DB.close(null, this.pstmt, this.conn);
 		}
 		
 		return result;
@@ -126,50 +128,63 @@ public class RoomDAO implements RoomQuerys {
 		룸 insert
 		@param roomVO
 	**/
-	public void insertRoomData(RoomVO roomVO) {
+	public int insertRoomData(RoomVO roomVO) {
+		int roomNo = 0;
 		try {
 			this.conn = DB.dbConnect();
-			this.pstmt = this.conn.prepareStatement(insertData);
+			this.pstmt = this.conn.prepareStatement(insertData, Statement.RETURN_GENERATED_KEYS);
 			this.pstmt.setString(1, roomVO.getRoomName());
 			this.pstmt.setString(2, roomVO.getRoomType());
 			this.pstmt.setString(3, roomVO.getRoomDetail());
 			this.pstmt.setInt(4, roomVO.getHeadCount());
 			this.pstmt.setInt(5, roomVO.getRoomCost());
-			int rs = this.pstmt.executeUpdate();
-			if(rs < 0) {
+			int result = this.pstmt.executeUpdate();
+			if(result < 0) {
 				System.err.println("insert room rs err!! ");
 			}
+			
+			// Img 삽입을 위한 roomNo 추출
+			this.rs = this.pstmt.getGeneratedKeys();
+			if(this.rs.next())
+				roomNo = rs.getInt(1);
 			
 		}catch (SQLException e) {
 			System.err.println("Insert room : " + e.getMessage());
 		} finally {
-			DB.close(null, this.pstmt, this.conn);
+			DB.close(this.rs, this.pstmt, this.conn);
 		}
+		
+		return roomNo;
 	}
 	/**
 	룸 update
 	@param roomVO
-**/
-public void roomUpdate(RoomVO roomVO) {
-	try {
-		this.conn = DB.dbConnect();
-		this.pstmt = this.conn.prepareStatement(update);
-		this.pstmt.setString(1, roomVO.getRoomName());
-		this.pstmt.setString(2, roomVO.getRoomType());
-		this.pstmt.setString(3, roomVO.getRoomDetail());
-		this.pstmt.setInt(4, roomVO.getHeadCount());
-		this.pstmt.setInt(5, roomVO.getRoomCost());
-		this.pstmt.setInt(6, roomVO.getRoomNo());
-		int rs = this.pstmt.executeUpdate();
-		if(rs < 0) {
-			System.err.println("update room rs err!! ");
+	**/
+	public int roomUpdate(RoomVO roomVO) {
+		int roomNo = 0;
+		try {
+			this.conn = DB.dbConnect();
+			this.pstmt = this.conn.prepareStatement(update);
+			this.pstmt.setString(1, roomVO.getRoomName());
+			this.pstmt.setString(2, roomVO.getRoomType());
+			this.pstmt.setString(3, roomVO.getRoomDetail());
+			this.pstmt.setInt(4, roomVO.getHeadCount());
+			this.pstmt.setInt(5, roomVO.getRoomCost());
+			this.pstmt.setInt(6, roomVO.getRoomNo());
+			int rs = this.pstmt.executeUpdate();
+			if(rs < 0) {
+				System.err.println("update room rs err!! ");
+			}
+			// Img 삽입을 위한 roomNo 추출
+			this.rs = pstmt.getGeneratedKeys();
+			roomNo = this.rs.getInt(1);
+			
+		}catch (SQLException e) {
+			System.err.println("update room : " + e.getMessage());
+		} finally {
+			DB.close(null, this.pstmt, this.conn);
 		}
-		
-	}catch (SQLException e) {
-		System.err.println("update room : " + e.getMessage());
-	} finally {
-		DB.close(null, this.pstmt, this.conn);
+		return roomNo;
 	}
-}
 	
 }
