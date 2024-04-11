@@ -94,7 +94,7 @@
 				</a>
 			</li>
 			<li>
-				<a href="#">
+				<a href="#.jsp">
 					<span>객실정보</span>
 				</a>
 			</li>
@@ -153,6 +153,8 @@
 		</table>
 		</div>
 		</div>
+	
 	</div>
+	
 </body>
 </html>

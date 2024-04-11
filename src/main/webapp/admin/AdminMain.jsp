@@ -76,6 +76,10 @@
 </style>
 </head>
 <body>
+
+
+<div class="container">
+	<jsp:include page="/include/Header.jsp" flush="false"/>
 	<nav class="sidebar">
 		<ul class="nav">
 			<li>
@@ -89,12 +93,12 @@
 				</a>
 			</li>
 			<li>
-				<a href="#">
+				<a href="AdminRoomList.jsp" class="nav-link">
 					<span>객실정보</span>
 				</a>
 			</li>
 			<li>
-				<a href="#">
+				<a href="RoomAdd.jsp" class="nav=link">
 					<span>객실등록</span>
 				</a>
 			</li>
@@ -103,6 +107,8 @@
 	
 	<div class="rightside">
 		<!-- INCLUD할 공간 -->
+		</div>
 	</div>
+	 
 </body>
 </html>
