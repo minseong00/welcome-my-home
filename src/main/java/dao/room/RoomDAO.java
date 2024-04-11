@@ -112,7 +112,7 @@ public class RoomDAO implements RoomQuerys {
 			result = this.pstmt.executeUpdate();
 			
 		} catch (SQLException e) {
-			System.err.println("RoomImg SelectOne ERR : " + e.getMessage());
+			System.err.println("Room Delete ERR : " + e.getMessage());
 		} finally {
 			DB.close(this.rs, this.pstmt, this.conn);
 		}
@@ -132,7 +132,7 @@ public class RoomDAO implements RoomQuerys {
 			this.pstmt.setString(2, roomVO.getRoomType());
 			this.pstmt.setString(3, roomVO.getRoomDetail());
 			this.pstmt.setInt(4, roomVO.getHeadCount());
-			this.pstmt.setInt(4, roomVO.getRoomCost());
+			this.pstmt.setInt(5, roomVO.getRoomCost());
 			int rs = this.pstmt.executeUpdate();
 			if(rs < 0) {
 				System.err.println("insert room rs err!! ");
@@ -144,6 +144,30 @@ public class RoomDAO implements RoomQuerys {
 			DB.close(null, this.pstmt, this.conn);
 		}
 	}
-	
+	/**
+	룸 update
+	@param roomVO
+**/
+public void roomUpdate(RoomVO roomVO) {
+	try {
+		this.conn = DB.dbConnect();
+		this.pstmt = this.conn.prepareStatement(update);
+		this.pstmt.setString(1, roomVO.getRoomName());
+		this.pstmt.setString(2, roomVO.getRoomType());
+		this.pstmt.setString(3, roomVO.getRoomDetail());
+		this.pstmt.setInt(4, roomVO.getHeadCount());
+		this.pstmt.setInt(5, roomVO.getRoomCost());
+		this.pstmt.setInt(6, roomVO.getRoomNo());
+		int rs = this.pstmt.executeUpdate();
+		if(rs < 0) {
+			System.err.println("update room rs err!! ");
+		}
+		
+	}catch (SQLException e) {
+		System.err.println("update room : " + e.getMessage());
+	} finally {
+		DB.close(null, this.pstmt, this.conn);
+	}
+}
 	
 }
