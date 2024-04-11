@@ -28,15 +28,20 @@ public class RoomList extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		this.roomDAO = new RoomDAO();
-		
+		String type = request.getParameter("type");
 		int totalCount = this.roomDAO.RoomCount();
 		
 		List<RoomVO> roomVO = this.roomDAO.selectAll();
 		request.setAttribute("roomVO", roomVO);
 		request.setAttribute("totalCount", totalCount);
 		
-		RequestDispatcher requestDispatcher = request.getRequestDispatcher("/admin/AdminRoomList.jsp");
-		requestDispatcher.forward(request, response);
+		RequestDispatcher dispatcher = null;
+		if(type.equals("member"))
+			dispatcher = request.getRequestDispatcher("/members/RoomList.jsp");
+		else
+			dispatcher = request.getRequestDispatcher("/admin/AdminRoomList.jsp");
+		
+		dispatcher.forward(request, response);
 		
 	}
 

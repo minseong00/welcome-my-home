@@ -22,7 +22,14 @@
     margin: 0;
     padding: 0;
 	}
-	
+	#container {
+		width: 100%;
+	    padding-right: 15px;
+	    padding-left: 15px;
+	    margin-right: auto;
+	    margin-left: auto;
+	    max-width: 1100px;
+	}
 	#mainContainer {
 	    display: flex;
 	    flex-direction: column;
@@ -69,41 +76,48 @@
 </script>
 </head>
 <body>
-<div id="mainContainer">
-	<div id="imgContainer">
-		사진 슬라이드 기능
-	</div>
-	<div id="infoContainer">
-		<div id="info1">
-			룸설명 이미지
+<div id="container"> <!-- 메인 컨테이너 -->
+<jsp:include page="/include/Header.jsp" flush="false"/>
+
+<div class="row justify-content-center">
+
+	<div id="mainContainer">
+		<div id="imgContainer">
+			사진 슬라이드 기능
 		</div>
-		<div id="info2">
-			<table>
-				<tr>
-					<td>
-					${roomVO.roomName }
-					</td>
-				</tr>
-				<tr>
-					<td>
-					${roomVO.roomType }
-					</td>
-				</tr>
-				<tr>
-					<td>
-					${roomVO.headCount } <!-- 최대 가능 인원 수 -->
-					</td>
-				</tr>
-				<tr>
-					<td>
-					${roomVO.roomCost } 
-					</td>
-				</tr>
-			</table>
-			예약 가능한 캘린더 표시
-			<button id="revBtn">예약하기</button>
+		<div id="infoContainer">
+			<div id="info1">
+				룸설명 이미지
+			</div>
+			<div id="info2">
+				<table>
+					<tr>
+						<td>
+						${roomVO.roomName }
+						</td>
+					</tr>
+					<tr>
+						<td>
+						${roomVO.roomType }
+						</td>
+					</tr>
+					<tr>
+						<td>
+						${roomVO.headCount } <!-- 최대 가능 인원 수 -->
+						</td>
+					</tr>
+					<tr>
+						<td>
+						${roomVO.roomCost } 
+						</td>
+					</tr>
+				</table>
+				예약 가능한 캘린더 표시
+				<button id="revBtn">예약하기</button>
+			</div>
 		</div>
 	</div>
+</div>
 </div>
 </body>
 </html>

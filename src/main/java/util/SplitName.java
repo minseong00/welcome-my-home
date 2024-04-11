@@ -3,12 +3,12 @@ package util;
 import javax.servlet.http.Part;
 
 public class SplitName {
-	public SplitName(){
+	private SplitName(){
 		
 	}
 	
 	
-	public String FileName(Part part) {
+	public static String FileName(Part part) {
 		String contentDisp = part.getHeader("content-disposition");
 		String[] items = contentDisp.split(";");
 		for(String item : items) {
