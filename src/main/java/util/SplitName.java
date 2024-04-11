@@ -3,7 +3,7 @@ package util;
 import javax.servlet.http.Part;
 
 public class SplitName {
-	private SplitName(){
+	public SplitName(){
 		
 	}
 	
