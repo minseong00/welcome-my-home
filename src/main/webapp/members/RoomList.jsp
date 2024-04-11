@@ -1,13 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+<%@ page import="java.lang.Math" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <c:set var="contextPath" value="${pageContext.request.contextPath }"></c:set>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>룸 목록</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <!-- 캘린더 import -->
 <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
@@ -24,9 +26,12 @@
 		border: 1px solid;
 	}
 	#container {
-	    display: flex;
-	    justify-content: space-between; /* 메인 컨테이너 내 요소들 사이의 간격을 조절합니다. */
-	    width: 100%;
+		width: 100%;
+	    padding-right: 15px;
+	    padding-left: 15px;
+	    margin-right: auto;
+	    margin-left: auto;
+	    max-width: 1100px;
 	}
 	
 	#leftDiv {
@@ -91,110 +96,69 @@
 		width: 50px;
 	}
 	.price {
-		width: 60px;
+		width: 70px;
 	}
 
 </style>
 </head>
 <body>
 	<div id="container"> <!-- 메인 컨테이너 -->
-		<div id="leftDiv"> <!-- 왼쪽 컨테이너 -->
-			<c:forEach var="room" items="${roomVO }">
-				
-			</c:forEach>
-			<div class="lineDiv"><!-- 첫번째 라인 -->
-				<div class="room"> <!-- 첫번째 요소 -->
-					<table class="leftTable">
-						<tr>
-							<td>
-								사진
-							</td>
-						</tr>
-						<tr>
-							<td>
-								
-							</td>
-						</tr>
-						<tr>
-							<td>
-								가격
-							</td>
-						</tr>
-						<tr>
-							<td>
-								룸 정보
-							</td>
-						</tr>
-						<tr>
-							<td>
-								버튼
-							</td>
-						</tr>
-						
-					</table>
-				</div>
-				<div class="room"><!-- 두번째 요소 -->
-					<table class="leftTable">
-						<tr>
-							<td>
-								사진
-							</td>
-						</tr>
-						<tr>
-							<td>
-								이름
-							</td>
-						</tr>
-						<tr>
-							<td>
-								가격
-							</td>
-						</tr>
-						<tr>
-							<td>
-								룸 정보
-							</td>
-						</tr>
-						<tr>
-							<td>
-								버튼
-							</td>
-						</tr>
-					</table>
-				</div>
-				<div class="room"><!-- 세번째 요소 -->
-					<table class="leftTable">
-						<tr>
-							<td>
-								사진
-							</td>
-						</tr>
-						<tr>
-							<td>
-								이름
-							</td>
-						</tr>
-						<tr>
-							<td>
-								가격
-							</td>
-						</tr>
-						<tr>
-							<td>
-								룸 정보
-							</td>
-						</tr>
-						<tr>
-							<td>
-								버튼
-							</td>
-						</tr>
-					</table>
-				</div>
-			</div>
-			
-		</div>
+		<jsp:include page="/include/Header.jsp" flush="false"/>
 		
+		<div class="row justify-content-center">
+		<div id="leftDiv"> <!-- 왼쪽 컨테이너 -->
+			<c:choose>
+				<c:when test="${empty roomVO }">
+					<p>현재 선택 가능한 객실이 존재하지 않습니다.</p>
+				</c:when>
+				
+				<c:otherwise>
+				    <c:forEach var="line" begin="0" end="${roomVO.size() / 3 + 1}">
+				        <div class="lineDiv"><!-- 첫번째 라인 -->
+				            <c:set var="endIndex" value="${roomVO.size()}"/>
+				            <c:if test="${endIndex > (line + 1) * 3}">
+				                <c:set var="endIndex" value="${(line + 1) * 3}" />
+				            </c:if>
+				            <c:forEach var="room" items="${roomVO }" begin="${line*3 }" end="${endIndex - 1}">
+								<div class="room"> <!-- 첫번째 요소 -->
+									<table class="leftTable">
+										<tr>
+											<td>
+												사진
+											</td>
+										</tr>
+										<tr>
+											<td>
+												${room.roomName }
+											</td>
+										</tr>
+										<tr>
+											<td>
+												${room.roomCost }
+											</td>
+										</tr>
+										<tr>
+											<td>
+												${room.roomDetail }
+											</td>
+										</tr>
+										<tr>
+											<td align="center">
+												<input type="button" value="Detail" onclick=""/>
+											</td>
+										</tr>
+										
+									</table>
+								</div>
+							</c:forEach>
+							
+						</div>
+					</c:forEach>
+				</c:otherwise>
+				
+			</c:choose>
+		</div>
+			
 		<div id="rightDiv"> <!-- 사이드바 컨테이너 -->
 		
 			<form>
@@ -266,6 +230,7 @@
 				</table>
 			</form>
 			
+			</div>
 		</div>
 	</div>
 </body>

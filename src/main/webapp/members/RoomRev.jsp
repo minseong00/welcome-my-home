@@ -7,6 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>RoomDetail에서 예약 버튼 클릭시 출력</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <!-- 캘린더 import -->
 <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
@@ -25,9 +26,12 @@
 		width: 100%;
 	}
 	#container {
-	    display: flex;
-	    justify-content: space-between; /* 메인 컨테이너 내 요소들 사이의 간격을 조절합니다. */
-	    width: 100%;
+		width: 100%;
+	    padding-right: 15px;
+	    padding-left: 15px;
+	    margin-right: auto;
+	    margin-left: auto;
+	    max-width: 1100px;
 	}
 	#leftDiv {
 	    display: flex;
@@ -91,7 +95,11 @@
 </head>
 <body>
 	<div id="container"> <!-- 메인 컨테이너 -->
+		<jsp:include page="/include/Header.jsp" flush="false"/>
+		
+		<div class="row justify-content-center">
 		<form>
+		
 			<div id="leftDiv"> <!-- 왼쪽 컨테이너 -->
 				<table class="leftTable">
 					<tr>
@@ -148,7 +156,9 @@
 						</tr>
 				</table>
 			</div>
+			
 		</form>
+		</div>
 	</div>
 </body>
 </html>
