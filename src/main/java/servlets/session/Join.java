@@ -1,7 +1,7 @@
 package servlets.session;
 
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -16,55 +16,40 @@ import model.MemVO;
 @WebServlet("/Join")
 public class Join extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+
 	private MemDAO memDAO = null;
 
-    public Join() {
-        super();
-        
-    }
+	public void init() throws ServletException {
+		memDAO = new MemDAO();
+	}
 
-	/**
-	 *  아이디 중복 확인
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {	
+		doPost(request, response);
+	}
 
-		request.setCharacterEncoding("utf-8");
-		response.setContentType("text/html; charset=utf-8");
-		
-		PrintWriter out = response.getWriter();
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		/* 회원가입 */
 		String id = request.getParameter("id");
-		MemDAO member = new MemDAO();
-		boolean result = member.overlappedID(id);
+		String pw = request.getParameter("pw");
+		String name = request.getParameter("name");
+		String call = request.getParameter("call");
+		String email = request.getParameter("email");
 		
-		if(result == true) {	// result 가 true면 기존 id
-			out.write("이미 사용 중 입니다.");
-		}else {
-			out.write("사용 가능한 ID 입니다.");
-			
-		}
+		MemVO memVO = new MemVO();
+		memVO.setMem_id(id);
+		memVO.setMem_pw(pw);
+		memVO.setMem_name(name);
+		memVO.setMem_call(call);
+		memVO.setMem_email(email);
+		memDAO.insert(memVO);
 		
+		System.out.println("========> MainForm.jsp doPost()");
+		
+		
+		response.sendRedirect(request.getContextPath()  + "/members/MainForm.jsp");
 	}
 	
 
-	/**
-	 * 회원가입
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-		MemVO memVO = new MemVO();
-		memVO.setMem_id(request.getParameter("id"));
-		memVO.setMem_pw(request.getParameter("pw"));
-		memVO.setMem_name(request.getParameter("name"));
-		memVO.setMem_call(request.getParameter("call"));
-		memVO.setMem_email(request.getParameter("email"));
-		
-		memDAO = new MemDAO();
-		memDAO.insertMember(memVO);
-
-		System.out.println("========> .jsp doPost()");
-   		
-		response.sendRedirect("/admin/AdminMain.jsp");
-	}
-
 }
+
+

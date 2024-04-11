@@ -1,188 +1,132 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" isELIgnored="false"%>
+    
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>   
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt"  prefix="fmt"%>   
+
+<c:set var="contextPath" value="${pageContext.request.contextPath}"  />  
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>MemJoin : 회원가입 페이지</title>
-	<script src="http://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+	<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 	<script>
-		/* 아이디 중복확인 */
-		function duplicate(){
-			var _id = $("#t_id").val();
-			
-			$.ajax({
-				type:"get",
-				async:false,
-				url:"http://localhost:9000/mini_project/Join",
-				dataType:"text",
-				data:{id:_id},
-				
-				success:function(data, textStatus){
-					alert(data);	//usable : 사용가능 아이디일 경우
-					
-					if(data == "usable"){
-						$("#message").text("사용 가능한 ID입니다.");
-					}else{
-						$("#message").text("중복된 ID입니다.");
-					}
-				},
-				
-				error:function(data, textStatus){
-					alert("에러발생");
-				
-				},
-				
-				complete:function(data, textStatus){
-					
-				}
-			});
-		}	//duplicate() END
+	
+	/* 아이디 중복 체크 함수 */
+	 function fn_process(){
+		 
+	    var _id=$("#t_id").val();
+	    
+	    const regExp = /[a-zA-Z0-9]/g;
+	    if(regExp.test(_id)){
+ 	    	// alert("가능합니다.");
+ 	        // return true;
+	    }else{
+	    	alert("영문 숫자만 가능합니다.");
+	        return;
+	    }
 		
+	
+	    $.ajax({
+	       type:"post",
+	       async:true,  
+	       url:"<c:url value='/JoinIDCheck' />",
+	       dataType:"text",
+	       data: {id:_id},
+	       
+	       success:function (data,textStatus){
+	          if(data=='usable'){
+	        	  swal.fire('사용할 수 있는 ID입니다.');
+	       	   $('#double').prop("disabled", true);
+	          }else{
+	        	  swal.fire('사용할 수 없는 ID입니다.');
+	          }
+	       },
+	       error:function(data,textStatus){
+	          alert("잘못 입력했습니다.");
+	       },
+	       complete:function(data,textStatus){
+	          //alert("작업을완료 했습니다");
+	       }
+	    });  // ajax() END	 
+	    
+	 }	// fn_process() END
+	 
+	
+	 /* 비밀번호 확인 함수 */
+	  $(document).ready(function() {
+		  $('input').focus(function() {
+				$(this).css('background-color', 'orange');
+		  });
+		  
+		  $('#name').prop("disabled", true);
+          $('#email').prop("disabled", true);
 
-<style type="text/css">
-	html,body {
-	  position: relative;
-	  min-height: 100vh;
-	  background-color: #E1E8EE;
-	  display: flex;
-	  align-items: center;
-	  justify-content: center;
-	  font-family: "Fira Sans", Helvetica, Arial, sans-serif;
-	  -webkit-font-smoothing: antialiased;
-	  -moz-osx-font-smoothing: grayscale;
-	 }
-	
-	.form-structor {
-	  background-color: #222;
-	  border-radius: 15px;
-	  height: 550px;
-	  width: 350px;
-	  position: relative;
-	  overflow: hidden;
-	  
-	  &::after {
-	    content: '';
-	    opacity: .8;
-	    position: absolute;
-	    top: 0;right:0;bottom:0;left:0;
-	    background-repeat: no-repeat;
-	    background-position: center;
-	    background-size: cover;
-	    background-image: url('https://www.inspirekorea.com/sites/default/files/2023-10/content-pixie-VIh-B-bNZMc-unsplash%201.jpg');
-	  }
-	  
-	  .join {
-	    position: absolute;
-	    top: 50%;
-	    left: 50%;
-	    -webkit-transform: translate(-50%, -50%);
-	    width: 65%;
-	    z-index: 5;
-	    -webkit-transition: all .3s ease;
-	    
-	    .form-title {
-	      color: #fff;
-	      font-size: 1.7em;
-	      text-align: center;
-	      
-	      span {
-	        color: rgba(0,0,0,0.4);
-	        opacity: 0;
-	        visibility: hidden;
-	        -webkit-transition: all .3s ease;
-	      }
-	    }
-	    
-	    .form-holder {
-	      border-radius: 15px;
-	      background-color: #fff;
-	      overflow: hidden;
-	      margin-top: 10px;
-	      opacity: 1;
-	      visibility: visible;
-	      -webkit-transition: all .3s ease;
-	      
-	      .input{
-	        border: 0;
-	        outline: none;
-	        box-shadow: none;
-	        height: 30px;
-	        line-height: 30px;
-	        padding: 8px 15px;
-	        border-bottom: 1px solid #eee;
-	        width: 100%;
-	        font-size: 12px;
-	        
-	        &:last-child {
-	          border-bottom: 0;
-	        }
-	        &::-webkit-input-placeholder {
-	          color: rgba(0,0,0,0.4);
-	        }
-	      }
-	    }
-	  }
-	
-	    .submit-btn {
-	      background-color: rgba(0,0,0,0.4);
-	      color: rgba(256,256,256,0.7);
-	      border:0;
-	      border-radius: 15px;
-	      display: block;
-	      margin: 15px auto; 
-	      padding: 15px 45px;
-	      width: 100%;
-	      font-size: 13px;
-	      font-weight: bold;
-	      cursor: pointer;
-	      opacity: 1;
-	      visibility: visible;
-	      -webkit-transition: all .3s ease;
-	      
-	      &:hover {
-	        transition: all .3s ease;
-	        background-color: rgba(0,0,0,0.8);
-	      }
-	    }
-	  }
-	 }
-	}
-</style>
+         // 암호 확인 기능 구현
+          $('#pwd_confirm').keyup(function() {
+              if ($('#pwd').val() != $('#pwd_confirm').val()) {
+                  $('#pwd_message').text(''); // 클리어
+                  $('#pwd_message').html("<b>비밀번호가 틀립니다.</b>"); // 레이어에 HTML 출력
+                  
+              } else {
+                  $('#pwd_message').text(''); // 클리어
+                  $('#pwd_message').html("<b>비밀번호가 맞습니다.</b>"); // 레이어에 텍스트 출력
+                  $('#name').prop("disabled", false);
+                  $('#email').prop("disabled", false);
+              }
+          });
+         
+       	  // pwd_message 레이어 클리어
+		  $('#name').keydown(function() {
+              $('#pwd_message').text(''); // 클리어
+          });
+
+      });
+	 
+	 </script>
+		
 </head>
 
 <body>
-
-	<div class="form-structor">
-		<div class="join">
-	    	<h2 class="form-title" id="join">Join</h2>
-	    <div class="form-holder">
-  			<div class="input-with-button" colspan="2">
-    		<input type="text" class="input" placeholder="Id" name="Id" style="width:58%;"/>
-    		<input type="button" id="duplicate" value="Check" style="border-radius:10px; padding:3px;" onclick="duplicate()">
-  		</div>
-		</div>
-		<div class="form-holder">
-  			<input type="password" class="input" placeholder="Password" name="password" />
-		</div>
-		<div class="form-holder">
- 			 <input type="text" class="input" placeholder="Password Check" name="Password Check" />
-		</div>
-		<div class="form-holder">
-  			<input type="text" class="input" placeholder="name" name="name" />
-  		</div>
-		<div class="form-holder">
-	   		 <input type="text" class="input" placeholder="phone" name="phone" />
-		</div>
-		<div class="form-holder">
-  			<input type="text" class="input" placeholder="email" name="email" required="required"/>
-		</div>
-		<form action="/admin/AdminMain.jsp" method="post">
-	    	</a><button class="submit-btn" >회원가입</button>
-		</form>	
-	  	</div>
-	</div>
-
+<form method="post" action="${contextPath}/Join">
+<h1 style="text-align:center">회원 가입창</h1>
+<table align="center" border="1" cellspacing="0" celpadding="0">
+    <tr>
+       <td width="100"><span align="right">아이디</span></td>
+       <td width="400">
+	       	<input type="text" name="id" id="t_id">
+	       	<input type="button" value="중복확인" id="double" onclick="fn_process()">
+	       	<br>
+	       	<div id="message"></div>
+    	</td>
+    </tr>
+    <tr>
+        <td width="100"><span align="right">비밀번호</span></td>
+        <td width="400"><input type="password"  name="pwd" id="pwd"></td>
+    </tr>
+    <tr>
+        <td width="100"><span align="right">비밀번호확인</span></td>
+        <td width="400"><input type="password"  name="pwd_confirm" id="pwd_confirm">
+        				<div id="pwd_message"></div>
+        </td>
+    </tr>
+    <tr>
+        <td width="100"><span align="right">이름</span></td>
+        <td width="400"><input type="text"  name="name" id="name"></td>
+    </tr>
+    <tr>
+        <td width="100"><span align="right">이메일</span></td>
+        <td width="400"><input type="text"  name="email" id="email"></td>
+    </tr>
+    <tr>
+        <td width="400" colspan="2">
+	       <input type="submit" value="가입하기">
+	       <input type="reset" value="다시입력">
+       </td>
+    </tr>
+</table>
+</form>
 </body>
 </html>
