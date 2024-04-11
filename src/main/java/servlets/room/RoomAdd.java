@@ -30,8 +30,8 @@ public class RoomAdd extends HttpServlet {
 
 	
 	RoomDAO roomDAO = null;
-	RoomImgDAO roomImgDAO = null;
-	RoomImgVO roomImg = null;
+	RoomImgDAO imgDAO = null;
+	RoomImgVO imgVO = null;
 	RoomVO roomVO = null;
     
     public RoomAdd() {
@@ -81,9 +81,9 @@ public class RoomAdd extends HttpServlet {
 		}
 		// System.out.println(list.get(0)+ list.get(1) + list.get(2));
 		this.roomDAO = new RoomDAO();
-		this.roomImgDAO = new RoomImgDAO();
+		this.imgDAO = new RoomImgDAO();
 		this.roomVO = new RoomVO();
-		this.roomImg = new RoomImgVO();
+		this.imgVO = new RoomImgVO();
 		
 		roomVO.setRoomName(request.getParameter("roomName"));
 		roomVO.setRoomType(request.getParameter("roomType"));
@@ -93,21 +93,19 @@ public class RoomAdd extends HttpServlet {
 		
 		roomDAO.insertRoomData(roomVO);
 		
-		roomImg.setImg1(list.get(1));
-		roomImg.setImg2(list.get(2));
-		roomImg.setImg3(list.get(3));
-		roomImg.setImg4(list.get(4));
-		roomImg.setImg5(list.get(5));
-		roomImg.setInfoImg(list.get(0));
+		imgVO.setImg1(list.get(1));
+		imgVO.setImg2(list.get(2));
+		imgVO.setImg3(list.get(3));
+		imgVO.setImg4(list.get(4));
+		imgVO.setImg5(list.get(5));
+		imgVO.setInfoImg(list.get(0));
 		
-		roomImgDAO.insertRoomImg(roomImg);
+		imgDAO.insertRoomImg(imgVO);
 		
 		
 //		System.out.println(roomImg.toString());
 		
-		
-		
-		
-		
+		response.sendRedirect("RoomList");
+	
 	}	
 }

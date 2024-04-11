@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dao.room.RoomDAO;
+import dao.roomImg.RoomImgDAO;
 
 /**
  * Servlet implementation class RoomDelete
@@ -27,15 +28,17 @@ public class RoomDelete extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		RoomDAO roomDAO = new RoomDAO();
+		RoomImgDAO imgDAO = new RoomImgDAO();
 		int roomNo = Integer.parseInt(request.getParameter("roomNo"));
 		int result = roomDAO.deleteRoom(roomNo);
 		
 		response.setContentType("text/html; charset=utf-8");
 		PrintWriter out = response.getWriter();
 		
-		if(result >= 1)
+		if(result >= 1) {
 			out.print("success");
-		else
+			imgDAO.deleteRoomImg(roomNo);
+		}else
 			out.print("fail");
 		
 	}

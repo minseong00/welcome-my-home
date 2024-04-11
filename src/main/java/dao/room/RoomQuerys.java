@@ -7,4 +7,5 @@ public interface RoomQuerys {
 	String deleteOne = "delete from room where roomNo = ?";
 	String insertData = "insert into room (roomName, roomType, roomDetail, headCount, roomCost) "
 			+ "values (?, ?, ?, ?, ?)";
+	String update = "update room set roomName = ?, roomType = ?, roomDetail=?, headCount = ?, roomCost = ? where roonNo = ?";
 }
