@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:set var="contextPath" value="${pageContext.request.contextPath }"></c:set>
 
@@ -8,7 +8,8 @@
 <head>
 <meta charset="UTF-8">
 <title>admin Room Add</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
 
 <style type="text/css">
 .sky-blue-button {
@@ -26,7 +27,6 @@
 }
 
 body {
-	
 	line-height: normal;
 	display: flex;
 }
@@ -36,7 +36,7 @@ body {
 }
 
 .sidebar {
-background-color: #FFFFFF;
+	background-color: #FFFFFF;
 	font-size: 16px;
 	font-family: "Poppins", sans = serif;
 	font-weight: bold;
@@ -110,8 +110,7 @@ background-color: #FFFFFF;
 }
 
 .rightside {
-/* 배경색 설정 */
-	
+	/* 배경색 설정 */
 	display: flex;
 	flex-direction: column;
 	flex-grow: 1;
@@ -147,193 +146,186 @@ input[type="text"]:focus, textarea:focus, select:focus {
 }
 </style>
 <script src="http://code.jquery.com/jquery-2.2.1.min.js"></script>
-<script type="text/javascript" src="${contextPath }/util/fileUpload.js"></script>
 <script type="text/javascript">
-	$(function(){
-		$("#roomAdd").submit(function(event){
+	$(function() {
+		$("#roomAdd").submit(function(event) {
 			event.preventDefault();
-		    // 폼데이터 담기
-		    var form = document.querySelector("form");
-		    var formData = new FormData(form);
-		    for (var i = 0; i < filesArr.length; i++) {
-		        // 삭제되지 않은 파일만 폼데이터에 담기
-		        if (!filesArr[i].is_delete) {
-		            formData.append("attach_file", filesArr[i]);
-		        }
-		    }
-		
-		    $.ajax({
-		        method: 'POST',
-		        url: "<c:url value='/RoomAdd' />",
-		        data: formData,
-		        async: false,
-		        enctype:'multipart/form-data',
-		        processData: false,
-				contentType: false,
-		        success: function () {
-		            alert("파일업로드 성공");
-		            window.location.replace("${contextPath}/RoomList");
-		        },
-		        error: function (data, desc, err) {
-		            alert('에러가 발생 하였습니다.');
-		            return;
-		        }
+			// 폼데이터 담기
+			var form = document.querySelector("form");
+			var formData = new FormData(form);
+			for (var i = 0; i < filesArr.length; i++) {
+				// 삭제되지 않은 파일만 폼데이터에 담기
+				if (!filesArr[i].is_delete) {
+					formData.append("attach_file", filesArr[i]);
+				}
+			}
+
+			$.ajax({
+				method : 'POST',
+				url : "<c:url value='/RoomAdd' />",
+				data : formData,
+				async : false,
+				enctype : 'multipart/form-data',
+				processData : false,
+				contentType : false,
+				success : function() {
+					alert("파일업로드 성공");
+					window.location.replace("${contextPath}/RoomList");
+				},
+				error : function(data, desc, err) {
+					alert('에러가 발생 하였습니다.');
+					return;
+				}
 			});
-		    
-	    });
+
+		});
 	});
 </script>
 </head>
-<body >
-<div class="container-fluid">
-<jsp:include page="/include/Header.jsp" flush="false"/>
-<div class="row" >
+<body>
+	<div class="container-fluid">
+		<jsp:include page="/include/Header.jsp" flush="false" />
+		<div class="row">
 
 
-	<nav class="sidebar" >
-	
-		<ul class="nav">
-			<li>
-				<a href="#">
-					<span>관리자 홈</span>
-				</a>
-			</li>
-			<li>
-				<a href="#">
-					<span>회원 예약</span>
-				</a>
-			</li>
-			<li>
-				<a href="#">
-					<span>객실정보</span>
-				</a>
-			</li>
-			<li>
-				<a href="#">
-					<span>객실등록</span>
-				</a>
-			</li>
-		</ul>
-	</nav>
-	
-	<div class="rightside"  >
-		<div style="width: 75%;" >
-		
-			<h4  style="margin-left: 260px; font-size: px;font-weight: bold; font-family: arial, verdana, "Helvetica Neue", serif;">객실 수정</h4>
-			<form >
-			<div style="margin-left: 290px;" >
-			<div align="right">
-			<button type="submit" class="sky-blue-button" >수정</button>
-				<button class="sky-blue-button" onclick="location.href='<c:url value="/RoomDelete?roomNo=${roomVO.roomNo }" /> '">삭제</button>
-				</div>
-				<div>
-					<label >객실 이름 &nbsp;&nbsp;</label>
-					<input type="hidden" value="${roomVO.roomNo }"/>
-					<input type="text" name="roomName">	
-				</div>
-				
-				<div>
-					<label>객실 타입 &nbsp;&nbsp;</label>
-					<select name="roomType" required="required">
-						<option>타입 선택</option>
-						<option value="singleRoom">싱글 룸</option>
-						<option value="twinRoom">트윈 룸</option>
-						<option value="DoubleRoom">더블 룸</option>
-						<option value="TripleRoom">트리플 룸</option>
-					</select>
-				</div>
-				<div>
-					<label>수용 인원 &nbsp;&nbsp;</label>
-					<select name="headCount" required="required">
-						<option>인원 선택</option>
-						<option value="1"
-							<c:if test="${ roomVO.roomType eq 1 }"> selected = "selected"</c:if>>1</option>
-						<option value="2"
-							<c:if test="${ roomVO.roomType eq 2 }"> selected = "selected"</c:if>>2</option>
-						<option value="3"
-							<c:if test="${ roomVO.roomType eq 3 }"> selected = "selected"</c:if>>3</option>
-						<option value="4"
-							<c:if test="${ roomVO.roomType eq 4 }"> selected = "selected"</c:if>>4</option>
+			<nav class="sidebar">
+
+				<ul class="nav">
+					<li><a href="#"> <span>관리자 홈</span>
+					</a></li>
+					<li><a href="#"> <span>회원 예약</span>
+					</a></li>
+					<li><a href="#"> <span>객실정보</span>
+					</a></li>
+					<li><a href="#"> <span>객실등록</span>
+					</a></li>
+				</ul>
+			</nav>
+
+			<div class="rightside">
+				<div style="width: 75%;">
+
+					<h4
+						style="margin-left: 260px; font-size: px; font-weight: bold; font-family: arial, verdana,"
+						HelveticaNeue", serif;">객실 수정</h4>
+					<form>
+						<div style="margin-left: 290px;">
+							<div align="right">
+								<button type="submit" class="sky-blue-button">수정</button>
+								<button class="sky-blue-button"
+									onclick="location.href='<c:url value="/RoomDelete?roomNo=${roomVO.roomNo }" /> '">삭제</button>
+							</div>
+							<div>
+								<label>객실 이름 &nbsp;&nbsp;</label> 
+								<input type="hidden" name = "roomNo" value="${roomVO.roomNo }" /> 
+								<input type="text" name="roomName" value="${roomVO.roomName }">
+							</div>
+
+							<div>
+								<label>객실 타입 &nbsp;&nbsp;</label> <select name="roomType"
+									required="required">
+									<option>타입 선택</option>
+									<option value="singleRoom"
+										<c:if test="${ roomVO.roomType eq singleRoom }"> selected = "selected"</c:if>>싱글 룸</option>
+									<option value="twinRoom"
+										<c:if test="${ roomVO.roomType eq twinRoom }"> selected = "selected"</c:if>>트윈 룸</option>
+									<option value="DoubleRoom"
+										<c:if test="${ roomVO.roomType eq DoubleRoom }"> selected = "selected"</c:if>>더블 룸</option>
+									<option value="TripleRoom"
+										<c:if test="${ roomVO.roomType eq TripleRoom }"> selected = "selected"</c:if>>트리플 룸</option>
+								</select>
+							</div>
+							<div>
+								<label>수용 인원 &nbsp;&nbsp;</label> <select name="headCount"
+									required="required">
+									<option>인원 선택</option>
+									<option value="1"
+										<c:if test="${ roomVO.headCount eq 1 }"> selected = "selected"</c:if>>1</option>
+									<option value="2"
+										<c:if test="${ roomVO.headCount eq 2 }"> selected = "selected"</c:if>>2</option>
+									<option value="3"
+										<c:if test="${ roomVO.headCount eq 3 }"> selected = "selected"</c:if>>3</option>
+									<option value="4"
+										<c:if test="${ roomVO.headCount eq 4 }"> selected = "selected"</c:if>>4</option>
+
+								</select>
+							</div>
+							<div>
+								<label>객실 가격 &nbsp;&nbsp;</label> <input class="roomCost"
+									type="text" width="30%" name="roomCost"
+									value="${roomVO.roomCost }">원
+							</div>
+							<div>
+								<label style="vertical-align: top;">객실 설명 &nbsp;&nbsp;</label>
+								<textarea rows="5" name="detailText" style="width: 38%"><c:out
+										value="${roomVO.detailText }"></c:out></textarea>
+							</div>
 						
-					</select>
-				</div>
-				<div>
-					<label>객실 가격 &nbsp;&nbsp;</label>
-					<input class="roomCost" type="text" width ="30%" name="roomCost" value="${roomVO.roomCost }">원
-				</div>
-				<div   >
-					<label style="vertical-align: top;">객실 설명 &nbsp;&nbsp;</label>
-					<textarea rows="5" name = "detailText"  style="width: 38%"><c:out value="${roomVO.detailText }"></c:out></textarea>
-				</div>
-				<div>
-					<label>객실 설명 사진 &nbsp;&nbsp;</label>
-					<input type="file" name="infoImg">
-				</div>
-				</div>
-			
-		<table>
-    <tr>
-        <td>
-            <div class="insert">
-                <label>사진 업로드 &nbsp;&nbsp;</label>
-                <input type="file" name="file" onchange="addFile(this);" multiple="multiple" />  
-                <div class="file-list"></div>
-                <img src="" width="400" height="400">
-            </div>
-        </td>
-        <td>
-            <div class="insert">
-                <label>사진 업로드 &nbsp;&nbsp;</label>
-                <input type="file" name="file" onchange="addFile(this);" multiple="multiple" />  
-                <div class="file-list"></div>
-                <img src="" width="400" height="400">
-            </div>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <div class="insert">
-                <label>사진 업로드</label>
-                <input type="file" name="file" onchange="addFile(this);" multiple="multiple" />  
-                <div class="file-list"></div>
-                <img src="" width="400" height="400">
-            </div>
-        </td>
-        <td>
-            <div class="insert">
-                <label>사진 업로드</label>
-                <input type="file" name="file" onchange="addFile(this);" multiple="multiple" />  
-                <div class="file-list"></div>
-                <img src="" width="400" height="400">
-            </div>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <div class="insert">
-                <label>사진 업로드</label>
-                <input type="file" name="file" onchange="addFile(this);" multiple="multiple" />  
-                <div class="file-list"></div>
-                <img src="" width="400" height="400">
-            </div>
-        </td>
-        <td>
-            <div class="insert">
-                <label>사진 업로드</label>
-                <input type="file" name="file" onchange="addFile(this);" multiple="multiple" />  
-                <div class="file-list"></div>
-                <img src="" width="400" height="400">
-            </div>
-        </td>
-    </tr>
-    
-</table>
-</form>
+						</div>
 
-</div>
-</div>
-</div>
-</div>
+						<table>
+							<tr>
+								<td>
+									<div class="insert">
+										<label>사진 업로드 &nbsp;&nbsp;</label>
+										<input type="file" name="infoImg" value="${imgVO.infoImg }"/>
+										<div class="file-list"></div>
+										<img src="${contextPath }/data/${imgVO.infoImg }" width="400" height="400">
+									</div>
+								</td>
+								<td>
+									<div class="insert">
+										<label>사진 업로드 &nbsp;&nbsp;</label> 
+										<input type="file" name="file1"  value="${imgVO.img1 }" />
+										<div class="file-list"></div>
+										<img src="${contextPath }/data/${imgVO.img1 }" width="400" height="400">
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<div class="insert">
+										<label>사진 업로드</label>
+										<input type="file" name="file2"  value="${imgVO.img2 }" />
+										<div class="file-list"></div>
+										<img src="" width="400" height="400">
+									</div>
+								</td>
+								<td>
+									<div class="insert">
+										<label>사진 업로드</label> 
+										<input type="file" name="file3" value="${imgVO.img3 }" />
+										<div class="file-list"></div>
+										<img src="" width="400" height="400">
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<div class="insert">
+										<label>사진 업로드</label> 
+										<input type="file" name="file4" value="${imgVO.img4 }" />
+										<div class="file-list"></div>
+										<img src="" width="400" height="400">
+									</div>
+								</td>
+								<td>
+									<div class="insert">
+										<label>사진 업로드</label> 
+										<input type="file" name="file5" value="${imgVO.img5 }" />
+										<div class="file-list"></div>
+										<img src="" width="400" height="400">
+									</div>
+								</td>
+							</tr>
+
+						</table>
+					</form>
+
+				</div>
+			</div>
+		</div>
+	</div>
 
 </body>
 
