@@ -5,7 +5,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 import dao.connection.MySQLConnector;
-import model.SessionVO;
 
 public class SessionDAO implements SessionQuerys {
 	private Connection conn = null;
@@ -20,33 +19,29 @@ public class SessionDAO implements SessionQuerys {
 	/**
 	 * session 처리
 	 **/
-	public String loginCheck(SessionVO session) {
+	public String loginCheck(String _id) {
 		String result = null;
 		String id = null;
 		
 		try {
 			conn = DB.dbConnect();
 			pstmt = conn.prepareStatement(adminID);
-			pstmt.setString(1, session.getId());
+			pstmt.setString(1, _id);
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
-				id = rs.getString("admin_id");
-				if(session.getId().equals(id)) 
 					result = "admin";
-			}
-			conn = DB.dbConnect();
-			pstmt = conn.prepareStatement(memID);
-			pstmt.setString(1, session.getId());
-			rs = pstmt.executeQuery();
-			if(rs.next()) {
-				id = rs.getString("id");
-				if(session.getId().equals(id)) 
-					result = "mem";
+			} else {
+				pstmt = conn.prepareStatement(memID);
+				pstmt.setString(1, _id);
+				rs = pstmt.executeQuery();
+				if(rs.next()) {
+					result = "member";
+				}
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-		DB.close(rs, pstmt, conn);
+			DB.close(rs, pstmt, conn);
 		}
 		return result;
 	}

@@ -1,20 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"
-	isELIgnored="false" 
-%>
+	pageEncoding="UTF-8" isELIgnored="false" %>
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>  
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt"  prefix="fmt"%>       
-
-<c:set var="contextPath" value="${pageContext.request.contextPath}"  />  
-<%
-request.setCharacterEncoding("UTF-8");
-%>    
+<c:set var="contextPath" value="${pageContext.request.contextPath}"  />    
 <html>
 <head>
-
-
-   <meta  charset="UTF-8">
+<meta  charset="UTF-8">
 <title>AdminMemList.jsp : 전체회원목록</title>
 <style>
      .cls1 {

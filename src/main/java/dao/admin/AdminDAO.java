@@ -33,8 +33,8 @@ public class AdminDAO implements AdminQuerys  {
 			pstmt.setString(1, admin.getAdmin_id());
 			rs =  pstmt.executeQuery();
 			if(rs.next()) {
-				id = rs.getString("admin_id");
-				pw = rs.getString("admin_pw");
+				id = rs.getString("adminId");
+				pw = rs.getString("adminPw");
 				if(admin.getAdmin_id().equals(id) && admin.getAdmin_pwd().equals(pw)) 
 					result = true;
 				else
