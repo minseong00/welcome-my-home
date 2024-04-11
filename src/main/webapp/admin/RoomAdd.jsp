@@ -15,59 +15,6 @@
 		line-height: normal;
 		display: flex;
 	}
-	.sidebar{
-		background: #ffffff;
-		font-family: "Poppins", sans=serif;
-		font-weight: normal;
-		padding: 0;
-		width: 235px;
-		height: 95vh;
-		z-index: 11;
-		box-shadow: 0 5px 10px 0 rgba(230, 230, 243, 0, 0.88);
-		margin-left: 0.5rem;
-		margin-bottom: 2.062rem;
-		border-radius: 6px;
-		border: 1px solid #e4e4f4;
-		display: inline-block;
-	}
-	.nav{
-		display: flex;
-		flex-wrap: wrap;
-		padding-left: 0;
-		margin-bottom: 0;
-		list-style: none;
-		align-items: center;
-	}
-	
-	.sidebar .nav {
-		overflow: hidden;
-		flex-wrap: nowrap;
-		flex-direction: column;
-		margin-bottom: 60px;
-	}
-	.sidebar .nav li a {
-		display: flex;
-		white-space: nowrap;
-		padding: 0.87rem 0.875rem 0.87rem 0.6rem;
-		color: #001737;
-	}
-	
-	.sidebar .nav li {
-		margin-bottom: -1px;
-	}
-	
-	.sidebar .nav li a {
-		text-decoration: none;
-	}
-	
-	.sidebar .nav li a:hover{
-		color: #0056b3;
-		text-decoration: underline;
-	}
-	.sidebar .nav li a span {
-		text-shadow: none;
-	}
-	
 	.rightside{
 		display: flex;
 		flex-direction: column;
@@ -134,83 +81,70 @@
 		    
 	    });
 	});
-</script>
+	</script>
 </head>
 <body>
-	<nav class="sidebar">
-		<ul class="nav">
-			<li>
-				<a href="#">
-					<span>관리자 홈</span>
-				</a>
-			</li>
-			<li>
-				<a href="#">
-					<span>회원 예약</span>
-				</a>
-			</li>
-			<li>
-				<a href="#">
-					<span>객실정보</span>
-				</a>
-			</li>
-			<li>
-				<a href="#">
-					<span>객실등록</span>
-				</a>
-			</li>
-		</ul>
-	</nav>
-	
-	<div class="rightside">
-		<div>
-			<h4>객실 등록</h4>
-			<form id="roomAdd">
+	<div class="container">
+		<jsp:include page="/include/Header.jsp" flush="false"/>
+		
+		<div class="row justify-content-center">
+		
+			<div class="col-md-4"> 
+				<jsp:include page="/include/adminSidebar.jsp" flush="false"/>
+			</div>
+		
+			<div class="rightside">
 				<div>
-					<label>객실 이름</label>
-					<input type="text" name="roomName">
+					<h4>객실 등록</h4>
+					<form id="roomAdd">
+						<div>
+							<label>객실 이름</label>
+							<input type="text" name="roomName">
+						</div>
+						<div>
+							<label>객실 타입</label>
+							<select name="roomType" required="required">
+								<option selected="selected">타입 선택</option>
+								<option value="singleRoom">싱글 룸</option>
+								<option value="twinRoom">트윈 룸</option>
+								<option value="DoubleRoom">더블 룸</option>
+								<option value="TripleRoom">트리플 룸</option>
+							</select>
+						</div>
+						<div>
+							<label>수용 인원</label>
+							<select name="headCount" required="required">
+								<option selected="selected">인원 선택</option>
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								
+							</select>
+						</div>
+						<div>
+							<label>객실 가격</label>
+							<input class="roomCost" type="text" name="roomCost">원
+						</div>
+						<div>
+							<label>객실 설명</label>
+							<textarea rows="8" name = "detailText"></textarea>
+						</div>
+						<div class="insert">
+							<label>사진 업로드</label>
+							<input type="file" name="file" onchange="addFile(this);" multiple="multiple" />
+							<div class="file-list"></div>
+						</div>
+						<div>
+							<label>객실 설명 사진</label>
+							<input type="file" name="infoImg">
+						</div>
+						<button type="submit" >등록</button>
+					</form>
 				</div>
-				<div>
-					<label>객실 타입</label>
-					<select name="roomType" required="required">
-						<option selected="selected">타입 선택</option>
-						<option value="singleRoom">싱글 룸</option>
-						<option value="twinRoom">트윈 룸</option>
-						<option value="DoubleRoom">더블 룸</option>
-						<option value="TripleRoom">트리플 룸</option>
-					</select>
-				</div>
-				<div>
-					<label>수용 인원</label>
-					<select name="headCount" required="required">
-						<option selected="selected">인원 선택</option>
-						<option value="1">1</option>
-						<option value="2">2</option>
-						<option value="3">3</option>
-						<option value="4">4</option>
-						
-					</select>
-				</div>
-				<div>
-					<label>객실 가격</label>
-					<input class="roomCost" type="text" name="roomCost">원
-				</div>
-				<div>
-					<label>객실 설명</label>
-					<textarea rows="8" name = "detailText"></textarea>
-				</div>
-				<div class="insert">
-					<label>사진 업로드</label>
-					<input type="file" name="file" onchange="addFile(this);" multiple="multiple" />
-					<div class="file-list"></div>
-				</div>
-				<div>
-					<label>객실 설명 사진</label>
-					<input type="file" name="infoImg">
-				</div>
-				<button type="submit" >등록</button>
-			</form>
+			</div>
 		</div>
+	
 	</div>
 </body>
 </html>

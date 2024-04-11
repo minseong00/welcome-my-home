@@ -37,6 +37,8 @@ public class RoomDAO implements RoomQuerys {
 			}
 		} catch (SQLException e) {
 			System.err.println("roomCount ERR : " + e.getMessage());
+		} finally {
+			DB.close(this.rs, this.pstmt, this.conn);
 		}
 		return totalCount;
 	}

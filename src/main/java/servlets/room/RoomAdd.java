@@ -47,7 +47,6 @@ public class RoomAdd extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=utf-8");
-		SplitName splitName = new SplitName();
 		
 		File uploadDir = new File(UPLOAD);
 		// 폴더 없으면 정해진 주소에 폴더 생성
@@ -59,7 +58,7 @@ public class RoomAdd extends HttpServlet {
 		Collection<Part> parts = request.getParts();
 		for(Part part : parts) {
 			if(part.getSubmittedFileName() != null && !part.getSubmittedFileName().isEmpty()) {
-				String fileName = splitName.FileName(part);
+				String fileName = SplitName.FileName(part);
 				String filePath = UPLOAD + File.separator + fileName;
 				list.add(fileName);
 				try {
