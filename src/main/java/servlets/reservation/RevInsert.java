@@ -65,7 +65,7 @@ public class RevInsert extends HttpServlet {
 			date_bookCheck = (Date) dateFormat.parse(bookCheck);
 			date_bookCheck = (Date) dateFormat.parse(bookCheckOut);
 		} catch (java.text.ParseException e) {
-			System.out.println("Date Parse ERR : " + e.getMessage());
+			System.out.println("Rev Insert Parse ERR : " + e.getMessage());
 		}
 		
 		LocalDateTime currentDateTime = LocalDateTime.now();

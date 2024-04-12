@@ -24,7 +24,7 @@ public class RoomDelete extends HttpServlet {
     }
 
 	/**
-	 * @see 
+	 * @see 방 삭제
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		RoomDAO roomDAO = new RoomDAO();
