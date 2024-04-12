@@ -49,14 +49,13 @@ public class MemDAO implements MemberQuerys{
 			DB.close(rs, pstmt, conn);
 		}
 		return result;
-
 	}
 	
 	/**
 	 * mem ID 중복 처리
 	 **/
 	public boolean overlappedID(String id) {
-		boolean result = false;
+		boolean result = true;
 		
 		try {
 			conn = DB.dbConnect();
@@ -65,6 +64,8 @@ public class MemDAO implements MemberQuerys{
 			rs = pstmt.executeQuery();
 			
 			result = rs.next();	//조회된 id가 있으면 true/없으면 false
+			
+			System.out.println("result mem : " + result);
 		} catch (Exception e) {
 			System.err.println("ID SELECT ERR : " + e.getMessage());
 		} finally {

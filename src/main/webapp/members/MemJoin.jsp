@@ -13,7 +13,8 @@
    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 	<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 	<script>
-	
+	var checkId = false;
+	var checkPw = false;
 	/* 아이디 중복 체크 함수 */
 	 function fn_process(){
 		 
@@ -24,7 +25,7 @@
  	    	// alert("가능합니다.");
  	        // return true;
 	    }else{
-	    	alert("영문 숫자만 가능합니다.");
+	    	swal.fire('영문 또는 숫자만 가능합니다.');
 	        return;
 	    }
 		
@@ -36,19 +37,21 @@
 	       dataType:"text",
 	       data: {id:_id},
 	       
-	       success:function (data,textStatus){
-	          if(data=='usable'){
+	       success:function (data,textStatus) {
+	          if(data=='usable') {
 	        	  swal.fire('사용할 수 있는 ID입니다.');
-	       	   $('#double').prop("disabled", true);
-	          }else{
+	        	  checkId = true;
+	          }else {
 	        	  swal.fire('사용할 수 없는 ID입니다.');
+	        	  checkId = false;
+		       	  $('#submit').prop("disabled", true);
 	          }
 	       },
 	       error:function(data,textStatus){
 	          alert("잘못 입력했습니다.");
 	       },
 	       complete:function(data,textStatus){
-	          //alert("작업을완료 했습니다");
+	    	   
 	       }
 	    });  // ajax() END	 
 	    
@@ -57,32 +60,38 @@
 	
 	 /* 비밀번호 확인 함수 */
 	  $(document).ready(function() {
-		  $('input').focus(function() {
-				$(this).css('background-color', 'orange');
+		  $('input[type=text]').focus(function() {
+				$(this).css('background-color', '#E0D8A2');
+		  });
+		  $('input[type=text]').blur(function() {
+				$(this).css('background-color', '#FFF');
 		  });
 		  
-		  $('#name').prop("disabled", true);
-          $('#email').prop("disabled", true);
+		  $('#submit').prop("disabled", true);
+		  
 
          // 암호 확인 기능 구현
           $('#pw_confirm').keyup(function() {
               if ($('#pw').val() != $('#pw_confirm').val()) {
                   $('#pw_message').text(''); // 클리어
                   $('#pw_message').html("<b>비밀번호가 틀립니다.</b>"); // 레이어에 HTML 출력
-                  
+                  $('#submit').prop("disabled", true);
+                  checkPw = false;
               } else {
                   $('#pw_message').text(''); // 클리어
                   $('#pw_message').html("<b>비밀번호가 맞습니다.</b>"); // 레이어에 텍스트 출력
-                  $('#name').prop("disabled", false);
-                  $('#email').prop("disabled", false);
+                  checkPw = true;
               }
           });
          
        	  // pw_message 레이어 클리어
-		  $('#name').keydown(function() {
-              $('#pw_message').text(''); // 클리어
+		  $('input[type=text]').keyup(function() {
+			  if(checkId && checkPw) 
+				  $('#submit').prop("disabled", false);
           });
 
+       	  
+       	  
       });
 	 
 	 </script>
@@ -139,7 +148,7 @@ td, th {
     <tr>
        <td  style="background-color:#73685d; color: #fff; width:200px; height: 70px; " ><span >아이디</span></td>
        <td >
-	       	<input type="text" name="id" id="t_id">
+	       	<input type="text" name="id" id="t_id" required>
 	       	<input type="button" value="중복확인" id="double" onclick="fn_process()">
 	       	<br>
 	       	<div id="message"></div>
@@ -147,29 +156,29 @@ td, th {
     </tr>
     <tr>
         <td  style="background-color:#73685d; color: #fff; height: 70px;"><span style="text-align: right;">비밀번호</span></td>
-        <td ><input type="password"  name="pw" id="pw"></td>
+        <td ><input type="password"  name="pw" id="pw" required></td>
     </tr>
     <tr>
         <td  style="background-color:#73685d; color: #fff; height: 70px;"><span style="text-align: right;">비밀번호확인</span></td>
-        <td ><input type="password"  name="pw_confirm" id="pw_confirm">
+        <td ><input type="password"  name="pw_confirm" id="pw_confirm" required>
         				<div id="pw_message"></div>
         </td>
     </tr>
     <tr>
         <td  style="background-color:#73685d; color: #fff; height: 70px;"><span style="text-align: right;">이름</span></td>
-        <td ><input type="text"  name="name" id="name"></td>
+        <td ><input type="text"  name="name" id="name" required></td>
     </tr>
     <tr>
         <td  style="background-color:#73685d; color: #fff; height: 70px;"><span style="text-align: right;">전화번호</span></td>
-        <td ><input type="text"  name="call" id="call"></td>
+        <td ><input type="text"  name="call" id="call" required></td>
     </tr>
     <tr>
         <td  style="background-color:#73685d; color: #fff; height: 70px;"><span style="text-align: right;">이메일</span></td>
-        <td ><input type="text"  name="email" id="email"></td>
+        <td ><input type="email"  name="email" id="email" required></td>
     </tr>
     <tr >
         <td  colspan="2" style="height: 70px; ">
-	       <input type="submit" class="sky-blue-button"value="가입하기">
+	       <input type="submit" id="submit" class="sky-blue-button"value="가입하기">
 	      
 	       <input type="reset" class="sky-blue-button"value="다시입력">
     </td>

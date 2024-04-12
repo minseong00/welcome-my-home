@@ -54,7 +54,7 @@ public class AdminDAO implements AdminQuerys  {
 	 * admin ID 중복 처리
 	 **/
 	public boolean overlappedID(String id) {
-		boolean result = false;
+		boolean result = true;
 		
 		try {
 			conn = DB.dbConnect();
@@ -63,6 +63,7 @@ public class AdminDAO implements AdminQuerys  {
 			rs = pstmt.executeQuery();
 			
 			result = rs.next();	// 결과에서 다음행이 존재하면 ID 중복 존재
+			System.out.println("result admin : " + result);
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
