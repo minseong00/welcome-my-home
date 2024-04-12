@@ -30,7 +30,6 @@ public class RoomList extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	    RoomDAO roomDAO = new RoomDAO();
 		RoomImgDAO imgDAO = new RoomImgDAO();
-		int totalCount = roomDAO.RoomCount();
 		String type = request.getParameter("type");
 		
 		List<RoomVO> roomList = roomDAO.selectAll();
@@ -40,14 +39,20 @@ public class RoomList extends HttpServlet {
 		request.setAttribute("imgList", imgList);
 		
 		RequestDispatcher dispatcher = null;
-		if(type.equals("member"))
-			dispatcher = request.getRequestDispatcher("/members/RoomList.jsp");
-		else {
-			request.setAttribute("totalCount", totalCount);
-			dispatcher = request.getRequestDispatcher("/admin/AdminRoomList.jsp");
-		}
 		
-		dispatcher.forward(request, response);
+		if(type == null)
+			response.sendRedirect(request.getContextPath() + "/LoginCheck");
+		else {
+			if(type.equals("member"))
+				dispatcher = request.getRequestDispatcher("/members/RoomList.jsp");
+			else {
+				dispatcher = request.getRequestDispatcher("/admin/AdminRoomList.jsp");
+			}
+			dispatcher.forward(request, response);
+		}
+
+		
+		
 		
 	}
 

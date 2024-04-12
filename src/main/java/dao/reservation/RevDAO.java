@@ -20,27 +20,6 @@ public class RevDAO implements RevQuerys {
 	}
 	
 	/**
-	예약 갯수 조회
-	@return
-	**/
-	public int RevCount() {
-		int totalCount = 0;
-		try {
-			this.conn = DB.dbConnect();
-			this.pstmt = this.conn.prepareStatement(revCount);
-			this.rs = this.pstmt.executeQuery();
-			if (this.rs.next()) {
-				totalCount = this.rs.getInt("total");
-			}
-		} catch (SQLException e) {
-			System.err.println("revCount ERR : " + e.getMessage());
-		} finally {
-			DB.close(this.rs, this.pstmt, this.conn);
-		}
-		return totalCount;
-	}
-	
-	/**
 	 	예약 목록 조회
 	 	@return
 	**/
@@ -61,7 +40,7 @@ public class RevDAO implements RevQuerys {
 				revVO.setBookCheckOut(this.rs.getDate("bookCheckOut"));
 				revVO.setHeadCount(this.rs.getInt("headCount"));
 				revVO.setPrice(this.rs.getInt("price"));
-				revVO.setMemNo(this.rs.getInt("memNo"));
+				revVO.setMemId(this.rs.getString("memId"));
 				
 				revList.add(revVO);
 			}
@@ -97,7 +76,7 @@ public class RevDAO implements RevQuerys {
 				revVO.setBookCheckOut(this.rs.getDate("bookCheckOut"));
 				revVO.setHeadCount(this.rs.getInt("headCount"));
 				revVO.setPrice(this.rs.getInt("price"));
-				revVO.setMemNo(this.rs.getInt("memNo"));
+				revVO.setMemId(this.rs.getString("memId"));
 			}
 		} catch (SQLException e) {
 			System.err.println("Rev SelectOne ERR : " + e.getMessage());
@@ -113,14 +92,14 @@ public class RevDAO implements RevQuerys {
 	@param RevVO
 	@return
 	**/
-	public int deleteRoom(int bookNo) {
+	public int deleteRev(int bookNo) {
 		int result = 0;
 		try {
 			this.conn = DB.dbConnect();
 			this.pstmt = this.conn.prepareStatement(deleteRev);
 			this.pstmt.setInt(1, bookNo);
 			result = this.pstmt.executeUpdate();
-			
+
 		} catch (SQLException e) {
 			System.err.println("Rev Delete ERR : " + e.getMessage());
 		} finally {
@@ -134,7 +113,8 @@ public class RevDAO implements RevQuerys {
 		예약 insert
 		@param RevVO
 	**/
-	public void insertRoomData(RevVO revVO) {
+	public int insertRev(RevVO revVO) {
+		int result = 0;
 		try {
 			this.conn = DB.dbConnect();
 			this.pstmt = this.conn.prepareStatement(insertRev);
@@ -144,24 +124,23 @@ public class RevDAO implements RevQuerys {
 			this.pstmt.setDate(4, revVO.getBookCheckOut());
 			this.pstmt.setInt(5, revVO.getHeadCount());
 			this.pstmt.setInt(6, revVO.getPrice());
-			this.pstmt.setInt(7, revVO.getMemNo());
-			int result = this.pstmt.executeUpdate();
-			if(result < 0) {
-				System.err.println("insert Rev rs err!! ");
-			}
-			
+			this.pstmt.setString(7, revVO.getMemId());
+			result = this.pstmt.executeUpdate();
+
 		}catch (SQLException e) {
 			System.err.println("Insert Rev : " + e.getMessage());
 		} finally {
 			DB.close(null, this.pstmt, this.conn);
 		}
+		return result;
 	}
 		
 	/**
 	Rev update
 	@param RevVO
 	**/
-	public void roomUpdate(RevVO revVO) {
+	public int RevUpdate(RevVO revVO) {
+		int result = 0;
 		try {
 			this.conn = DB.dbConnect();
 			this.pstmt = this.conn.prepareStatement(updateRev);
@@ -170,15 +149,13 @@ public class RevDAO implements RevQuerys {
 			this.pstmt.setInt(3, revVO.getHeadCount());
 			this.pstmt.setInt(4, revVO.getPrice());
 			this.pstmt.setInt(5, revVO.getBookNo());
-			int rs = this.pstmt.executeUpdate();
-			if(rs < 0) {
-				System.err.println("update Rev rs err!! ");
-			}
+			result = this.pstmt.executeUpdate();
 			
 		}catch (SQLException e) {
 			System.err.println("update Rev : " + e.getMessage());
 		} finally {
 			DB.close(null, this.pstmt, this.conn);
 		}
+		return result;
 	}
 }

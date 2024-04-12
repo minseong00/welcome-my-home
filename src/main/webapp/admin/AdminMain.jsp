@@ -20,7 +20,9 @@
 		flex-grow: 1;
 		margin-left: 0.5rem;
 	}
-
+	.include-gap {
+    margin-bottom: 100px; /* 원하는 만큼의 간격을 설정합니다. */
+}
 </style>
 </head>
 <body>
@@ -32,11 +34,11 @@
 		</div>
         
 	        <div class="rightside">
-	            <div class="table-container">
+	            <div class="include-gap" >
 	                <div>
 	                    <jsp:include page="/admin/MemTable.jsp" flush="false"/>
 	                </div>
-	                <div>
+	                <div class="include-gap">
 	                    <jsp:include page="/admin/RevTable.jsp" flush="false"/>
 	                </div>
 	            </div>

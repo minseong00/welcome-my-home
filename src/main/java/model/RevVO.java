@@ -11,7 +11,7 @@ public class RevVO {
 	private Date bookCheckOut = null;
 	private int headCount = 0;
 	private int price = 0;
-	private int memNo = 0;
+	private String memId = null;
 	public RevVO() {
 		
 	}
@@ -57,17 +57,19 @@ public class RevVO {
 	public void setPrice(int price) {
 		this.price = price;
 	}
-	public int getMemNo() {
-		return memNo;
+	
+	public String getMemId() {
+		return memId;
 	}
-	public void setMemNo(int memNo) {
-		this.memNo = memNo;
+	public void setMemId(String memId) {
+		this.memId = memId;
 	}
 	@Override
 	public String toString() {
 		return "RevVO [bookNo=" + bookNo + ", bookDate=" + bookDate + ", roomNo=" + roomNo + ", bookCheck=" + bookCheck
-				+ ", bookCheckOut=" + bookCheckOut + ", headCount=" + headCount + ", price=" + price + ", memNo="
-				+ memNo + "]";
+				+ ", bookCheckOut=" + bookCheckOut + ", headCount=" + headCount + ", price=" + price + ", memId="
+				+ memId + "]";
 	}
+	
 
 }

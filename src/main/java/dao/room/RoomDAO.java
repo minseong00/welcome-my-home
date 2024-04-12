@@ -22,28 +22,6 @@ public class RoomDAO implements RoomQuerys {
 	public RoomDAO() {
 		DB = new MySQLConnector();
 	}
-	
-	/**
-		룸 총 갯수 조회
-		@return
-	**/
-	public int RoomCount() {
-		int totalCount = 0;
-		try {
-			this.conn = DB.dbConnect();
-			this.pstmt = this.conn.prepareStatement(roomCount);
-			this.rs = this.pstmt.executeQuery();
-			if (this.rs.next()) {
-				totalCount = this.rs.getInt("total");
-			}
-		} catch (SQLException e) {
-			System.err.println("roomCount ERR : " + e.getMessage());
-		} finally {
-			DB.close(this.rs, this.pstmt, this.conn);
-		}
-		return totalCount;
-	}
-	
 	/**
 	 	룸 목록 조회
 	 	@return
@@ -76,6 +54,35 @@ public class RoomDAO implements RoomQuerys {
 		return roomList;
 	}
 	
+	/** 
+	 	모든 룸 이름 조회
+	 	@return
+	 **/
+	public List<RoomVO> selectName() {
+		List<RoomVO> roomList = null;
+		try {
+			conn = DB.dbConnect();
+			this.pstmt = conn.prepareStatement(selectNN);
+			this.rs = this.pstmt.executeQuery();
+			roomList = new ArrayList<RoomVO>();
+			
+			while (this.rs.next()) {
+				RoomVO roomVO = new RoomVO();
+				roomVO.setRoomNo(this.rs.getInt("roomNo"));
+				roomVO.setRoomName(this.rs.getString("roomName"));
+				
+				roomList.add(roomVO);
+			}
+			
+		} catch (SQLException e) {
+			System.err.println("Room SelectNoName ERR : " + e.getMessage());
+		} finally {
+			DB.close(this.rs, this.pstmt, this.conn);
+		}
+		return roomList;
+		
+	}
+	
 	/**
  	룸 상세 조회
  	@param int
@@ -94,9 +101,10 @@ public class RoomDAO implements RoomQuerys {
 				roomVO = new RoomVO();
 				roomVO.setRoomNo(this.rs.getInt("roomNo"));
 				roomVO.setRoomName(this.rs.getString("roomName"));
+				roomVO.setRoomDetail(this.rs.getString("roomDetail"));
 				roomVO.setRoomType(this.rs.getString("roomType"));
 				roomVO.setHeadCount(this.rs.getInt("headCount"));
-				roomVO.setRoomNo(this.rs.getInt("roomCost"));
+				roomVO.setRoomCost(this.rs.getInt("roomCost"));
 			}
 		} catch (SQLException e) {
 			System.err.println("Room SelectOne ERR : " + e.getMessage());

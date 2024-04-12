@@ -53,7 +53,7 @@
 			</thead>
 			<tbody>
 				<c:choose>
-					<c:when test="${totalCount == 0 }">
+					<c:when test="${empty roomVO }">
 						<tr>
 							<td colspan="5">등록된 방이 없습니다.</td>
 						</tr>
@@ -61,13 +61,12 @@
 					<c:otherwise>
 						<c:forEach var="room" items="${roomVO }">
 							<tr>
-								<input type="hidden" name ="roomNo" value="${room.roomNo}">
 								<td><!-- 룸이름 --><c:out value="${room.roomName }"></c:out></td>
 								<td><!-- 룸타입 --><c:out value="${room.roomType }"></c:out></td>
 								<td><!-- 최대 인원 --><c:out value="${room.headCount }"></c:out></td>
 								<td><!-- 가격 --><c:out value="${room.roomCost }"></c:out></td>
 								<td>
-									<span id="detail" onclick="location.href='<c:url value="/RoomModify?roomNo=${room.roomNo }" />' ">상세보기</span>
+									<span id="detail" onclick="location.href='${contextPath }/RoomModify?roomNo=${room.roomNo }'">상세보기</span>
 								</td>
 							</tr>
 						</c:forEach>
