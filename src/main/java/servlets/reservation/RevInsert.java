@@ -42,8 +42,7 @@ public class RevInsert extends HttpServlet {
 		
 		roomVO = roomDAO.selectOne(roomNum);
 		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/members/RoomRev.jsp");
-		dispatcher.forward(request, response);
+		request.getRequestDispatcher("/members/RoomRev.jsp").forward(request, response);
 	}
 
 	/**

@@ -60,8 +60,7 @@ public class RoomModify extends HttpServlet {
 		
 		System.out.println(roomVO.toString());
 		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/admin/RoomModify.jsp");
-		dispatcher.forward(request, response);
+		request.getRequestDispatcher("/admin/RoomModify.jsp").forward(request, response);
 	}
 
 	/**

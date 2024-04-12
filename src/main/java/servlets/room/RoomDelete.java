@@ -29,17 +29,23 @@ public class RoomDelete extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		RoomDAO roomDAO = new RoomDAO();
 		RoomImgDAO imgDAO = new RoomImgDAO();
+		int result = 0;
+		
 		int roomNo = Integer.parseInt(request.getParameter("roomNo"));
-		int result = roomDAO.deleteRoom(roomNo);
+		result = roomDAO.deleteRoom(roomNo);
+		result += imgDAO.deleteRoomImg(roomNo);
 		
 		response.setContentType("text/html; charset=utf-8");
 		PrintWriter out = response.getWriter();
 		
-		if(result >= 1) {
+		if(result >= 2) {
 			out.print("success");
 			imgDAO.deleteRoomImg(roomNo);
-		}else
+		}else {
+			System.out.println("RoomDelete ERR : 방 또는 방 이미지 레코드 중 하나가 삭제되지않았습니다. - 결과 값 : " + result);
 			out.print("fail");
+		}
+			
 		
 	}
 

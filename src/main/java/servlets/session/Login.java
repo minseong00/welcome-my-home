@@ -44,7 +44,7 @@ public class Login extends HttpServlet {
 	 * @see 로그인
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		session = request.getSession();
+		session = request.getSession(false);
 		AdminVO admin = new AdminVO();				//VO 객체생성
 		AdminDAO adminDAO = new AdminDAO(); //DAO를 통한 로그인 처리
 		MemVO member = new MemVO();
@@ -62,7 +62,7 @@ public class Login extends HttpServlet {
 		PrintWriter out = response.getWriter(); 
 
 		if(result) {
-			if(session.isNew() || session.getAttribute("id") == null){
+			if(session == null || session.getAttribute("id") == null) {
 				session.setAttribute("id", admin.getAdmin_id());
 				out.print("adminLogin");
 			}
@@ -74,7 +74,7 @@ public class Login extends HttpServlet {
 			result = memDAO.memLogin(member);
 			System.out.println("member result 값 : " + result);
 			if(result) {
-				if(session.isNew() || session.getAttribute("id") == null){
+				if(session == null || session.getAttribute("id") == null){
 					session.setAttribute("id", admin.getAdmin_id());
 					out.print("memberLogin");
 				}

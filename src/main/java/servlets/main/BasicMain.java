@@ -1,51 +1,39 @@
-package servlets.reservation;
+package servlets.main;
 
 import java.io.IOException;
+import java.util.List;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.reservation.RevDAO;
 import dao.room.RoomDAO;
-import model.RevVO;
 import model.RoomVO;
 
 /**
- * Servlet implementation class RevDetail
+ * Servlet 메인 화면 출력 폼
  */
-@WebServlet("/RevDetail")
-public class RevDetail extends HttpServlet {
+@WebServlet("/BasicMain")
+public class BasicMain extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-	
-	
-    public RevDetail() {
+    public BasicMain() {
         super();
-        
     }
 
 	/**
-	 * @see 예약 상세 조회
+	 * @see 메인화면 출력 처리
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int revNum = Integer.parseInt(request.getParameter("bookNo"));
-		
 		RoomDAO roomDAO = new RoomDAO();
-		RoomVO roomVO = new RoomVO();
-		RevDAO revDAO = new RevDAO();
-		RevVO revVO = new RevVO();
+		List<RoomVO> roomList = roomDAO.selectAll();
 		
-		revVO = revDAO.selectOne(revNum);
-		roomVO = roomDAO.selectOne(revVO.getRoomNo());
+		request.setAttribute("roomList", roomList);
 		
-		request.setAttribute("revVO", revVO);
-		request.setAttribute("roomVO", roomVO);
+		request.getRequestDispatcher("/members/MainForm.jsp").forward(request, response);
 		
-		request.getRequestDispatcher("/admin/RevModify.jsp").forward(request, response);
 	}
 
 	/**

@@ -17,7 +17,6 @@ import javax.servlet.http.HttpServletRequest;
  */
 @WebFilter(description = "한글 인코딩 필터", urlPatterns = { "/*" })
 public class EncoderFilter implements Filter {
-	ServletContext context;
     /**
      * Default constructor. 
      */
@@ -54,7 +53,6 @@ public class EncoderFilter implements Filter {
 	 */
 	public void init(FilterConfig fConfig) throws ServletException {
 		System.out.println("utf-8 인코딩 준비");
-		context = fConfig.getServletContext();
 	}
 
 }
