@@ -76,6 +76,7 @@ public class Login extends HttpServlet {
     	if(result) {
     		if(session == null || session.getAttribute(id) == null) {
     			session.setAttribute("id", id);
+    			out.print("adminLogin");
     		} else out.print("already");
         	out.close();
         	return;
