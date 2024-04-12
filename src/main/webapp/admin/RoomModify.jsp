@@ -133,7 +133,7 @@ input[type="text"]:focus, textarea:focus, select:focus {
 
 
 			<div class="col-md-4"> 
-			<jsp:include page="/include/adminSidebar.jsp" flush="false"/>
+			<jsp:include page="/include/AdminSidebar.jsp" flush="false"/>
 		</div>
 			<div class="rightside">
 				<div style="width: 75%;">

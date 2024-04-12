@@ -46,10 +46,6 @@ public class LoginCheck extends HttpServlet {
 			response.sendRedirect(request.getContextPath() + "/members/MainForm.jsp");
 		
 		
-		
-		
-		
-		
 	}
 
 	/**

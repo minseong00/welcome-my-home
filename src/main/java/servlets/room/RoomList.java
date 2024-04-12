@@ -40,9 +40,10 @@ public class RoomList extends HttpServlet {
 		
 		RequestDispatcher dispatcher = null;
 		
-		if(type == null)
+		if(type == null) {
 			response.sendRedirect(request.getContextPath() + "/LoginCheck");
-		else {
+			return;
+		} else {
 			if(type.equals("member"))
 				dispatcher = request.getRequestDispatcher("/members/RoomList.jsp");
 			else {
