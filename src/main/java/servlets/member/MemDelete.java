@@ -1,6 +1,8 @@
 package servlets.member;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -10,9 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 import dao.member.MemDAO;
 import model.MemVO;
 
-/**
- * Servlet implementation class MemDelete
- */
 @WebServlet("/MemDelete")
 public class MemDelete extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -32,8 +31,15 @@ public class MemDelete extends HttpServlet {
 		memDAO=new MemDAO();
 		memDAO.delete(n);
 		
-		String contextPath = request.getContextPath();
-		response.sendRedirect(contextPath+"/MemList");
+		String sort = request.getParameter("sort");
+		RequestDispatcher dispatcher = null;
+		if (sort.equals("delMyInfo")) {
+			response.sendRedirect("Login");
+		}else
+			response.sendRedirect(request.getContextPath() + "/MemList");
+		
+		//String contextPath = request.getContextPath();
+		//response.sendRedirect(contextPath+"/MemList");
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
