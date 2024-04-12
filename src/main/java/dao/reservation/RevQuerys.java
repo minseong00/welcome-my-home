@@ -6,7 +6,7 @@ public interface RevQuerys {
 	String selectOne = "select * from reservation where bookNo = ?";
 	String deleteRev = "delete from reservation where bookNo = ?";
 	String insertRev = "insert into reservation " + 
-			"(bookDate, roomNo, bookCheck, bookCheckOut, headCount, price, memNo) " +
+			"(bookDate, roomNo, bookCheck, bookCheckOut, headCount, price, memId) " +
 			"values (?, ?, ?, ?, ?, ?, ?)";
 	String updateRev = "update reservation set " +
 			"bookCheck = ? , bookCheckOut = ? , headCount = ? , price = ? " +
