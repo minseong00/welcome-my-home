@@ -16,7 +16,7 @@ import javax.servlet.http.HttpSession;
 /**
  * Servlet Filter implementation class AdminCheckFilter
  */
-@WebFilter("/admin/*")
+@WebFilter( {"/admin/*"})
 public class AdminCheckFilter implements Filter {
 
     /**
@@ -67,7 +67,7 @@ public class AdminCheckFilter implements Filter {
 	 * @see Filter#init(FilterConfig)
 	 */
 	public void init(FilterConfig fConfig) throws ServletException {
-		System.out.println("admin 페이지 접속.... admin 로그인 여부 체크");
+		System.out.println("admin 전용 페이지 접속.... admin 로그인 여부 체크");
 	}
 
 }

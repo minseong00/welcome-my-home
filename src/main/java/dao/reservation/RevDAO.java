@@ -54,6 +54,41 @@ public class RevDAO implements RevQuerys {
 	}
 	
 	/**
+ 	자신의 예약 목록 조회
+ 	@return
+**/
+public List<RevVO> selectMyRev(String _id) {
+	List<RevVO> revList = null;
+	try {
+		conn = DB.dbConnect();
+		this.pstmt = conn.prepareStatement(selectMyRev);
+		this.pstmt.setString(1, _id);
+		this.rs = this.pstmt.executeQuery();
+		revList = new ArrayList<RevVO>();
+		
+		while (this.rs.next()) {
+			RevVO revVO = new RevVO();
+			revVO.setBookNo(this.rs.getInt("bookNo"));
+			revVO.setBookDate(this.rs.getTimestamp("bookDate"));
+			revVO.setRoomNo(this.rs.getInt("roomNo"));
+			revVO.setBookCheck(this.rs.getDate("bookCheck"));
+			revVO.setBookCheckOut(this.rs.getDate("bookCheckOut"));
+			revVO.setHeadCount(this.rs.getInt("headCount"));
+			revVO.setPrice(this.rs.getInt("price"));
+			revVO.setMemId(this.rs.getString("memId"));
+			
+			revList.add(revVO);
+		}
+		
+	} catch (SQLException e) {
+		System.err.println("Rev SelectAll ERR : " + e.getMessage());
+	} finally {
+		DB.close(this.rs, this.pstmt, this.conn);
+	}
+	return revList;
+}
+	
+	/**
 		예약 상세 조회
 		@param int
 		@return
