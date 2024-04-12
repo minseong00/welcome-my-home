@@ -91,39 +91,34 @@ input[type="text"]:focus, textarea:focus, select:focus {
 </style>
 <script src="http://code.jquery.com/jquery-2.2.1.min.js"></script>
 <script type="text/javascript">
-	$(function() {
-		$("#roomAdd").submit(function(event) {
+	$(function(){
+		$('#modify').submit(function(event){
 			event.preventDefault();
-			// 폼데이터 담기
-			var form = document.querySelector("form");
-			var formData = new FormData(form);
-			for (var i = 0; i < filesArr.length; i++) {
-				// 삭제되지 않은 파일만 폼데이터에 담기
-				if (!filesArr[i].is_delete) {
-					formData.append("attach_file", filesArr[i]);
-				}
-			}
-
+			let formData = new FormData(this);
 			$.ajax({
-				method : 'POST',
-				url : "<c:url value='/RoomAdd' />",
+				type: "post",
+				async: false,
+				url: "<c:url value='/RoomModify' />",
 				data : formData,
-				async : false,
-				enctype : 'multipart/form-data',
-				processData : false,
-				contentType : false,
-				success : function() {
-					alert("파일업로드 성공");
-					window.location.replace("${contextPath}/RoomList");
+				enctype:'multipart/form-data',
+				processData: false,
+				contentType: false,
+				success:function() {
+					alert("등록하였습니다.");
+					window.location.replace("${contextPath}/RoomList?type=admin");
 				},
-				error : function(data, desc, err) {
-					alert('에러가 발생 하였습니다.');
-					return;
+				error:function() {
+					alert("등록을 실패하였습니다");
 				}
 			});
-
 		});
 	});
+	
+    function updateHiddenValue(input, fileName) {
+        var filename = input.value.split('\\').pop(); // 파일 경로에서 파일명만 추출
+        var hiddenInput = document.querySelector('input[name="' + fileName + '"]');
+        hiddenInput.value = filename;
+    }
 </script>
 </head>
 <body>
@@ -141,7 +136,7 @@ input[type="text"]:focus, textarea:focus, select:focus {
 					<h4
 						style="margin-left: 260px; font-size: px; font-weight: bold; font-family: arial, verdana,
 						HelveticaNeue, serif;">객실 수정</h4>
-					<form>
+					<form id="modify">
 						<div style="margin-left: 290px;">
 							<div align="right">
 								<button type="submit" class="sky-blue-button">수정</button>
@@ -159,13 +154,13 @@ input[type="text"]:focus, textarea:focus, select:focus {
 									required="required">
 									<option>타입 선택</option>
 									<option value="singleRoom"
-										<c:if test="${ roomVO.roomType eq singleRoom }"> selected = "selected"</c:if>>싱글 룸</option>
+										<c:if test="${ roomVO.roomType eq 'singleRoom' }"> selected = "selected"</c:if>>싱글 룸</option>
 									<option value="twinRoom"
-										<c:if test="${ roomVO.roomType eq twinRoom }"> selected = "selected"</c:if>>트윈 룸</option>
+										<c:if test="${ roomVO.roomType eq 'twinRoom' }"> selected = "selected"</c:if>>트윈 룸</option>
 									<option value="DoubleRoom"
-										<c:if test="${ roomVO.roomType eq DoubleRoom }"> selected = "selected"</c:if>>더블 룸</option>
+										<c:if test="${ roomVO.roomType eq 'DoubleRoom' }"> selected = "selected"</c:if>>더블 룸</option>
 									<option value="TripleRoom"
-										<c:if test="${ roomVO.roomType eq TripleRoom }"> selected = "selected"</c:if>>트리플 룸</option>
+										<c:if test="${ roomVO.roomType eq 'TripleRoom' }"> selected = "selected"</c:if>>트리플 룸</option>
 								</select>
 							</div>
 							<div>
@@ -200,7 +195,8 @@ input[type="text"]:focus, textarea:focus, select:focus {
 								<td>
 									<div class="insert">
 										<label>사진 업로드 &nbsp;&nbsp;</label>
-										<input type="file" name="infoImg" value="${imgVO.infoImg }"/>
+										<input type="file" name="infoImg" onchange="updateHiddenValue(this, 'infoImg_name')" />
+										<input type="hidden" name = "infoImg_name" value="${imgVO.infoImg }">
 										<div class="file-list"></div>
 										<img src="${contextPath }/data/${imgVO.infoImg }" width="400" height="400">
 									</div>
@@ -208,7 +204,8 @@ input[type="text"]:focus, textarea:focus, select:focus {
 								<td>
 									<div class="insert">
 										<label>사진 업로드 &nbsp;&nbsp;</label> 
-										<input type="file" name="file1"  value="${imgVO.img1 }" />
+										<input type="file" name="file1" onchange="updateHiddenValue(this, 'file1_name')"/>
+										<input type="hidden" name = "file1_name" value="${imgVO.img1 }">
 										<div class="file-list"></div>
 										<img src="${contextPath }/data/${imgVO.img1 }" width="400" height="400">
 									</div>
@@ -218,7 +215,8 @@ input[type="text"]:focus, textarea:focus, select:focus {
 								<td>
 									<div class="insert">
 										<label>사진 업로드</label>
-										<input type="file" name="file2"  value="${imgVO.img2 }" />
+										<input type="file" name="file2" onchange="updateHiddenValue(this, 'file2_name')" />
+										<input type="hidden" name = "file2_name" value="${imgVO.img2 }">
 										<div class="file-list"></div>
 										<img src="${contextPath }/data/${imgVO.img2 }" width="400" height="400">
 									</div>
@@ -226,7 +224,8 @@ input[type="text"]:focus, textarea:focus, select:focus {
 								<td>
 									<div class="insert">
 										<label>사진 업로드</label> 
-										<input type="file" name="file3" value="${imgVO.img3 }" />
+										<input type="file" name="file3" onchange="updateHiddenValue(this, 'file3_name')" />
+										<input type="hidden" name = "file3_name" value="${imgVO.img3 }">
 										<div class="file-list"></div>
 										<img src="${contextPath }/data/${imgVO.img3 }" width="400" height="400">
 									</div>
@@ -236,7 +235,8 @@ input[type="text"]:focus, textarea:focus, select:focus {
 								<td>
 									<div class="insert">
 										<label>사진 업로드</label> 
-										<input type="file" name="file4" value="${imgVO.img4 }" />
+										<input type="file" name="file4" onchange="updateHiddenValue(this, 'file4_name')" />
+										<input type="hidden" name = "file4_name" value="${imgVO.img4 }">
 										<div class="file-list"></div>
 										<img src="${contextPath }/data/${imgVO.img4 }" width="400" height="400">
 									</div>
@@ -244,7 +244,8 @@ input[type="text"]:focus, textarea:focus, select:focus {
 								<td>
 									<div class="insert">
 										<label>사진 업로드</label> 
-										<input type="file" name="file5" value="${imgVO.img5 }" />
+										<input type="file" name="file5" onchange="updateHiddenValue(this, 'file5_name')" />
+										<input type="hidden" name = "file5_name" value="${imgVO.img5 }">
 										<div class="file-list"></div>
 										<img src="${contextPath }/data/${imgVO.img5 }" width="400" height="400">
 									</div>
