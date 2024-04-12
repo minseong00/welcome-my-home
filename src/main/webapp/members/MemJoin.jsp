@@ -86,16 +86,59 @@
       });
 	 
 	 </script>
-		
+<style>
+	
+	body {
+ 	
+  background: #f5f5f5; /* 배경색 설정 */
+   font-weight: bold; /* 헤더 폰트를 굵게 */
+}
+table {
+  border: 1px #a39485 solid; /* 테이블의 외곽선 스타일 */
+  font-size: .9em; /* 테이블 내의 폰트 크기 */
+  box-shadow: 0 2px 5px rgba(0,0,0,.25); /* 테이블에 그림자 효과 */
+  
+  border-collapse: collapse; /* 테이블의 보더 라인을 하나로 합침 */
+  border-radius: 10px; /* 테이블 모서리를 둥글게 처리 */
+  overflow: hidden; /* 내용이 넘칠 경우 숨김 처리 */
+  
+}
+td, th {
+  border: 1px solid #a39485; /* 각 셀의 테두리 스타일 */
+  padding: 8px; /* 각 셀의 안쪽 여백 */
+}
+.ftco-footer ftco-bg-dark ftco-section{
+	height: 50px; /* 원하는 높이로 조절 */
+    width: 50%; /* 전체 너비로 조절 */
+}
+.sky-blue-button {
+	padding: 7px 15px;
+	font-size: 16px;
+	background-color: #87CEEB;
+	color: #fff; /* 버튼 텍스트 색상 */
+	transition: background-color 0.3s ease;
+	border: none;
+	border-radius: 50px;
+}
+
+.sky-blue-button:hover {
+	background-color: #00BFFF;
+}
+ 
+</style>
 </head>
 
 <body>
-<form method="post" action="${contextPath}/Join">
-<h1 style="text-align:center">회원 가입창</h1>
-<table style="align-content: center;" border="1" cellspacing="0" celpadding="0">
+<jsp:include page="/include/Header.jsp" flush="false" />
+
+<div style="width: 40%;  margin: auto;">
+<form   method="post" action="${contextPath}/Join">
+<h2 style="text-align:center; margin-bottom: 60px; font-weight: bold;">회원 가입</h2>
+<table style="border:1; margin: auto; " >
+<tbody >
     <tr>
-       <td width="100"><span align="right">아이디</span></td>
-       <td width="400">
+       <td  style="background-color:#73685d; color: #fff; width:200px; height: 70px; " ><span >아이디</span></td>
+       <td >
 	       	<input type="text" name="id" id="t_id">
 	       	<input type="button" value="중복확인" id="double" onclick="fn_process()">
 	       	<br>
@@ -103,34 +146,38 @@
     	</td>
     </tr>
     <tr>
-        <td width="100"><span style="text-align: right;">비밀번호</span></td>
-        <td width="400"><input type="password"  name="pw" id="pw"></td>
+        <td  style="background-color:#73685d; color: #fff; height: 70px;"><span style="text-align: right;">비밀번호</span></td>
+        <td ><input type="password"  name="pw" id="pw"></td>
     </tr>
     <tr>
-        <td width="100"><span style="text-align: right;">비밀번호확인</span></td>
-        <td width="400"><input type="password"  name="pw_confirm" id="pw_confirm">
+        <td  style="background-color:#73685d; color: #fff; height: 70px;"><span style="text-align: right;">비밀번호확인</span></td>
+        <td ><input type="password"  name="pw_confirm" id="pw_confirm">
         				<div id="pw_message"></div>
         </td>
     </tr>
     <tr>
-        <td width="100"><span style="text-align: right;">이름</span></td>
-        <td width="400"><input type="text"  name="name" id="name"></td>
+        <td  style="background-color:#73685d; color: #fff; height: 70px;"><span style="text-align: right;">이름</span></td>
+        <td ><input type="text"  name="name" id="name"></td>
     </tr>
     <tr>
-        <td width="100"><span style="text-align: right;">전화번호</span></td>
-        <td width="400"><input type="text"  name="call" id="call"></td>
+        <td  style="background-color:#73685d; color: #fff; height: 70px;"><span style="text-align: right;">전화번호</span></td>
+        <td ><input type="text"  name="call" id="call"></td>
     </tr>
     <tr>
-        <td width="100"><span style="text-align: right;">이메일</span></td>
-        <td width="400"><input type="text"  name="email" id="email"></td>
+        <td  style="background-color:#73685d; color: #fff; height: 70px;"><span style="text-align: right;">이메일</span></td>
+        <td ><input type="text"  name="email" id="email"></td>
     </tr>
-    <tr>
-        <td width="400" colspan="2">
-	       <input type="submit" value="가입하기">
-	       <input type="reset" value="다시입력">
+    <tr >
+        <td  colspan="2" style="height: 70px; ">
+	       <input type="submit" class="sky-blue-button"value="가입하기">
+	      
+	       <input type="reset" class="sky-blue-button"value="다시입력">
     </td>
     </tr>
+    </tbody>
 </table>
+
 </form>
+</div>
 </body>
 </html>
