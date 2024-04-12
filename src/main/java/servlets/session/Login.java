@@ -59,30 +59,7 @@ public class Login extends HttpServlet {
 		response.setContentType("text/html; charset=utf-8");
 		PrintWriter out = response.getWriter(); 
 
-		if(result) {
-			if(session == null || session.getAttribute("id") == null) {
-				session.setAttribute("id", admin.getAdmin_id());
-				out.print("adminLogin");
-			}
-			else
-				out.print("Already");
-		}else {
-			member.setMem_id(id);
-			member.setMem_pw(pw);
-			result = memDAO.memLogin(member);
-			System.out.println("member result 값 : " + result);
-			if(result) {
-          if(session.isNew() || session.getAttribute("id") == null){
-            session.setAttribute("id", member.getMem_id());
-            out.print("memberLogin");
-          }
-				}
-				else
-					out.print("Already");
-			} else {
-				out.print("fail");
-			}
-		}
+
 			
 		
 		out.close();
