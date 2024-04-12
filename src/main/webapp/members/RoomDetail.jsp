@@ -113,7 +113,7 @@
 					</tr>
 				</table>
 				예약 가능한 캘린더 표시
-				<button id="revBtn">예약하기</button>
+				<button id="revBtn">예약하기</button> <!-- 예약 버튼 클릭시 세션값 확인 -->
 			</div>
 		</div>
 	</div>
