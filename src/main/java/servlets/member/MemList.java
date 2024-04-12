@@ -42,9 +42,8 @@ public class MemList extends HttpServlet {
 		memDAO = new MemDAO();
 
 		ArrayList<MemVO> memList = memDAO.selectList();
-		//System.out.println("========> AdminMemServlet doGet()");
 		request.setAttribute("MemModel", memList);
 
-		request.getRequestDispatcher("/admin/AdminMemList.jsp").forward(request, response);
+		request.getRequestDispatcher("/admins/AdminMemList.jsp").forward(request, response);
 	}
 }

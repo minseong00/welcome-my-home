@@ -45,7 +45,7 @@ public class RevDetail extends HttpServlet {
 		request.setAttribute("revVO", revVO);
 		request.setAttribute("roomVO", roomVO);
 		
-		request.getRequestDispatcher("/admin/RevModify.jsp").forward(request, response);
+		request.getRequestDispatcher("/admins/RevModify.jsp").forward(request, response);
 	}
 
 	/**

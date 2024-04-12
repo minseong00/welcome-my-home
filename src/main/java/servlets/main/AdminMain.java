@@ -36,8 +36,7 @@ public class AdminMain extends HttpServlet {
 		request.setAttribute("memList", memList);
 		request.setAttribute("revList", revList);
 		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/admins/AdminMain.jsp");
-		dispatcher.forward(request, response);
+		request.getRequestDispatcher("/admins/AdminMain.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

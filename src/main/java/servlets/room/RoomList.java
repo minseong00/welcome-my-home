@@ -31,7 +31,6 @@ public class RoomList extends HttpServlet {
 	    RoomDAO roomDAO = new RoomDAO();
 		RoomImgDAO imgDAO = new RoomImgDAO();
 		String type = request.getParameter("type");
-		
 		List<RoomVO> roomList = roomDAO.selectAll();
 		List<RoomImgVO> imgList = imgDAO.selectAll();
 		
@@ -47,7 +46,8 @@ public class RoomList extends HttpServlet {
 			if(type.equals("member"))
 				dispatcher = request.getRequestDispatcher("/members/RoomList.jsp");
 			else {
-				dispatcher = request.getRequestDispatcher("/admin/AdminRoomList.jsp");
+				System.out.println("진입 admin");
+				dispatcher = request.getRequestDispatcher("/admins/AdminRoomList.jsp");
 			}
 			dispatcher.forward(request, response);
 		}

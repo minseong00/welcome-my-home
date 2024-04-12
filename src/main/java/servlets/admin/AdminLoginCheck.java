@@ -54,7 +54,7 @@ public class AdminLoginCheck extends HttpServlet {
 			return;
 		}
 
-		String reqURI = request.getRequestURI().substring(13);
+		String reqURI = request.getRequestURI().substring(19);
 		System.out.println("temp : " + reqURI);
 		request.getRequestDispatcher(reqURI).forward(request, response);
 	}
