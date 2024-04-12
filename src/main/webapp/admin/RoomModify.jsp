@@ -35,40 +35,13 @@ body {
 	height: 80vh; /* 사이드바의 높이를 뷰포트 높이의 80%로 설정 */
 }
 
-.sidebar {
-	background-color: #FFFFFF;
-	font-size: 16px;
-	font-family: "Poppins", sans = serif;
-	font-weight: bold;
-	padding: 0;
-	width: 235px;
-	height: 40vh;
-	z-index: 11;
-	box-shadow: 0 5px 10px 0 rgba(230, 230, 243, 0, 0.88);
-	margin-left: 0.5rem;
-	border-radius: 6px;
-	border: 5px solid;
-	border-color: goldenrod;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
+
 
 .nav li a {
 	position: relative;
 	text-decoration: none; /* 기존의 텍스트 밑줄 제거 */
 }
 
-.nav li a::after {
-	content: "";
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	width: 100%;
-	height: 2px;
-	background-color: brown;
-	opacity: 1; /* 밑줄이 항상 나타나도록 설정 */
-}
 
 .nav {
 	display: inline-block;
@@ -79,35 +52,6 @@ body {
 	align-items: center;
 }
 
-.sidebar .nav {
-	flex-wrap: nowrap;
-	flex-direction: column;
-	margin-bottom: 60px;
-}
-
-.sidebar .nav li a {
-	display: flex;
-	white-space: nowrap;
-	padding: 0.87rem 0.875rem 0.87rem 0.6rem;
-	color: #001737;
-}
-
-.sidebar .nav li {
-	margin-bottom: -1px;
-}
-
-.sidebar .nav li a {
-	text-decoration: none;
-}
-
-.sidebar .nav li a:hover {
-	color: #0056b3;
-	text-decoration: underline;
-}
-
-.sidebar .nav li a span {
-	text-shadow: none;
-}
 
 .rightside {
 	/* 배경색 설정 */
@@ -188,26 +132,15 @@ input[type="text"]:focus, textarea:focus, select:focus {
 		<div class="row">
 
 
-			<nav class="sidebar">
-
-				<ul class="nav">
-					<li><a href="#"> <span>관리자 홈</span>
-					</a></li>
-					<li><a href="#"> <span>회원 예약</span>
-					</a></li>
-					<li><a href="#"> <span>객실정보</span>
-					</a></li>
-					<li><a href="#"> <span>객실등록</span>
-					</a></li>
-				</ul>
-			</nav>
-		
+			<div class="col-md-4"> 
+			<jsp:include page="/include/adminSidebar.jsp" flush="false"/>
+		</div>
 			<div class="rightside">
 				<div style="width: 75%;">
 
 					<h4
-						style="margin-left: 260px; font-size: px; font-weight: bold; font-family: arial, verdana,"
-						HelveticaNeue", serif;">객실 수정</h4>
+						style="margin-left: 260px; font-size: px; font-weight: bold; font-family: arial, verdana,
+						HelveticaNeue, serif;">객실 수정</h4>
 					<form>
 						<div style="margin-left: 290px;">
 							<div align="right">
