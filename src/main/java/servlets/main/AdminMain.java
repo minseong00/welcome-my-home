@@ -36,7 +36,7 @@ public class AdminMain extends HttpServlet {
 		request.setAttribute("memList", memList);
 		request.setAttribute("revList", revList);
 		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/admin/AdminMain.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/admins/AdminMain.jsp");
 		dispatcher.forward(request, response);
 	}
 
