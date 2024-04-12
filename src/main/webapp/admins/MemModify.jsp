@@ -2,7 +2,6 @@
 	pageEncoding="UTF-8" isELIgnored="false" %>
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>  
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt"  prefix="fmt"%>       
 <c:set var="contextPath" value="${pageContext.request.contextPath}"  />  
 <!DOCTYPE html>
 <html>
@@ -25,7 +24,7 @@
 <body>
 	<div>
 	
-	<form action="${contextPath}/MemModify?sort=MemUpdate&type=MemUpdate" method="post">
+	<form action="${contextPath}/admin/MemModify?sort=MemUpdate&type=MemUpdate" method="post">
 	<table border="1" style="text-align: center;">
 
 	<tbody>
@@ -57,7 +56,7 @@
 	<tfoot>
 		<td style="text-align: right;" colspan="2" align=center>
   		<button type="submit" >수정</button>
- 		 <button type="button" onclick="location.href='<c:url value="/MemDelete?id=${MemOne.mem_id}&sort=admin" />'" >삭제</button>
+ 		 <button type="button" onclick="location.href='<c:url value="/admin/MemDelete?id=${MemOne.mem_id}&sort=admin" />'" >삭제</button>
 		</td>
 	</tfoot>
 	</table>
