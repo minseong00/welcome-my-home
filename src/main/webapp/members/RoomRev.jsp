@@ -17,9 +17,7 @@
 <script src="${contextPath}/util/Calendar.js"></script>
 <script src="${contextPath}/util/CountHead.js"></script>
 <style>
-	div {
-		border: 1px solid;
-	}
+	
 	form {
 		display: flex;
 		justify-content: space-between;
@@ -103,8 +101,8 @@
 			<div id="leftDiv"> <!-- 왼쪽 컨테이너 -->
 				<table class="leftTable">
 					<tr>
-						<td>
-							사진
+						<td >
+							사진 
 						</td>
 					</tr>
 					<tr>

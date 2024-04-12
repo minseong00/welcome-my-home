@@ -23,17 +23,18 @@
     <link rel="stylesheet" href="../style/css/ionicons.min.css">
 
     <link rel="stylesheet" href="../style/css/bootstrap-datepicker.css">
-    <link rel="stylesheet" href="../style/css/jquery.timepicker.css">
+   
 
     
     <link rel="stylesheet" href="../style/css/flaticon.css">
     <link rel="stylesheet" href="../style/css/icomoon.css">
     <link rel="stylesheet" href="../style/css/style.css">
+   
 
 </head>
 <body>
 
-    <footer class="ftco-footer ftco-bg-dark ftco-section">
+    <footer class="ftco-footer ftco-bg-dark ftco-section " style="padding: 2em 0;" >
       <div class="container">
         <div class="row mb-5">
           <div class="col">
@@ -108,8 +109,8 @@
   <script src="../style/js/bootstrap-datepicker.js"></script>
   <script src="../style/js/jquery.timepicker.min.js"></script>
   <script src="../style/js/scrollax.min.js"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-  <script src="../style/js/google-map.js"></script>
+
+
   <script src="../style/js/main.js"></script>
     
     
