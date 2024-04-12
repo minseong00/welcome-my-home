@@ -1,6 +1,8 @@
 package servlets.member;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -32,8 +34,15 @@ public class MemDelete extends HttpServlet {
 		memDAO=new MemDAO();
 		memDAO.delete(n);
 		
-		String contextPath = request.getContextPath();
-		response.sendRedirect(contextPath+"/MemList");
+		String sort = request.getParameter("sort");
+		RequestDispatcher dispatcher = null;
+		if (sort.equals("delMyInfo")) {
+			response.sendRedirect("index.jsp");
+		}else
+			dispatcher = request.getRequestDispatcher("/MemList");
+		
+		//String contextPath = request.getContextPath();
+		//response.sendRedirect(contextPath+"/MemList");
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

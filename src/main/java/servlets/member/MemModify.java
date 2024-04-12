@@ -36,7 +36,8 @@ public class MemModify extends HttpServlet {
    		System.out.println(memOne.toString());
    		
    		//System.out.println("========> MemModifyServlet doGet()");
-		RequestDispatcher dispatcher = null;
+		String type = request.getParameter("type");
+   		RequestDispatcher dispatcher = null;
 //		if(type.equals("member"))
 			dispatcher = request.getRequestDispatcher("/members/MyInfo.jsp");
 //		else
