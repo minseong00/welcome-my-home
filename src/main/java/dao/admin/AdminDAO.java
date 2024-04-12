@@ -2,12 +2,11 @@ package dao.admin;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-
-import com.mysql.cj.protocol.Resultset;
-import com.sun.jdi.connect.spi.Connection;
+import java.util.ArrayList;
 
 import dao.connection.MySQLConnector;
 import model.AdminVO;
+import model.MemVO;
 
 public class AdminDAO implements AdminQuerys  {
 	private MySQLConnector DB = null;
