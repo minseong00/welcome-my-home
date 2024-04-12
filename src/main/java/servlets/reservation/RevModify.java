@@ -65,10 +65,10 @@ public class RevModify extends HttpServlet {
 		revVO.setBookNo(Integer.parseInt(request.getParameter("bookNo")));
 		revVO.setBookCheck(date_bookCheck);
 		revVO.setBookCheckOut(date_bookCheckOut);
-		revVO.setHeadCount(0);
-		revVO.setPrice(0);
+		revVO.setHeadCount(Integer.parseInt(request.getParameter("headCount")));
+		revVO.setPrice(Integer.parseInt(request.getParameter("price")));
 		
-		int result = revDAO.RevUpdate(revVO);
+		int result = revDAO.updateRev(revVO);
 		
 		response.setContentType("text/html; charset=utf-8");
 		PrintWriter out = response.getWriter();

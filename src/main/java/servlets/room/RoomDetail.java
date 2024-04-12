@@ -40,8 +40,7 @@ public class RoomDetail extends HttpServlet {
 		request.setAttribute("roomVO", roomVO);
 		request.setAttribute("imgVO", imgVO);
 		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/members/RoomDetail.jsp");
-		dispatcher.forward(request, response);
+		request.getRequestDispatcher("/members/RoomDetail.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

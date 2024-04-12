@@ -1,4 +1,4 @@
-package servlets.admin;
+package servlets.main;
 
 import java.io.IOException;
 import java.util.List;
@@ -19,10 +19,10 @@ import model.RevVO;
  * Servlet implementation class adminMain
  */
 @WebServlet("/adminMain")
-public class adminMain extends HttpServlet {
+public class AdminMain extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    public adminMain() {
+    public AdminMain() {
         super();
     }
 

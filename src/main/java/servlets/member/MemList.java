@@ -45,7 +45,6 @@ public class MemList extends HttpServlet {
 		//System.out.println("========> AdminMemServlet doGet()");
 		request.setAttribute("MemModel", memList);
 
-		RequestDispatcher requestDispatcher = request.getRequestDispatcher("/admin/AdminMemList.jsp");
-		requestDispatcher.forward(request, response);
+		request.getRequestDispatcher("/admin/AdminMemList.jsp").forward(request, response);
 	}
 }

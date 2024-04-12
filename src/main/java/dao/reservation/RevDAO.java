@@ -139,7 +139,7 @@ public class RevDAO implements RevQuerys {
 	Rev update
 	@param RevVO
 	**/
-	public int RevUpdate(RevVO revVO) {
+	public int updateRev(RevVO revVO) {
 		int result = 0;
 		try {
 			this.conn = DB.dbConnect();
