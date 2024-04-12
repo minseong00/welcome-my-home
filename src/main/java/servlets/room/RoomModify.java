@@ -65,7 +65,7 @@ public class RoomModify extends HttpServlet {
 //		System.out.println(roomVO.toString());
 		System.out.println(imgVO.toString());
 		
-		request.getRequestDispatcher("/admin/RoomModify.jsp").forward(request, response);
+		request.getRequestDispatcher("/admins/RoomModify.jsp").forward(request, response);
 	}
 
 	/**

@@ -34,12 +34,10 @@ public class MemDelete extends HttpServlet {
 		String sort = request.getParameter("sort");
 		RequestDispatcher dispatcher = null;
 		if (sort.equals("delMyInfo")) {
-			response.sendRedirect("Login");
+			response.sendRedirect(request.getContextPath() + "/Login");
 		}else
 			response.sendRedirect(request.getContextPath() + "/MemList");
 		
-		//String contextPath = request.getContextPath();
-		//response.sendRedirect(contextPath+"/MemList");
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

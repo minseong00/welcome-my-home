@@ -45,7 +45,7 @@ public class MemModify extends HttpServlet {
 		if (type.equals("MemUpdate")) {	//마이페이지 정보수정
 			dispatcher = request.getRequestDispatcher("/members/MyInfo.jsp");
 		} else {						//관리자 회원정보수정
-			dispatcher = request.getRequestDispatcher("/admin/MemModify.jsp");
+			dispatcher = request.getRequestDispatcher("/admins/MemModify.jsp");
 		}
 		dispatcher.forward(request, response);
 	}

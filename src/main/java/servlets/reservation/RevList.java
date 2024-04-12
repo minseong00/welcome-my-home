@@ -47,7 +47,7 @@ public class RevList extends HttpServlet {
 			dispatcher = request.getRequestDispatcher("/members/RevCalendar.jsp");
 			break;
 		case "admin":
-			dispatcher = request.getRequestDispatcher("/admin/AdminRevList.jsp");
+			dispatcher = request.getRequestDispatcher("/admins/AdminRevList.jsp");
 			break;
 		case "myInfo":
 			revList = revDAO.selectMyRev("id");
