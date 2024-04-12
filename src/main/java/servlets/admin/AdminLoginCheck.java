@@ -12,7 +12,7 @@ import javax.servlet.http.HttpSession;
 /**
  * Servlet implementation class AdminLoginCheck
  */
-@WebServlet("/AdminLoginCheck")
+@WebServlet("/admin/*")
 public class AdminLoginCheck extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -54,9 +54,9 @@ public class AdminLoginCheck extends HttpServlet {
 			return;
 		}
 
-		String reqURI = request.getRequestURI();
+		String temp = request.getRequestURI().substring(7);
+		String[] reqURI = temp.split("?");
 		
-		
-		
+		request.getRequestDispatcher(reqURI[0]).forward(request, response);
 	}
 }
