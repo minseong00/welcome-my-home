@@ -36,7 +36,6 @@ public class JoinIDCheck extends HttpServlet {
 		PrintWriter writer = response.getWriter();
 
 		String id = (String) request.getParameter("id");
-		System.out.println("id = " + id);
 		
 			AdminDAO adminDAO = new AdminDAO();
 			MemDAO memberDAO = new MemDAO();
