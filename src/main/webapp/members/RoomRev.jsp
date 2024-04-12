@@ -86,10 +86,57 @@
 		text-align: right;
 		font-size: 15pt;
 	}
-</style>
-<script>
+	img {
+    width: 300px;
+    height: auto; /* 이미지의 가로 세로 비율을 유지하면서 가로 너비를 300px로 지정 */
+}
+ .slider {
+        width: 600px; /* 슬라이드의 너비 */
+        overflow: hidden; /* 넘치는 이미지 숨김 */
+        position: relative; /* 상대 위치 지정 */
+    }
+    .slider ul {
+        list-style-type: none; /* 리스트 스타일 제거 */
+        margin: 0; /* 마진 제거 */
+        padding: 0; /* 패딩 제거 */
+        width: 1800px; /* 모든 이미지 너비의 합 */
+        transition: margin-left 0.5s; /* 애니메이션 속성 추가 */
+    }
+    .slider ul li {
+        float: left; /* 왼쪽으로 정렬 */
+        width: 600px; /* 이미지 너비 */
+    }
+    /* 이전/다음 버튼 스타일 */
+    .prev, .next {
+        cursor: pointer; /* 커서 모양 변경 */
+        position: absolute; /* 절대 위치 지정 */
+        top: 50%; /* 상단 여백 */
+        transform: translateY(-50%); /* 수직 정렬 */
+        background-color: rgba(0, 0, 0, 0.5); /* 배경색 */
+        color: white; /* 글자색 */
+        padding: 10px; /* 안쪽 여백 */
+        z-index: 1; /* 위에 표시 */
+    }
+    .prev {
+        left: 0; /* 왼쪽에 배치 */
+    }
+    .next {
+        right: 0; /* 오른쪽에 배치 */
+    }
+   .image-container {
+    width: 200px; /* 이미지 컨테이너의 너비를 설정합니다. */
+    height: 200px; /* 이미지 컨테이너의 높이를 설정합니다. */
+    overflow: hidden; /* 이미지가 넘치는 경우를 처리합니다. */
+  }
 
-</script>
+  .image-container img {
+    width: 100%; /* 이미지의 너비를 부모 요소에 맞게 설정합니다. */
+    height: auto; /* 이미지의 높이를 자동으로 조절하여 비율을 유지합니다. */
+    display: block; /* 이미지를 블록 요소로 표시합니다. */
+  }
+</style>
+
+
 </head>
 <body>
 	<div id="container"> <!-- 메인 컨테이너 -->
@@ -100,12 +147,41 @@
 		
 			<div id="leftDiv"> <!-- 왼쪽 컨테이너 -->
 				<table class="leftTable">
-					<tr>
-						<td >
-							사진 
-						</td>
-					</tr>
-					<tr>
+					  <div class="slider">
+        <ul class="visual_img">
+            <!-- 이미지 리스트 -->
+            <div class="prev">&lt;</div>
+            <li  class="image-container"><img src="${contextPath }/style/images/airport.jpg" alt="Image 1" ></li>
+            <li  class="image-container"><img src="${contextPath }/style/images/bg.jpg" alt="Image 2" ></li>
+            <li  class="image-container"><img src="${contextPath }/style/images/hospital.jpg" alt="Image 3" ></li>
+            <div class="next">&gt;</div>
+        </ul>
+    </div>
+    <!-- 이전/다음 버튼 -->
+    
+
+    <!-- 슬라이드 스크립트 -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function () {
+            $(".visual_img li:last").prependTo(".visual_img");
+
+            $(".next").click(function() {
+                $(".visual_img").animate({marginLeft: "-=600px"}, function () {
+                    $(".visual_img li:first").appendTo(".visual_img");
+                    $(".visual_img").css({marginLeft: 0});
+                });
+            });
+
+            $(".prev").click(function() {
+                $(".visual_img").animate({marginLeft: "+=600px"}, function () {
+                    $(".visual_img li:last").prependTo(".visual_img");
+                    $(".visual_img").css({marginLeft: 0});
+                });
+            });
+        });
+    </script>
+						<tr>
 						<td>
 							이름
 						</td>
