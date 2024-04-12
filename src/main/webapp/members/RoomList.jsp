@@ -50,9 +50,10 @@
 	    padding: 20px;
 	    box-sizing: border-box; /* 패딩을 요소의 크기에 포함시킵니다. */
 	}
-	.room {
+	.room_ {
 		width: 200px;
 		margin-left: 20px;
+		align-items: right;
 	}
 	.lineDiv {
 		flex: 1;
@@ -119,12 +120,12 @@
 				            <c:if test="${endIndex > (line + 1) * 3}">
 				                <c:set var="endIndex" value="${(line + 1) * 3}" />
 				            </c:if>
-				            <c:forEach var="room" items="${roomVO }" begin="${line*3 }" end="${endIndex - 1}">
-								<div class="room"> <!-- 첫번째 요소 -->
+				            <c:forEach var="room" items="${roomVO }" begin="${line*3 }" end="${endIndex - 1}" varStatus="loop">
+								<div class="room_"> <!-- 첫번째 요소 -->
 									<table class="leftTable">
 										<tr>
 											<td>
-											
+												<img alt="" src="${contextPath }/data/${imgList[loop.index].img1}" style="width: 150px;">
 											</td>
 										</tr>
 										<tr>
@@ -144,7 +145,7 @@
 										</tr>
 										<tr>
 											<td align="center">
-												<input type="button" value="Detail" onclick=""/>
+												<input type="button" value="Detail" onclick="location.href='<c:url value="/RoomDetail?roomNo=${room.roomNo }" />'" />
 											</td>
 										</tr>
 										

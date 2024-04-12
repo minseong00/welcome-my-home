@@ -87,7 +87,7 @@
 		</div>
 		<div id="infoContainer">
 			<div id="info1">
-				룸설명 이미지
+				<img alt="" src="${contextPath }/data/${imgVO.infoImg }" style="width: 100%"><!-- 룸 설명 이미지 -->
 			</div>
 			<div id="info2">
 				<table>
@@ -113,7 +113,7 @@
 					</tr>
 				</table>
 				예약 가능한 캘린더 표시
-				<button id="revBtn">예약하기</button> <!-- 예약 버튼 클릭시 세션값 확인 -->
+				<button id="revBtn" onclick="location.href='${contextPath}/RevInsert?roomNo=${roomVO.roomNo }'">예약하기</button> <!-- 예약 버튼 클릭시 세션값 확인 -->
 			</div>
 		</div>
 	</div>
