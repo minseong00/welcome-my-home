@@ -27,14 +27,12 @@ public class MemDAO implements MemberQuerys{
 		
 		try {
 			conn = DB.dbConnect();
-			System.out.println("dao id, pw 값 : " + member.getMem_id() + " / " + member.getMem_pw());
-			pstmt = conn.prepareStatement(memID);
+			pstmt = conn.prepareStatement(memLogin);
 			pstmt.setString(1, member.getMem_id());
 			rs = pstmt.executeQuery();
 			if(rs.next()) {				// 사용자 존재여부 확인
 				id = rs.getString("memId");
 				pw = rs.getString("memPw");
-				System.out.println("member id : " + id + " / " + "member pw : " + pw);
 		           if (member.getMem_id().equals(id) && member.getMem_pw().equals(pw))
 		                result = true;	// 로그인성공
 		           else {
@@ -62,7 +60,7 @@ public class MemDAO implements MemberQuerys{
 		
 		try {
 			conn = DB.dbConnect();
-			pstmt = conn.prepareStatement(memCheck);
+			pstmt = conn.prepareStatement(memIDCheck);
 			pstmt.setString(1, id);
 			rs = pstmt.executeQuery();
 			

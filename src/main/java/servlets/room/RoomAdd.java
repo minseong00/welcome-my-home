@@ -27,7 +27,7 @@ import util.SplitName;
 public class RoomAdd extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	/* 파일 절대 경로 변수 */
-	private static final String UPLOAD = "C:/java_project/mini_project/src/main/webapp/data"; 
+	private static final String UPLOAD = "C:/java_project/mini_project/src/main/webapp/data/"; 
 	
 	RoomDAO roomDAO = null;
 	RoomImgDAO imgDAO = null;

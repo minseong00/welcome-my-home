@@ -40,7 +40,7 @@
         <div class="navbar justify-content-end flex-row" id="ftco-nav"> 
             <ul class="navbar-nav flex-row" style="margin-left: 20px;"> 
                
-                <li class="nav-item" style="margin-left: 20px;"><a href="${contextPath}/RevList" class="nav-link">예약</a></li> <!-- 스타일 추가 -->
+                <li class="nav-item" style="margin-left: 20px;"><a href="${contextPath}/RevList?type=calendar" class="nav-link">예약목록</a></li> <!-- 스타일 추가 -->
                 <li class="nav-item" style="margin-left: 20px;"><a href="${contextPath}/RoomList?type=member" class="nav-link">객실목록</a></li> <!-- 스타일 추가 -->
                 <li class="nav-item" style="margin-left: 20px;"><a href="${contextPath}/members/Conven.jsp" class="nav-link">주변정보</a></li> <!-- 스타일 추가 -->
                 

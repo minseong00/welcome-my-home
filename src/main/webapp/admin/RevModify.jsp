@@ -32,7 +32,7 @@
 		<div class="row justify-content-center">
 		
 			<div class="col-md-4"> 
-				<jsp:include page="/include/adminSidebar.jsp" flush="false"/>
+				<jsp:include page="/include/AdminSidebar.jsp" flush="false"/>
 			</div>
 		
 			<div class="rightside">

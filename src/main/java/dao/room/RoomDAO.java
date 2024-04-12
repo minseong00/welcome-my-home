@@ -172,25 +172,25 @@ public class RoomDAO implements RoomQuerys {
 		int roomNo = 0;
 		try {
 			this.conn = DB.dbConnect();
-			this.pstmt = this.conn.prepareStatement(update);
+			this.pstmt = this.conn.prepareStatement(update, Statement.RETURN_GENERATED_KEYS);
 			this.pstmt.setString(1, roomVO.getRoomName());
 			this.pstmt.setString(2, roomVO.getRoomType());
 			this.pstmt.setString(3, roomVO.getRoomDetail());
 			this.pstmt.setInt(4, roomVO.getHeadCount());
 			this.pstmt.setInt(5, roomVO.getRoomCost());
 			this.pstmt.setInt(6, roomVO.getRoomNo());
-			int rs = this.pstmt.executeUpdate();
-			if(rs < 0) {
+			int result = this.pstmt.executeUpdate();
+			if(result < 0) {
 				System.err.println("update room rs err!! ");
 			}
 			// Img 삽입을 위한 roomNo 추출
-			this.rs = pstmt.getGeneratedKeys();
-			roomNo = this.rs.getInt(1);
+//			this.rs = pstmt.getGeneratedKeys();
+//			roomNo = this.rs.getInt(1);
 			
 		}catch (SQLException e) {
 			System.err.println("update room : " + e.getMessage());
 		} finally {
-			DB.close(null, this.pstmt, this.conn);
+			DB.close(this.rs, this.pstmt, this.conn);
 		}
 		return roomNo;
 	}

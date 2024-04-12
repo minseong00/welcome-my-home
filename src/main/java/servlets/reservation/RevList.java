@@ -32,27 +32,42 @@ public class RevList extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		RevDAO revDAO = new RevDAO();
 		RoomDAO roomDAO = new RoomDAO();
-		
-		
-		List<RevVO> revList = revDAO.selectAll();
-		List<RoomVO> roomList = roomDAO.selectName();
-		
-		
+		List<RevVO> revList = null;
 		String type = request.getParameter("type");
 		
-		request.setAttribute("revList", revList);
-		request.setAttribute("roomNames", roomList);
 		RequestDispatcher dispatcher = null;
 		
-		if(type == null)
+		if(type == null) {
 			response.sendRedirect(request.getContextPath() + "/LoginCheck");
-		else {
-			if(type.equals("member"))
-				dispatcher = request.getRequestDispatcher("/members/RevCalendar.jsp");
-			else 
-				dispatcher = request.getRequestDispatcher("/admin/AdminRevList.jsp");
-			dispatcher.forward(request, response);
+			return;
 		}
+		
+		switch (type) {
+		case "calendar":
+			dispatcher = request.getRequestDispatcher("/members/RevCalendar.jsp");
+			break;
+		case "admin":
+			dispatcher = request.getRequestDispatcher("/admin/AdminRevList.jsp");
+			break;
+		case "myInfo":
+			revList = revDAO.selectMyRev("id");
+			request.setAttribute("revList", revList);
+			dispatcher = request.getRequestDispatcher("/members/MyRev.jsp");
+			break;
+		default:
+			response.sendRedirect(request.getContextPath() + "/BasicMain");
+			return;
+		}
+		
+		if(!type.equals("myInfo")) {
+			revList = revDAO.selectAll();
+			List<RoomVO> roomList = roomDAO.selectName();
+
+			request.setAttribute("revList", revList);
+			request.setAttribute("roomNames", roomList);
+		}
+		
+		dispatcher.forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

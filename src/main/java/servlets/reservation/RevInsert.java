@@ -35,6 +35,14 @@ public class RevInsert extends HttpServlet {
 	 * @see 예약 화면으로 이동
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HttpSession session = request.getSession(false);
+		String idType = (String)session.getAttribute("idType");
+		
+		if(session.getAttribute("id") == null || idType == null || idType.equals("admin")) {
+			response.sendRedirect("/common/Login.jsp");
+			return;
+		}
+		
 		int roomNum = Integer.parseInt(request.getParameter("roomNo"));
 		
 		RoomDAO roomDAO = new RoomDAO();
@@ -42,8 +50,7 @@ public class RevInsert extends HttpServlet {
 		
 		roomVO = roomDAO.selectOne(roomNum);
 		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/members/RoomRev.jsp");
-		dispatcher.forward(request, response);
+		request.getRequestDispatcher("/members/RoomRev.jsp").forward(request, response);
 	}
 
 	/**
