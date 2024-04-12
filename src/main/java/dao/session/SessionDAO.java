@@ -17,11 +17,10 @@ public class SessionDAO implements SessionQuerys {
 	}
 
 	/**
-	 * session 처리
+	 * 관리자, 멤버 확인
 	 **/
 	public String loginCheck(String _id) {
 		String result = null;
-		String id = null;
 		
 		try {
 			conn = DB.dbConnect();
@@ -45,5 +44,5 @@ public class SessionDAO implements SessionQuerys {
 		}
 		return result;
 	}
-
+	
 }
