@@ -124,7 +124,7 @@
 									<table class="leftTable">
 										<tr>
 											<td>
-												<img src="">
+											
 											</td>
 										</tr>
 										<tr>
