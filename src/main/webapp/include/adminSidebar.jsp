@@ -75,6 +75,11 @@
 				</a>
 			</li>
 			<li>
+				<a href="${contextPath }/MemList" class="nav-link">
+					<span>회원정보</span>
+				</a>
+			</li>
+			<li>
 				<a href="#">
 					<span>회원 예약</span>
 				</a>

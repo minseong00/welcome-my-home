@@ -10,8 +10,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.apache.jasper.tagplugins.jstl.core.Out;
-
 import dao.admin.AdminDAO;
 import dao.member.MemDAO;
 import model.AdminVO;
@@ -75,7 +73,7 @@ public class Login extends HttpServlet {
 			System.out.println("member result 값 : " + result);
 			if(result) {
 				if(session.isNew() || session.getAttribute("id") == null){
-					session.setAttribute("id", admin.getAdmin_id());
+					session.setAttribute("id", member.getMem_id());
 					out.print("memberLogin");
 				}
 				else

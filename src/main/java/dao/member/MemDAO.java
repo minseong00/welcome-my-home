@@ -132,22 +132,19 @@ public class MemDAO implements MemberQuerys{
 	 **/
 	public MemVO selectOne(String id) {
 		MemVO member = null;
-		
 		try {
-			member = new MemVO();
-			conn = DB.dbConnect();
-			pstmt = conn.prepareStatement(selectOne);
-			pstmt.setString(1, id);
-			rs = pstmt.executeQuery();
-			
+	        conn = DB.dbConnect();
+	        pstmt = conn.prepareStatement(selectOne);
+	        pstmt.setString(1, id);
+	        rs = pstmt.executeQuery();
 			if(rs.next()) {
 				member = new MemVO();
-				member.setMem_id(rs.getString("memid"));
-				member.setMem_pw(rs.getString("mempw"));
-				member.setMem_name(rs.getString("memname"));
-				member.setMem_call(rs.getString("memcall"));
-				member.setMem_email(rs.getString("mememail"));
-				
+				member.setMem_no(rs.getInt("memNo"));
+				member.setMem_id(rs.getString("memId"));
+				member.setMem_pw(rs.getString("memPw"));
+				member.setMem_name(rs.getString("memName"));
+				member.setMem_call(rs.getString("memCall"));
+				member.setMem_email(rs.getString("memEmail"));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

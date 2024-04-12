@@ -25,7 +25,7 @@
 
 <body>
  <h1 class="cls1">마이페이지</h1>
-<form action="${contextPath}/MemModify" method="post">
+<form action="${contextPath}/MemModify?sort=modMyInfo&type=MemUpdate" method="post">
  <table align="center" >
     <tr>
      <td width="200"><p align="right" >고객명</td>
@@ -50,6 +50,7 @@
    <tr align="center" >
    		<td style="text-align: right;" colspan="2" align=center>
        <input type="reset" value="다시입력" >
+       <input type="hidden" name="type" value="MemUpdate">
        <button type="submit" >수정하기</button>
        <button type="button" onclick="location.href='<c:url value="/MemDelete?id=${MemOne.mem_id}&sort=delMyInfo"/>'">탈퇴하기</button> 
       </td>

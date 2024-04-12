@@ -46,7 +46,7 @@
                 
                 <c:choose>
                 	<c:when test="${sessionScope.idType eq 'member' }">
-                		<li class="nav-item" style="margin-left: 20px;"><a href="${contextPath}/MemModify" class="nav-link">내 정보</a></li> <!-- 스타일 추가 -->
+                		<li class="nav-item" style="margin-left: 20px;"><a href="${contextPath}/MemModify?type=MemUpdate" class="nav-link">내 정보</a></li> <!-- 스타일 추가 -->
                 		<li class="nav-item" style="margin-left: 20px;"><a href="${contextPath}/Login" class="nav-link">로그아웃</a></li> <!-- 스타일 추가 -->
                 	</c:when>
                 	<c:when test="${sessionScope.idType eq 'admin' }">

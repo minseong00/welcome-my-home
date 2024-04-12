@@ -12,9 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 import dao.member.MemDAO;
 import model.MemVO;
 
-/**
- * Servlet implementation class MemDelete
- */
 @WebServlet("/MemDelete")
 public class MemDelete extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -37,9 +34,9 @@ public class MemDelete extends HttpServlet {
 		String sort = request.getParameter("sort");
 		RequestDispatcher dispatcher = null;
 		if (sort.equals("delMyInfo")) {
-			response.sendRedirect("index.jsp");
+			response.sendRedirect("Login");
 		}else
-			dispatcher = request.getRequestDispatcher("/MemList");
+			response.sendRedirect(request.getContextPath() + "/MemList");
 		
 		//String contextPath = request.getContextPath();
 		//response.sendRedirect(contextPath+"/MemList");
