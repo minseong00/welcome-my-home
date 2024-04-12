@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <c:set var="contextPath" value="${pageContext.request.contextPath }"></c:set>
     
 <!DOCTYPE html>
@@ -66,7 +65,7 @@
 								<td><!-- 최대 인원 --><c:out value="${room.headCount }"></c:out></td>
 								<td><!-- 가격 --><c:out value="${room.roomCost }"></c:out></td>
 								<td>
-									<span id="detail" onclick="location.href='${contextPath }/RoomModify?roomNo=${room.roomNo }'">상세보기</span>
+									<span id="detail" onclick="location.href='${contextPath }/admin/RoomModify?roomNo=${room.roomNo }'">상세보기</span>
 								</td>
 							</tr>
 						</c:forEach>

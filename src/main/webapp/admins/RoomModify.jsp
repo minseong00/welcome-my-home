@@ -98,14 +98,14 @@ input[type="text"]:focus, textarea:focus, select:focus {
 			$.ajax({
 				type: "post",
 				async: false,
-				url: "<c:url value='/RoomModify' />",
+				url: "<c:url value='/admin/RoomModify' />",
 				data : formData,
 				enctype:'multipart/form-data',
 				processData: false,
 				contentType: false,
 				success:function() {
 					alert("등록하였습니다.");
-					window.location.replace("${contextPath}/RoomList?type=admin");
+					window.location.replace("${contextPath}/admin/RoomList?type=admin");
 				},
 				error:function() {
 					alert("등록을 실패하였습니다");
@@ -141,7 +141,7 @@ input[type="text"]:focus, textarea:focus, select:focus {
 							<div align="right">
 								<button type="submit" class="sky-blue-button">수정</button>
 								<button class="sky-blue-button"
-									onclick="location.href='<c:url value="/RoomDelete?roomNo=${roomVO.roomNo }" /> '">삭제</button>
+									onclick="location.href='<c:url value="/abmin/RoomDelete?roomNo=${roomVO.roomNo }" /> '">삭제</button>
 							</div>
 							<div>
 								<label>객실 이름 &nbsp;&nbsp;</label> 

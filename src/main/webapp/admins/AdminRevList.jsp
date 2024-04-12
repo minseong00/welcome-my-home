@@ -76,7 +76,7 @@
 								<td><!-- 인원 수 --></td>
 								<td><!-- 예약 가격 --></td>
 								<td>
-									<span id="detail" onclick="location.href='${contextPath }/RoomModify?roomNo=${Rev.bookNo }' ">상세보기</span>
+									<span id="detail" onclick="location.href='${contextPath }/admin/RoomModify?roomNo=${Rev.bookNo }' ">상세보기</span>
 								</td>
 							</tr>
 						</c:forEach>

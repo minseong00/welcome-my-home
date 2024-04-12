@@ -75,7 +75,7 @@
 				</a>
 			</li>
 			<li>
-				<a href="${contextPath }/MemList" class="nav-link">
+				<a href="${contextPath }/admin/MemList" class="nav-link">
 					<span>회원정보</span>
 				</a>
 			</li>
@@ -85,12 +85,12 @@
 				</a>
 			</li>
 			<li>
-				<a href="${contextPath }/RoomList?type=admin" class="nav-link">
+				<a href="${contextPath }/admin/RoomList?type=admin" class="nav-link">
 					<span>객실정보</span>
 				</a>
 			</li>
 			<li>
-				<a href="${contextPath }/admin/RoomAdd.jsp" class="nav=link">
+				<a href="${contextPath }/admins/RoomAdd.jsp" class="nav=link">
 					<span>객실등록</span>
 				</a>
 			</li>

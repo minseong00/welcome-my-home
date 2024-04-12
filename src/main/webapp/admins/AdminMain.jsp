@@ -36,10 +36,10 @@
 	        <div class="rightside">
 	            <div class="include-gap" >
 	                <div>
-	                    <jsp:include page="/admin/MemTable.jsp" flush="false"/>
+	                    <jsp:include page="/admins/MemTable.jsp" flush="false"/>
 	                </div>
 	                <div class="include-gap">
-	                    <jsp:include page="/admin/RevTable.jsp" flush="false"/>
+	                    <jsp:include page="/admins/RevTable.jsp" flush="false"/>
 	                </div>
 	            </div>
 	        </div>
