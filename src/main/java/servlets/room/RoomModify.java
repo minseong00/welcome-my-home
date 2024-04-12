@@ -1,37 +1,41 @@
 package servlets.room;
 
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.util.Collection;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import com.oreilly.servlet.MultipartRequest;
-import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
+import javax.servlet.http.Part;
 
 import dao.room.RoomDAO;
 import dao.roomImg.RoomImgDAO;
 import model.RoomImgVO;
 import model.RoomVO;
+import util.SplitName;
 
 /**
  * Servlet implementation class RoomModifyController
  */
 @WebServlet("/RoomModify")
+@MultipartConfig
 public class RoomModify extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private static final String UPLOAD = "C:/projectMini/mini_project/src/main/webapp/data"; 
-	private static final String ENCTYPE = "UTF-8";
-	private static final int MAXSIZE = 10*1024*1024;
-	
+	private static final String UPLOAD = "C:/java_project/mini_project/src/main/webapp/data"; 
+
     RoomDAO roomDAO = null;
     RoomImgDAO imgDAO = null;
     RoomVO roomVO = null;
     RoomImgVO imgVO = null;
+    
   
     /**
      * @see HttpServlet#HttpServlet()
@@ -58,7 +62,8 @@ public class RoomModify extends HttpServlet {
 		request.setAttribute("roomVO", roomVO);
 		request.setAttribute("imgVO", imgVO);
 		
-		System.out.println(roomVO.toString());
+//		System.out.println(roomVO.toString());
+		System.out.println(imgVO.toString());
 		
 		request.getRequestDispatcher("/admin/RoomModify.jsp").forward(request, response);
 	}
@@ -75,36 +80,63 @@ public class RoomModify extends HttpServlet {
 		roomVO = new RoomVO();
 		imgVO = new RoomImgVO();
 		
+		
 		File uploadDir = new File(UPLOAD);
 		// 폴더 없으면 정해진 주소에 폴더 생성
 		if(!uploadDir.exists()) {
 			uploadDir.mkdirs();
 		}
 		
-		MultipartRequest multi =  new MultipartRequest(request, UPLOAD, MAXSIZE, ENCTYPE, new DefaultFileRenamePolicy());
-		
-		roomVO.setRoomNo(Integer.parseInt(multi.getParameter("roomNo")));
-		roomVO.setRoomName(multi.getParameter("roomName"));
-		roomVO.setRoomType(multi.getParameter("roomType"));
-		roomVO.setHeadCount(Integer.parseInt(multi.getParameter("headCount")));
-		roomVO.setRoomCost(Integer.parseInt(multi.getParameter("roomCost")));
-		roomVO.setRoomDetail(multi.getParameter("detailText"));
+		Collection<Part> parts = request.getParts();
+		for (Part part : parts) {
+			if(part.getContentType() != null) {
+				String fileName = SplitName.FileName(part);
+				
+				
+				String savePath = UPLOAD + File.separator + fileName;
+				
+				try {
+					InputStream inputStream = part.getInputStream();
+					OutputStream outputStream = new FileOutputStream(savePath);
+					
+					byte[] buffer = new byte[1024];
+					
+					int bytesRead;
+					if ((bytesRead = inputStream.read(buffer)) != -1) {
+						outputStream.write(buffer, 0, bytesRead);
+					}
+					System.out.println("파일이 저장 되었습니다." + savePath);
+					
+					outputStream.close();
+					inputStream.close();
+				} catch (IOException e) {
+					System.err.println("IOException ERR : " + e.getMessage());
+				}
+			}
+		}
+
+		roomVO.setRoomNo(Integer.parseInt(request.getParameter("roomNo")));
+		roomVO.setRoomName(request.getParameter("roomName"));
+		roomVO.setRoomType(request.getParameter("roomType"));
+		roomVO.setHeadCount(Integer.parseInt(request.getParameter("headCount")));
+		roomVO.setRoomCost(Integer.parseInt(request.getParameter("roomCost")));
+		roomVO.setRoomDetail(request.getParameter("detailText"));
 		
 		roomDAO.roomUpdate(roomVO);
 		
-		imgVO.setRoomNo(Integer.parseInt(multi.getParameter("roomNo")));
-		imgVO.setInfoImg(multi.getFilesystemName("infoImg"));
-		imgVO.setInfoImg(multi.getFilesystemName("file1"));
-		imgVO.setInfoImg(multi.getFilesystemName("file2"));
-		imgVO.setInfoImg(multi.getFilesystemName("file3"));
-		imgVO.setInfoImg(multi.getFilesystemName("file4"));
-		imgVO.setInfoImg(multi.getFilesystemName("file5"));
-		
+		imgVO.setRoomNo(Integer.parseInt(request.getParameter("roomNo")));
+
+		imgVO.setInfoImg(request.getParameter("infoImg_name"));
+		imgVO.setImg1(request.getParameter("file1_name"));
+		imgVO.setImg2(request.getParameter("file2_name"));
+		imgVO.setImg3(request.getParameter("file3_name"));
+		imgVO.setImg4(request.getParameter("file4_name"));
+		imgVO.setImg5(request.getParameter("file5_name"));
+	
 		imgDAO.updateImg(imgVO);
-		
+		System.out.println(imgVO.toString());
 		
 		
 		
 	}
-
 }

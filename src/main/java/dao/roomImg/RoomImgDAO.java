@@ -68,11 +68,12 @@ MySQLConnector DB = null;
 			
 			if (this.rs.next()) {
 				imgVO = new RoomImgVO();
+				imgVO.setRoomNo(this.rs.getInt("roomNo"));
 				imgVO.setImg1(this.rs.getString("img1"));
-				imgVO.setImg1(this.rs.getString("img2"));
-				imgVO.setImg1(this.rs.getString("img3"));
-				imgVO.setImg1(this.rs.getString("img4"));
-				imgVO.setImg1(this.rs.getString("img5"));
+				imgVO.setImg2(this.rs.getString("img2"));
+				imgVO.setImg3(this.rs.getString("img3"));
+				imgVO.setImg4(this.rs.getString("img4"));
+				imgVO.setImg5(this.rs.getString("img5"));
 				imgVO.setInfoImg(this.rs.getString("infoImg"));
 				
 			}
@@ -100,13 +101,14 @@ MySQLConnector DB = null;
 			this.pstmt.setString(3, imgVO.getImg3());
 			this.pstmt.setString(4, imgVO.getImg4());
 			this.pstmt.setString(5, imgVO.getImg5());
-			this.pstmt.setInt(6, imgVO.getRoomNo());
+			this.pstmt.setString(6, imgVO.getInfoImg());
+			this.pstmt.setInt(7, imgVO.getRoomNo());
 			result = this.pstmt.executeUpdate();
 			
 		} catch (SQLException e) {
 			System.err.println("RoomImg SelectOne ERR : " + e.getMessage());
 		} finally {
-			DB.close(this.rs, this.pstmt, this.conn);
+			DB.close(null, this.pstmt, this.conn);
 		}
 		
 		return result;
