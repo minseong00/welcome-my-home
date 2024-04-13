@@ -41,7 +41,7 @@ form {
 	display: flex;
 	flex-direction: column; /* 내부 요소를 세로로 정렬합니다. */
 	flex: 0 0 calc(60% - 10px); /* 부모 컨테이너 너비의 60%에서 10px를 뺀 값으로 설정합니다. */
-	padding: 20px;
+	padding: 10px;
 	margin-right: 10px;
 	align-items: center; /* 내부 요소를 오른쪽으로 정렬합니다. */
 }
@@ -50,7 +50,12 @@ form {
 	width: 100%;
 	text-align: center;
 }
-
+.leftTable td {
+    padding-right: 250px; /* 셀 내용을 왼쪽으로 살짝 옮김 */
+    font-weight: bold; /* 글씨를 진하게 */
+    font-size: 1.2em; /* 글씨 크기를 상대적으로 20% 증가 */
+    color: #333; /* 글씨 색상을 진한 회색으로 */
+}
 #rightDiv {
 	display: flex;
 	flex-direction: column; /* 내부 요소를 세로로 정렬합니다. */
@@ -60,6 +65,7 @@ form {
 }
 
 .rightTable {
+font-weight: bold;
 	width: 200px;
 	border-collapse: separate;
 	border-spacing: 10px;
@@ -163,10 +169,92 @@ img {
 	height: auto; /* 이미지의 높이를 자동으로 조절하여 비율을 유지합니다. */
 	display: block; /* 이미지를 블록 요소로 표시합니다. */
 }
-</style>
-s
+td {
+    padding-top: 15px; /* 위쪽 패딩 */
+    padding-bottom: 15px; /* 아래쪽 패딩 */
+}
+/* 테이블 기본 설정 */
+.rightTable {
+    width: 100%; /* 테이블의 너비를 전체로 설정 */
+    border-collapse: collapse; /* 셀 사이 공간 없애기 */
+    background-color: #FFDAB9 ; /* 연한 살색 배경색 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 그림자 효과 추가 */
+    border-radius: 10px; /* 모서리 둥글게 */
+    overflow: hidden; /* 둥근 모서리에 컨텐츠가 넘치는 것을 숨김 */
+    margin: 20px 0; /* 상하 여백 설정 */
+}
 
+/* 테이블 헤더 및 셀 스타일 */
+.rightTable td {
+    padding: 15px; /* 셀 내부 패딩 */
+    text-align: left; /* 텍스트 왼쪽 정렬 */
+    border-bottom: 1px solid #E6E6FA; /* 셀 하단 테두리, 연한 라벤더색 사용 */
+}
+
+/* 마지막 셀의 테두리 제거 */
+.rightTable tr:last-child td {
+    border-bottom: none;
+}
+
+/* 버튼 스타일 */
+button {
+    padding: 10px 15px;
+    background-color: brown; /* 연한 복숭아색 */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #FFB6C1; /* 더 밝은 살색으로 호버 효과 */
+}
+
+/* 입력 필드 스타일 */
+input[type="text"] {
+    padding: 8px;
+    border: 1px solid #FFDAB9; /* 테두리 색상 */
+    border-radius: 5px;
+    width: 80%; /* 입력 필드 너비 */
+}
+</style>
+
+
+	<!-- 슬라이드 스크립트 -->
+						<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(function() {
+        $(".visual_img li:last").prependTo(
+            ".visual_img");
+
+        $(".next").click(function() {
+            $(".visual_img").animate({
+                marginLeft : "-=600px"
+            },
+            function() {
+                $(".visual_img li:first").appendTo(".visual_img");
+                $(".visual_img").css({
+                    marginLeft : 0
+                });
+            });
+        });
+
+        $(".prev").click(function() {
+            $(".visual_img").animate({
+                marginLeft : "+=600px"
+            },
+            function() {
+                $(".visual_img li:last").prependTo(".visual_img");
+                $(".visual_img").css({
+                    marginLeft : 0
+                });
+            });
+        });
+    });
+</script>
 </head>
+
 <body>
 	<div id="container">
 		<!-- 메인 컨테이너 -->
@@ -179,9 +267,10 @@ s
 					<!-- 왼쪽 컨테이너 -->
 					<table class="leftTable">
 						<div class="slider">
+							<div class="prev">&lt;</div>
 							<ul class="visual_img">
 								<!-- 이미지 리스트 -->
-								<div class="prev">&lt;</div>
+							
 								<li class="image-container"><img
 									src="${contextPath }/data/${imgVO.img1}" alt="Image 1"></li>
 								<li class="image-container"><img
@@ -192,52 +281,26 @@ s
 									src="${contextPath }/data/${imgVO.img4}" alt="Image 4"></li>
 								<li class="image-container"><img
 									src="${contextPath }/data/${imgVO.img5}" alt="Image 5"></li>
-								<div class="next">&gt;</div>
+								
 							</ul>
+							<div class="next">&gt;</div>
 						</div>
 						<!-- 이전/다음 버튼 -->
 
 
-						<!-- 슬라이드 스크립트 -->
-						<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-						<script>
-							$(function() {
-								$(".visual_img li:last").prependTo(
-										".visual_img");
-
-								$(".next").click(function() {
-									$(".visual_img").animate({
-										marginLeft : "-=600px"
-									},
-									function() {
-										$(".visual_img li:first").appendTo(".visual_img");
-										$(".visual_img").css({
-											marginLeft : 0
-										});
-									});
-								});
-
-								$(".prev").click(function() {
-									$(".visual_img").animate({
-										marginLeft : "+=600px"
-									},
-									function() {
-										$(".visual_img li:last").prependTo(".visual_img");
-										$(".visual_img").css({
-											marginLeft : 0
-										});
-									});
-								});
-							});
-						</script>
+					
 						<tr>
-							<td>이름</td>
+							<td>이름 :</td>
 						</tr>
 						<tr>
-							<td align="right">가격</td>
+							<td>가격 :</td>
 						</tr>
 						<tr>
-							<td>룸 정보</td>
+							<td>룸 정보 :</td>
+						
+						</tr>
+						<tr>
+							<td> <img src="${contextPath}/style/" alt="image" style="width:100%; max-width:300px;"></td>
 						</tr>
 					</table>
 				</div>
