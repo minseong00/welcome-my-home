@@ -1,6 +1,7 @@
 package servlets.main;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -10,7 +11,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dao.room.RoomDAO;
+import dao.roomImg.RoomImgDAO;
+import model.RoomImgVO;
 import model.RoomVO;
+import util.Split;
 
 /**
  * Servlet 메인 화면 출력 폼
@@ -28,9 +32,15 @@ public class BasicMain extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		RoomDAO roomDAO = new RoomDAO();
-		List<RoomVO> roomList = roomDAO.selectAll();
+		RoomImgDAO imgDAO = new RoomImgDAO();
+		ArrayList<RoomImgVO> imgList = imgDAO.selectAll();
+		ArrayList<RoomVO> roomList = roomDAO.selectAll();
 		
-		request.setAttribute("roomList", roomList);
+        List<RoomImgVO> processedImgList = Split.ImgSplitList(imgList);
+        List<RoomVO> processedRoomList = Split.RoomSplitList(roomList);
+		
+		request.setAttribute("roomList", processedRoomList);
+		request.setAttribute("imgList", processedImgList);
 		
 		request.getRequestDispatcher("/members/MainForm.jsp").forward(request, response);
 		

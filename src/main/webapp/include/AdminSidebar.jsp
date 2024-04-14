@@ -18,7 +18,6 @@ pageEncoding="UTF-8"%>
 		height: 40vh;
 		z-index: 11;
 		box-shadow: 0 5px 10px 0 rgba(230, 230, 243, 0, 0.88);
-		margin-left: 0.5rem;
 		border-radius: 6px;
 		border: 5px solid;
 		border-color: goldenrod;
