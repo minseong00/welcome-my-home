@@ -128,6 +128,7 @@ td, th {
 	transition: background-color 0.3s ease;
 	border: none;
 	border-radius: 50px;
+	
 }
 
 .sky-blue-button:hover {
@@ -177,7 +178,7 @@ td, th {
         <td ><input type="email"  name="email" id="email" required></td>
     </tr>
     <tr >
-        <td  colspan="2" style="height: 70px; ">
+        <td align="right" colspan="2" style="height: 70px; ">
 	       <input type="submit" id="submit" class="sky-blue-button"value="가입하기">
 	      
 	       <input type="reset" class="sky-blue-button"value="다시입력">
