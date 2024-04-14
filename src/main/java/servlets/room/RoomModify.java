@@ -62,9 +62,6 @@ public class RoomModify extends HttpServlet {
 		request.setAttribute("roomVO", roomVO);
 		request.setAttribute("imgVO", imgVO);
 		
-//		System.out.println(roomVO.toString());
-		System.out.println(imgVO.toString());
-		
 		request.getRequestDispatcher("/admins/RoomModify.jsp").forward(request, response);
 	}
 
@@ -91,7 +88,6 @@ public class RoomModify extends HttpServlet {
 		for (Part part : parts) {
 			if(part.getContentType() != null) {
 				String fileName = SplitName.FileName(part);
-				
 				
 				String savePath = UPLOAD + File.separator + fileName;
 				
