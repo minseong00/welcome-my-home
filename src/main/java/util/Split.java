@@ -26,35 +26,5 @@ public class Split {
 		return "";
 	}
 	
-	/**
-	 * @see Room Img list Split to 6 
-	 */
-	public static ArrayList<RoomImgVO> ImgSplitList(ArrayList<RoomImgVO> list) {
-	    ArrayList<RoomImgVO> rsList = new ArrayList<>();
-	    
-	    if (list.size() > 6) {
-	        rsList.addAll(list.subList(0, 6));
-	    } else {
-	        rsList.addAll(list);
-	    }
-	    
-	    return rsList;
-	}
-	
-	/**
-	 * @see Room list Split to 6
-	 */
-	public static ArrayList<RoomVO> RoomSplitList(ArrayList<RoomVO> list) {
-	    ArrayList<RoomVO> rsList = new ArrayList<>();
-	    
-	    if (list.size() > 6) {
-	        rsList.addAll(list.subList(0, 6));
-	    } else {
-	        rsList.addAll(list);
-	    }
-	    
-	    return rsList;
-	}
-	
 	
 }
