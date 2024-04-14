@@ -44,11 +44,11 @@
    <c:otherwise>
       <c:forEach  var="mem" items="${MemModel }" >
         <tr align="center">
-          <td><a href="<c:url value='/admin/MemModify?id=${mem.mem_id}&type=admin' /> "><c:out value="${mem.mem_name}"/></a></td>     
-          <td><c:out value="${mem.mem_id }" /></td>
-          <td><c:out value="${mem.mem_pw }" /></td>
-          <td><c:out value="${mem.mem_call }" /></td>
-          <td><c:out value="${mem.mem_email }" /></td>
+          <td><a href="<c:url value='/admin/MemModify?id=${mem.memId}' /> "><c:out value="${mem.memName}"/></a></td>     
+          <td><c:out value="${mem.memId }" /></td>
+          <td><c:out value="${mem.memPw }" /></td>
+          <td><c:out value="${mem.memCall }" /></td>
+          <td><c:out value="${mem.memEmail }" /></td>
        </tr>
      </c:forEach>
 </c:otherwise>

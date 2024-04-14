@@ -10,6 +10,24 @@
 <head>
 <meta charset="UTF-8">
 <title>MyInfo : 마이페이지</title>
+<script type="text/javascript">
+	function deleteId(){
+		var confirmDelete = confirm("탈퇴하시겠습니까?");
+		
+		if(confirmDelete){
+			window.location.href="${contextPath}/MemDelete?id=${MemOne.memId}";
+			
+			alert("탈퇴되었습니다.");
+		} else{
+			
+			alert("탈퇴가 취소되었습니다.");
+		}
+	}
+
+
+
+</script>
+
 <style>
      .cls1 {
        
@@ -70,53 +88,41 @@ td, th {
 </head>
 
 <body>
-
-<div class="container">
-    <jsp:include page="/include/Header.jsp" flush="false"/>
-   <div class="row justify-content-center">
-   <div class="col-md-4 sidebar-custom"> 
-      <jsp:include page="/include/MemSidebar.jsp" flush="false"/>
-   </div>
-   
-   <div class="rightside ">
-       <h2 class="cls1">마이페이지</h2>
-      <form action="${contextPath}/MemModify?sort=modMyInfo&type=MemUpdate" method="post">
-       <table id="join_table" >
-       <tbody>
-          <tr class="join_td">
-           <td style="background-color:#73685d; color: #fff; width:200px; height: 70px; "><span style="text-align: right;">이름</span></td>
-           <td class="td-special" ><input type="text" name="name" value="<c:out value="${MemOne.mem_name}"/>"></td>
-         </tr>
-         <tr class="join_td">
-           <td style="background-color:#73685d; color: #fff; height: 70px;"><span style="text-align: right;">아이디</span></td>
-           <td class="td-special"><input type="text" name="id" id="id" value="<c:out value="${MemOne.mem_id}"/>" readonly></td>
-         </tr>
-          <tr class="join_td">
-           <td style="background-color:#73685d; color: #fff; height: 70px;" ><span style="text-align: right;">비밀번호</span></td>
-           <td class="td-special"><input type="password" name="pw" value="<c:out value="${MemOne.mem_pw}"/>"></td>
-         </tr>
-         <tr class="join_td">
-           <td style="background-color:#73685d; color: #fff; height: 70px;"><span style="text-align: right;" >이메일</span></td>
-           <td class="td-special"><input type="email" name="email"  value="<c:out value="${MemOne.mem_email}"/> "></td>
-         </tr>
-         <tr class="join_td">
-           <td style="background-color:#73685d; color: #fff; height: 70px;"><span style="text-align: right;" >전화번호</span></td>
-           <td class="td-special"><input type="text" name="call" value="<c:out value="${MemOne.mem_call}"/>"></td>
-         </tr>
-         <tr class="join_td">
-               <td align="right" colspan="2" id="submit_td">
-             <input type="reset"class="sky-blue-button" value="다시입력" >
-             <input type="hidden" name="type" value="MemUpdate">
-             <button type="submit" class="sky-blue-button" >수정하기</button>
-             <button type="button" class="sky-blue-button"onclick="location.href='<c:url value="/MemDelete?id=${MemOne.mem_id}&sort=delMyInfo"/>'">탈퇴하기</button> 
-            </td>
-         </tr>
-         </tbody>
-       </table>
-      </form>
-   </div>
-   </div>
-</div>
+<jsp:include page="/include/Header.jsp" flush="false"/>
+ <h1 class="cls1">마이페이지</h1>
+<form action="${contextPath}/MemModify" method="post">
+ <table align="center" >
+    <tr>
+     <td ><p align="right" >고객명</td>
+     <td ><input type="text" name="name" value="<c:out value="${MemOne.memName}"/>"></td>
+   </tr>
+   <tr>
+     <td><p align="right" >아이디</td>
+     <td ><input type="text" name="id" value="<c:out value="${MemOne.memId}"/>"readonly></td>
+   </tr>
+ <tr>
+     <td ><p align="right" >비밀번호</td>
+     <td><input type="password" name="pw" value="<c:out value="${MemOne.memPw}"/>"></td>
+   </tr>
+   <tr>
+     <td><p align="right" >이메일</td>
+     <td ><input type="email" name="email"  value="<c:out value="${MemOne.memEmail}"/> "></td>
+   </tr>
+   <tr>
+     <td ><p align="right" >전화번호</td>
+     <td><input type="text" name="call" value="<c:out value="${MemOne.memCall}"/>"></td>
+   </tr>
+   <tr  >
+   		<td style="text-align: right;" colspan="2" align=center>
+       <input type="reset" value="다시입력" >
+       <button type="submit" >수정하기</button>
+       <button type="button" onclick="deleteId();">탈퇴하기</button> 
+      
+       
+      </td>
+   </tr>
+ </table>
+</form>
 
 </body>
 </html>
