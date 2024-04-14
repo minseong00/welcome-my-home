@@ -128,12 +128,16 @@ td, th {
 	transition: background-color 0.3s ease;
 	border: none;
 	border-radius: 50px;
+	
 }
 
 .sky-blue-button:hover {
 	background-color: #00BFFF;
 }
- 
+ .td-special {
+    width: 300px; /* 특정 셀의 너비를 200px로 설정 */
+    
+}
 </style>
 </head>
 
@@ -146,8 +150,8 @@ td, th {
 <table style="border:1; margin: auto; " >
 <tbody >
     <tr>
-       <td  style="background-color:#73685d; color: #fff; width:200px; height: 70px; " ><span >아이디</span></td>
-       <td >
+       <td  style="background-color:#73685d; color: #fff; width:200px; height: 70px; " ><span  style="text-align: right;">아이디</span></td>
+       <td class="td-special">
 	       	<input type="text" name="id" id="t_id" required>
 	       	<input type="button" value="중복확인" id="double" onclick="fn_process()">
 	       	<br>
@@ -156,28 +160,28 @@ td, th {
     </tr>
     <tr>
         <td  style="background-color:#73685d; color: #fff; height: 70px;"><span style="text-align: right;">비밀번호</span></td>
-        <td ><input type="password"  name="pw" id="pw" required></td>
+        <td class="td-special"><input type="password"  name="pw" id="pw" required></td>
     </tr>
     <tr>
         <td  style="background-color:#73685d; color: #fff; height: 70px;"><span style="text-align: right;">비밀번호확인</span></td>
-        <td ><input type="password"  name="pw_confirm" id="pw_confirm" required>
+        <td class="td-special"><input type="password"  name="pw_confirm" id="pw_confirm" required>
         				<div id="pw_message"></div>
         </td>
     </tr>
     <tr>
         <td  style="background-color:#73685d; color: #fff; height: 70px;"><span style="text-align: right;">이름</span></td>
-        <td ><input type="text"  name="name" id="name" required></td>
+        <td class="td-special"><input type="text"  name="name" id="name" required></td>
     </tr>
     <tr>
         <td  style="background-color:#73685d; color: #fff; height: 70px;"><span style="text-align: right;">전화번호</span></td>
-        <td ><input type="text"  name="call" id="call" required></td>
+        <td class="td-special" ><input type="text"  name="call" id="call" required></td>
     </tr>
     <tr>
         <td  style="background-color:#73685d; color: #fff; height: 70px;"><span style="text-align: right;">이메일</span></td>
-        <td ><input type="email"  name="email" id="email" required></td>
+        <td class="td-special"><input type="email"  name="email" id="email" required></td>
     </tr>
     <tr >
-        <td  colspan="2" style="height: 70px; ">
+        <td align="right" class="td-special"colspan="2" style="height: 70px; ">
 	       <input type="submit" id="submit" class="sky-blue-button"value="가입하기">
 	      
 	       <input type="reset" class="sky-blue-button"value="다시입력">

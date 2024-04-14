@@ -126,7 +126,7 @@ img {
 	margin: 0; /* 마진 제거 */
 	padding: 0; /* 패딩 제거 */
 	width: 3000px; /* 모든 이미지 너비의 합 */
-	transition: margin-left 0.5s; /* 애니메이션 속성 추가 */
+	
 	justify-content:center;
 	display: flex;
 }
@@ -155,7 +155,10 @@ img {
 	right: 0; /* 오른쪽에 배치 */
 }
 .visual_img {
-	margin-right: 20px;
+	 display: flex;
+	  width: 4000px; /* 모든 이미지 너비의 합, 동적으로 계산 필요 */
+        margin: 0;
+        padding: 0;
 }
 
 .image-container {
