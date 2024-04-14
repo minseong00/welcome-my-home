@@ -7,7 +7,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>  
-    <title>Deluxe - Free Bootstrap 4 Template by Colorlib</title>
+    <title>메인화면</title>
     <meta charset="utf-8">
     
     <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700" rel="stylesheet">
@@ -141,6 +141,7 @@
     </div>
 </section>
 
+<!-- 리조트 설명 -->
     <section class="ftco-section ftc-no-pb ftc-no-pt">
 			<div class="container">
 				<div class="row">
@@ -170,6 +171,7 @@
 				</div>
 			</div>
 		</section>
+
 
 		<section class="ftco-section">
   <div class="container">
@@ -230,6 +232,7 @@
   </div>
 </section>
 
+<!-- 객실 리스트 -->
     <section class="ftco-section bg-light">
     	<div class="container">
 				<div class="row justify-content-center mb-5 pb-3">
@@ -240,16 +243,16 @@
     		<div class="row">
     			<div class="col-sm-6 col-6 col-lg-6 ftco-animate">
     				<div class="room">
-    					<a href="rooms.html" class="img d-flex justify-content-center align-items-center" style="background-image: url(${contextPath}/style/images/room-1.jpg);">
+    					<a href="rooms.html" class="img d-flex justify-content-center align-items-center" style="background-image: url(${contextPath}/style/images/room-1.jpg);"> <!-- 방 이미지 출력 -->
     						<div class="icon d-flex justify-content-center align-items-center">
     							<span class="icon-search2"></span>
     						</div>
     					</a>
     					<div class="text p-3 text-center">
-    						<h3 class="mb-3"><a href="rooms.html">Suite Room</a></h3>
-    						<p><span class="price mr-3">$120.00</span> <span class="per">per night</span></p>
+    						<h3 class="mb-3"><a href="rooms.html"> 방이름 </a></h3>
+    						<p><span class="price mr-3">가격</span> <span class="per"> 가격 단위</span></p>
     						<hr>
-    						<p class="pt-1"><a href="room-single.html" class="btn-custom">View Room Details <span class="icon-long-arrow-right"></span></a></p>
+    						<p class="pt-1"><a href="room-single.html" class="btn-custom">방 상세 보기 버튼<span class="icon-long-arrow-right"></span></a></p>
     					</div>
     				</div>
     			</div>
@@ -341,8 +344,8 @@
   
 
   <!-- loader -->
-  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
-
+ <%--  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+ --%>
 
   <script src="../style/js/jquery.min.js"></script>
   <script src="../style/js/jquery-migrate-3.0.1.min.js"></script>

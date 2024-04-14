@@ -89,13 +89,13 @@
           <div >
 
             <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This project is made with <i class="icon-heart color-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">우리집 괜찮아</a>
+  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This project is made with <i class="icon-heart color-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
   <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
           </div>
         </div>
       </div>
     </footer>
-     <script src="../style/js/jquery.min.js"></script>
+  <script src="../style/js/jquery.min.js"></script>
   <script src="../style/js/jquery-migrate-3.0.1.min.js"></script>
   <script src="../style/js/popper.min.js"></script>
   <script src="../style/js/bootstrap.min.js"></script>
