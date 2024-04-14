@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
+
 <c:set var="contextPath" value="${ pageContext.request.contextPath }" />
 <!DOCTYPE html>
 <html>
@@ -43,9 +45,6 @@
 
 html,body {
   position: relative;
-  min-height: 100vh;
-  background-color: #E1E8EE;
-  display: flex;
   align-items: center;
   justify-content: center;
   font-family: "Fira Sans", Helvetica, Arial, sans-serif;
@@ -153,6 +152,10 @@ html,body {
 </head>
 
 <body>
+	<div class="container">
+	    <jsp:include page="/include/Header.jsp" flush="false"/>
+		<div class="row justify-content-center">
+		
 	<form id="login">
 	<div class="form-structor">
 	  <div class="login">
@@ -165,5 +168,7 @@ html,body {
 	  </div>
 	</div>
 	</form>
+	</div>
+	</div>
 </body>
 </html>
