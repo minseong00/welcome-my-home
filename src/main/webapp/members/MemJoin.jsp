@@ -31,9 +31,9 @@
 		
 	
 	    $.ajax({
-	       type:"post",
+	       type:"get",
 	       async:true,  
-	       url:"<c:url value='/JoinIDCheck' />",
+	       url:"<c:url value='/Join' />",
 	       dataType:"text",
 	       data: {id:_id},
 	       

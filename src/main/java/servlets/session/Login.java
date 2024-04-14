@@ -51,8 +51,8 @@ public class Login extends HttpServlet {
     	String id = request.getParameter("id");
     	String pw = request.getParameter("pw");
 
-    	admin.setAdmin_id(id);
-    	admin.setAdmin_pwd(pw);
+    	admin.setAdminId(id);
+    	admin.setAdminPw(pw);
     	
     	boolean result = adminDAO.adminLogin(admin);
     	
@@ -68,8 +68,8 @@ public class Login extends HttpServlet {
     		return;
     	}
 
-    	member.setMem_id(id);
-    	member.setMem_pw(pw);
+    	member.setMemId(id);
+    	member.setMemPw(pw);
 
     	result = memDAO.memLogin(member);
 

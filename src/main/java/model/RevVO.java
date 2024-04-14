@@ -64,6 +64,7 @@ public class RevVO {
 	public void setMemId(String memId) {
 		this.memId = memId;
 	}
+
 	@Override
 	public String toString() {
 		return "RevVO [bookNo=" + bookNo + ", bookDate=" + bookDate + ", roomNo=" + roomNo + ", bookCheck=" + bookCheck

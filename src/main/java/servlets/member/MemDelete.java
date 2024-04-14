@@ -26,7 +26,7 @@ public class MemDelete extends HttpServlet {
 		String n=request.getParameter("id");
 		
 		MemVO memModel=new MemVO();
-   		memModel.setMem_id(n);
+   		memModel.setMemId(n);
 		
 		memDAO=new MemDAO();
 		memDAO.delete(n);

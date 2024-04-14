@@ -20,7 +20,7 @@ import dao.room.RoomDAO;
 import dao.roomImg.RoomImgDAO;
 import model.RoomImgVO;
 import model.RoomVO;
-import util.SplitName;
+import util.Split;
 
 @WebServlet("/RoomAdd")
 @MultipartConfig
@@ -58,7 +58,7 @@ public class RoomAdd extends HttpServlet {
 		Collection<Part> parts = request.getParts();
 		for(Part part : parts) {
 			if(part.getSubmittedFileName() != null && !part.getSubmittedFileName().isEmpty()) {
-				String fileName = SplitName.FileName(part);
+				String fileName = Split.FileName(part);
 				String filePath = UPLOAD + File.separator + fileName;
 				list.add(fileName);
 				try {

@@ -5,7 +5,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.List;
 
 import dao.connection.MySQLConnector;
 import model.RoomImgVO;
@@ -22,8 +21,8 @@ MySQLConnector DB = null;
 		DB = new MySQLConnector();
 	}
 	
-	public List<RoomImgVO> selectAll() {
-		List<RoomImgVO> imgList = null;
+	public ArrayList<RoomImgVO> selectAll() {
+		ArrayList<RoomImgVO> imgList = null;
 		try {
 			conn = DB.dbConnect();
 			this.pstmt = conn.prepareStatement(selectAll);
