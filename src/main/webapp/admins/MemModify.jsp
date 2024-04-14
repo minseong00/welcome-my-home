@@ -24,7 +24,7 @@
 <body>
 	<div>
 	
-	<form action="${contextPath}/admin/MemModify?sort=MemUpdate&type=MemUpdate" method="post">
+	<form action="${contextPath}/admin/MemModify" method="post">
 	<table border="1" style="text-align: center;">
 
 	<tbody>
@@ -33,30 +33,30 @@
 		</tr>
 		<tr>
 			<td>고객명</td>
-			<td><input type="text"  name="name" value="<c:out value="${MemOne.mem_name}" />" ></td>
+			<td><input type="text"  name="name" value="<c:out value="${MemOne.memName}" />" ></td>
 		</tr>
 		<tr>
 			<td>아이디</td>
-			<td><input type="text" name="id" value="<c:out value="${MemOne.mem_id }"/>" readonly></td>
+			<td><input type="text" name="id" value="<c:out value="${MemOne.memId }"/>" readonly></td>
 		</tr>
 		<tr>
 			<td>비밀번호</td>
-			<td><input type ="password" name="pw" value="<c:out value="${MemOne.mem_pw}"/>"></td>
+			<td><input type ="password" name="pw" value="<c:out value="${MemOne.memPw}"/>"></td>
 		</tr>
 		<tr>
 			<td>이메일</td>
-			<td><input type ="email" name="email" value="<c:out value="${MemOne.mem_email}"/>"></td>
+			<td><input type ="email" name="email" value="<c:out value="${MemOne.memEmail}"/>"></td>
 		</tr>
 		<tr>
 			<td>전화번호</td>
-			<td><input type ="text" name= "call" value="<c:out value="${MemOne.mem_call}"/>"></td>
+			<td><input type ="text" name= "call" value="<c:out value="${MemOne.memCall}"/>"></td>
 		</tr>
 	</tbody>	
 		
 	<tfoot>
 		<td style="text-align: right;" colspan="2" align=center>
   		<button type="submit" >수정</button>
- 		 <button type="button" onclick="location.href='<c:url value="/admin/MemDelete?id=${MemOne.mem_id}&sort=admin" />'" >삭제</button>
+ 		 <button type="button" onclick="location.href='<c:url value="/admin/MemDelete?id=${MemOne.memId}" />'" >삭제</button>
 		</td>
 	</tfoot>
 	</table>

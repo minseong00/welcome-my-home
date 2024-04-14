@@ -59,6 +59,7 @@ html,body {
   width: 350px;
   position: relative;
   overflow: hidden;
+  margin-top: 100px;
   
   &::after {
     content: '';
@@ -79,19 +80,20 @@ html,body {
     width: 65%;
     z-index: 5;
     -webkit-transition: all .3s ease;
+    }
     
     .form-title {
       color: #fff;
       font-size: 1.7em;
       text-align: center;
-      
+      }
       span {
         color: rgba(0,0,0,0.4);
         opacity: 0;
         visibility: hidden;
         -webkit-transition: all .3s ease;
       }
-    }
+    
     
     .form-holder {
       border-radius: 15px;
@@ -101,7 +103,7 @@ html,body {
       opacity: 1;
       visibility: visible;
       -webkit-transition: all .3s ease;
-      
+      }
       .input {
         border: 0;
         outline: none;
@@ -113,15 +115,15 @@ html,body {
         border-bottom: 1px solid #eee;
         width: 100%;
         font-size: 12px;
-        
+        }
         &:last-child {
           border-bottom: 0;
         }
         &::-webkit-input-placeholder {
           color: rgba(0,0,0,0.4);
         }
-      }
-    }
+      
+    
     
     .submit-btn {
       background-color: rgba(0,0,0,0.4);
@@ -143,10 +145,8 @@ html,body {
         transition: all .3s ease;
         background-color: rgba(0,0,0,0.8);
       }
-    }
-  }
-  }
-}
+      
+   
 
 </style>
 </head>
