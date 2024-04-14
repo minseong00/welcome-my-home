@@ -28,12 +28,12 @@ public class MemDAO implements MemberQuerys{
 		try {
 			conn = DB.dbConnect();
 			pstmt = conn.prepareStatement(memLogin);
-			pstmt.setString(1, member.getMem_id());
+			pstmt.setString(1, member.getMemId());
 			rs = pstmt.executeQuery();
 			if(rs.next()) {				// 사용자 존재여부 확인
 				id = rs.getString("memId");
 				pw = rs.getString("memPw");
-		           if (member.getMem_id().equals(id) && member.getMem_pw().equals(pw))
+		           if (member.getMemId().equals(id) && member.getMemPw().equals(pw))
 		                result = true;	// 로그인성공
 		           else {
 						System.out.println("member 비밀번호 틀림");
@@ -82,11 +82,11 @@ public class MemDAO implements MemberQuerys{
 		try {
 			conn = DB.dbConnect();
 			pstmt = conn.prepareStatement(insertMem);
-			pstmt.setString(1, memModel.getMem_id());
-			pstmt.setString(2, memModel.getMem_call());
-			pstmt.setString(3, memModel.getMem_name());
-			pstmt.setString(4, memModel.getMem_email());
-			pstmt.setString(5, memModel.getMem_pw());
+			pstmt.setString(1, memModel.getMemId());
+			pstmt.setString(2, memModel.getMemCall());
+			pstmt.setString(3, memModel.getMemName());
+			pstmt.setString(4, memModel.getMemEmail());
+			pstmt.setString(5, memModel.getMemPw());
 			pstmt.executeUpdate();
 			
 		} catch (Exception e) {
@@ -109,11 +109,11 @@ public class MemDAO implements MemberQuerys{
 		        
 		        while (rs.next()) {
 		            MemVO memModel = new MemVO();
-		            memModel.setMem_id(rs.getString("memid"));
-		            memModel.setMem_pw(rs.getString("mempw"));
-		            memModel.setMem_name(rs.getString("memname"));
-		            memModel.setMem_call(rs.getString("memcall"));
-		            memModel.setMem_email(rs.getString("mememail"));
+		            memModel.setMemId(rs.getString("memid"));
+		            memModel.setMemPw(rs.getString("mempw"));
+		            memModel.setMemName(rs.getString("memname"));
+		            memModel.setMemCall(rs.getString("memcall"));
+		            memModel.setMemEmail(rs.getString("mememail"));
 
 		            memList.add(memModel);
 		        }
@@ -138,12 +138,12 @@ public class MemDAO implements MemberQuerys{
 	        rs = pstmt.executeQuery();
 			if(rs.next()) {
 				member = new MemVO();
-				member.setMem_no(rs.getInt("memNo"));
-				member.setMem_id(rs.getString("memId"));
-				member.setMem_pw(rs.getString("memPw"));
-				member.setMem_name(rs.getString("memName"));
-				member.setMem_call(rs.getString("memCall"));
-				member.setMem_email(rs.getString("memEmail"));
+				member.setMemNo(rs.getInt("memNo"));
+				member.setMemId(rs.getString("memId"));
+				member.setMemPw(rs.getString("memPw"));
+				member.setMemName(rs.getString("memName"));
+				member.setMemCall(rs.getString("memCall"));
+				member.setMemEmail(rs.getString("memEmail"));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -160,11 +160,11 @@ public class MemDAO implements MemberQuerys{
 		try {
 			conn = DB.dbConnect();
 			pstmt = conn.prepareStatement(updateMem);
-			pstmt.setString(1, memModel.getMem_pw());
-			pstmt.setString(2, memModel.getMem_name());
-			pstmt.setString(3, memModel.getMem_call());
-			pstmt.setString(4, memModel.getMem_email());
-			pstmt.setString(5, memModel.getMem_id());
+			pstmt.setString(1, memModel.getMemPw());
+			pstmt.setString(2, memModel.getMemName());
+			pstmt.setString(3, memModel.getMemCall());
+			pstmt.setString(4, memModel.getMemEmail());
+			pstmt.setString(5, memModel.getMemId());
 			
 			
 			int n = pstmt.executeUpdate();

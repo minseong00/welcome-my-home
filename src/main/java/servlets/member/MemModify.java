@@ -61,11 +61,11 @@ public class MemModify extends HttpServlet {
 		String email = request.getParameter("email");
 
 		MemVO memModel = new MemVO();
-		memModel.setMem_id(n);
-		memModel.setMem_pw(pw);
-		memModel.setMem_name(name);
-		memModel.setMem_call(call);
-		memModel.setMem_email(email);
+		memModel.setMemId(n);
+		memModel.setMemPw(pw);
+		memModel.setMemName(name);
+		memModel.setMemCall(call);
+		memModel.setMemEmail(email);
 
 		memDAO = new MemDAO();
 		memDAO.update(memModel);

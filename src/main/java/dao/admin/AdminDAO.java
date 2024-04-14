@@ -29,12 +29,12 @@ public class AdminDAO implements AdminQuerys  {
 		try {
 			conn = DB.dbConnect();
 			pstmt = conn.prepareStatement(adminID);
-			pstmt.setString(1, admin.getAdmin_id());
+			pstmt.setString(1, admin.getAdminId());
 			rs =  pstmt.executeQuery();
 			if(rs.next()) {
 				id = rs.getString("adminId");
 				pw = rs.getString("adminPw");
-				if(admin.getAdmin_id().equals(id) && admin.getAdmin_pwd().equals(pw)) 
+				if(admin.getAdminId().equals(id) && admin.getAdminPw().equals(pw)) 
 					result = true;
 				else
 					result = false;
