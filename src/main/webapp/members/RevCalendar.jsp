@@ -1,11 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<c:set var="contextPath" value="${pageContext.request.contextPath }"></c:set>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>현재 모든 예약 상태를 캘린더 형태로 출력</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+ <!-- fullcalendar CDN -->
+  <link href='https://cdn.jsdelivr.net/npm/fullcalendar@5.9.0/main.min.css' rel='stylesheet' />
+  <script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.9.0/main.min.js'></script>
+  <!-- fullcalendar 언어 CDN -->
+  <script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.9.0/locales-all.min.js'></script>
+
 <style>
 	#container {
 		width: 100%;
@@ -16,14 +24,33 @@
 	    max-width: 1100px;
 	}
 </style>
-
+<script src="${contextPath}/util/RevListCalendar.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var calendarEl = document.getElementById('calendar');
+    var calendar = new FullCalendar.Calendar(calendarEl, {
+    	locale: 'ko',
+    	height: '700px',
+    	headerToolbar: {
+    		left: 'today',
+    		center: 'title',
+    		right: 'dayGridMonth'
+    	}
+      	initialView: 'dayGridMonth',
+      	nowIndicator: true,
+      	dayMaxEvents: true,
+      	
+    });
+    calendar.render();
+  });
+</script>
 </head>
 <body>
 	<div id="container"> <!-- 메인 컨테이너 -->
 		<jsp:include page="/include/Header.jsp" flush="false"/>
 		
 		<div class="row justify-content-center">
-		
+		<div id="calendar"></div>
 		
 		</div>
 	</div>
