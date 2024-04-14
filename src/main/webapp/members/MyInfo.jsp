@@ -29,52 +29,61 @@
 </script>
 
 <style>
-	body{
-		line-height: normal;
-		display: flex;
-	}
-	.rightside{
-		display: flex;
-		flex-direction: column;
-		flex-grow: 1;
-		margin-left: 0.5rem;
-	}
-
      .cls1 {
-       font-size:40px;
+       
        text-align:center;
+       margin-bottom: 60px; 
+      
      }
     
      .cls2 {
        font-size:20px;
        text-align:center;
      }
-     
-     .join_tr td { 
-     	padding: 10px;
-     }
-     
-     #join_table {
-        border-collapse: separate; /* 테이블 테두리를 겹치지 않도록 설정 */
-        border-spacing: 10px; /* 셀 사이의 간격 설정 */
-    }
-     
-     #id { 
-        background-color: #f0f0f0; /* 비활성화된 입력창과 유사한 배경색 */
-        color: #666; /* 텍스트 색상 */
-        border: 1px solid #CCC; /* 테두리 스타일 */
-        font-size: 16px; /* 폰트 크기 */
-        width: 190px;
-        pointer-events: none; /* 마우스 이벤트 비활성화 */
-     }
-     
-     #submit_td {
-     	text-align: center;
-     }
-     
-     #submit_td > *	{
-     	margin-right: 10px;
-     }
+       body {
+    
+  background: #f5f5f5; /* 배경색 설정 */
+   font-weight: bold; /* 헤더 폰트를 굵게 */
+}
+table {
+  border: 1px #a39485 solid; /* 테이블의 외곽선 스타일 */
+  font-size: .9em; /* 테이블 내의 폰트 크기 */
+  box-shadow: 0 2px 5px rgba(0,0,0,.25); /* 테이블에 그림자 효과 */
+  
+  border-collapse: collapse; /* 테이블의 보더 라인을 하나로 합침 */
+  border-radius: 10px; /* 테이블 모서리를 둥글게 처리 */
+  overflow: hidden; /* 내용이 넘칠 경우 숨김 처리 */
+  
+}
+td, th {
+  border: 1px solid #a39485; /* 각 셀의 테두리 스타일 */
+  padding: 8px; /* 각 셀의 안쪽 여백 */
+}
+.ftco-footer ftco-bg-dark ftco-section{
+   height: 50px; /* 원하는 높이로 조절 */
+    width: 50%; /* 전체 너비로 조절 */
+}
+.sky-blue-button {
+   padding: 7px 15px;
+   font-size: 16px;
+   background-color: #87CEEB;
+   color: #fff; /* 버튼 텍스트 색상 */
+   transition: background-color 0.3s ease;
+   border: none;
+   border-radius: 50px;
+}
+
+.sky-blue-button:hover {
+   background-color: #00BFFF;
+}
+.sidebar-custom {
+    position: relative;
+    left: -125px; /* 왼쪽으로 20px 이동 */
+}
+.td-special {
+    width: 300px; /* 특정 셀의 너비를 200px로 설정 */
+    
+}
   </style>
 </head>
 
@@ -114,49 +123,6 @@
    </tr>
  </table>
 </form>
-<div class="container">
-    <jsp:include page="/include/Header.jsp" flush="false"/>
-	<div class="row justify-content-center">
-	<div class="col-md-4"> 
-		<jsp:include page="/include/MemSidebar.jsp" flush="false"/>
-	</div>
-	
-	<div class="rightside">
-		 <h1 class="cls1">마이페이지</h1>
-		<form action="${contextPath}/MemModify?sort=modMyInfo&type=MemUpdate" method="post">
-		 <table align="center" id="join_table">
-		    <tr class="join_td">
-		     <td ><p align="right" >고객명</td>
-		     <td ><input type="text" name="name" value="<c:out value="${MemOne.mem_name}"/>"></td>
-		   </tr>
-		   <tr class="join_td">
-		     <td><p align="right" >아이디</td>
-		     <td ><input type="text" name="id" id="id" value="<c:out value="${MemOne.mem_id}"/>" readonly></td>
-		   </tr>
-		 	<tr class="join_td">
-		     <td ><p align="right" >비밀번호</td>
-		     <td><input type="password" name="pw" value="<c:out value="${MemOne.mem_pw}"/>"></td>
-		   </tr>
-		   <tr class="join_td">
-		     <td><p align="right" >이메일</td>
-		     <td ><input type="email" name="email"  value="<c:out value="${MemOne.mem_email}"/> "></td>
-		   </tr>
-		   <tr class="join_td">
-		     <td ><p align="right" >전화번호</td>
-		     <td><input type="text" name="call" value="<c:out value="${MemOne.mem_call}"/>"></td>
-		   </tr>
-		   <tr class="join_td">
-		   		<td colspan="2" id="submit_td">
-		       <input type="reset" value="다시입력" >
-		       <input type="hidden" name="type" value="MemUpdate">
-		       <button type="submit" >수정하기</button>
-		       <button type="button" onclick="location.href='<c:url value="/MemDelete?id=${MemOne.mem_id}&sort=delMyInfo"/>'">탈퇴하기</button> 
-		      </td>
-		   </tr>
-		 </table>
-		</form>
-	</div>
-	</div>
-</div>
+
 </body>
 </html>
