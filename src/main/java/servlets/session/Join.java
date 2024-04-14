@@ -34,11 +34,11 @@ public class Join extends HttpServlet {
 		String email = request.getParameter("email");
 		
 		MemVO memVO = new MemVO();
-		memVO.setMem_id(id);
-		memVO.setMem_pw(pw);
-		memVO.setMem_name(name);
-		memVO.setMem_call(call);
-		memVO.setMem_email(email);
+		memVO.setMemId(id);
+		memVO.setMemPw(pw);
+		memVO.setMemName(name);
+		memVO.setMemCall(call);
+		memVO.setMemEmail(email);
 		memDAO.insert(memVO);
 		
 		System.out.println("========> MainForm.jsp doPost()");
