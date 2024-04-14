@@ -40,6 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
       	nowIndicator: true,
       	dayMaxEvents: true,
       	
+      	
     });
     calendar.render();
   });
