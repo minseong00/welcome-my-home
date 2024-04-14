@@ -35,7 +35,7 @@
 <body>
 	<nav class="navbar" id="ftco-navbar">
     <div class="container-fluid" align="right">
-        <a class="navbar-brand" href="MainForm.jsp">MyHome</a>
+        <a class="navbar-brand" href="${contextPath}/members/MainForm.jsp">MyHome</a>
         <!-- 삭제: 네비게이션 토글러 버튼 -->
         <div class="navbar justify-content-end flex-row" id="ftco-nav"> 
             <ul class="navbar-nav flex-row" style="margin-left: 20px;"> 

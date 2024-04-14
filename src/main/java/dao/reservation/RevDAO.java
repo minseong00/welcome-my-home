@@ -184,6 +184,7 @@ public List<RevVO> selectMyRev(String _id) {
 			this.pstmt.setInt(3, revVO.getHeadCount());
 			this.pstmt.setInt(4, revVO.getPrice());
 			this.pstmt.setInt(5, revVO.getBookNo());
+			
 			result = this.pstmt.executeUpdate();
 			
 		}catch (SQLException e) {

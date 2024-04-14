@@ -42,15 +42,15 @@ public class LoginCheck extends HttpServlet {
 	    String checkID = sessionDAO.loginCheck((String)session.getAttribute("id"));
 	    
 	    if(checkID != null) {
-	    if(checkID.equals("admin")) {
-	    session.setAttribute("idType", "admin");
-	    response.sendRedirect(request.getContextPath() + "/adminMain");
-	    } else {
-	    session.setAttribute("idType", "member");
-	    response.sendRedirect(request.getContextPath() + "/members/MainForm.jsp");
-	    }
+		    if(checkID.equals("admin")) {
+			    session.setAttribute("idType", "admin");
+			    response.sendRedirect(request.getContextPath() + "/adminMain");
+		    } else {
+			    session.setAttribute("idType", "member");
+			    response.sendRedirect(request.getContextPath() + "/members/MainForm.jsp");
+		    }
 	    } else
-	    response.sendRedirect(request.getContextPath() + "/members/MainForm.jsp");
+	    	response.sendRedirect(request.getContextPath() + "/members/MainForm.jsp");
 		
 	}
 

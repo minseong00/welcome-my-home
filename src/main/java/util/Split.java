@@ -1,13 +1,20 @@
 package util;
 
+import java.util.ArrayList;
+
 import javax.servlet.http.Part;
 
-public class SplitName {
-	public SplitName(){
+import model.RoomImgVO;
+import model.RoomVO;
+
+public class Split {
+	public Split(){
 		
 	}
 	
-	
+	/**
+	 * @see FileName Split
+	 */
 	public static String FileName(Part part) {
 		String contentDisp = part.getHeader("content-disposition");
 		String[] items = contentDisp.split(";");
@@ -18,4 +25,6 @@ public class SplitName {
 		}
 		return "";
 	}
+	
+	
 }
