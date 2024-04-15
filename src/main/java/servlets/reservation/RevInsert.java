@@ -6,6 +6,7 @@ import java.sql.Date;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -27,7 +28,10 @@ import model.RoomVO;
 @WebServlet("/RevInsert")
 public class RevInsert extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+
+	private RevVO revVO = null;
+	private RevDAO revDAO = null;
+	
     public RevInsert() {
         super();
     }
@@ -47,12 +51,17 @@ public class RevInsert extends HttpServlet {
 		int roomNum = Integer.parseInt(request.getParameter("roomNo"));
 		
 		RoomImgDAO imgDAO = new RoomImgDAO();
-		RoomImgVO imgVO = new RoomImgVO();
+		revDAO = new RevDAO();
 		RoomDAO roomDAO = new RoomDAO();
+		RoomImgVO imgVO = new RoomImgVO();
 		RoomVO roomVO = new RoomVO();
+		ArrayList<RevVO> revList = new ArrayList<RevVO>();
+		
 		imgVO = imgDAO.selectOne(roomNum);
 		roomVO = roomDAO.selectOne(roomNum);
+		revList.addAll(revDAO.selectRoomRev(roomNum));
 		
+		request.setAttribute("revList", revList);
 		request.setAttribute("roomVO", roomVO);
 		request.setAttribute("imgVO", imgVO);
 		
@@ -64,8 +73,6 @@ public class RevInsert extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
-		RevVO revVO = new RevVO();
-		RevDAO revDAO = new RevDAO();
 		
 		String memId = (String)session.getAttribute("id");
 		String bookCheck = request.getParameter("bookCheck");
@@ -73,6 +80,8 @@ public class RevInsert extends HttpServlet {
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd");
 		Date date_bookCheck = null;
 		Date date_bookCheckOut = null;
+		revVO = new RevVO();
+		revDAO = new RevDAO();
 		
 		try {
 			date_bookCheck = (Date) dateFormat.parse(bookCheck);

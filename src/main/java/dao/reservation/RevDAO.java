@@ -56,37 +56,66 @@ public class RevDAO implements RevQuerys {
 	/**
  	자신의 예약 목록 조회
  	@return
-**/
-public ArrayList<RevVO> selectMyRev(String _id) {
-	ArrayList<RevVO> revList = null;
-	try {
-		conn = DB.dbConnect();
-		this.pstmt = conn.prepareStatement(selectMyRev);
-		this.pstmt.setString(1, _id);
-		this.rs = this.pstmt.executeQuery();
-		revList = new ArrayList<RevVO>();
-		
-		while (this.rs.next()) {
-			RevVO revVO = new RevVO();
-			revVO.setBookNo(this.rs.getInt("bookNo"));
-			revVO.setBookDate(this.rs.getTimestamp("bookDate"));
-			revVO.setRoomNo(this.rs.getInt("roomNo"));
-			revVO.setBookCheck(this.rs.getDate("bookCheck"));
-			revVO.setBookCheckOut(this.rs.getDate("bookCheckOut"));
-			revVO.setHeadCount(this.rs.getInt("headCount"));
-			revVO.setPrice(this.rs.getInt("price"));
-			revVO.setMemId(this.rs.getString("memId"));
+	**/
+	public ArrayList<RevVO> selectMyRev(String _id) {
+		ArrayList<RevVO> revList = null;
+		try {
+			conn = DB.dbConnect();
+			this.pstmt = conn.prepareStatement(selectMyRev);
+			this.pstmt.setString(1, _id);
+			this.rs = this.pstmt.executeQuery();
+			revList = new ArrayList<RevVO>();
 			
-			revList.add(revVO);
+			while (this.rs.next()) {
+				RevVO revVO = new RevVO();
+				revVO.setBookNo(this.rs.getInt("bookNo"));
+				revVO.setBookDate(this.rs.getTimestamp("bookDate"));
+				revVO.setRoomNo(this.rs.getInt("roomNo"));
+				revVO.setBookCheck(this.rs.getDate("bookCheck"));
+				revVO.setBookCheckOut(this.rs.getDate("bookCheckOut"));
+				revVO.setHeadCount(this.rs.getInt("headCount"));
+				revVO.setPrice(this.rs.getInt("price"));
+				revVO.setMemId(this.rs.getString("memId"));
+				
+				revList.add(revVO);
+			}
+			
+		} catch (SQLException e) {
+			System.err.println("Rev SelectAll ERR : " + e.getMessage());
+		} finally {
+			DB.close(this.rs, this.pstmt, this.conn);
 		}
-		
-	} catch (SQLException e) {
-		System.err.println("Rev SelectAll ERR : " + e.getMessage());
-	} finally {
-		DB.close(this.rs, this.pstmt, this.conn);
+		return revList;
 	}
-	return revList;
-}
+	
+	/**
+ 	특정 룸 예약 조회
+ 	@return
+	**/
+	public ArrayList<RevVO> selectRoomRev(int roomNo){
+		ArrayList<RevVO> revList = null;
+		try {
+			conn = DB.dbConnect();
+			this.pstmt = conn.prepareStatement(selectRoomRev);
+			this.pstmt.setInt(1, roomNo);
+			this.rs = this.pstmt.executeQuery();
+			revList = new ArrayList<RevVO>();
+			
+			while (this.rs.next()) {
+				RevVO revVO = new RevVO();
+				revVO.setBookCheck(this.rs.getDate("bookCheck"));
+				revVO.setBookCheckOut(this.rs.getDate("bookCheckOut"));
+				
+				revList.add(revVO);
+			}
+			
+		} catch (SQLException e) {
+			System.err.println("Rev SelectAll ERR : " + e.getMessage());
+		} finally {
+			DB.close(this.rs, this.pstmt, this.conn);
+		}
+		return revList;
+	}
 	
 	/**
 		예약 상세 조회
