@@ -11,10 +11,6 @@
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- css 적용 -->
-<link rel="stylesheet" href="${contextPath }/style/css/flaticon.css">
-<!-- <link rel="stylesheet" href="../style/css/icomoon.css"> -->
-<link rel="stylesheet" href="${contextPath }/style/css/style.css">
 <!-- 캐러셀 -->
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" ></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" ></script>
@@ -28,6 +24,9 @@
 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
 <script src="${contextPath}/util/MainFormCalendar.js"></script>
 
+<!-- css 적용 -->
+<link rel="stylesheet" href="../style/css/flaticon.css">
+<link rel="stylesheet" href="../style/css/style.css">
 
 
 <style type="text/css">

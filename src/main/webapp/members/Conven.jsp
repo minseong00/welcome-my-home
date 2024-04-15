@@ -9,7 +9,10 @@
   <title>Deluxe - Free Bootstrap 4 Template by Colorlib</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  
+     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+     <link rel="stylesheet" href="../style/css/animate.css">
+    <link rel="stylesheet" href="../style/css/icomoon.css">
+    <link rel="stylesheet" href="../style/css/style.css">
 </head>
 <body>
 <jsp:include page="/include/Header.jsp" flush="false"/>
@@ -147,10 +150,15 @@
       
       </div>
     </section>
-<jsp:include page="/include/Footer.jsp" flush="false"/>
+  <script src="../style/js/jquery.waypoints.min.js"></script>
+  <script src="../style/js/jquery.stellar.min.js"></script>
+  <script src="../style/js/owl.carousel.min.js"></script>
+  <script src="../style/js/aos.js"></script>
+  <script src="../style/js/scrollax.min.js"></script>
 
 
- 
+  <script src="../style/js/main.js"></script>
     
+<jsp:include page="/include/Footer.jsp" flush="false"/>
 </body>
 </html>
