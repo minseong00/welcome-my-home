@@ -49,7 +49,7 @@
               </ul>
             </div>
           </div>
-          <div class="row">
+          <div class="col">
             <div class="ftco-footer-widget mb-4 ml-md-5">
               <h2 class="ftco-heading-2">사용자 링크</h2>
               <ul class="list-unstyled">

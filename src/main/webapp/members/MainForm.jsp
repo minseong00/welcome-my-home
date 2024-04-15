@@ -9,361 +9,421 @@
   <head>  
     <title>메인화면</title>
     <meta charset="utf-8">
-    
-    <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i" rel="stylesheet">
+<!-- css 적용 -->
+<link rel="stylesheet" href="${contextPath }/style/css/flaticon.css">
+<link rel="stylesheet" href="${contextPath }/style/css/style.css">
+<!-- 캐러셀 -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+<script src="https://kit.fontawesome.com/4e5b2f86bb.js" crossorigin="anonymous"></script>
 
-    <link rel="stylesheet" href="${contextPath}/style/css/open-iconic-bootstrap.min.css">
-    <link rel="stylesheet" href="${contextPath}/style/css/animate.css">
-    
-    <link rel="stylesheet" href="${contextPath}/style/css/owl.carousel.min.css">
-    <link rel="stylesheet" href="${contextPath}/style/css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="${contextPath}/style/css/magnific-popup.css">
-
-    <link rel="stylesheet" href="${contextPath}/style/css/aos.css">
-
-    <link rel="stylesheet" href="${contextPath}/style/css/ionicons.min.css">
-
-    <link rel="stylesheet" href="${contextPath}/style/css/bootstrap-datepicker.css">
-    <link rel="stylesheet" href="${contextPath}/style/css/jquery.timepicker.css">
-
-    
-    <link rel="stylesheet" href="${contextPath}/style/css/flaticon.css">
-    <link rel="stylesheet" href="${contextPath}/style/css/icomoon.css">
-    <link rel="stylesheet" href="${contextPath}/style/css/style.css">
-  </head>
-  <body>
-<%-- <%@ include file="/include/Header.jsp" %> --%>
-<jsp:include page="/include/Header.jsp" flush="false"/>
-    <!-- END nav -->
-
-    <section class="home-slider owl-carousel">
-      <div class="slider-item" style="background-image:url(${contextPath}/style/images/bg_1.jpg);">
-      	<div class="overlay"></div>
-        <div class="container">
-          <div class="row no-gutters slider-text align-items-center justify-content-center">
-          <div class="col-12 ftco-animate text-center">
-          	<div class="text mb-5 pb-3">
-	            <h1 class="mb-3">우리집에 놀러와</h1>
-	            <h2>Hotels &amp; Resorts</h2>
-            </div>
-          </div>
-        </div>
-        </div>
-      </div>
-
-      <div class="slider-item" style="background-image:url(${contextPath}/style/images/bg_2.jpg);">
-      	<div class="overlay"></div>
-        <div class="container">
-          <div class="row no-gutters slider-text align-items-center justify-content-center">
-          <div class="col-12 ftco-animate text-center">
-          	<div class="text mb-5 pb-3">
-	            <h1 class="mb-3">최고의 순간을 경험하세요</h1>
-	            <h2>Join With Us</h2>
-            </div>
-          </div>
-        </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="ftco-booking">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <form action="#" class="booking-form">
-                    <div class="row">
-                        <div class="col-3 d-flex">
-                            <div class="form-group p-4 align-self-stretch">
-                                <div class="wrap">
-                                    <label for="#">체크인</label>
-                                    <input type="text" class="form-control checkin_date" placeholder="체크인 날짜">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-3 d-flex">
-                            <div class="form-group p-4 align-self-stretch">
-                                <div class="wrap">
-                                    <label for="#">체크아웃</label>
-                                    <input type="text" class="form-control checkout_date" placeholder="체크아웃 날짜">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col d-flex">
-                            <div class="form-group p-4 align-self-stretch">
-                                <div class="wrap">
-                                    <label for="#">객실</label>
-                                    <div class="form-field">
-                                        <div class="select-wrap">
-                                            <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-                                            <select name="" id="" class="form-control">
-                                                <option value="">싱글 룸</option>
-                                                <option value="">더블 룸</option>
-                                                <option value="">슈페리얼 룸 </option>
-                                                <option value="">슈페리얼 더블룸</option>
-                                                <option value="">럭셔리 룸 </option>
-                                                
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col d-flex">
-                            <div class="form-group p-4 align-self-stretch">
-                                <div class="wrap">
-                                    <label for="#">인원수</label>
-                                    <div class="form-field">
-                                        <div class="select-wrap">
-                                            <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-                                            <select name="" id="" class="form-control">
-                                                <option value="">1 명</option>
-                                                <option value="">2 명</option>
-                                                <option value="">3 명</option>
-                                                <option value="">4 명</option>
-                                                <option value="">5 명</option>
-                                                <option value="">6 명</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col d-flex">
-                            <div class="form-group d-flex align-self-stretch">
-                                <input type="submit" value="Check Availability" class="btn btn-primary py-3 px-4 align-self-stretch">
-                            </div>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- 리조트 설명 -->
-    <section class="ftco-section ftc-no-pb ftc-no-pt">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-5 p-md-5 img img-2 d-flex justify-content-center align-items-center" style="background-image: url(${contextPath}/style/images/bg_2.jpg);">
-						<a href="https://vimeo.com/45830194" class="icon popup-vimeo d-flex justify-content-center align-items-center">
-							<span class="icon-play"></span>
-						</a>
-					</div>
-					<div class="col-7 py-5 wrap-about pb-md-5 ftco-animate">
-	          <div class="heading-section heading-section-wo-line pt-md-5 pl-md-5 mb-5">
-	          	<div class="ml-0">
-		          	<span class="subheading">Welcome to Deluxe Hotel</span>
-		            <h2 class="mb-4">Welcome To Our Hotel</h2>
-	            </div>
-	          </div>
-	          <div class="pb-5">
-							<p>On her way she met a copy. The copy warned the Little Blind Text, that where it came from it would have been rewritten a thousand times and everything that was left from its origin would be the word "and" and the Little Blind Text should turn around and return to its own, safe country. But nothing the copy said could convince her and so it didn’t take long until a few insidious Copy Writers ambushed her, made her drunk with Longe and Parole and dragged her into their agency, where they abused her for their.</p>
-							<p>When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane. Pityful a rethoric question ran over her cheek, then she continued her way.</p>
-							<ul class="ftco-social d-flex">
-                <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
-                <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
-                <li class="ftco-animate"><a href="#"><span class="icon-google-plus"></span></a></li>
-                <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
-              </ul>
-						</div>
-					</div>
+<style type="text/css">
+/* 검색 폼 */
+	.searchbox{
+		width: 90%;
+		display: flex;
+		justify-content: center;
+		margin: 20px auto;
+		height: 100px;
+		font-size: 16pt;
+	}
+	.searchbox form{
+		display: flex;
+	}
+	.searchbox form > div {
+		flex: 2;
+		margin: 10px 5px;
+		
+	}
+	.searchbox form > button{
+		flex: 3;
+		margin: 10px auto;
+	}
+	.checkinbox{
+		flex: 2;
+		display: inline-block;
+		margin: 0 auto;
+	}
+	.searchbox input, .searchbox select{
+		flex: 2;
+		width: 100%;
+		border: none;
+	}
+	.checkoutbox{
+		display: inline-block;
+		flex: 2;
+		margin: auto auto;
+	}
+	.roombox{
+		display: inline-block;
+		flex: 2;
+		height: 80px;
+		margin: 0 auto;
+	}
+	.headCountbox{
+		display: inline-block;
+		margin: 0 auto;
+	}
+	.searchbox_button{
+ 		display: inline-block;
+ 		line-height: 60px;
+		height: 80px;
+		border: none;
+		background-color: #8d703b;
+		color: #fff;
+	}
+	.searchbox_button:hover{
+ 		background-color: #000;
+	}
+	.searchbox_button:active{
+ 		background-color: ##78d5ef;
+	}
+	
+	/* main_1 */
+	.main_1 {
+		display: flex;
+		width: 80%;
+		margin: 50px auto;
+	}
+	.main_1 > div{
+		flex:1;
+	}
+	.main_1 >div:nth-child(1) {
+		display: flex;
+		width: 50%;
+		text-align: center;
+		align-items: center;
+		justify-content: center;
+	}
+	.main_1 >div:nth-child(1) > span {
+		display: block;
+	}
+	
+	.main_1 >div:nth-child(2) {
+		width: 50%;
+	}
+	.playicon{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 80px;
+		height: 80px;
+		border-radius: 50%;
+		background-color: #8d703b;
+		margin: auto;
+	}
+	
+	/* main_2 */
+	.main_2{
+		display: flex;
+		width: 80%;
+		margin: 20px auto;
+	}
+	.main_2 > div{
+		flex: 1;
+		text-align: center;
+		margin: 0 10px;
+	}
+	
+	.round{
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 100px;
+		height: 100px;
+		background-color: #f6f2ea;
+		border-radius: 50%;
+		margin: 0 auto;
+	}
+	.round > span{
+		font-size: 30pt;
+		color: #8d703b;
+		margin: 0 auto;
+	}
+	
+	/* roomList */
+	.roomList{
+		width: 70%;
+		margin: 20px auto;
+	}
+	.OurRoom{
+		display: block;
+		width: 100%;
+		margin: 0 auto;
+		text-align: center;
+	}
+	.roompack{
+		display: flex;
+		margin: 0 auto;
+	}
+	.roompack > div {
+		margin: 10px 20px;
+	}
+	/*footer*/
+	
+</style>
+</head>
+<body>
+	<jsp:include page="/include/Header.jsp" flush="false"></jsp:include>
+	<!-- END nav -->
+	<div id="carouselExampleCaptions" class="carousel slide">
+		<div class="carousel-indicators">
+			<button type="button" data-bs-target="#carouselExampleCaptions"
+				data-bs-slide-to="0" class="active" aria-current="true"
+				aria-label="Slide 1"></button>
+			<button type="button" data-bs-target="#carouselExampleCaptions"
+				data-bs-slide-to="1" aria-label="Slide 2"></button>
+			<button type="button" data-bs-target="#carouselExampleCaptions"
+				data-bs-slide-to="2" aria-label="Slide 3"></button>
+		</div>
+		<div class="carousel-inner">
+			<div class="carousel-item active">
+				<svg class="bd-placeholder-img bd-placeholder-img-lg d-block w-100"
+					width="800" height="500" xmlns="http://www.w3.org/2000/svg"
+					role="img" aria-label="Placeholder: First slide"
+					preserveAspectRatio="xMidYMid slice" focusable="false">
+					<title>Placeholder</title><rect width="100%" height="100%"
+						fill="#777"></rect>
+					<text x="50%" y="50%" fill="#555" dy=".3em">First slide</text></svg>
+				<div class="carousel-caption d-none d-md-block">
+					<h5>우리집에 놀러와</h5>
+					<p>Hotels & Resorts</p>
 				</div>
 			</div>
-		</section>
-
-
-		<section class="ftco-section">
-  <div class="container">
-    <div class="row">
-      <div class="col-3 ftco-animate">
-        <div class="media block-6 services py-4 d-block text-center">
-          <div class="d-flex justify-content-center">
-            <div class="icon d-flex align-items-center justify-content-center">
-              <span class="flaticon-reception-bell"></span>
-            </div>
-          </div>
-          <div class="media-body p-2 mt-2">
-            <h3 class="heading mb-3">25/7 Front Desk</h3>
-            <p>A small river named Duden flows by their place and supplies.</p>
-          </div>
-        </div>      
-      </div>
-      <div class="col-3 ftco-animate">
-        <div class="media block-6 services py-4 d-block text-center">
-          <div class="d-flex justify-content-center">
-            <div class="icon d-flex align-items-center justify-content-center">
-              <span class="flaticon-serving-dish"></span>
-            </div>
-          </div>
-          <div class="media-body p-2 mt-2">
-            <h3 class="heading mb-3">Restaurant Bar</h3>
-            <p>A small river named Duden flows by their place and supplies.</p>
-          </div>
-        </div>    
-      </div>
-      <div class="col-3 ftco-animate">
-        <div class="media block-6 services py-4 d-block text-center">
-          <div class="d-flex justify-content-center">
-            <div class="icon d-flex align-items-center justify-content-center">
-              <span class="flaticon-car"></span>
-            </div>
-          </div>
-          <div class="media-body p-2 mt-2">
-            <h3 class="heading mb-3">Transfer Services</h3>
-            <p>A small river named Duden flows by their place and supplies.</p>
-          </div>
-        </div>      
-      </div>
-      <div class="col-3 ftco-animate">
-        <div class="media block-6 services py-4 d-block text-center">
-          <div class="d-flex justify-content-center">
-            <div class="icon d-flex align-items-center justify-content-center">
-              <span class="flaticon-spa"></span>
-            </div>
-          </div>
-          <div class="media-body p-2 mt-2">
-            <h3 class="heading mb-3">Spa Suites</h3>
-            <p>A small river named Duden flows by their place and supplies.</p>
-          </div>
-        </div>      
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 객실 리스트 -->
-    <section class="ftco-section bg-light">
-    	<div class="container">
-				<div class="row justify-content-center mb-5 pb-3">
-          <div class="col-7 heading-section text-center ftco-animate">
-            <h2 class="mb-4">Our Rooms</h2>
-          </div>
-        </div>    		
-    		<div class="row">
-    			<div class="col-sm-6 col-6 col-lg-6 ftco-animate">
-    				<div class="room">
-    					<a href="rooms.html" class="img d-flex justify-content-center align-items-center" style="background-image: url(${contextPath}/style/images/room-1.jpg);"> <!-- 방 이미지 출력 -->
-    						<div class="icon d-flex justify-content-center align-items-center">
-    							<span class="icon-search2"></span>
-    						</div>
-    					</a>
-    					<div class="text p-3 text-center">
-    						<h3 class="mb-3"><a href="rooms.html"> 방이름 </a></h3>
-    						<p><span class="price mr-3">가격</span> <span class="per"> 가격 단위</span></p>
-    						<hr>
-    						<p class="pt-1"><a href="room-single.html" class="btn-custom">방 상세 보기 버튼<span class="icon-long-arrow-right"></span></a></p>
+			<div class="carousel-item">
+				<svg class="bd-placeholder-img bd-placeholder-img-lg d-block w-100"
+					width="800" height="500" xmlns="http://www.w3.org/2000/svg"
+					role="img" aria-label="Placeholder: Second slide"
+					preserveAspectRatio="xMidYMid slice" focusable="false">
+					<title>Placeholder</title><rect width="100%" height="100%"
+						fill="#666"></rect>
+					<text x="50%" y="50%" fill="#444" dy=".3em">Second slide</text></svg>
+				<div class="carousel-caption d-none d-md-block">
+					<h5>최고의 순간을 경험하세요</h5>
+					<p>Join With Us</p>
+				</div>
+			</div>
+			<div class="carousel-item">
+				<svg class="bd-placeholder-img bd-placeholder-img-lg d-block w-100"
+					width="800" height="500" xmlns="http://www.w3.org/2000/svg"
+					role="img" aria-label="Placeholder: Third slide"
+					preserveAspectRatio="xMidYMid slice" focusable="false">
+					<title>Placeholder</title><rect width="100%" height="100%"
+						fill="#555"></rect>
+					<text x="50%" y="50%" fill="#333" dy=".3em">Third slide</text></svg>
+				<div class="carousel-caption d-none d-md-block">
+					<h5>Third slide label</h5>
+					<p>Some representative placeholder content for the third slide.</p>
+				</div>
+			</div>
+		</div>
+		<button class="carousel-control-prev" type="button"
+			data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+			<span class="carousel-control-prev-icon" aria-hidden="true"></span> <span
+				class="visually-hidden">Previous</span>
+		</button>
+		<button class="carousel-control-next" type="button"
+			data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+			<span class="carousel-control-next-icon" aria-hidden="true"></span> <span
+				class="visually-hidden">Next</span>
+		</button>
+	</div>
+	
+	<!-- 메인 검색 폼 -->
+	<div class="searchbox">
+		<form action="">
+			<div class="checkinbox">
+				<label>체크인</label><br>
+				<input type="text" name="checkIn" class="filter" placeholder="체크인 날짜">
+			</div>
+			<div class="checkoutbox">
+				<label>체크아웃</label><br>
+				<input type="text" name="checkOut" class="filter" placeholder="체크아웃 날짜">
+			</div>
+			<div class="roombox">
+				<label>객실</label><br>
+				<select name="">
+					<option value="">싱글 룸</option>
+					<option value="">더블 룸</option>
+					<option value="">슈페리얼 룸</option>
+					<option value="">슈페리얼 더블룸</option>
+					<option value="">럭셔리 룸</option>
+				</select>
+			</div>
+			<div class="headCountbox">
+				<label>인원 수</label><br>
+				<select name="">
+					<option value="">1 명</option>
+					<option value="">2 명</option>
+					<option value="">3 명</option>
+					<option value="">4 명</option>
+					<option value="">5 명</option>
+					<option value="">6 명</option>
+				</select>
+			</div>
+			<button type="submit" class="searchbox_button">Check Availability</button>
+		</form>
+	</div>
+	<!-- 리조트 실행 --> 
+	<section class="main_1">
+		<div class="leftside">
+			<a href="" class="playicon">
+				<i class="fa-solid fa-play fa-xl" style="color: #ffffff;"></i>
+			</a>
+		</div>
+		<div class="rightside">
+			<div>
+				<span>Welcome to Deluxe Hotel</span>
+				<h2>Welcome To Our Hotel</h2>
+			</div>
+			<div>
+				<p>On her way she met a copy. The copy warned the Little Blind Text, that where it came from it would have been rewritten a thousand times and everything that was left from its origin would be the word "and" and the Little Blind Text should turn around and return to its own, safe country. But nothing the copy said could convince her and so it didn’t take long until a few insidious Copy Writers ambushed her, made her drunk with Longe and Parole and dragged her into their agency, where they abused her for their.</p>
+				<p>When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane. Pityful a rethoric question ran over her cheek, then she continued her way.</p>
+			</div>
+		</div>
+	</section>
+	
+	<section class="main_2">
+		<div>
+			<div class="round">
+				<span class="flaticon-reception-bell"></span>
+			</div>
+			<div>
+				<h3>25/7 Front Desk</h3>
+				<p>A small river named Duden flows by their place and supplies.</p>
+			</div>
+		</div>
+		
+		<div>
+			<div class="round">
+				<span class="flaticon-serving-dish"></span>
+			</div>
+			<div>
+				<h3>Restaurant Bar</h3>
+				<p>A small river named Duden flows by their place and supplies.</p>
+			</div>
+		</div>
+		
+		<div>
+			<div class="round">
+				<span class="flaticon-car"></span>
+			</div>
+			<div>
+				<h3>Transfer Services</h3>
+				<p>A small river named Duden flows by their place and supplies.</p>
+			</div>
+		</div>
+		
+		<div>
+			<div class="round">
+				<span class="flaticon-spa"></span>
+			</div>
+			<div>
+				<h3>Spa Suites</h3>
+				<p>A small river named Duden flows by their place and supplies.</p>
+			</div>
+		</div>
+	</section>
+	
+	<!-- 객실 리스트 -->
+	<section class="roomList">
+		<div >
+			<div class="OurRoom">
+				<h2>Our Rooms</h2>
+			</div>
+			<div class="roompack">
+				<div class="room">
+    				<a href="rooms.html" class="img d-flex justify-content-center align-items-center" style="background-image: url(${contextPath}/style/images/room-1.jpg);"> <!-- 방 이미지 출력 -->
+    					<div class="icon d-flex justify-content-center align-items-center">
+    						<span class="icon-search2"></span>
     					</div>
+    				</a>
+    				<div class="text p-3 text-center">
+    					<h3 class="mb-3"><a href="rooms.html"> 방이름 </a></h3>
+    					<p><span class="price mr-3">가격</span> <span class="per"> 가격 단위</span></p>
+    					<hr>
+    					<p class="pt-1"><a href="room-single.html" class="btn-custom">방 상세 보기 버튼<span class="icon-long-arrow-right"></span></a></p>
     				</div>
     			</div>
-    			<div class="col-sm-6 col-6 col-lg-6 ftco-animate">
-    				<div class="room">
-    					<a href="rooms.html" class="img d-flex justify-content-center align-items-center" style="background-image: url(${contextPath}/style/images/room-2.jpg);">
-    						<div class="icon d-flex justify-content-center align-items-center">
-    							<span class="icon-search2"></span>
-    						</div>
-    					</a>
-    					<div class="text p-3 text-center">
-    						<h3 class="mb-3"><a href="rooms.html">Family Room</a></h3>
-    						<p><span class="price mr-3">$20.00</span> <span class="per">per night</span></p>
-    						<hr>
-    						<p class="pt-1"><a href="room-single.html" class="btn-custom">View Room Details <span class="icon-long-arrow-right"></span></a></p>
+				<div class="room">
+    				<a href="rooms.html" class="img d-flex justify-content-center align-items-center" style="background-image: url(${contextPath}/style/images/room-1.jpg);"> <!-- 방 이미지 출력 -->
+    					<div class="icon d-flex justify-content-center align-items-center">
+    						<span class="icon-search2"></span>
     					</div>
+    				</a>
+    				<div class="text p-3 text-center">
+    					<h3 class="mb-3"><a href="rooms.html"> 방이름 </a></h3>
+    					<p><span class="price mr-3">가격</span> <span class="per"> 가격 단위</span></p>
+    					<hr>
+    					<p class="pt-1"><a href="room-single.html" class="btn-custom">방 상세 보기 버튼<span class="icon-long-arrow-right"></span></a></p>
     				</div>
     			</div>
-    			<div class="col-sm-6 col-6 col-lg-6 ftco-animate">
-    				<div class="room">
-    					<a href="rooms.html" class="img d-flex justify-content-center align-items-center" style="background-image: url(${contextPath}/style/images/room-3.jpg);">
-    						<div class="icon d-flex justify-content-center align-items-center">
-    							<span class="icon-search2"></span>
-    						</div>
-    					</a>
-    					<div class="text p-3 text-center">
-    						<h3 class="mb-3"><a href="rooms.html">Deluxe Room</a></h3>
-    						<p><span class="price mr-3">$150.00</span> <span class="per">per night</span></p>
-    						<hr>
-    						<p class="pt-1"><a href="room-single.html" class="btn-custom">View Room Details <span class="icon-long-arrow-right"></span></a></p>
+			</div>
+			<div class="roompack">
+				<div class="room">
+    				<a href="rooms.html" class="img d-flex justify-content-center align-items-center" style="background-image: url(${contextPath}/style/images/room-1.jpg);"> <!-- 방 이미지 출력 -->
+    					<div class="icon d-flex justify-content-center align-items-center">
+    						<span class="icon-search2"></span>
     					</div>
+    				</a>
+    				<div class="text p-3 text-center">
+    					<h3 class="mb-3"><a href="rooms.html"> 방이름 </a></h3>
+    					<p><span class="price mr-3">가격</span> <span class="per"> 가격 단위</span></p>
+    					<hr>
+    					<p class="pt-1"><a href="room-single.html" class="btn-custom">방 상세 보기 버튼<span class="icon-long-arrow-right"></span></a></p>
     				</div>
     			</div>
-    			<div class="col-sm-6 col-6 col-lg-6 ftco-animate">
-    				<div class="room">
-    					<a href="rooms.html" class="img d-flex justify-content-center align-items-center" style="background-image: url(${contextPath}/style/images/room-4.jpg);">
-    						<div class="icon d-flex justify-content-center align-items-center">
-    							<span class="icon-search2"></span>
-    						</div>
-    					</a>
-    					<div class="text p-3 text-center">
-    						<h3 class="mb-3"><a href="rooms.html">Classic Room</a></h3>
-    						<p><span class="price mr-3">$130.00</span> <span class="per">per night</span></p>
-    						<hr>
-    						<p class="pt-1"><a href="room-single.html" class="btn-custom">View Room Details <span class="icon-long-arrow-right"></span></a></p>
+				<div class="room">
+    				<a href="rooms.html" class="img d-flex justify-content-center align-items-center" style="background-image: url(${contextPath}/style/images/room-1.jpg);"> <!-- 방 이미지 출력 -->
+    					<div class="icon d-flex justify-content-center align-items-center">
+    						<span class="icon-search2"></span>
     					</div>
+    				</a>
+    				<div class="text p-3 text-center">
+    					<h3 class="mb-3"><a href="rooms.html"> 방이름 </a></h3>
+    					<p><span class="price mr-3">가격</span> <span class="per"> 가격 단위</span></p>
+    					<hr>
+    					<p class="pt-1"><a href="room-single.html" class="btn-custom">방 상세 보기 버튼<span class="icon-long-arrow-right"></span></a></p>
     				</div>
     			</div>
-    			<div class="col-sm-6 col-6 col-lg-6 ftco-animate">
-    				<div class="room">
-    					<a href="rooms.html" class="img d-flex justify-content-center align-items-center" style="background-image: url(${contextPath}/style/images/room-5.jpg);">
-    						<div class="icon d-flex justify-content-center align-items-center">
-    							<span class="icon-search2"></span>
-    						</div>
-    					</a>
-    					<div class="text p-3 text-center">
-    						<h3 class="mb-3"><a href="rooms.html">Superior Room</a></h3>
-    						<p><span class="price mr-3">$300.00</span> <span class="per">per night</span></p>
-    						<hr>
-    						<p class="pt-1"><a href="room-single.html" class="btn-custom">View Room Details <span class="icon-long-arrow-right"></span></a></p>
+			</div>
+			<div class="roompack">
+				<div class="room">
+    				<a href="rooms.html" class="img d-flex justify-content-center align-items-center" style="background-image: url(${contextPath}/style/images/room-1.jpg);"> <!-- 방 이미지 출력 -->
+    					<div class="icon d-flex justify-content-center align-items-center">
+    						<span class="icon-search2"></span>
     					</div>
+    				</a>
+    				<div class="text p-3 text-center">
+    					<h3 class="mb-3"><a href="rooms.html"> 방이름 </a></h3>
+    					<p><span class="price mr-3">가격</span> <span class="per"> 가격 단위</span></p>
+    					<hr>
+    					<p class="pt-1"><a href="room-single.html" class="btn-custom">방 상세 보기 버튼<span class="icon-long-arrow-right"></span></a></p>
     				</div>
     			</div>
-    			<div class="col-sm-6 col-6 col-lg-6 ftco-animate">
-    				<div class="room">
-    					<a href="rooms.html" class="img d-flex justify-content-center align-items-center" style="background-image: url(${contextPath}/style/images/room-6.jpg);">
-    						<div class="icon d-flex justify-content-center align-items-center">
-    							<span class="icon-search2"></span>
-    						</div>
-    					</a>
-    					<div class="text p-3 text-center">
-    						<h3 class="mb-3"><a href="rooms.html">Luxury Room</a></h3>
-    						<p><span class="price mr-3">$500.00</span> <span class="per">per night</span></p>
-    						<hr>
-    						<p class="pt-1"><a href="room-single.html" class="btn-custom">View Room Details <span class="icon-long-arrow-right"></span></a></p>
+				<div class="room">
+    				<a href="rooms.html" class="img d-flex justify-content-center align-items-center" style="background-image: url(${contextPath}/style/images/room-1.jpg);"> <!-- 방 이미지 출력 -->
+    					<div class="icon d-flex justify-content-center align-items-center">
+    						<span class="icon-search2"></span>
     					</div>
+    				</a>
+    				<div class="text p-3 text-center">
+    					<h3 class="mb-3"><a href="rooms.html"> 방이름 </a></h3>
+    					<p><span class="price mr-3">가격</span> <span class="per"> 가격 단위</span></p>
+    					<hr>
+    					<p class="pt-1"><a href="room-single.html" class="btn-custom">방 상세 보기 버튼<span class="icon-long-arrow-right"></span></a></p>
     				</div>
     			</div>
-    		</div>
-    	</div>
-    </section>
-
-    
-
-    
-   
-
-   <jsp:include page="/include/Footer.jsp" flush="false"/>
-  
+			</div>
+		</div>
+		
+	</section>
+	
+	<jsp:include page="/include/Footer.jsp" flush="false"></jsp:include>
 
   <!-- loader -->
  <%--  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
  --%>
 
-  <script src="../style/js/jquery.min.js"></script>
-  <script src="../style/js/jquery-migrate-3.0.1.min.js"></script>
-  <script src="../style/js/popper.min.js"></script>
-  <script src="../style/js/bootstrap.min.js"></script>
-  <script src="../style/js/jquery.easing.1.3.js"></script>
-  <script src="../style/js/jquery.waypoints.min.js"></script>
-  <script src="../style/js/jquery.stellar.min.js"></script>
-  <script src="../style/js/owl.carousel.min.js"></script>
-  <script src="../style/js/jquery.magnific-popup.min.js"></script>
-  <script src="../style/js/aos.js"></script>
-  <script src="../style/js/jquery.animateNumber.min.js"></script>
-  <script src="../style/js/bootstrap-datepicker.js"></script>
-  <script src="../style/js/jquery.timepicker.min.js"></script>
-  <script src="../style/js/scrollax.min.js"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-  <script src="../style/js/google-map.js"></script>
-  <script src="../style/js/main.js"></script>
-    
   </body>
 </html>
