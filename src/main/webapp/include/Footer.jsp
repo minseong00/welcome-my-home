@@ -6,27 +6,12 @@
 <head >
  <title>Deluxe - Free Bootstrap 4 Template by Colorlib</title>
     <meta charset="utf-8">
- 
+ <script src="http://code.jquery.com/jquery-latest.min.js"></script>
     
-<!--     <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700" rel="stylesheet"> -->
-<!--     <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i" rel="stylesheet"> -->
-
-<!--     <link rel="stylesheet" href="../style/css/open-iconic-bootstrap.min.css"> -->
-<!--     <link rel="stylesheet" href="../style/css/animate.css"> -->
-    
-<!--     <link rel="stylesheet" href="../style/css/owl.carousel.min.css"> -->
-<!--     <link rel="stylesheet" href="../style/css/owl.theme.default.min.css"> -->
-<!--     <link rel="stylesheet" href="../style/css/magnific-popup.css"> -->
-
-<!--     <link rel="stylesheet" href="../style/css/aos.css"> -->
-
-<!--     <link rel="stylesheet" href="../style/css/ionicons.min.css"> -->
-
-<!--     <link rel="stylesheet" href="../style/css/flaticon.css"> -->
+    <link rel="stylesheet" href="../style/css/animate.css">
     <link rel="stylesheet" href="../style/css/icomoon.css">
     <link rel="stylesheet" href="../style/css/style.css">
    
-
 </head>
 <body>
 
@@ -38,11 +23,6 @@
               <h2 class="ftco-heading-2">우리집에 놀러와</h2>
               <p>화곡역 2번출구 앞, 대한상공회의소 서울교육기술센터 뒤편에 있는 초호화 리조트. 모두가 오고싶지만 아무나 오지 못하는 특별한 장소!
               </p>
-              <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
-                <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
-                <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
-                <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
-              </ul>
             </div>
           </div>
           <div class="col">
@@ -91,17 +71,10 @@
         </div>
       </div>
     </footer>
-  <script src="../style/js/jquery-migrate-3.0.1.min.js"></script>
-  <script src="../style/js/popper.min.js"></script>
-  <script src="../style/js/bootstrap.min.js"></script>
-  <script src="../style/js/jquery.easing.1.3.js"></script>
   <script src="../style/js/jquery.waypoints.min.js"></script>
   <script src="../style/js/jquery.stellar.min.js"></script>
   <script src="../style/js/owl.carousel.min.js"></script>
-  <script src="../style/js/jquery.magnific-popup.min.js"></script>
   <script src="../style/js/aos.js"></script>
-  <script src="../style/js/jquery.animateNumber.min.js"></script>
-  <script src="../style/js/bootstrap-datepicker.js"></script>
   <script src="../style/js/scrollax.min.js"></script>
 
 
