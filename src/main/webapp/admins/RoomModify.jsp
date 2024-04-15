@@ -122,7 +122,7 @@ input[type="text"]:focus, textarea:focus, select:focus {
 </script>
 </head>
 <body>
-	<div class="container-fluid">
+	<div class="container">
 		<jsp:include page="/include/Header.jsp" flush="false" />
 		<div class="row">
 

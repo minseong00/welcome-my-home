@@ -1,16 +1,10 @@
 package util;
 
-import java.util.ArrayList;
 
 import javax.servlet.http.Part;
 
-import model.RoomImgVO;
-import model.RoomVO;
 
 public class Split {
-	public Split(){
-		
-	}
 	
 	/**
 	 * @see FileName Split

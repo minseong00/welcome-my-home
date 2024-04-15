@@ -103,7 +103,7 @@ td {
 </head>
 <body>
 	
-	<h3>예약 내역</h3>
+	<h3 style="font-weight: bold">예약 내역</h3>
 	<table summary="예약 내역" border="1">
 		<colgroup>
 			<col width="">

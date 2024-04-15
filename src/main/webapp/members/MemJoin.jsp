@@ -98,7 +98,7 @@
 <style>
 	
 	body {
- 	
+ 		padding:1.5em;
   background: #f5f5f5; /* 배경색 설정 */
    font-weight: bold; /* 헤더 폰트를 굵게 */
 }
@@ -142,9 +142,10 @@ td, th {
 </head>
 
 <body>
+<div class="container">
 <jsp:include page="/include/Header.jsp" flush="false" />
 
-<div style="width: 40%;  margin: auto;">
+<div  style="width: 40%;  margin: auto;">
 <form   method="post" action="${contextPath}/Join">
 <h2 style="text-align:center; margin-bottom: 60px; font-weight: bold;">회원 가입</h2>
 <table style="border:1; margin: auto; " >
@@ -191,6 +192,7 @@ td, th {
 </table>
 
 </form>
+</div>
 </div>
 </body>
 </html>

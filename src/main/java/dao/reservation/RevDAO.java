@@ -23,8 +23,8 @@ public class RevDAO implements RevQuerys {
 	 	예약 목록 조회
 	 	@return
 	**/
-	public List<RevVO> selectAll(){
-		List<RevVO> revList = null;
+	public ArrayList<RevVO> selectAll(){
+		ArrayList<RevVO> revList = null;
 		try {
 			conn = DB.dbConnect();
 			this.pstmt = conn.prepareStatement(selectAll);
@@ -57,8 +57,8 @@ public class RevDAO implements RevQuerys {
  	자신의 예약 목록 조회
  	@return
 **/
-public List<RevVO> selectMyRev(String _id) {
-	List<RevVO> revList = null;
+public ArrayList<RevVO> selectMyRev(String _id) {
+	ArrayList<RevVO> revList = null;
 	try {
 		conn = DB.dbConnect();
 		this.pstmt = conn.prepareStatement(selectMyRev);

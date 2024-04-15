@@ -23,8 +23,14 @@
 	    margin-left: auto;
 	    max-width: 1100px;
 	}
+	#calendar {
+		width: 90%;
+	}
 </style>
 <script src="${contextPath}/util/RevListCalendar.js"></script>
+<script>
+	const servletUrl = "${contextPath}/RevList?type=calendar";
+</script>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     var calendarEl = document.getElementById('calendar');
@@ -34,13 +40,13 @@ document.addEventListener('DOMContentLoaded', function() {
     	headerToolbar: {
     		left: 'today',
     		center: 'title',
-    		right: 'dayGridMonth'
-    	}
+    		right: 'prev,next'
+    	},
       	initialView: 'dayGridMonth',
       	nowIndicator: true,
       	dayMaxEvents: true,
-      	
-      	
+      	editable: false,
+      	events: events
     });
     calendar.render();
   });
