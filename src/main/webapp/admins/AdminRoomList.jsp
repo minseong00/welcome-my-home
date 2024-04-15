@@ -104,14 +104,7 @@ a {
 		<div class="rightside">
 		<h3 style="font-weight: bold">전체 객실 리스트</h3>
 		<table summary="전체 객실 리스트" border="1">
-			<colgroup>
-				<col width="20%;">
-				<col width="20%;">
-				<col width="20%;">
-				<col width="20%;">
-				<col width="20%;">
-				
-			</colgroup>
+			
 			<thead>
 			<tr>
 				<th>룸 이름</th>
