@@ -41,11 +41,10 @@ public class AdminLoginCheck extends HttpServlet {
 		boolean result = false;
 		
 		if(session == null || session.getAttribute("id") == null) result = false;
-			
+		
 		String idType = (String) session.getAttribute("idType");
 		if(idType == null || !idType.equals("admin")) result = false;
-		
-		if(idType.equals("admin")) result = true;
+		else if(idType.equals("admin")) result = true;
 		
 		if(!result) {
 			request.setAttribute("message", "세션이 만료되었습니다. 다시 로그인해주세요.");
@@ -55,7 +54,6 @@ public class AdminLoginCheck extends HttpServlet {
 		}
 
 		String reqURI = request.getRequestURI().substring(19);
-		System.out.println("temp : " + reqURI);
 		request.getRequestDispatcher(reqURI).forward(request, response);
 	}
 }
