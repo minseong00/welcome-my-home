@@ -8,21 +8,21 @@
     <meta charset="utf-8">
  
     
-    <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i" rel="stylesheet">
+<!--     <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700" rel="stylesheet"> -->
+<!--     <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i" rel="stylesheet"> -->
 
-    <link rel="stylesheet" href="../style/css/open-iconic-bootstrap.min.css">
-    <link rel="stylesheet" href="../style/css/animate.css">
+<!--     <link rel="stylesheet" href="../style/css/open-iconic-bootstrap.min.css"> -->
+<!--     <link rel="stylesheet" href="../style/css/animate.css"> -->
     
-    <link rel="stylesheet" href="../style/css/owl.carousel.min.css">
-    <link rel="stylesheet" href="../style/css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="../style/css/magnific-popup.css">
+<!--     <link rel="stylesheet" href="../style/css/owl.carousel.min.css"> -->
+<!--     <link rel="stylesheet" href="../style/css/owl.theme.default.min.css"> -->
+<!--     <link rel="stylesheet" href="../style/css/magnific-popup.css"> -->
 
-    <link rel="stylesheet" href="../style/css/aos.css">
+<!--     <link rel="stylesheet" href="../style/css/aos.css"> -->
 
-    <link rel="stylesheet" href="../style/css/ionicons.min.css">
+<!--     <link rel="stylesheet" href="../style/css/ionicons.min.css"> -->
 
-    <link rel="stylesheet" href="../style/css/flaticon.css">
+<!--     <link rel="stylesheet" href="../style/css/flaticon.css"> -->
     <link rel="stylesheet" href="../style/css/icomoon.css">
     <link rel="stylesheet" href="../style/css/style.css">
    

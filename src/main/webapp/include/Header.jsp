@@ -8,28 +8,6 @@
 <title>Deluxe - Free Bootstrap 4 Template by Colorlib</title>
     <meta charset="utf-8">
  
-    
-    <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i" rel="stylesheet">
-
-    <link rel="stylesheet" href="${contextPath}/style/css/open-iconic-bootstrap.min.css">
-    <link rel="stylesheet" href="${contextPath}/style/css/animate.css">
-    
-    <link rel="stylesheet" href="${contextPath}/style/css/owl.carousel.min.css">
-    <link rel="stylesheet" href="${contextPath}/style/css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="${contextPath}/style/css/magnific-popup.css">
-
-    <link rel="stylesheet" href="${contextPath}/style/css/aos.css">
-
-    <link rel="stylesheet" href="${contextPath}/style/css/ionicons.min.css">
-
-    <link rel="stylesheet" href="${contextPath}/style/css/bootstrap-datepicker.css">
-
-    
-    <link rel="stylesheet" href="${contextPath}/style/css/flaticon.css">
-    <link rel="stylesheet" href="${contextPath}/style/css/icomoon.css">
-    <link rel="stylesheet" href="${contextPath}/style/css/style.css">
-
 </head>
 <body>
 	<nav class="navbar" id="ftco-navbar">

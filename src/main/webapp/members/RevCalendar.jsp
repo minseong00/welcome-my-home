@@ -30,6 +30,11 @@
 	#calendar {
 		width: 90%;
 	}
+	#main-content {
+		display: flex;
+		justify-content: center;
+	}
+	
 </style>
 
 </head>
@@ -37,7 +42,7 @@
 	<div id="container"> <!-- 메인 컨테이너 -->
 		<jsp:include page="/include/Header.jsp" flush="false"/>
 		
-		<div class="row justify-content-center">
+		<div id="main-content">
 		<div id="calendar"></div>
 		
 		</div>
