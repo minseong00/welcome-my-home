@@ -95,7 +95,6 @@
         </div>
       </div>
     </footer>
-  <script src="../style/js/jquery.min.js"></script>
   <script src="../style/js/jquery-migrate-3.0.1.min.js"></script>
   <script src="../style/js/popper.min.js"></script>
   <script src="../style/js/bootstrap.min.js"></script>
