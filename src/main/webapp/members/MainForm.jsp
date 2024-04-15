@@ -5,18 +5,19 @@
 
 
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>  
     <title>메인화면</title>
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- css 적용 -->
 <link rel="stylesheet" href="${contextPath }/style/css/flaticon.css">
 <link rel="stylesheet" href="${contextPath }/style/css/style.css">
 <!-- 캐러셀 -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-<link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
-<script src="https://kit.fontawesome.com/4e5b2f86bb.js" crossorigin="anonymous"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" >
+<!-- play icon -->
+<script src="https://kit.fontawesome.com/4e5b2f86bb.js" ></script>
 <!-- 캘린더 import -->
 <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
@@ -186,40 +187,22 @@
 				data-bs-slide-to="2" aria-label="Slide 3"></button>
 		</div>
 		<div class="carousel-inner">
-			<div class="carousel-item active">
-				<svg class="bd-placeholder-img bd-placeholder-img-lg d-block w-100"
-					width="800" height="500" xmlns="http://www.w3.org/2000/svg"
-					role="img" aria-label="Placeholder: First slide"
-					preserveAspectRatio="xMidYMid slice" focusable="false">
-					<title>Placeholder</title><rect width="100%" height="100%"
-						fill="#777"></rect>
-					<text x="50%" y="50%" fill="#555" dy=".3em">First slide</text></svg>
+			<div class="carousel-item active" data-bs-interval="10000">
+				<img alt="" src="${contextPath }/style/images/room-1.jpg" width="100%" height="500px">
 				<div class="carousel-caption d-none d-md-block">
 					<h5>우리집에 놀러와</h5>
 					<p>Hotels & Resorts</p>
 				</div>
 			</div>
 			<div class="carousel-item">
-				<svg class="bd-placeholder-img bd-placeholder-img-lg d-block w-100"
-					width="800" height="500" xmlns="http://www.w3.org/2000/svg"
-					role="img" aria-label="Placeholder: Second slide"
-					preserveAspectRatio="xMidYMid slice" focusable="false">
-					<title>Placeholder</title><rect width="100%" height="100%"
-						fill="#666"></rect>
-					<text x="50%" y="50%" fill="#444" dy=".3em">Second slide</text></svg>
+				<img alt="" src="${contextPath }/style/images/room-2.jpg" width="100%" height="500px">
 				<div class="carousel-caption d-none d-md-block">
 					<h5>최고의 순간을 경험하세요</h5>
 					<p>Join With Us</p>
 				</div>
 			</div>
 			<div class="carousel-item">
-				<svg class="bd-placeholder-img bd-placeholder-img-lg d-block w-100"
-					width="800" height="500" xmlns="http://www.w3.org/2000/svg"
-					role="img" aria-label="Placeholder: Third slide"
-					preserveAspectRatio="xMidYMid slice" focusable="false">
-					<title>Placeholder</title><rect width="100%" height="100%"
-						fill="#555"></rect>
-					<text x="50%" y="50%" fill="#333" dy=".3em">Third slide</text></svg>
+				<img alt="" src="${contextPath }/style/images/room-3.jpg" width="100%" height="500px">
 				<div class="carousel-caption d-none d-md-block">
 					<h5>Third slide label</h5>
 					<p>Some representative placeholder content for the third slide.</p>

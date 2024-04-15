@@ -3179,12 +3179,12 @@ input[type="button"].btn-block {
   margin-bottom: 0;
   list-style: none; }
 
-.nav-link {
+.nav-links {
   display: block;
   padding: 0.5rem 1rem; }
-  .nav-link:hover, .nav-link:focus {
+  .nav-links:hover, .nav-links:focus {
     text-decoration: none; }
-  .nav-link.disabled {
+  .nav-links.disabled {
     color: #6c757d; }
 
 .nav-tabs {
@@ -3289,7 +3289,7 @@ input[type="button"].btn-block {
   padding-left: 0;
   margin-bottom: 0;
   list-style: none; }
-  .navbar-nav .nav-link {
+  .navbar-nav {
     padding-right: 0;
     padding-left: 0; }
   .navbar-nav .dropdown-menu {

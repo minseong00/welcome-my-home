@@ -22,10 +22,6 @@
 
     <link rel="stylesheet" href="../style/css/ionicons.min.css">
 
-    <link rel="stylesheet" href="../style/css/bootstrap-datepicker.css">
-   
-
-    
     <link rel="stylesheet" href="../style/css/flaticon.css">
     <link rel="stylesheet" href="../style/css/icomoon.css">
     <link rel="stylesheet" href="../style/css/style.css">
@@ -95,7 +91,6 @@
         </div>
       </div>
     </footer>
-  <script src="../style/js/jquery.min.js"></script>
   <script src="../style/js/jquery-migrate-3.0.1.min.js"></script>
   <script src="../style/js/popper.min.js"></script>
   <script src="../style/js/bootstrap.min.js"></script>
