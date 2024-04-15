@@ -44,12 +44,18 @@
 <style type="text/css">
 
 html,body {
-  position: relative;
-  align-items: center;
-  justify-content: center;
   font-family: "Fira Sans", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+	width: 100%;
+	padding-right: 15px;
+	padding-left: 15px;
+	margin-right: auto;
+	margin-left: auto;
+	max-width: 1100px;
 }
 
 .form-structor {
@@ -152,17 +158,16 @@ html,body {
 </head>
 
 <body>
-	<div class="container">
+	<div id="container"> <!-- 메인 컨테이너 -->
 	    <jsp:include page="/include/Header.jsp" flush="false"/>
 		<div class="row justify-content-center">
-		
 	<form id="login">
 	<div class="form-structor">
 	  <div class="login">
 	    <h2 class="form-title" id="login">로그인</h2>
 	    <div class="form-holder">
-	      <input type="text" class="input" placeholder="Id" name="id" />
-	      <input type="password" class="input" placeholder="Password" name="pw" />
+	      <input type="text" class="input" placeholder="Id" name="id" required/>
+	      <input type="password" class="input" placeholder="Password" name="pw" required/>
 	    </div>
 	    <input type="submit" value="로그인" class="submit-btn">
 	  </div>
