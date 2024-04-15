@@ -26,6 +26,7 @@ public class MemModify extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		HttpSession session = request.getSession();
+		String idType = (String) session.getAttribute("idType");
 		String id = null;
 		if(session.getAttribute("id").equals("admin")) {
 			id = request.getParameter("id");			//관리자
@@ -40,9 +41,8 @@ public class MemModify extends HttpServlet {
 		request.setAttribute("MemOne", memOne);
 		// System.out.println("========> MemModifyServlet doGet()");
 
-		String type = request.getParameter("type");
 		RequestDispatcher dispatcher = null;
-		if (type.equals("MemUpdate")) {	//마이페이지 정보수정
+		if (idType.equals("member")) {	//마이페이지 정보수정
 			dispatcher = request.getRequestDispatcher("/members/MyInfo.jsp");
 		} else {						//관리자 회원정보수정
 			dispatcher = request.getRequestDispatcher("/admins/MemModify.jsp");
@@ -53,6 +53,8 @@ public class MemModify extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
+		HttpSession session = request.getSession();
+		String idType = (String) session.getAttribute("idType");
 
 		String n = request.getParameter("id");
 		String pw = request.getParameter("pw");
@@ -72,9 +74,9 @@ public class MemModify extends HttpServlet {
 
 		System.out.println("========> MemListServlet doPost()");
 
-		String sort = request.getParameter("sort");
-		if (sort.equals("modMyInfo")) {	//마이페이지 정보수정완료 시
-			response.sendRedirect(request.getContextPath() + "/MemModify?type=MemUpdate");
+		RequestDispatcher dispatcher = null;
+		if (idType.equals("member")) {	//마이페이지 정보수정완료 시
+			response.sendRedirect(request.getContextPath() + "/MemModify");
 		} else {						//관리자 정보수정완료 시
 			response.sendRedirect(request.getContextPath() + "/MemList");
 

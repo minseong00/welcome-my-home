@@ -57,8 +57,8 @@ public class RoomDAO implements RoomQuerys {
 	 	모든 룸 이름 조회
 	 	@return
 	 **/
-	public List<RoomVO> selectName() {
-		List<RoomVO> roomList = null;
+	public ArrayList<RoomVO> selectName() {
+		ArrayList<RoomVO> roomList = null;
 		try {
 			conn = DB.dbConnect();
 			this.pstmt = conn.prepareStatement(selectNN);

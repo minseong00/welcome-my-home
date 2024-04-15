@@ -121,8 +121,8 @@ input[type="text"]:focus, textarea:focus, select:focus {
     }
 </script>
 </head>
-<body>
-	<div class="container-fluid">
+<body style="background-color: #f5f5f5;">
+	<div class="container">
 		<jsp:include page="/include/Header.jsp" flush="false" />
 		<div class="row">
 

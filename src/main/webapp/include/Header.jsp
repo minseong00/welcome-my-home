@@ -24,7 +24,6 @@
     <link rel="stylesheet" href="${contextPath}/style/css/ionicons.min.css">
 
     <link rel="stylesheet" href="${contextPath}/style/css/bootstrap-datepicker.css">
-    <link rel="stylesheet" href="${contextPath}/style/css/jquery.timepicker.css">
 
     
     <link rel="stylesheet" href="${contextPath}/style/css/flaticon.css">
@@ -35,7 +34,7 @@
 <body>
 	<nav class="navbar" id="ftco-navbar">
     <div class="container-fluid" align="right">
-        <a class="navbar-brand" href="${contextPath}/members/MainForm.jsp">MyHome</a>
+        <a class="navbar-brand" href="${contextPath}/members/MainForm.jsp" style="color: #8d703b;">MyHome</a>
         <!-- 삭제: 네비게이션 토글러 버튼 -->
         <div class="navbar justify-content-end flex-row" id="ftco-nav"> 
             <ul class="navbar-nav flex-row" style="margin-left: 20px;"> 

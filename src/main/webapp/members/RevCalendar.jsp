@@ -13,9 +13,13 @@
   <script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.9.0/main.min.js'></script>
   <!-- fullcalendar 언어 CDN -->
   <script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.9.0/locales-all.min.js'></script>
+<script>
+	const servletUrl = "${contextPath}/RevList?type=calendar";
+</script>
+<script src="${contextPath}/util/RevListCalendar.js"></script>
 
 <style>
-	#container {
+	.container {
 		width: 100%;
 	    padding-right: 15px;
 	    padding-left: 15px;
@@ -23,28 +27,11 @@
 	    margin-left: auto;
 	    max-width: 1100px;
 	}
+	#calendar {
+		width: 90%;
+	}
 </style>
-<script src="${contextPath}/util/RevListCalendar.js"></script>
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    var calendarEl = document.getElementById('calendar');
-    var calendar = new FullCalendar.Calendar(calendarEl, {
-    	locale: 'ko',
-    	height: '700px',
-    	headerToolbar: {
-    		left: 'today',
-    		center: 'title',
-    		right: 'dayGridMonth'
-    	}
-      	initialView: 'dayGridMonth',
-      	nowIndicator: true,
-      	dayMaxEvents: true,
-      	
-      	
-    });
-    calendar.render();
-  });
-</script>
+
 </head>
 <body>
 	<div id="container"> <!-- 메인 컨테이너 -->

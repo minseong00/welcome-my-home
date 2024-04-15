@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.member.MemDAO;
 import model.MemVO;
@@ -23,6 +24,8 @@ public class MemDelete extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HttpSession session = request.getSession();
+		String idType = (String) session.getAttribute("idType");
 		String n=request.getParameter("id");
 		
 		MemVO memModel=new MemVO();
@@ -31,14 +34,15 @@ public class MemDelete extends HttpServlet {
 		memDAO=new MemDAO();
 		memDAO.delete(n);
 		
-		String sort = request.getParameter("sort");
-		RequestDispatcher dispatcher = null;
-		if (sort.equals("delMyInfo")) {
-			response.sendRedirect(request.getContextPath() + "/Login");
-		}else
-			response.sendRedirect(request.getContextPath() + "/MemList");
 		
-	}
+		session.invalidate();
+		RequestDispatcher dispatcher = null;
+			if (idType.equals("member")) {
+				response.sendRedirect(request.getContextPath() + "/Login");
+			}else
+				response.sendRedirect(request.getContextPath() + "/MemList");
+			}
+
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	}

@@ -103,18 +103,9 @@ td {
 </head>
 <body>
 	
-	<h3>예약 내역</h3>
+	<h3 style="font-weight: bold">예약 내역</h3>
 	<table summary="예약 내역" border="1">
-		<colgroup>
-			<col width="">
-			<col width="">
-			<col width="">
-			<col width="">
-			<col width="">
-			<col width="">
-			<col width="">
-			<col width="">
-		</colgroup>
+		
 		<thead>
 			<tr>
 				<th>예약 번호</th>
@@ -130,7 +121,7 @@ td {
 		</thead>
 		<tbody>	
 			<c:choose>
-				<c:when test="${empty memVO }">
+				<c:when test="${empty RevVO }">
 					<tr>
 						<td colspan="9">예약이 없습니다.</td>
 					</tr>

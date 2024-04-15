@@ -44,12 +44,18 @@
 <style type="text/css">
 
 html,body {
-  position: relative;
-  align-items: center;
-  justify-content: center;
   font-family: "Fira Sans", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+	width: 100%;
+	padding-right: 15px;
+	padding-left: 15px;
+	margin-right: auto;
+	margin-left: auto;
+	max-width: 1100px;
 }
 
 .form-structor {
@@ -59,6 +65,7 @@ html,body {
   width: 350px;
   position: relative;
   overflow: hidden;
+  margin-top: 100px;
   
   &::after {
     content: '';
@@ -79,19 +86,20 @@ html,body {
     width: 65%;
     z-index: 5;
     -webkit-transition: all .3s ease;
+    }
     
     .form-title {
       color: #fff;
       font-size: 1.7em;
       text-align: center;
-      
+      }
       span {
         color: rgba(0,0,0,0.4);
         opacity: 0;
         visibility: hidden;
         -webkit-transition: all .3s ease;
       }
-    }
+    
     
     .form-holder {
       border-radius: 15px;
@@ -101,7 +109,7 @@ html,body {
       opacity: 1;
       visibility: visible;
       -webkit-transition: all .3s ease;
-      
+      }
       .input {
         border: 0;
         outline: none;
@@ -113,15 +121,15 @@ html,body {
         border-bottom: 1px solid #eee;
         width: 100%;
         font-size: 12px;
-        
+        }
         &:last-child {
           border-bottom: 0;
         }
         &::-webkit-input-placeholder {
           color: rgba(0,0,0,0.4);
         }
-      }
-    }
+      
+    
     
     .submit-btn {
       background-color: rgba(0,0,0,0.4);
@@ -143,26 +151,23 @@ html,body {
         transition: all .3s ease;
         background-color: rgba(0,0,0,0.8);
       }
-    }
-  }
-  }
-}
+      
+   
 
 </style>
 </head>
 
 <body>
-	<div class="container">
+	<div id="container"> <!-- 메인 컨테이너 -->
 	    <jsp:include page="/include/Header.jsp" flush="false"/>
 		<div class="row justify-content-center">
-		
 	<form id="login">
 	<div class="form-structor">
 	  <div class="login">
 	    <h2 class="form-title" id="login">로그인</h2>
 	    <div class="form-holder">
-	      <input type="text" class="input" placeholder="Id" name="id" />
-	      <input type="password" class="input" placeholder="Password" name="pw" />
+	      <input type="text" class="input" placeholder="Id" name="id" required/>
+	      <input type="password" class="input" placeholder="Password" name="pw" required/>
 	    </div>
 	    <input type="submit" value="로그인" class="submit-btn">
 	  </div>
