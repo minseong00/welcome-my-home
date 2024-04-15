@@ -22,10 +22,6 @@
 
     <link rel="stylesheet" href="../style/css/ionicons.min.css">
 
-    <link rel="stylesheet" href="../style/css/bootstrap-datepicker.css">
-   
-
-    
     <link rel="stylesheet" href="../style/css/flaticon.css">
     <link rel="stylesheet" href="../style/css/icomoon.css">
     <link rel="stylesheet" href="../style/css/style.css">
