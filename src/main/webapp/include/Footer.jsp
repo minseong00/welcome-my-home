@@ -49,7 +49,7 @@
               </ul>
             </div>
           </div>
-          <div class="row">
+          <div class="col">
             <div class="ftco-footer-widget mb-4 ml-md-5">
               <h2 class="ftco-heading-2">사용자 링크</h2>
               <ul class="list-unstyled">
@@ -107,7 +107,6 @@
   <script src="../style/js/aos.js"></script>
   <script src="../style/js/jquery.animateNumber.min.js"></script>
   <script src="../style/js/bootstrap-datepicker.js"></script>
-  <script src="../style/js/jquery.timepicker.min.js"></script>
   <script src="../style/js/scrollax.min.js"></script>
 
 
