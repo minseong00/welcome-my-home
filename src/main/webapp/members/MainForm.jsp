@@ -5,26 +5,27 @@
 
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>  
     <title>메인화면</title>
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- css 적용 -->
+<link rel="stylesheet" href="${contextPath }/style/css/flaticon.css">
+<link rel="stylesheet" href="${contextPath }/style/css/style.css">
 <!-- 캐러셀 -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
 <!-- play icon -->
-<script src="https://kit.fontawesome.com/4e5b2f86bb.js" ></script>
+<script src="https://kit.fontawesome.com/4e5b2f86bb.js" crossorigin="anonymous"></script>
 <!-- 캘린더 import -->
 <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
-
 <script src="${contextPath}/util/MainFormCalendar.js"></script>
-<!-- css 적용 -->
-<link rel="stylesheet" href="${contextPath}/style/css/flaticon.css">
-<link rel="stylesheet" href="${contextPath}/style/css/style.css">
 
 <style type="text/css">
 /* 검색 폼 */
