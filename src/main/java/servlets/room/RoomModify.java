@@ -7,7 +7,6 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.Collection;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
@@ -20,7 +19,7 @@ import dao.room.RoomDAO;
 import dao.roomImg.RoomImgDAO;
 import model.RoomImgVO;
 import model.RoomVO;
-import util.SplitName;
+import util.Split;
 
 /**
  * Servlet implementation class RoomModifyController
@@ -87,7 +86,7 @@ public class RoomModify extends HttpServlet {
 		Collection<Part> parts = request.getParts();
 		for (Part part : parts) {
 			if(part.getContentType() != null) {
-				String fileName = SplitName.FileName(part);
+				String fileName = Split.FileName(part);
 				
 				String savePath = UPLOAD + File.separator + fileName;
 				

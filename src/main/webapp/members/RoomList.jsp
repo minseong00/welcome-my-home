@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="java.lang.Math" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <c:set var="contextPath" value="${pageContext.request.contextPath }"></c:set>
 
@@ -22,9 +21,7 @@
 <script src="${contextPath}/util/Calendar.js"></script>
 <script src="${contextPath}/util/CountHead.js"></script>
 <style>
-	div {
-		border: 1px solid;
-	}
+	
 	#container {
 		width: 100%;
 	    padding-right: 15px;
@@ -35,7 +32,7 @@
 	}
 	
 	#leftDiv {
-	    display: flex;
+	    
 	    flex-direction: column; /* 내부 요소를 세로로 정렬합니다. */
 	    flex: 0 0 calc(70% - 10px); /* 부모 컨테이너 너비의 60%에서 10px를 뺀 값으로 설정합니다. */
 	    padding: 20px;
@@ -68,6 +65,7 @@
 		text-align: center;
 	}
 	.rightTable {
+		font-weight: bold;
 		width: 200px;
 		border-collapse: separate;
 		border-spacing: 10px;
@@ -99,7 +97,62 @@
 	.price {
 		width: 70px;
 	}
+	 p {
+    text-align: center; /* 가로축에서 텍스트를 중앙 정렬 */
+  	
+    font-size: 24px;
+  }
+  .center-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%; /* 필요하다면 높이 조정 */
+    width: 100%; /* 너비를 전체로 설정 */
+}
+.rightTable {
+    width: 100%; /* 테이블의 너비를 전체로 설정 */
+    border-collapse: collapse; /* 셀 사이 공간 없애기 */
+    background-color: #FFDAB9 ; /* 연한 살색 배경색 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 그림자 효과 추가 */
+    border-radius: 10px; /* 모서리 둥글게 */
+    overflow: hidden; /* 둥근 모서리에 컨텐츠가 넘치는 것을 숨김 */
+    margin: 20px 0; /* 상하 여백 설정 */
+}
 
+/* 테이블 헤더 및 셀 스타일 */
+.rightTable td {
+    padding: 15px; /* 셀 내부 패딩 */
+    text-align: left; /* 텍스트 왼쪽 정렬 */
+    border-bottom: 1px solid #E6E6FA; /* 셀 하단 테두리, 연한 라벤더색 사용 */
+}
+
+/* 마지막 셀의 테두리 제거 */
+.rightTable tr:last-child td {
+    border-bottom: none;
+}
+
+/* 버튼 스타일 */
+button {
+    padding: 10px 15px;
+    background-color: brown; /* 연한 복숭아색 */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #FFB6C1; /* 더 밝은 살색으로 호버 효과 */
+}
+
+/* 입력 필드 스타일 */
+input[type="text"] {
+    padding: 8px;
+    border: 1px solid #FFDAB9; /* 테두리 색상 */
+    border-radius: 5px;
+    width: 80%; /* 입력 필드 
+    }
 </style>
 </head>
 <body>
@@ -110,7 +163,9 @@
 		<div id="leftDiv"> <!-- 왼쪽 컨테이너 -->
 			<c:choose>
 				<c:when test="${empty roomVO }">
+				 <div class="center-content">
 					<p>현재 선택 가능한 객실이 존재하지 않습니다.</p>
+					</div>
 				</c:when>
 				
 				<c:otherwise>

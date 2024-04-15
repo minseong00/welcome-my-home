@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import dao.connection.MySQLConnector;
-import model.RoomImgVO;
 import model.RoomVO;
 
 public class RoomDAO implements RoomQuerys {
@@ -26,8 +25,8 @@ public class RoomDAO implements RoomQuerys {
 	 	룸 목록 조회
 	 	@return
 	**/
-	public List<RoomVO> selectAll(){
-		List<RoomVO> roomList = null;
+	public ArrayList<RoomVO> selectAll(){
+		ArrayList<RoomVO> roomList = null;
 		try {
 			conn = DB.dbConnect();
 			this.pstmt = conn.prepareStatement(selectAll);
