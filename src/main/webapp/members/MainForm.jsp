@@ -13,6 +13,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- css 적용 -->
 <link rel="stylesheet" href="${contextPath }/style/css/flaticon.css">
+<!-- <link rel="stylesheet" href="../style/css/icomoon.css"> -->
 <link rel="stylesheet" href="${contextPath }/style/css/style.css">
 <!-- 캐러셀 -->
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" ></script>
@@ -26,6 +27,8 @@
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
 <script src="${contextPath}/util/MainFormCalendar.js"></script>
+
+
 
 <style type="text/css">
 /* 검색 폼 */
@@ -178,7 +181,7 @@
 <body>
 	<jsp:include page="/include/Header.jsp" flush="false"></jsp:include>
 	<!-- END nav -->
-	<div id="carouselExampleCaptions" class="carousel slide">
+	<div id="carouselExampleCaptions" class="carousel slide" style="width: 80%; margin: 0 auto;">
 		<div class="carousel-indicators">
 			<button type="button" data-bs-target="#carouselExampleCaptions"
 				data-bs-slide-to="0" class="active" aria-current="true"
@@ -187,24 +190,51 @@
 				data-bs-slide-to="1" aria-label="Slide 2"></button>
 			<button type="button" data-bs-target="#carouselExampleCaptions"
 				data-bs-slide-to="2" aria-label="Slide 3"></button>
+			<button type="button" data-bs-target="#carouselExampleCaptions"
+				data-bs-slide-to="3" aria-label="Slide 4"></button>
+			<button type="button" data-bs-target="#carouselExampleCaptions"
+				data-bs-slide-to="4" aria-label="Slide 5"></button>
+			<button type="button" data-bs-target="#carouselExampleCaptions"
+				data-bs-slide-to="5" aria-label="Slide 6"></button>
 		</div>
 		<div class="carousel-inner">
 			<div class="carousel-item active" data-bs-interval="10000">
-				<img alt="" src="${contextPath }/style/images/room-1.jpg" width="100%" height="500px">
+				<img alt="" src="${contextPath }/style/images/mainRoom-1.jpg" width="100%" >
 				<div class="carousel-caption d-none d-md-block">
 					<h5>우리집에 놀러와</h5>
 					<p>Hotels & Resorts</p>
 				</div>
 			</div>
 			<div class="carousel-item">
-				<img alt="" src="${contextPath }/style/images/room-2.jpg" width="100%" height="500px">
+				<img alt="" src="${contextPath }/style/images/mainRoom-2.jpg" width="100%" >
 				<div class="carousel-caption d-none d-md-block">
 					<h5>최고의 순간을 경험하세요</h5>
 					<p>Join With Us</p>
 				</div>
 			</div>
-			<div class="carousel-item">
-				<img alt="" src="${contextPath }/style/images/room-3.jpg" width="100%" height="500px">
+			<div class="carousel-item" >
+				<img alt="" src="${contextPath }/style/images/mainRoom-3.jpg" width="100%" >
+				<div class="carousel-caption d-none d-md-block">
+					<h5>Third slide label</h5>
+					<p>Some representative placeholder content for the third slide.</p>
+				</div>
+			</div>
+				<div class="carousel-item" >
+				<img alt="" src="${contextPath }/style/images/mainRoom-4.jpg" width="100%" >
+				<div class="carousel-caption d-none d-md-block">
+					<h5>Third slide label</h5>
+					<p>Some representative placeholder content for the third slide.</p>
+				</div>
+			</div>
+				<div class="carousel-item" >
+				<img alt="" src="${contextPath }/style/images/mainRoom-5.jpg" width="100%" >
+				<div class="carousel-caption d-none d-md-block">
+					<h5>Third slide label</h5>
+					<p>Some representative placeholder content for the third slide.</p>
+				</div>
+			</div>
+				<div class="carousel-item" >
+				<img alt="" src="${contextPath }/style/images/mainRoom-6.jpg" width="100%" >
 				<div class="carousel-caption d-none d-md-block">
 					<h5>Third slide label</h5>
 					<p>Some representative placeholder content for the third slide.</p>
