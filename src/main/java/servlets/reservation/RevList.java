@@ -1,7 +1,7 @@
 package servlets.reservation;
 
 import java.io.IOException;
-import java.util.List;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,8 +12,10 @@ import javax.servlet.http.HttpServletResponse;
 
 import dao.reservation.RevDAO;
 import dao.room.RoomDAO;
+import model.FullCalendarRevVO;
 import model.RevVO;
 import model.RoomVO;
+import util.CalendarForm;
 
 /**
  * Servlet implementation class RevList
@@ -32,7 +34,7 @@ public class RevList extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		RevDAO revDAO = new RevDAO();
 		RoomDAO roomDAO = new RoomDAO();
-		List<RevVO> revList = null;
+		ArrayList<RevVO> revList = null;
 		String type = request.getParameter("type");
 		
 		RequestDispatcher dispatcher = null;
@@ -41,17 +43,22 @@ public class RevList extends HttpServlet {
 			response.sendRedirect(request.getContextPath() + "/LoginCheck");
 			return;
 		}
+
+		if(!type.equals("myInfo"))
+			revList = revDAO.selectAll();
 		
 		switch (type) {
 		case "calendar":
 			dispatcher = request.getRequestDispatcher("/members/RevCalendar.jsp");
+			ArrayList<FullCalendarRevVO> fullCalRevList = null;
+			fullCalRevList = CalendarForm.FullCalendar(revList);
+			request.setAttribute("revList", fullCalRevList);
 			break;
 		case "admin":
 			dispatcher = request.getRequestDispatcher("/admins/AdminRevList.jsp");
 			break;
-		case "myInfo":
+		case "myInfo": // roomNames, revMyRev
 			revList = revDAO.selectMyRev("id");
-			request.setAttribute("revList", revList);
 			dispatcher = request.getRequestDispatcher("/members/MyRev.jsp");
 			break;
 		default:
@@ -59,13 +66,11 @@ public class RevList extends HttpServlet {
 			return;
 		}
 		
-		if(!type.equals("myInfo")) {
-			revList = revDAO.selectAll();
-			List<RoomVO> roomList = roomDAO.selectName();
-
+		if(!type.equals("calendar"))
 			request.setAttribute("revList", revList);
-			request.setAttribute("roomNames", roomList);
-		}
+		
+		ArrayList<RoomVO> roomList = roomDAO.selectName();
+		request.setAttribute("roomNames", roomList);
 		
 		dispatcher.forward(request, response);
 	}

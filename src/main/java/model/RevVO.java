@@ -71,6 +71,5 @@ public class RevVO {
 				+ ", bookCheckOut=" + bookCheckOut + ", headCount=" + headCount + ", price=" + price + ", memId="
 				+ memId + "]";
 	}
-	
 
 }
