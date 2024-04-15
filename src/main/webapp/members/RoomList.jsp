@@ -15,10 +15,11 @@
 <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
-
+<script src="${contextPath}/util/RoomListCalendar.js"></script>
+<!-- 가격 슬라이드 import -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-<script src="${contextPath}/util/Calendar.js"></script>
+
 <script src="${contextPath}/util/CountHead.js"></script>
 <style>
 	
@@ -154,6 +155,9 @@ input[type="text"] {
     width: 80%; /* 입력 필드 
     }
 </style>
+<script>
+	const servletUrl = "${contextPath}/";
+</script>
 </head>
 <body>
 	<div id="container"> <!-- 메인 컨테이너 -->
@@ -222,13 +226,13 @@ input[type="text"] {
 						<tr>
 							<td>
 								체크인<br>
-								<input type="text" name="checkIn" class="filter">
+								<input type="text" name="checkIn" id="checkInDate">
 							</td>
 						</tr>
 						<tr>
 							<td>
 								체크아웃<br>
-								<input type="text" name="checkOut" class="filter">
+								<input type="text" name="checkOut" id="checkOutDate">
 							</td>
 						</tr>
 						<tr>
