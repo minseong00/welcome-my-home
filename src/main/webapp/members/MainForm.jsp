@@ -8,6 +8,7 @@
 <html lang="en">
   <head>  
     <title>메인화면</title>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- css 적용 -->
@@ -19,6 +20,12 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
 <!-- play icon -->
 <script src="https://kit.fontawesome.com/4e5b2f86bb.js" crossorigin="anonymous"></script>
+<!-- 캘린더 import -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+<script src="${contextPath}/util/MainFormCalendar.js"></script>
 
 <style type="text/css">
 /* 검색 폼 */
@@ -165,6 +172,8 @@
 	/*footer*/
 	
 </style>
+
+
 </head>
 <body>
 	<jsp:include page="/include/Header.jsp" flush="false"></jsp:include>
@@ -219,11 +228,11 @@
 		<form action="">
 			<div class="checkinbox">
 				<label>체크인</label><br>
-				<input type="text" name="checkIn" class="filter" placeholder="체크인 날짜">
+				<input type="text" name="checkIn" id="checkInDate" placeholder="체크인 날짜">
 			</div>
 			<div class="checkoutbox">
 				<label>체크아웃</label><br>
-				<input type="text" name="checkOut" class="filter" placeholder="체크아웃 날짜">
+				<input type="text" name="checkOut" id="checkOutDate" placeholder="체크아웃 날짜">
 			</div>
 			<div class="roombox">
 				<label>객실</label><br>

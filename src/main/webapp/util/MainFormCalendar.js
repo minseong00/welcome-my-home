@@ -1,5 +1,5 @@
 /**
- * RoomList Filter 전용 달력
+ * 메인 폼 예약 확인 캘린더
  */
 
 const locale = {
