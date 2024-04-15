@@ -34,6 +34,8 @@ public class MemDelete extends HttpServlet {
 		memDAO=new MemDAO();
 		memDAO.delete(n);
 		
+		
+		session.invalidate();
 		RequestDispatcher dispatcher = null;
 			if (idType.equals("member")) {
 				response.sendRedirect(request.getContextPath() + "/Login");

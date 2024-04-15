@@ -23,6 +23,19 @@
 			alert("탈퇴가 취소되었습니다.");
 		}
 	}
+	
+	function modMyInfo(){
+		var confirmModify = confirm("수정하시겠습니까?");
+		
+		if(confirmModify){
+		window.location.href="${contextPath}/MemModify?id=${MemOne.memId}";
+		
+		alert("수정되었습니다.");
+		}else{
+			
+			alert("수정이 취소되었습니다.");
+		}
+	}
 
 
 
@@ -33,6 +46,7 @@
        
        text-align:center;
        margin-bottom: 60px; 
+       margin-top: 50px;
       
      }
     
@@ -94,7 +108,7 @@ td, th {
  <table align="center" >
     <tr>
      <td ><p align="right" >고객명</td>
-     <td ><input type="text" name="name" value="<c:out value="${MemOne.memName}"/>"></td>
+     <td ><input type="text" name="name" value="<c:out value="${MemOne.memName}"/>"required></td>
    </tr>
    <tr>
      <td><p align="right" >아이디</td>
@@ -102,20 +116,20 @@ td, th {
    </tr>
  <tr>
      <td ><p align="right" >비밀번호</td>
-     <td><input type="password" name="pw" value="<c:out value="${MemOne.memPw}"/>"></td>
+     <td><input type="password" name="pw" value="<c:out value="${MemOne.memPw}"/>"required></td>
    </tr>
    <tr>
      <td><p align="right" >이메일</td>
-     <td ><input type="email" name="email"  value="<c:out value="${MemOne.memEmail}"/> "></td>
+     <td ><input type="email" name="email"  value="<c:out value="${MemOne.memEmail}"/>"required></td>
    </tr>
    <tr>
      <td ><p align="right" >전화번호</td>
-     <td><input type="text" name="call" value="<c:out value="${MemOne.memCall}"/>"></td>
+     <td><input type="text" name="call" value="<c:out value="${MemOne.memCall}"/>"required></td>
    </tr>
    <tr  >
    		<td style="text-align: right;" colspan="2" align=center>
        <input type="reset" value="다시입력" >
-       <button type="submit" >수정하기</button>
+       <button type="submit" onclick="modMyInfo();">수정하기</button>
        <button type="button" onclick="deleteId();">탈퇴하기</button> 
       
        

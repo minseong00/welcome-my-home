@@ -21,7 +21,7 @@
   </style>
   
 </head>
-<body>
+<body>		
  <p class="cls1">회원목록</p>
    <table align="center" border="1" >
       <tr align="center" bgcolor="lightgreen">

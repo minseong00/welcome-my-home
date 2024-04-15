@@ -15,7 +15,7 @@
   <script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.9.0/locales-all.min.js'></script>
 
 <style>
-	#container {
+	.container {
 		width: 100%;
 	    padding-right: 15px;
 	    padding-left: 15px;
