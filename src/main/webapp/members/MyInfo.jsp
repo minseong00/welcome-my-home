@@ -10,6 +10,9 @@
 <head>
 <meta charset="UTF-8">
 <title>MyInfo : 마이페이지</title>
+<!-- css 적용 -->
+<link rel="stylesheet" href="${contextPath }/style/css/flaticon.css">
+<link rel="stylesheet" href="${contextPath }/style/css/style.css">
 <script type="text/javascript">
 	function deleteId(){
 		var confirmDelete = confirm("탈퇴하시겠습니까?");

@@ -67,7 +67,7 @@ pageEncoding="UTF-8"%>
 		<nav class="sidebar" >
 			<ul class="nav">
 				<li>
-					<a href="#">
+					<a href="${contextPath }/admin/adminMain">
 						<span>관리자 홈</span>
 					</a>
 				</li>
