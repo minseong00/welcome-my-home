@@ -93,7 +93,9 @@ a {
 </style>
 </head>
 <body>
-	<h3>전체 회원</h3>
+	<h3 style="font-weight: bold">전체 회원</h3>
+	
+	
 	<table summary="전체 회원" border="1">
 		<colgroup>
 			<col width="">
