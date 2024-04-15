@@ -8,6 +8,9 @@
 <meta charset="UTF-8">
 <title>현재 모든 예약 상태를 캘린더 형태로 출력</title>
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<!-- css 적용 -->
+<link rel="stylesheet" href="${contextPath }/style/css/flaticon.css">
+<link rel="stylesheet" href="${contextPath }/style/css/style.css">
  <!-- fullcalendar CDN -->
   <link href='https://cdn.jsdelivr.net/npm/fullcalendar@5.9.0/main.min.css' rel='stylesheet' />
   <script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.9.0/main.min.js'></script>

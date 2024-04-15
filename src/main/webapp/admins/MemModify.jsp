@@ -8,57 +8,60 @@
 <head>
 <meta charset="UTF-8">
 <title>MemModify.jsp : 상세페이지, 수정, 삭제</title>
+<!-- css 적용 -->
+<link rel="stylesheet" href="${contextPath }/style/css/flaticon.css">
+<link rel="stylesheet" href="${contextPath }/style/css/style.css">
 <style>
     
      body {
- 	padding:1.5em;
-  background: #f5f5f5; /* 배경색 설정 */
-   font-weight: bold; /* 헤더 폰트를 굵게 */
-}
-table {
-  border: 1px #a39485 solid; /* 테이블의 외곽선 스타일 */
-  font-size: .9em; /* 테이블 내의 폰트 크기 */
-  box-shadow: 0 2px 5px rgba(0,0,0,.25); /* 테이블에 그림자 효과 */
-  
-  border-collapse: collapse; /* 테이블의 보더 라인을 하나로 합침 */
-  border-radius: 10px; /* 테이블 모서리를 둥글게 처리 */
-  overflow: hidden; /* 내용이 넘칠 경우 숨김 처리 */
-  
-}
-td, th {
-  border: 1px solid #a39485; /* 각 셀의 테두리 스타일 */
-  padding: 7px; /* 각 셀의 안쪽 여백 */
-}
-
-.sky-blue-button {
-	padding: 7px 15px;
-	font-size: 16px;
-	background-color: #87CEEB;
-	color: #fff; /* 버튼 텍스트 색상 */
-	transition: background-color 0.3s ease;
-	border: none;
-	border-radius: 50px;
+	 	padding:1.5em;
+	  background: #f5f5f5; /* 배경색 설정 */
+	   font-weight: bold; /* 헤더 폰트를 굵게 */
+	}
+	table {
+	  border: 1px #a39485 solid; /* 테이블의 외곽선 스타일 */
+	  font-size: .9em; /* 테이블 내의 폰트 크기 */
+	  box-shadow: 0 2px 5px rgba(0,0,0,.25); /* 테이블에 그림자 효과 */
+	  
+	  border-collapse: collapse; /* 테이블의 보더 라인을 하나로 합침 */
+	  border-radius: 10px; /* 테이블 모서리를 둥글게 처리 */
+	  overflow: hidden; /* 내용이 넘칠 경우 숨김 처리 */
+	  
+	}
+	td, th {
+	  border: 1px solid #a39485; /* 각 셀의 테두리 스타일 */
+	  padding: 7px; /* 각 셀의 안쪽 여백 */
+	}
 	
-}
-
-.sky-blue-button:hover {
-	background-color: #00BFFF;
-}
-
-.rightside{
-		display: flex;
-		flex-direction: column;
-		flex-grow: 1;
+	.sky-blue-button {
+		padding: 7px 15px;
+		font-size: 16px;
+		background-color: #87CEEB;
+		color: #fff; /* 버튼 텍스트 색상 */
+		transition: background-color 0.3s ease;
+		border: none;
+		border-radius: 50px;
 		
 	}
+
+	.sky-blue-button:hover {
+		background-color: #00BFFF;
+	}
+	
+	.rightside{
+			display: flex;
+			flex-direction: column;
+			flex-grow: 1;
+			
+		}
 	.include-gap {
-/*     margin-left: 100px; /* 원하는 만큼의 간격을 설정합니다. */ */
-}
-.td-special {
-    width: 300px; /* 특정 셀의 너비를 200px로 설정 */
-    
-}
-  </style>
+	/*     margin-left: 100px; /* 원하는 만큼의 간격을 설정합니다. */ */
+	}
+	.td-special {
+	    width: 300px; /* 특정 셀의 너비를 200px로 설정 */
+	    
+	}
+</style>
   
 </head>
 <body>

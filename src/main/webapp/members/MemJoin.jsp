@@ -12,6 +12,9 @@
 <title>MemJoin : 회원가입 페이지</title>
    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 	<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+<!-- css 적용 -->
+<link rel="stylesheet" href="${contextPath }/style/css/flaticon.css">
+<link rel="stylesheet" href="${contextPath }/style/css/style.css">
 	<script>
 	var checkId = false;
 	var checkPw = false;
