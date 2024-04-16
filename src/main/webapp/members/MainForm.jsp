@@ -284,11 +284,11 @@ h1, h2, h3, h4, h5, span, a, p, button {
 		<form action="">
 			<div class="checkinbox">
 				<label>체크인</label><br>
-				<input type="text" name="checkIn" id="checkInDate" placeholder="체크인 날짜">
+				<input type="text" name="checkIn" id="checkInDate" placeholder="체크인 날짜" readonly>
 			</div>
 			<div class="checkoutbox">
 				<label>체크아웃</label><br>
-				<input type="text" name="checkOut" id="checkOutDate" placeholder="체크아웃 날짜">
+				<input type="text" name="checkOut" id="checkOutDate" placeholder="체크아웃 날짜" readonly>
 			</div>
 			<div class="roombox">
 				<label>객실</label><br>
