@@ -27,9 +27,31 @@
 <!-- css 적용 -->
 <link rel="stylesheet" href="../style/css/flaticon.css">
 <link rel="stylesheet" href="../style/css/style.css">
-
+<!-- 구글 폰트 -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
 
 <style type="text/css">
+/* 폰트 적용 */
+h1, h2, h3, h4, h5, span, a, p, button {
+	font-family: "Noto Sans KR", sans-serif;
+	font-optical-sizing: auto;
+	font-weight: <weight>;
+	font-style: normal;
+}
+	.carousel h5 {
+		color: #fff;
+	}
+	.carousel h5, .carousel p {
+		font-size: 16pt;
+	}
+	.eng {
+		font-size: 14pt;
+		font-family: "Rajdhani", sans-serif;
+  		font-weight: 400;
+  		font-style: normal;
+	}
 /* 검색 폼 */
 	.searchbox{
 		width: 90%;
@@ -166,11 +188,16 @@
 	}
 	.roompack{
 		display: flex;
+		flex-wrap: wrap; 
+		justify-content: center;
 		margin: 0 auto;
 	}
-	.roompack > div {
+	.roompack > .room {
 		margin: 10px 20px;
+		width: 500px;
+		aspect-ratio: 16 / 9;
 	}
+
 	/*footer*/
 	
 </style>
@@ -201,42 +228,42 @@
 				<img alt="" src="${contextPath }/style/images/mainRoom-1.jpg" width="100%" >
 				<div class="carousel-caption d-none d-md-block">
 					<h5>우리집에 놀러와</h5>
-					<p>Hotels & Resorts</p>
+					<p class="eng">Hotels & Resorts</p>
 				</div>
 			</div>
 			<div class="carousel-item">
 				<img alt="" src="${contextPath }/style/images/mainRoom-2.jpg" width="100%" >
 				<div class="carousel-caption d-none d-md-block">
-					<h5>최고의 순간을 경험하세요</h5>
-					<p>Join With Us</p>
+					<h5>나만의 숲 속 아지트, 우리집에서 삶의 쉼표를 찾아 보세요.</h5>
+					<p class="eng">Hotels & Resorts</p>
 				</div>
 			</div>
 			<div class="carousel-item" >
 				<img alt="" src="${contextPath }/style/images/mainRoom-3.jpg" width="100%" >
 				<div class="carousel-caption d-none d-md-block">
-					<h5>Third slide label</h5>
-					<p>Some representative placeholder content for the third slide.</p>
+					<h5>감각적 인테리어와 최신의 테크놀로지가 선보이는 <br>새로운 라이프 스타일 트렌드를 경험하세요.</h5>
+					<p class="eng">Hotels & Resorts</p>
 				</div>
 			</div>
 				<div class="carousel-item" >
 				<img alt="" src="${contextPath }/style/images/mainRoom-4.jpg" width="100%" >
 				<div class="carousel-caption d-none d-md-block">
-					<h5>Third slide label</h5>
-					<p>Some representative placeholder content for the third slide.</p>
+					<h5>생동감 넘치는 색다른 여행의 시작.</h5>
+					<p class="eng">Hotels & Resorts</p>
 				</div>
 			</div>
 				<div class="carousel-item" >
 				<img alt="" src="${contextPath }/style/images/mainRoom-5.jpg" width="100%" >
 				<div class="carousel-caption d-none d-md-block">
-					<h5>Third slide label</h5>
-					<p>Some representative placeholder content for the third slide.</p>
+					<h5>자연의 편안함과 감동적인 서비스가 마음까지 따뜻해지는 행복한 경험을 선사합니다.</h5>
+					<p class="eng">Hotels & Resorts</p>
 				</div>
 			</div>
 				<div class="carousel-item" >
 				<img alt="" src="${contextPath }/style/images/mainRoom-6.jpg" width="100%" >
 				<div class="carousel-caption d-none d-md-block">
-					<h5>Third slide label</h5>
-					<p>Some representative placeholder content for the third slide.</p>
+					<h5>최고의 순간을 경험하세요</h5>
+					<p class="eng">Hotels & Resorts</p>
 				</div>
 			</div>
 		</div>
@@ -265,7 +292,7 @@
 			</div>
 			<div class="roombox">
 				<label>객실</label><br>
-				<select name="">
+				<select name="roomType">
 					<option value="">싱글 룸</option>
 					<option value="">더블 룸</option>
 					<option value="">슈페리얼 룸</option>
@@ -275,16 +302,20 @@
 			</div>
 			<div class="headCountbox">
 				<label>인원 수</label><br>
-				<select name="">
-					<option value="">1 명</option>
-					<option value="">2 명</option>
-					<option value="">3 명</option>
-					<option value="">4 명</option>
-					<option value="">5 명</option>
-					<option value="">6 명</option>
+				<select name="headCount">
+					<option value="1">1 명</option>
+					<option value="2" selected="selected">2 명</option>
+					<option value="3">3 명</option>
+					<option value="4">4 명</option>
+					<option value="5">5 명</option>
+					<option value="6">6 명</option>
+					<option value="7">7 명</option>
+					<option value="8">8 명</option>
+					<option value="9">9 명</option>
+					<option value="10">10 명</option>
 				</select>
 			</div>
-			<button type="submit" class="searchbox_button">Check Availability</button>
+			<button type="submit" class="searchbox_button">객실 검색</button>
 		</form>
 	</div>
 	<!-- 리조트 실행 --> 
@@ -296,12 +327,13 @@
 		</div>
 		<div class="rightside">
 			<div>
-				<span>Welcome to Deluxe Hotel</span>
-				<h2>Welcome To Our Hotel</h2>
+				<span class="eng">Welcome to OurHome Hotel</span>
+				<h2>색다른 경험이 될, <br>우리집 리조트</h2>
 			</div>
 			<div>
-				<p>On her way she met a copy. The copy warned the Little Blind Text, that where it came from it would have been rewritten a thousand times and everything that was left from its origin would be the word "and" and the Little Blind Text should turn around and return to its own, safe country. But nothing the copy said could convince her and so it didn’t take long until a few insidious Copy Writers ambushed her, made her drunk with Longe and Parole and dragged her into their agency, where they abused her for their.</p>
-				<p>When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane. Pityful a rethoric question ran over her cheek, then she continued her way.</p>
+				<p>당신에게 쉼표의 시간은 언제인가요? 본디 쉼표란 '쉬어간다'는 의미와 함께, 음악에서는 빽빽한 음표 사이에 위치한 쉼표가 이전과는 다른 리듬을 만들어 내는 역할을 하기도 합니다. 비교할 수 없는 평온함과 여유로움을 통해 잠들어 있던 감각을 깨우는 음악 속 쉼표 같은 휴식을 가질 수 있는 곳, 우리집 리조트로 여러분을 초대합니다.</p>
+				<p>누구나 평생 한 번쯤 경험하고 싶어 하는 지상 최고의 낙원. 빌라는 최상급 수준의 럭셔리함을 갖추고 있습니다. 우리집 리조트 내 모든 객실 중 가장 넓은 규모가 특징인 이곳은 비교할 수 없는 풍요로움은 물론, 내집에서 느껴지는 안락함도 동시에 느낄 수 있는 디테일로 구성되어 있습니다. 모든 고객에게 차별화된 경험을 제공하기 위해 세심하게 관리됩니다. 럭셔리한 하루와 함께 최대한의 프라이버시를 보장받고 싶은 개인 여행자부터 가족 또는 연인이 온종일 머무르기에도 완벽한 공간입니다.</p>
+				<p>VIP 전용 게이트를 통해 출입하고, 독립된 형태의 발코니에서 친밀한 야외 디너를 즐기며 활력을 되찾아 주는 자쿠지와 스파 시설이 딸린 개인용 야외 수영장에서 한적한 시간을 즐겨보세요. 또한 빌라 투숙객들에게만 제공되는 버틀러 서비스는 고객별 맞춤형으로 제공되어 가장 편안한 휴식을 돕습니다. 머무는 동안 비교할 수 없는 품격과 세련미에 흠뻑 빠져보세요.</p>
 			</div>
 		</div>
 	</section>
@@ -312,8 +344,8 @@
 				<span class="flaticon-reception-bell"></span>
 			</div>
 			<div>
-				<h3>25/7 Front Desk</h3>
-				<p>A small river named Duden flows by their place and supplies.</p>
+				<h3>24/7 Front Desk</h3>
+				<p>언제든 연락가능한 프론트 데스크, 편안함을 누리세요</p>
 			</div>
 		</div>
 		
@@ -323,7 +355,7 @@
 			</div>
 			<div>
 				<h3>Restaurant Bar</h3>
-				<p>A small river named Duden flows by their place and supplies.</p>
+				<p>풍성한 맛과 아름다운 분위기, 레스토랑바에서 특별한 순간을 만나보세요!</p>
 			</div>
 		</div>
 		
@@ -333,7 +365,7 @@
 			</div>
 			<div>
 				<h3>Transfer Services</h3>
-				<p>A small river named Duden flows by their place and supplies.</p>
+				<p>여행의 시작부터 끝까지, 우리집 리조트는 언제나 여러분을 지원합니다.</p>
 			</div>
 		</div>
 		
@@ -343,7 +375,7 @@
 			</div>
 			<div>
 				<h3>Spa Suites</h3>
-				<p>A small river named Duden flows by their place and supplies.</p>
+				<p>스파 스위트룸에서 특별한 시간을 보내며 몸과 마음을 풀어보세요.</p>
 			</div>
 		</div>
 	</section>
@@ -358,55 +390,27 @@
 				<div class="room">
     				<a href="rooms.html" class="img d-flex justify-content-center align-items-center" style="background-image: url(${contextPath}/style/images/room-1.jpg);"> <!-- 방 이미지 출력 -->
     					<div class="icon d-flex justify-content-center align-items-center">
-    						<span class="icon-search2"></span>
+    						<span><i class="fa-solid fa-magnifying-glass fa-sm"></i></span>
     					</div>
     				</a>
     				<div class="text p-3 text-center">
     					<h3 class="mb-3"><a href="rooms.html"> 방이름 </a></h3>
     					<p><span class="price mr-3">가격</span> <span class="per"> 가격 단위</span></p>
     					<hr>
-    					<p class="pt-1"><a href="room-single.html" class="btn-custom">방 상세 보기 버튼<span class="icon-long-arrow-right"></span></a></p>
+    					<p class="pt-1"><a href="room-single.html" class="btn-custom">방 상세 보기 버튼<span> <i class="fa-solid fa-arrow-right-long fa-sm"></i></span></a></p>
     				</div>
     			</div>
 				<div class="room">
     				<a href="rooms.html" class="img d-flex justify-content-center align-items-center" style="background-image: url(${contextPath}/style/images/room-1.jpg);"> <!-- 방 이미지 출력 -->
     					<div class="icon d-flex justify-content-center align-items-center">
-    						<span class="icon-search2"></span>
+    						<span><i class="fa-solid fa-magnifying-glass fa-sm"></i></span>
     					</div>
     				</a>
     				<div class="text p-3 text-center">
     					<h3 class="mb-3"><a href="rooms.html"> 방이름 </a></h3>
     					<p><span class="price mr-3">가격</span> <span class="per"> 가격 단위</span></p>
     					<hr>
-    					<p class="pt-1"><a href="room-single.html" class="btn-custom">방 상세 보기 버튼<span class="icon-long-arrow-right"></span></a></p>
-    				</div>
-    			</div>
-			</div>
-			<div class="roompack">
-				<div class="room">
-    				<a href="rooms.html" class="img d-flex justify-content-center align-items-center" style="background-image: url(${contextPath}/style/images/room-1.jpg);"> <!-- 방 이미지 출력 -->
-    					<div class="icon d-flex justify-content-center align-items-center">
-    						<span class="icon-search2"></span>
-    					</div>
-    				</a>
-    				<div class="text p-3 text-center">
-    					<h3 class="mb-3"><a href="rooms.html"> 방이름 </a></h3>
-    					<p><span class="price mr-3">가격</span> <span class="per"> 가격 단위</span></p>
-    					<hr>
-    					<p class="pt-1"><a href="room-single.html" class="btn-custom">방 상세 보기 버튼<span class="icon-long-arrow-right"></span></a></p>
-    				</div>
-    			</div>
-				<div class="room">
-    				<a href="rooms.html" class="img d-flex justify-content-center align-items-center" style="background-image: url(${contextPath}/style/images/room-1.jpg);"> <!-- 방 이미지 출력 -->
-    					<div class="icon d-flex justify-content-center align-items-center">
-    						<span class="icon-search2"></span>
-    					</div>
-    				</a>
-    				<div class="text p-3 text-center">
-    					<h3 class="mb-3"><a href="rooms.html"> 방이름 </a></h3>
-    					<p><span class="price mr-3">가격</span> <span class="per"> 가격 단위</span></p>
-    					<hr>
-    					<p class="pt-1"><a href="room-single.html" class="btn-custom">방 상세 보기 버튼<span class="icon-long-arrow-right"></span></a></p>
+    					<p class="pt-1"><a href="room-single.html" class="btn-custom">방 상세 보기 버튼<span> <i class="fa-solid fa-arrow-right-long fa-sm"></i></span></a></p>
     				</div>
     			</div>
 			</div>
@@ -414,27 +418,55 @@
 				<div class="room">
     				<a href="rooms.html" class="img d-flex justify-content-center align-items-center" style="background-image: url(${contextPath}/style/images/room-1.jpg);"> <!-- 방 이미지 출력 -->
     					<div class="icon d-flex justify-content-center align-items-center">
-    						<span class="icon-search2"></span>
+    						<span><i class="fa-solid fa-magnifying-glass fa-sm"></i></span>
     					</div>
     				</a>
     				<div class="text p-3 text-center">
     					<h3 class="mb-3"><a href="rooms.html"> 방이름 </a></h3>
     					<p><span class="price mr-3">가격</span> <span class="per"> 가격 단위</span></p>
     					<hr>
-    					<p class="pt-1"><a href="room-single.html" class="btn-custom">방 상세 보기 버튼<span class="icon-long-arrow-right"></span></a></p>
+    					<p class="pt-1"><a href="room-single.html" class="btn-custom">방 상세 보기 버튼<span> <i class="fa-solid fa-arrow-right-long fa-sm"></i></span></a></p>
     				</div>
     			</div>
 				<div class="room">
     				<a href="rooms.html" class="img d-flex justify-content-center align-items-center" style="background-image: url(${contextPath}/style/images/room-1.jpg);"> <!-- 방 이미지 출력 -->
     					<div class="icon d-flex justify-content-center align-items-center">
-    						<span class="icon-search2"></span>
+    						<span><i class="fa-solid fa-magnifying-glass fa-sm"></i></span>
     					</div>
     				</a>
     				<div class="text p-3 text-center">
     					<h3 class="mb-3"><a href="rooms.html"> 방이름 </a></h3>
     					<p><span class="price mr-3">가격</span> <span class="per"> 가격 단위</span></p>
     					<hr>
-    					<p class="pt-1"><a href="room-single.html" class="btn-custom">방 상세 보기 버튼<span class="icon-long-arrow-right"></span></a></p>
+    					<p class="pt-1"><a href="room-single.html" class="btn-custom">방 상세 보기 버튼<span> <i class="fa-solid fa-arrow-right-long fa-sm"></i></span></a></p>
+    				</div>
+    			</div>
+			</div>
+			<div class="roompack">
+				<div class="room">
+    				<a href="rooms.html" class="img d-flex justify-content-center align-items-center" style="background-image: url(${contextPath}/style/images/room-1.jpg);"> <!-- 방 이미지 출력 -->
+    					<div class="icon d-flex justify-content-center align-items-center">
+    						<span><i class="fa-solid fa-magnifying-glass fa-sm"></i></span>
+    					</div>
+    				</a>
+    				<div class="text p-3 text-center">
+    					<h3 class="mb-3"><a href="rooms.html"> 방이름 </a></h3>
+    					<p><span class="price mr-3">가격</span> <span class="per"> 가격 단위</span></p>
+    					<hr>
+    					<p class="pt-1"><a href="room-single.html" class="btn-custom">방 상세 보기 버튼<span> <i class="fa-solid fa-arrow-right-long fa-sm"></i></span></a></p>
+    				</div>
+    			</div>
+				<div class="room">
+    				<a href="rooms.html" class="img d-flex justify-content-center align-items-center" style="background-image: url(${contextPath}/style/images/room-1.jpg);"> <!-- 방 이미지 출력 -->
+    					<div class="icon d-flex justify-content-center align-items-center">
+    						<span><i class="fa-solid fa-magnifying-glass fa-sm"></i></span>
+    					</div>
+    				</a>
+    				<div class="text p-3 text-center">
+    					<h3 class="mb-3"><a href="rooms.html"> 방이름 </a></h3>
+    					<p><span class="price mr-3">가격</span> <span class="per"> 가격 단위</span></p>
+    					<hr>
+    					<p class="pt-1"><a href="room-single.html" class="btn-custom">방 상세 보기 버튼<span> <i class="fa-solid fa-arrow-right-long fa-sm"></i></span></a></p>
     				</div>
     			</div>
 			</div>
