@@ -18,10 +18,7 @@ import model.RoomVO;
 @WebServlet("/RoomDetail")
 public class RoomDetail extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-    RoomDAO roomDAO = null;
-    RoomImgDAO imgDAO = null;
-    RoomVO roomVO = null;
-    RoomImgVO imgVO = null;
+
   
     public RoomDetail() {
         super();
@@ -32,16 +29,17 @@ public class RoomDetail extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int roomNum = Integer.parseInt(request.getParameter("roomNo"));
-		
-		roomDAO = new RoomDAO();
-		imgDAO = new RoomImgDAO();
-		roomVO = new RoomVO();
-		imgVO = new RoomImgVO();
-		
+	    RoomDAO roomDAO = new RoomDAO();
+	    RoomImgDAO imgDAO = new RoomImgDAO();
+	    RoomVO roomVO = new RoomVO();
+	    RoomImgVO imgVO = new RoomImgVO();
+	    
 		roomVO = roomDAO.selectOne(roomNum);
 		imgVO = imgDAO.selectOne(roomNum);
 		
 		System.out.println(imgVO.toString());
+		System.out.println(roomVO.toString());
+		
 		request.setAttribute("roomVO", roomVO);
 		request.setAttribute("imgVO", imgVO);
 		

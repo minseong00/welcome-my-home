@@ -8,6 +8,7 @@
 <meta charset="UTF-8">
 <title>결제 페이지</title>
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <!-- css 적용 -->
 <link rel="stylesheet" href="${contextPath }/style/css/flaticon.css">
 <link rel="stylesheet" href="${contextPath }/style/css/style.css">
@@ -37,6 +38,12 @@
         margin: 0 10px;
         padding: 20px;
     }
+    #leftDiv {
+        width: 50%;
+    }
+    #rightDiv {
+    	width: 40%;
+    }
     .table-container {
         margin-bottom: 20px;
     }
@@ -60,7 +67,7 @@
     input[type="text"] {
         margin-bottom: 4px;
     }
-    .return {
+    .payment-btn {
         background-color: #00BFFF;
         color: #fff;
         font-weight: bold;
@@ -118,7 +125,9 @@
     }
     
 </style>
-<script>
+
+<!-- 약관 확인 스크립트 -->
+<script> 
     // 모달 열기 함수
     function openModal(filename) {
         // XMLHttpRequest 객체 생성
@@ -149,6 +158,18 @@
         }
     }
 </script>
+<script>
+	$(function() {
+		$('#revPaymentForm').submit(function(event) {
+			event.preventDefault();
+			var formData = new formData(this);
+			
+			
+		});
+		
+	});
+</script>
+
 </head>
 <body>
     <div id="myModal" class="modal" >
@@ -167,51 +188,30 @@
         <div class="row" style="margin-top: 50px;">
             <div id="leftDiv">
                 <div class="table-container">
-                    <table>
+                    <table id="payment-table">
                         <tr>
                             <td>주문자 아이디</td>
-                            <td><input type="text" name="memId" readonly></td>
+                            <td><input type="text" name="memId" value="${memVO.memId }" readonly></td>
                         </tr>
                         <tr>
                             <td>주문자 이름</td>
-                            <td><input type="text" name="memName"></td>
+                            <td><input type="text" name="memName" value="${memVO.memName }" readonly></td>
                         </tr>
                         <tr>
                             <td colspan="2"><hr></td>
                         </tr>
                         <tr>
                             <td>주문자 이메일</td>
-                            <td><input type="text" name="memEmail"></td>
+                            <td><input type="text" name="memEmail" value="${memVO.memEmail }" readonly></td>
                         </tr>
                         <tr>
                             <td>주문자 전화번호</td>
-                            <td><input type="text" name="memCall"></td>
-                        </tr>
-                        <tr>
-                            <td colspan="2" >
-                                <label class="terms-label" onclick="event.preventDefault();">
-                                    <span >개인정보 보호 정책 약관.</span><button style="width:26%;" onclick="openModal('${contextPath}/clauses/InfoProtection.jsp')" >약관 보기</button><br>
-                                    <input type="checkbox" name="agree1" value="yes" style="margin-left: 30px"  onclick="document.querySelector('[name=disagree1]').checked = false;"> 동의합니다.
-                                    &nbsp;&nbsp;&nbsp;&nbsp;
-                                    <input type="checkbox" name="disagree1" value="no"  onclick="document.querySelector('[name=agree1]').checked = false;"> 동의하지 않습니다.
-                                </label >
-                            </td>
+                            <td><input type="text" name="memCall" value="${memVO.memCall }" readonly></td>
                         </tr>
                         <tr>
                             <td colspan="2">
                                 <label class="terms-label" onclick="event.preventDefault();">
-                                    <span>우리집에 놀러와 이용 약관.</span>
-                                    <button style="width:26%;"onclick="openModal('${contextPath}/clauses/Utilization.jsp')">약관 보기</button><br>
-                                    <input type="checkbox" name="agree2" value="yes" style="margin-left: 30px"  onclick="document.querySelector('[name=disagree2]').checked = false;"> 동의합니다.
-                                    &nbsp;&nbsp;&nbsp;&nbsp;
-                                    <input type="checkbox" name="disagree2" value="no"  onclick="document.querySelector('[name=agree2]').checked = false;"> 동의하지 않습니다.
-                                </label>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td colspan="2">
-                                <label class="terms-label" onclick="event.preventDefault();">
-                                    <span>예약 취소 정책.</span><button style="width:26%;"onclick="openModal('${contextPath}/clauses/RevCancellation.jsp')">약관 보기</button><br>
+                                    <span>예약 취소 정책.</span>&nbsp;<button style="width:26%;"onclick="openModal('${contextPath}/clauses/RevCancellation.jsp')">약관 보기</button><br>
                                     <input type="checkbox" name="agree3" value="yes" style="margin-left: 30px"  onclick="document.querySelector('[name=disagree3]').checked = false;"> 동의합니다.
                                     &nbsp;&nbsp;&nbsp;&nbsp;
                                     <input type="checkbox" name="disagree3" value="no"  onclick="document.querySelector('[name=agree3]').checked = false;"> 동의하지 않습니다.
@@ -232,41 +232,42 @@
                 </div>
             </div>
             <div id="rightDiv">
-                <form>
+                <form id="revPaymentForm">
                     <div class="table-container">
                         <table>
                             <tr>
                                 <td>객실</td>
-                                <td><input type="text" name="checkIn" class="filter"></td>
+                                <td><input type="text" name="roomName" value="${roomName }" readonly></td>
                             </tr>
                             <tr>
                                 <td colspan="2"><hr></td>
                             </tr>
                             <tr>
                                 <td>이용 날짜</td>
-                                <td><input type="text" name="checkOut" class="filter"></td>
+                                <td><input type="text" name="checkDate" value="${revDate }" readonly></td>
                             </tr>
                             <tr>
                                 <td colspan="2"><hr></td>
                             </tr>
                             <tr>
                                 <td>인원수</td>
-                                <td><input type="text" name="headCount" value="" id="headCount" readonly></td>
+                                <td><input type="text" name="headCount" value="${headCount }" readonly></td>
                             </tr>
                             <tr>
                                 <td colspan="2"><hr></td>
                             </tr>
                             <tr>
                                 <td>총 요금</td>
-                                <td><input type="text" name="priceMax" class="price" value="총요금" readonly></td>
+                                <td><input type="text" name="totalPrice" class="price" value="${totalPrice }" id="totalPrice" readonly></td>
                             </tr>
                             <tr>
                                 <td colspan="2"><hr></td>
                             </tr>
                             <tr>
                                 <td align="right" colspan="2">
-                                    <button class="return">돌아가기</button>
-                                    <input type="submit" value="결제">
+                                	<input type="hidden" name="roomNo" value="${roomNo }" />
+                                    <button class="payment-btn" type="button" onclick="window.history.back()">돌아가기</button>
+                                    <button type="submit" class="payment-btn">결제</button>
                                 </td>
                             </tr>
                         </table>

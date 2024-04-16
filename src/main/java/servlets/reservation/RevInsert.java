@@ -43,15 +43,23 @@ public class RevInsert extends HttpServlet {
 		HttpSession session = request.getSession(false);
 		String idType = (String)session.getAttribute("idType");
 		
-		if(session.getAttribute("id") == null || idType == null || idType.equals("admin")) {
+		if(session.getAttribute("id") == null || idType == null) {
 			response.sendRedirect(request.getContextPath() + "/common/Login.jsp");
 			return;
 		}
 		
-		int roomNum = Integer.parseInt(request.getParameter("roomNo"));
+		response.setContentType("text/html; charset=utf-8");
+		PrintWriter out = response.getWriter();
+		String tempNum = request.getParameter("roomNo");
+		if(tempNum == null || tempNum.equals("")) {
+			out.print("nullRoomNo");
+			return;
+		}
 		
-		RoomImgDAO imgDAO = new RoomImgDAO();
+		int roomNum = Integer.parseInt(tempNum);
+
 		revDAO = new RevDAO();
+		RoomImgDAO imgDAO = new RoomImgDAO();
 		RoomDAO roomDAO = new RoomDAO();
 		RoomImgVO imgVO = new RoomImgVO();
 		RoomVO roomVO = new RoomVO();

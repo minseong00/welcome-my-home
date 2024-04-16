@@ -9,11 +9,18 @@
 <title>RoomDetail에서 예약 버튼 클릭시 출력</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<!-- css 적용 -->
+<link rel="stylesheet" href="${contextPath }/style/css/flaticon.css">
+<link rel="stylesheet" href="${contextPath }/style/css/style.css">
 <!-- 캘린더 import -->
 <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+<script>
+	const servletUrl = "${contextPath}/RevInsert";
+	const headCount = ${roomVO.headCount};
+</script>
 <script src="${contextPath}/util/RoomRevCalendar.js"></script>
 <script src="${contextPath}/util/CountHead.js"></script>
 <style>
@@ -217,14 +224,9 @@
 	    width: 80%; /* 입력 필드 너비 */
 	}
 </style>
-
-<script>
-	const servletUrl = "${contextPath}/RevInsert";
-</script>
-
-	<!-- 슬라이드 스크립트 -->
 <script>
     $(function() {
+    	// 슬라이드 스크립트
         $(".visual_img li:last").prependTo(
             ".visual_img");
 
@@ -251,8 +253,27 @@
                 });
             });
         });
+        // 슬라이드 스크립트 끝
+        
+		$('#roomRevForm').submit(function(event) {
+			event.preventDefault();
+			var formData = new formData(this);
+			$.ajax({
+				method: 'post',
+				url: "<c:url value='/RevPayment' />",
+				data: formData,
+				async: false,
+		        processData: false,
+				contentType: false,
+				error: function (xhr, status, err) {
+					alert('에러가 발생 하였습니다. 다시 시도해주세요.');
+					console.log("err : " + err);
+				}
+			});
+		});
     });
 </script>
+
 </head>
 
 <body>
@@ -261,7 +282,7 @@
 		<jsp:include page="/include/Header.jsp" flush="false" />
 
 		<div class="row justify-content-center">
-			<form>
+			<form id="roomRevForm">
 
 				<div id="leftDiv">
 					<!-- 왼쪽 컨테이너 -->
@@ -287,17 +308,17 @@
 						</div>
 						<!-- 이전/다음 버튼 -->
 						<tr>
-							<td>이름 :</td>
+							<td>이름 : ${roomVO.roomName }</td>
 						</tr>
 						<tr>
-							<td>가격 :</td>
+							<td>가격 : ${roomVO.roomCost }</td>
 						</tr>
 						<tr>
-							<td>룸 정보 :</td>
+							<td>룸 정보 : ${roomVO.roomDetail }</td>
 						
 						</tr>
 						<tr>
-							<td> <img src="${contextPath}/style/" alt="image" style="width:100%; max-width:300px;"></td>
+							<td> <img src="${contextPath}/style//data/${imgVO.infoImg}" alt="image" style="width:100%; max-width:300px;"></td>
 						</tr>
 					</table>
 				</div>
@@ -306,7 +327,7 @@
 					<!-- 오른쪽 컨테이너 -->
 					<table class="rightTable">
 						<tr>
-							<td>객실<br> <input type="text" name="roomNo" id="roomNum" value="">
+							<td>객실<br> <input type="text" name="roomName"  value="${roomVO.roomName }">
 							</td>
 						</tr>
 						<tr>
@@ -318,22 +339,26 @@
 						</tr>
 						<tr>
 							<td id="headTd">
-								<button type="button" id="downCount" onclick="downValue()">
+								<button type="button" id="downCount" onclick="downValueRoomRev()">
 									<b>-</b>
 								</button> <input type="text" name="headCount" value="1" id="headCount"
 								readonly>
-								<button type="button" id="upCount" onclick="upValue()">
+								<button type="button" id="upCount" onclick="upValueRoomRev()">
 									<b>+</b>
 								</button>
 							</td>
 						</tr>
 						<tr>
 							<td>총 가격<br> <input type="text" name="price"
-								value="240000" id="price" readonly>
+								value="${roomVO.roomCost }" id="price" readonly>
 							</td>
 						</tr>
 						<tr>
-							<td align="center"><input type="submit" value="예약하기" /></td>
+						
+							<td align="center">
+								<input type="hidden" name="roomNo" value="${roomVO.roomNo }" />
+								<input type="submit" value="예약하기" />
+							</td>
 						</tr>
 					</table>
 				</div>
