@@ -16,16 +16,16 @@ public class RevVO {
 	public RevVO() {
 		
 	}
-	public int getrevNo() {
+	public int getRevNo() {
 		return revNo;
 	}
-	public void setrevNo(int revNo) {
+	public void setRevNo(int revNo) {
 		this.revNo = revNo;
 	}
-	public Timestamp getrevDate() {
+	public Timestamp getRevDate() {
 		return revDate;
 	}
-	public void setrevDate(Timestamp revDate) {
+	public void setRevDate(Timestamp revDate) {
 		this.revDate = revDate;
 	}
 	public int getRoomNo() {

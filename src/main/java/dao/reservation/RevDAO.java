@@ -68,8 +68,8 @@ public class RevDAO implements RevQuerys {
 			
 			while (this.rs.next()) {
 				RevVO revVO = new RevVO();
-				revVO.setrevNo(this.rs.getInt("revNo"));
-				revVO.setrevDate(this.rs.getTimestamp("revDate"));
+				revVO.setRevNo(this.rs.getInt("revNo"));
+				revVO.setRevDate(this.rs.getTimestamp("revDate"));
 				revVO.setRoomNo(this.rs.getInt("roomNo"));
 				revVO.setCheckIn(this.rs.getDate("checkIn"));
 				revVO.setCheckOut(this.rs.getDate("checkOut"));
@@ -134,8 +134,8 @@ public class RevDAO implements RevQuerys {
 			
 			if (this.rs.next()) {
 				revVO = new RevVO();
-				revVO.setrevNo(this.rs.getInt("revNo"));
-				revVO.setrevDate(this.rs.getTimestamp("revDate"));
+				revVO.setRevNo(this.rs.getInt("revNo"));
+				revVO.setRevDate(this.rs.getTimestamp("revDate"));
 				revVO.setRoomNo(this.rs.getInt("roomNo"));
 				revVO.setCheckIn(this.rs.getDate("checkIn"));
 				revVO.setCheckOut(this.rs.getDate("checkOut"));
@@ -219,7 +219,7 @@ public class RevDAO implements RevQuerys {
 		try {
 			this.conn = DB.dbConnect();
 			this.pstmt = this.conn.prepareStatement(insertRev);
-			this.pstmt.setTimestamp(1, revVO.getrevDate());
+			this.pstmt.setTimestamp(1, revVO.getRevDate());
 			this.pstmt.setInt(2, revVO.getRoomNo());
 			this.pstmt.setDate(3, revVO.getCheckIn());
 			this.pstmt.setDate(4, revVO.getCheckOut());
@@ -249,7 +249,7 @@ public class RevDAO implements RevQuerys {
 			this.pstmt.setDate(2, revVO.getCheckOut());
 			this.pstmt.setInt(3, revVO.getHeadCount());
 			this.pstmt.setInt(4, revVO.getPrice());
-			this.pstmt.setInt(5, revVO.getrevNo());
+			this.pstmt.setInt(5, revVO.getRevNo());
 			
 			result = this.pstmt.executeUpdate();
 			

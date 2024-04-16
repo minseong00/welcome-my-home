@@ -15,11 +15,11 @@ public class CreateJSON {
 		JSONArray jsonArray = new JSONArray();
 		for(FullCalendarRevVO data : list) {
 			JSONObject jsonObject = new JSONObject();
-			jsonObject.put("bookNo", data.getBookNo());
+			jsonObject.put("bookNo", data.getRevNo());
 			jsonObject.put("roomNo", data.getRoomNo());
 			jsonObject.put("roomName", data.getRoomName());
-			jsonObject.put("bookCheck", data.getBookCheck());
-			jsonObject.put("bookCheckOut", data.getBookCheckOut());
+			jsonObject.put("bookCheck", data.getCheckIn());
+			jsonObject.put("bookCheckOut", data.getCheckOut());
 			jsonObject.put("backgroundColor", data.getBackgroundColor());
 			jsonArray.add(jsonObject);
 		}

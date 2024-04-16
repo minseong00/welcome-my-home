@@ -62,9 +62,9 @@ public class RevModify extends HttpServlet {
 			System.out.println("Rev Modify Parse ERR : " + e.getMessage());
 		}
 		
-		revVO.setrevNo(Integer.parseInt(request.getParameter("revNo")));
-		revVO.setcheckIn(date_checkIn);
-		revVO.setcheckOut(date_checkOut);
+		revVO.setRevNo(Integer.parseInt(request.getParameter("revNo")));
+		revVO.setCheckIn(date_checkIn);
+		revVO.setCheckOut(date_checkOut);
 		revVO.setHeadCount(Integer.parseInt(request.getParameter("headCount")));
 		revVO.setPrice(Integer.parseInt(request.getParameter("price")));
 		
