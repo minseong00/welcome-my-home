@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>RoomDetail에서 예약 버튼 클릭시 출력</title>
+<title>객실예약</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <!-- css 적용 -->

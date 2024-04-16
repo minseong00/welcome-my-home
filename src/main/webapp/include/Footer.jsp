@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head >
- <title>Deluxe - Free Bootstrap 4 Template by Colorlib</title>
+ <title>Footer 고정</title>
     <meta charset="utf-8">
 
 

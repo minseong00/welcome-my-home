@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta  charset="UTF-8">
-<title>AdminMemList.jsp : 전체회원목록</title>
+<title>관리자 회원관리</title>
 <!-- css 적용 -->
 <link rel="stylesheet" href="${contextPath }/style/css/flaticon.css">
 <link rel="stylesheet" href="${contextPath }/style/css/style.css">

@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Deluxe - Free Bootstrap 4 Template by Colorlib</title>
+  <title>주변정보</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
      <script src="http://code.jquery.com/jquery-latest.min.js"></script>

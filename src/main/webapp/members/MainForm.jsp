@@ -7,7 +7,7 @@
 <!DOCTYPE html>
 <html>
   <head>  
-    <title>메인화면</title>
+    <title>MYHOME</title>
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
