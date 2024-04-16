@@ -16,6 +16,28 @@
 <link rel="stylesheet" href="${contextPath }/style/css/flaticon.css">
 <link rel="stylesheet" href="${contextPath }/style/css/style.css">
 <script type="text/javascript">
+	$(function(){
+		$('#modify').submit(function(event){
+			event.preventDefault();
+			var formData = $(this).serialize();
+			$.ajax({
+				type: "post",
+				async: false,
+				url: "<c:url value='/MemModify'/>",
+				data: formData,
+				success:function(){
+					alert("수정되었습니다.");
+					window.location.replace("${contextPath}/MemModify?id=${MemOne.memId}");
+				},
+				error:function(){
+					alert("수정이 취소되었습니다.");
+				}
+			});
+			
+		});
+		
+	});
+	
 	function deleteId(){
 		var confirmDelete = confirm("탈퇴하시겠습니까?");
 		
@@ -29,18 +51,6 @@
 		}
 	}
 	
-	function modMyInfo(){
-		var confirmModify = confirm("수정하시겠습니까?");
-		
-		if(confirmModify){
-		window.location.href="${contextPath}/MemModify?id=${MemOne.memId}";
-		
-		alert("수정되었습니다.");
-		}else{
-			
-			alert("수정이 취소되었습니다.");
-		}
-	}
 	
 		/*마이페이지 글자수 제한*/
 	   function chkword(obj, maxByte) {
@@ -144,7 +154,7 @@ td, th {
 <body>
 <jsp:include page="/include/Header.jsp" flush="false"/>
  <h1 class="cls1">마이페이지</h1>
-<form action="${contextPath}/MemModify" method="post">
+<form id="modify">
  <table align="center" >
     <tr>
      <td ><p align="right" >고객명</td>
@@ -169,7 +179,7 @@ td, th {
    <tr  >
    		<td style="text-align: right;" colspan="2" align=center>
        <input type="reset" value="다시입력" >
-       <button type="submit" onclick="modMyInfo();">수정하기</button>
+       <button type="submit" >수정하기</button>
        <button type="button" onclick="deleteId();">탈퇴하기</button> 
       
        
