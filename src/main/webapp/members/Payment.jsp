@@ -8,6 +8,9 @@
 <meta charset="UTF-8">
 <title>결제 페이지</title>
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+<!-- css 적용 -->
+<link rel="stylesheet" href="../style/css/flaticon.css">
+<link rel="stylesheet" href="../style/css/style.css">
 <style>
     body {
         font-family: 'Roboto', sans-serif;
