@@ -8,6 +8,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
 	<script src="http://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
@@ -43,42 +44,43 @@
 	            });
 		});
 		
-		/*로그인 글자수 제한*/
-		function chkword(obj, maxByte) {
-		     var strValue = obj.value;
-		     var strLen = strValue.length;
-		     var totalByte = 0;
-		     var len = 0;
-		     var oneChar = "";
-		     var str2 = "";
-		
-		     for (var i = 0; i < strLen; i++) {
-		         oneChar = strValue.charAt(i);
-		         if (escape(oneChar).length > 4) {
-		             totalByte += 2; // 한글일 경우 2바이트 추가
-		         } else {
-		             totalByte++; // 영어 및 숫자는 1바이트 추가
-		         }
-		
-		         // 각 글자에 대한 바이트 수를 확인하여 한글은 6글자, 영어와 숫자는 20글자로 제한
-		         if (oneChar.match(/[가-힣]/)) { // 한글인 경우
-		             if (totalByte <= 12) { // 6글자 이내인 경우
-		                 len = i + 1;
-		             }
-		         } else { // 영어나 숫자인 경우
-		             if (totalByte <= maxByte) { // 20글자 이내인 경우
-		                 len = i + 1;
-		             }
-		         }
-		     }
-		
-		     // 제한된 글자 수를 초과하는 경우 잘라내고 경고 메시지 표시
-		     if (totalByte > maxByte) {
-		         alert("입력 가능한 글자 수를 초과하였습니다.");
-		         str2 = strValue.substr(0, len);
-		         obj.value = str2;
-		     }
-		 }
+		/* 로그인 작성란 글자수 제한 */
+    function chkword(obj, maxByte) {
+        var strValue = obj.value;
+        var strLen = strValue.length;
+        var totalByte = 0;
+        var len = 0;
+        var oneChar = "";
+        var str2 = "";
+
+        for (var i = 0; i < strLen; i++) {
+            oneChar = strValue.charAt(i);
+            if (escape(oneChar).length > 4) {
+                totalByte += 2; // 한글일 경우 2바이트 추가
+            } else {
+                totalByte++; // 영어 및 숫자는 1바이트 추가
+            }
+
+            // 각 글자에 대한 바이트 수를 확인하여 한글은 6글자, 영어와 숫자는 20글자로 제한
+            if (oneChar.match(/[가-힣]/)) { // 한글인 경우
+                if (totalByte <= 12) { // 6글자 이내인 경우
+                    len = i + 1;
+                }
+            } else { // 영어나 숫자인 경우
+                if (totalByte <= maxByte) { // 20글자 이내인 경우
+                    len = i + 1;
+                }
+            }	
+       	}
+
+        // 제한된 글자 수를 초과하는 경우 잘라내고 경고 메시지 표시
+        if (totalByte > maxByte) {
+            alert("입력 가능한 글자 수를 초과하였습니다.");
+            str2 = strValue.substr(0, len);
+            obj.value = str2;
+        }
+    }
+
 	</script>
 	
 <style type="text/css">

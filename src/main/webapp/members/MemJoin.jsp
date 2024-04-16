@@ -9,6 +9,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>MemJoin : 회원가입 페이지</title>
    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 	<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
@@ -134,6 +135,7 @@
 		     }
 		 }
 	 </script>
+
 <style>
 	
 	body {
@@ -181,8 +183,9 @@ td, th {
 </head>
 
 <body>
-<div class="container">
-<jsp:include page="/include/Header.jsp" flush="false" />
+	<div class="container">
+		<jsp:include page="/include/Header.jsp" flush="false" />
+
 
 <div  style="width: 40%;  margin: auto;">
 <form   method="post" action="${contextPath}/Join">
