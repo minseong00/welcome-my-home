@@ -77,7 +77,7 @@ pageEncoding="UTF-8"%>
 					</a>
 				</li>
 				<li>
-					<a href="#">
+					<a href="${contextPath }/admin/RevList?type=admin" class="nav-link">
 						<span>회원 예약</span>
 					</a>
 				</li>
