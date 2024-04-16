@@ -18,6 +18,7 @@ const locale = {
 	    }
 $(function() {
 	const startDate = moment().add(1, 'day');
+    const endDate = moment().add(2, 'days');
 	// 체크인 날짜 선택 달력
 	$('#checkInDate').daterangepicker({
 	    "locale": locale,
@@ -38,8 +39,8 @@ $(function() {
 	$('#checkOutDate').daterangepicker({
 	    "locale": locale,
 		"singleDatePicker": true,
-        "startDate": startDate,
-		"minDate": startDate,
+        "startDate": endDate,
+		"minDate": endDate,
     	"maxDate": "2024-12-31",
 		"opens": "center",
 		"showDropdowns": true,
