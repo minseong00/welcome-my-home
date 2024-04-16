@@ -17,7 +17,7 @@
   <!-- fullcalendar 언어 CDN -->
   <script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.9.0/locales-all.min.js'></script>
 <script>
-	const servletUrl = "${contextPath}/RevList?type=calendar";
+	const revList = JSON.parse('${revList}');
 </script>
 <script src="${contextPath}/util/RevListCalendar.js"></script>
 
