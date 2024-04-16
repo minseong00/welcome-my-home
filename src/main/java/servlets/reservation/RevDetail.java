@@ -32,7 +32,7 @@ public class RevDetail extends HttpServlet {
 	 * @see 예약 상세 조회
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int revNum = Integer.parseInt(request.getParameter("bookNo"));
+		int revNum = Integer.parseInt(request.getParameter("revNo"));
 		
 		RoomDAO roomDAO = new RoomDAO();
 		RoomVO roomVO = new RoomVO();

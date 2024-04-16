@@ -33,11 +33,11 @@ public class RevDAO implements RevQuerys {
 			
 			while (this.rs.next()) {
 				RevVO revVO = new RevVO();
-				revVO.setBookNo(this.rs.getInt("bookNo"));
-				revVO.setBookDate(this.rs.getTimestamp("bookDate"));
+				revVO.setrevNo(this.rs.getInt("revNo"));
+				revVO.setrevDate(this.rs.getTimestamp("revDate"));
 				revVO.setRoomNo(this.rs.getInt("roomNo"));
-				revVO.setBookCheck(this.rs.getDate("bookCheck"));
-				revVO.setBookCheckOut(this.rs.getDate("bookCheckOut"));
+				revVO.setcheckIn(this.rs.getDate("checkIn"));
+				revVO.setcheckOut(this.rs.getDate("checkOut"));
 				revVO.setHeadCount(this.rs.getInt("headCount"));
 				revVO.setPrice(this.rs.getInt("price"));
 				revVO.setMemId(this.rs.getString("memId"));
@@ -68,11 +68,11 @@ public class RevDAO implements RevQuerys {
 			
 			while (this.rs.next()) {
 				RevVO revVO = new RevVO();
-				revVO.setBookNo(this.rs.getInt("bookNo"));
-				revVO.setBookDate(this.rs.getTimestamp("bookDate"));
+				revVO.setrevNo(this.rs.getInt("revNo"));
+				revVO.setrevDate(this.rs.getTimestamp("revDate"));
 				revVO.setRoomNo(this.rs.getInt("roomNo"));
-				revVO.setBookCheck(this.rs.getDate("bookCheck"));
-				revVO.setBookCheckOut(this.rs.getDate("bookCheckOut"));
+				revVO.setcheckIn(this.rs.getDate("checkIn"));
+				revVO.setcheckOut(this.rs.getDate("checkOut"));
 				revVO.setHeadCount(this.rs.getInt("headCount"));
 				revVO.setPrice(this.rs.getInt("price"));
 				revVO.setMemId(this.rs.getString("memId"));
@@ -103,8 +103,8 @@ public class RevDAO implements RevQuerys {
 			
 			while (this.rs.next()) {
 				RevVO revVO = new RevVO();
-				revVO.setBookCheck(this.rs.getDate("bookCheck"));
-				revVO.setBookCheckOut(this.rs.getDate("bookCheckOut"));
+				revVO.setcheckIn(this.rs.getDate("checkIn"));
+				revVO.setcheckOut(this.rs.getDate("checkOut"));
 				
 				revList.add(revVO);
 			}
@@ -122,22 +122,22 @@ public class RevDAO implements RevQuerys {
 		@param int
 		@return
 	**/
-	public RevVO selectOne(int bookNo) {
+	public RevVO selectOne(int revNo) {
 		RevVO revVO = null;
 		
 		try {
 			this.conn = DB.dbConnect();
 			this.pstmt = this.conn.prepareStatement(selectOne);
-			this.pstmt.setInt(1, bookNo);
+			this.pstmt.setInt(1, revNo);
 			this.rs = this.pstmt.executeQuery();
 			
 			if (this.rs.next()) {
 				revVO = new RevVO();
-				revVO.setBookNo(this.rs.getInt("bookNo"));
-				revVO.setBookDate(this.rs.getTimestamp("bookDate"));
+				revVO.setrevNo(this.rs.getInt("revNo"));
+				revVO.setrevDate(this.rs.getTimestamp("revDate"));
 				revVO.setRoomNo(this.rs.getInt("roomNo"));
-				revVO.setBookCheck(this.rs.getDate("bookCheck"));
-				revVO.setBookCheckOut(this.rs.getDate("bookCheckOut"));
+				revVO.setcheckIn(this.rs.getDate("checkIn"));
+				revVO.setcheckOut(this.rs.getDate("checkOut"));
 				revVO.setHeadCount(this.rs.getInt("headCount"));
 				revVO.setPrice(this.rs.getInt("price"));
 				revVO.setMemId(this.rs.getString("memId"));
@@ -156,12 +156,12 @@ public class RevDAO implements RevQuerys {
 	@param RevVO
 	@return
 	**/
-	public int deleteRev(int bookNo) {
+	public int deleteRev(int revNo) {
 		int result = 0;
 		try {
 			this.conn = DB.dbConnect();
 			this.pstmt = this.conn.prepareStatement(deleteRev);
-			this.pstmt.setInt(1, bookNo);
+			this.pstmt.setInt(1, revNo);
 			result = this.pstmt.executeUpdate();
 
 		} catch (SQLException e) {
@@ -182,10 +182,10 @@ public class RevDAO implements RevQuerys {
 		try {
 			this.conn = DB.dbConnect();
 			this.pstmt = this.conn.prepareStatement(insertRev);
-			this.pstmt.setTimestamp(1, revVO.getBookDate());
+			this.pstmt.setTimestamp(1, revVO.getrevDate());
 			this.pstmt.setInt(2, revVO.getRoomNo());
-			this.pstmt.setDate(3, revVO.getBookCheck());
-			this.pstmt.setDate(4, revVO.getBookCheckOut());
+			this.pstmt.setDate(3, revVO.getcheckIn());
+			this.pstmt.setDate(4, revVO.getcheckOut());
 			this.pstmt.setInt(5, revVO.getHeadCount());
 			this.pstmt.setInt(6, revVO.getPrice());
 			this.pstmt.setString(7, revVO.getMemId());
@@ -208,11 +208,11 @@ public class RevDAO implements RevQuerys {
 		try {
 			this.conn = DB.dbConnect();
 			this.pstmt = this.conn.prepareStatement(updateRev);
-			this.pstmt.setDate(1, revVO.getBookCheck());
-			this.pstmt.setDate(2, revVO.getBookCheckOut());
+			this.pstmt.setDate(1, revVO.getcheckIn());
+			this.pstmt.setDate(2, revVO.getcheckOut());
 			this.pstmt.setInt(3, revVO.getHeadCount());
 			this.pstmt.setInt(4, revVO.getPrice());
-			this.pstmt.setInt(5, revVO.getBookNo());
+			this.pstmt.setInt(5, revVO.getrevNo());
 			
 			result = this.pstmt.executeUpdate();
 			

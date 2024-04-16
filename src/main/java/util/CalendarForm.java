@@ -18,10 +18,10 @@ public class CalendarForm {
 			FullCalendarRevVO calendarRevVO = new FullCalendarRevVO();
 			int randomIndex = random.nextInt(13);
 			
-			calendarRevVO.setBookNo(revVO.getBookNo());
+			calendarRevVO.setrevNo(revVO.getrevNo());
 			calendarRevVO.setRoomNo(revVO.getRoomNo());
-			calendarRevVO.setBookCheck(revVO.getBookCheck());
-			calendarRevVO.setBookCheckOut(revVO.getBookCheckOut());
+			calendarRevVO.setcheckIn(revVO.getcheckIn());
+			calendarRevVO.setcheckOut(revVO.getcheckOut());
 			calendarRevVO.setBackgroundColor(color[randomIndex]);
 			resultList.add(calendarRevVO);
 		}

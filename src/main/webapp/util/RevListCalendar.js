@@ -26,8 +26,8 @@ $(function() {
 			roomName = searchRoomName(roomNames, rev);
 			var newEvent = {
 				title: roomName,
-				start: rev.bookCheck,
-				end: rev.bookCheckOut,
+				start: rev.checkIn,
+				end: rev.checkOut,
 				backgroundColor: rev.backgroundColor
 			}
 			

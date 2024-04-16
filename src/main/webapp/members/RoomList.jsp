@@ -191,7 +191,7 @@
 										</tr>
 										<tr>
 											<td>
-												${room.roomName }
+												${room.roomType }
 											</td>
 										</tr>
 										<tr>
@@ -228,32 +228,38 @@
 						<tr>
 							<td>
 								체크인<br>
-								<input type="text" name="checkIn" id="checkInDate" readonly>
+								<input type="text" name="checkIn" id="checkInDate" readonly value="<c:out value='${checkInDate}' />">
 							</td>
 						</tr>
 						<tr>
 							<td>
 								체크아웃<br>
-								<input type="text" name="checkOut" id="checkOutDate" readonly>
+								<input type="text" name="checkOut" id="checkOutDate" readonly value="<c:out value='${checkOutDate}' />">
 							</td>
 						</tr>
 						<tr>
 							<td>
 								종류<br>
-								<select class="filter_select" name="roomType">
-									<option>스페셜</option>
-									<option>디럭스</option>
-									<option>스위트</option>
-									<option>스텐다드</option>
-								</select>
+								  <select class="filter_select" name="roomType" >
+            <option value ="Superior" <c:if test="${roomType eq 'Superior'}">selected</c:if>>슈페리어 룸</option>
+            <option value ="Deluxe" <c:if test="${roomType eq 'Deluxe'}">selected</c:if>>디럭스 룸</option>
+            <option value ="GrandDeluxe" <c:if test="${roomType eq 'GrandDeluxe'}">selected</c:if>>그랜드 디럭스 룸</option>
+            <option value ="JuniorSuite" <c:if test="${roomType eq 'JuniorSuite'}">selected</c:if>>주니어 스위트 룸</option>
+            <option value ="CornerSuite" <c:if test="${roomType eq 'CornerSuite'}">selected</c:if>>코너스 스위트 룸</option>
+            <option value ="SuperiorSuite" <c:if test="${roomType eq 'SuperiorSuite'}">selected</c:if>>슈페리어 스위트 룸</option>
+            <option value ="RoyalSuite" <c:if test="${roomType eq 'RoyalSuite'}">selected</c:if>>로열 스위트 룸</option>
+            <option value ="PresidentialSuite" <c:if test="${roomType eq 'PresidentialSuite'}">selected</c:if>>프레지덴셜 스위트 룸</option>
+            <option value ="Connecting" <c:if test="${roomType eq 'Connecting'}">selected</c:if>>커넥팅 룸</option>
+        </select>
 							</td>
 						</tr>
 						<tr>
 							<td>
 								인원수<br>
-								<button type="button" id="downCount" onclick="downValueFilter()"><b>-</b></button>
-								<input type="text" name="headCount" value="1" id="headCount" readonly>
+								<button type="button" id="downCount" onclick="downValueFilter()" ><b>-</b></button>
+								<input type="text" name="headCount" value="1" id="headCount" readonly >
 								<button type="button" id="upCount" onclick="upValueFilter()"><b>+</b></button>
+								
 							</td>
 						</tr>
 						<tr>
@@ -280,7 +286,7 @@
 						</tr>
 						<tr>
 							<td>
-								<input type="text" id="price-min" name="priceMin" class="price" readonly> - 
+								<input type="text" id="price-min" name="priceMin" class="price" readonly>  
 								<input type="text" id="price-max" name="priceMax" class="price" readonly>
 							</td>
 						</tr>

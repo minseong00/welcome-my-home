@@ -30,10 +30,10 @@ public class RevDelete extends HttpServlet {
 	 * @see 예약 레코드 삭제
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int bookNo = Integer.parseInt(request.getParameter("bookNo"));
+		int revNo = Integer.parseInt(request.getParameter("revNo"));
 		RevDAO revDAO = new RevDAO();
 		
-		int result = revDAO.deleteRev(bookNo);
+		int result = revDAO.deleteRev(revNo);
 		
 		response.setContentType("text/html; charset=utf-8");
 		PrintWriter out = response.getWriter();

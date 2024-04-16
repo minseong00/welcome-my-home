@@ -83,17 +83,17 @@ public class RevInsert extends HttpServlet {
 		HttpSession session = request.getSession();
 		
 		String memId = (String)session.getAttribute("id");
-		String bookCheck = request.getParameter("bookCheck");
-		String bookCheckOut = request.getParameter("bookCheckOut");
+		String checkIn = request.getParameter("checkIn");
+		String checkOut = request.getParameter("checkOut");
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd");
-		Date date_bookCheck = null;
-		Date date_bookCheckOut = null;
+		Date date_checkIn = null;
+		Date date_checkOut = null;
 		revVO = new RevVO();
 		revDAO = new RevDAO();
 		
 		try {
-			date_bookCheck = (Date) dateFormat.parse(bookCheck);
-			date_bookCheck = (Date) dateFormat.parse(bookCheckOut);
+			date_checkIn = (Date) dateFormat.parse(checkIn);
+			date_checkIn = (Date) dateFormat.parse(checkOut);
 		} catch (java.text.ParseException e) {
 			System.out.println("Rev Insert Parse ERR : " + e.getMessage());
 		}
@@ -101,10 +101,10 @@ public class RevInsert extends HttpServlet {
 		LocalDateTime currentDateTime = LocalDateTime.now();
 		Timestamp timestamp = Timestamp.valueOf(currentDateTime);
 		
-		revVO.setBookDate(timestamp);
+		revVO.setrevDate(timestamp);
 		revVO.setRoomNo(Integer.parseInt(request.getParameter("roomNo")));
-		revVO.setBookCheck(date_bookCheck);
-		revVO.setBookCheckOut(date_bookCheckOut);
+		revVO.setcheckIn(date_checkIn);
+		revVO.setcheckOut(date_checkOut);
 		revVO.setHeadCount(Integer.parseInt(request.getParameter("headCount")));
 		revVO.setPrice(Integer.parseInt(request.getParameter("price")));
 		revVO.setMemId(memId);

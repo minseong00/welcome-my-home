@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import dao.room.RoomDAO;
 import dao.roomImg.RoomImgDAO;
+import model.OptionVO;
 import model.RoomImgVO;
 import model.RoomVO;
 
@@ -34,9 +35,10 @@ public class RoomList extends HttpServlet {
 		String type = request.getParameter("type");
 		List<RoomVO> roomList = roomDAO.selectAll();
 		List<RoomImgVO> imgList = imgDAO.selectAll();
+	
 		
-		request.setAttribute("roomVO", roomList);
 		request.setAttribute("imgList", imgList);
+	
 		
 		RequestDispatcher dispatcher = null;
 		
@@ -52,14 +54,30 @@ public class RoomList extends HttpServlet {
 				System.out.println("진입 admin");
 				dispatcher = request.getRequestDispatcher("/admins/AdminRoomList.jsp");
 				break;
-//			case "main":
-//				String checkIn = 
-//				dispatcher = request.getRequestDispatcher("/members/RoomList.jsp");
-//				break;
+			case "main":
+				String checkInDate = request.getParameter("checkIn");
+				String checkOutDate = request.getParameter("checkOut");
+				String roomType = request.getParameter("roomType");
+				int headCount = Integer.parseInt(request.getParameter("headCount"));
+				
+				System.out.println("checkin : " + checkInDate);
+				System.out.println("checkOut : " + checkOutDate);
+				System.out.println("roomType : " + roomType);
+				System.out.println("headCount : " + headCount);
+				ArrayList<OptionVO> optionList = roomDAO.selectCountType(headCount, roomType);
+				request.setAttribute("checkInDate", checkInDate);
+                request.setAttribute("checkOutDate", checkOutDate);
+                request.setAttribute("roomType", roomType);
+                request.setAttribute("headCount", headCount);
+				request.setAttribute("roomVO", optionList);
+				dispatcher = request.getRequestDispatcher("/members/RoomList.jsp");
+				break;
 
 			default:
 				break;
 			}
+			if(!type.equals("main"))
+				request.setAttribute("roomVO", roomList);
 			
 			dispatcher.forward(request, response);
 		}

@@ -128,14 +128,14 @@ td {
 				<c:forEach var="rev" items="${revList}">
 					<tr>
 						<td>
-							<a>${rev.bookNo }</a>
+							<a>${rev.revNo }</a>
 						</td>
 						<td>${rev.memId }</td>
-						<td>${rev.bookCheck }</td>
-						<td>${rev.bookCheckOut }</td>
+						<td>${rev.checkIn }</td>
+						<td>${rev.checkOut }</td>
 						<td>${rev.headCount }</td>
 						<td>${rev.price}</td>
-						<td>${rev.bookDate }</td>
+						<td>${rev.revDate }</td>
 					</tr>
 				</c:forEach>
 			</c:otherwise>
