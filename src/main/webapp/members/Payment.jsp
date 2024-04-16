@@ -9,8 +9,9 @@
 <title>결제 페이지</title>
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 <!-- css 적용 -->
-<link rel="stylesheet" href="../style/css/flaticon.css">
-<link rel="stylesheet" href="../style/css/style.css">
+<link rel="stylesheet" href="${contextPath }/style/css/flaticon.css">
+<link rel="stylesheet" href="${contextPath }/style/css/style.css">
+
 <style>
     body {
         font-family: 'Roboto', sans-serif;
@@ -187,9 +188,9 @@
                             <td><input type="text" name="memCall"></td>
                         </tr>
                         <tr>
-                            <td colspan="2">
-                                <label class="terms-label">
-                                    <span>개인정보 보호 정책 약관.</span><button style="width:26%;" onclick="openModal('${contextPath}/clauses/InfoProtection.jsp')">약관 보기</button><br>
+                            <td colspan="2" >
+                                <label class="terms-label" onclick="event.preventDefault();">
+                                    <span >개인정보 보호 정책 약관.</span><button style="width:26%;" onclick="openModal('${contextPath}/clauses/InfoProtection.jsp')" >약관 보기</button><br>
                                     <input type="checkbox" name="agree1" value="yes" style="margin-left: 30px"  onclick="document.querySelector('[name=disagree1]').checked = false;"> 동의합니다.
                                     &nbsp;&nbsp;&nbsp;&nbsp;
                                     <input type="checkbox" name="disagree1" value="no"  onclick="document.querySelector('[name=agree1]').checked = false;"> 동의하지 않습니다.
@@ -198,8 +199,9 @@
                         </tr>
                         <tr>
                             <td colspan="2">
-                                <label class="terms-label">
-                                    <span>우리집에 놀러와 이용 약관.</span><button style="width:26%;"onclick="openModal('${contextPath}/clauses/Utilization.jsp')">약관 보기</button><br>
+                                <label class="terms-label" onclick="event.preventDefault();">
+                                    <span>우리집에 놀러와 이용 약관.</span>
+                                    <button style="width:26%;"onclick="openModal('${contextPath}/clauses/Utilization.jsp')">약관 보기</button><br>
                                     <input type="checkbox" name="agree2" value="yes" style="margin-left: 30px"  onclick="document.querySelector('[name=disagree2]').checked = false;"> 동의합니다.
                                     &nbsp;&nbsp;&nbsp;&nbsp;
                                     <input type="checkbox" name="disagree2" value="no"  onclick="document.querySelector('[name=agree2]').checked = false;"> 동의하지 않습니다.
@@ -208,7 +210,7 @@
                         </tr>
                         <tr>
                             <td colspan="2">
-                                <label class="terms-label">
+                                <label class="terms-label" onclick="event.preventDefault();">
                                     <span>예약 취소 정책.</span><button style="width:26%;"onclick="openModal('${contextPath}/clauses/RevCancellation.jsp')">약관 보기</button><br>
                                     <input type="checkbox" name="agree3" value="yes" style="margin-left: 30px"  onclick="document.querySelector('[name=disagree3]').checked = false;"> 동의합니다.
                                     &nbsp;&nbsp;&nbsp;&nbsp;
@@ -218,7 +220,7 @@
                         </tr>
                         <tr>
                             <td colspan="2">
-                                <label class="terms-label">
+                                <label class="terms-label" onclick="event.preventDefault();">
                                     <span>환불 정책.</span><button style="width:26%;"onclick="openModal('${contextPath}/clauses/Refund.jsp')">약관 보기</button><br>
                                     <input type="checkbox" name="agree4" value="yes" style="margin-left: 30px"  onclick="document.querySelector('[name=disagree4]').checked = false;"> 동의합니다.
                                     &nbsp;&nbsp;&nbsp;&nbsp;
