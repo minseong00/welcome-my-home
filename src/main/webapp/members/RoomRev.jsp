@@ -267,10 +267,6 @@
 				url: "<c:url value='/RevPayment' />",
 				data: formData,
 				async: false,
-				success: function(data) {
-					alert("전송완료 : " + data);
-					
-				},
 				error: function (xhr, status, err) {
 					alert('에러가 발생 하였습니다. 다시 시도해주세요.');
 					console.log("err : " + err + " / " + status + " / " + xhr);
@@ -338,7 +334,7 @@
 							</td>
 						</tr>
 						<tr>
-							<td>예약 가능한 날짜<br> <input type="text" name="checkDate" id="roomRevDate" required>
+							<td>예약 가능한 날짜<br> <input type="text" name="checkDate" id="roomRevDate" required readonly>
 							</td>
 						</tr>
 						<tr>

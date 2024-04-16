@@ -27,23 +27,8 @@ $(function() {
     	"maxDate": "2024-12-31",
 		"opens": "center",
 		"showDropdowns": true,
-		"drops": "down",
-		"minYear": 2024, 
-        "maxYear": 2024 
-	}, function (start, end, label) {
-	    console.log('New date range selected: ' + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD') + ' (predefined range: ' + label + ')');
-	});
-	
-	// 체크아웃 날짜 선택 달력
-	$('#checkOutDate').daterangepicker({
-	    "locale": locale,
-		"singleDatePicker": true,
-        "startDate": startDate,
-		"minDate": startDate,
-    	"maxDate": "2024-12-31",
-		"opens": "center",
-		"showDropdowns": true,
 		"autoUpdateInput": false,
+		"linkedCalendars": true,
 		"drops": "down",
 		"minYear": 2024, 
         "maxYear": 2024 
@@ -52,10 +37,11 @@ $(function() {
 	});
 	
 	$('#checkInDate').on('apply.daterangepicker', function(ev, picker) {
-      	var checkInDate = picker.startDate; // checkInDate를 가져옴
-	    var nextDay = moment(checkInDate).add(1, 'days');
-	    
-	    $('#checkOutDate').daterangepicker({
+        $(this).val(picker.startDate.format(picker.startDate.format('YYYY-MM-DD')));
+		var checkInDate = picker.startDate; // 체크인 날짜 가져오기
+        var nextDay = moment(checkInDate).add(1, 'days'); // 다음 날짜 계산
+
+		$('#checkOutDate').daterangepicker({
 	        "locale": locale,
 	        "singleDatePicker": true,
 	        "startDate": nextDay, // minDate를 다음 날짜로 설정
@@ -63,12 +49,44 @@ $(function() {
 	        "maxDate": "2024-12-31",
 	        "opens": "center",
 	        "showDropdowns": true,
-			"autoUpdateInput": false,
 	        "drops": "down",
 	        "minYear": 2024, 
 	        "maxYear": 2024 
 	    }, function (start, end, label) {
 	        console.log('New date range selected: ' + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD') + ' (predefined range: ' + label + ')');
 	    });
-  	});
+    });
+	
+	$('#checkInDate').on('cancel.daterangepicker', function(ev, picker) {
+        $(this).val('');
+    });
+	
+	// 체크아웃 날짜 선택 달력
+	$('#checkOutDate').daterangepicker({
+	    "locale": locale,
+	    "endDate": startDate,
+		"singleDatePicker": true,
+        "startDate": startDate,
+		"minDate": startDate,
+    	"maxDate": "2024-12-31",
+		"opens": "center",
+		"showDropdowns": true,
+		"autoUpdateInput": false,
+		"linkedCalendars": true,
+		"drops": "down",
+		"minYear": 2024, 
+        "maxYear": 2024 
+	}, function (start, end, label) {
+	    console.log('New date range selected: ' + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD') + ' (predefined range: ' + label + ')');
+	});
+	
+    $('#checkOutDate').on('apply.daterangepicker', function(ev, picker) {
+		$(this).val(picker.startDate.format(picker.startDate.format('YYYY-MM-DD')));
+	});
+
+	$('#checkOutDate').on('cancel.daterangepicker', function(ev, picker) {
+        $(this).val('');
+    });
 });
+
+
