@@ -33,16 +33,7 @@ body {
    display: flex;
 }
 
-.nav.sidebar {
-   height: 80vh; /* 사이드바의 높이를 뷰포트 높이의 80%로 설정 */
-}
 
-
-
-.nav li a {
-   position: relative;
-   text-decoration: none; /* 기존의 텍스트 밑줄 제거 */
-}
 
 
 .nav {
@@ -134,11 +125,11 @@ input[type="text"]:focus, textarea:focus, select:focus {
          <jsp:include page="/include/AdminSidebar.jsp" flush="false"/>                     
          <div class="rightside">
                <h4
-                  style="margin-left: 220px; font-size: px; font-weight: bold; font-family: arial, verdana,
+                  style="margin-left: 180px; font-size: px; font-weight: bold; font-family: arial, verdana,
                   HelveticaNeue, serif;">객실 수정</h4>
                <form id="modify" >
-                  <div style="margin-left: 120px">
-                     <div align="right" style="margin-right: 250px">
+                  <div style="margin-left: 60px">
+                     <div align="right" style="margin-right: 218px">
                         <button type="submit" class="sky-blue-button">수정</button>
                         <button class="sky-blue-button"
                            onclick="location.href='<c:url value="/abmin/RoomDelete?roomNo=${roomVO.roomNo }" /> '">삭제</button>

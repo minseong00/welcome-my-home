@@ -1,6 +1,7 @@
 package servlets.room;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -43,12 +44,23 @@ public class RoomList extends HttpServlet {
 			response.sendRedirect(request.getContextPath() + "/LoginCheck");
 			return;
 		} else {
-			if(type.equals("member"))
+			switch (type) {
+			case "member":
 				dispatcher = request.getRequestDispatcher("/members/RoomList.jsp");
-			else {
+				break;
+			case "admin":
 				System.out.println("진입 admin");
 				dispatcher = request.getRequestDispatcher("/admins/AdminRoomList.jsp");
+				break;
+//			case "main":
+//				String checkIn = 
+//				dispatcher = request.getRequestDispatcher("/members/RoomList.jsp");
+//				break;
+
+			default:
+				break;
 			}
+			
 			dispatcher.forward(request, response);
 		}
 
