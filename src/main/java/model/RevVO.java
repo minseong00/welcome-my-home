@@ -7,6 +7,7 @@ public class RevVO {
 	private int bookNo = 0;
 	private Timestamp bookDate = null;
 	private int roomNo = 0;
+	private String roomName = null;
 	private Date bookCheck = null;
 	private Date bookCheckOut = null;
 	private int headCount = 0;
@@ -65,11 +66,20 @@ public class RevVO {
 		this.memId = memId;
 	}
 
+	public String getRoomName() {
+		return roomName;
+	}
+	public void setRoomName(String roomName) {
+		this.roomName = roomName;
+	}
+	
 	@Override
 	public String toString() {
-		return "RevVO [bookNo=" + bookNo + ", bookDate=" + bookDate + ", roomNo=" + roomNo + ", bookCheck=" + bookCheck
-				+ ", bookCheckOut=" + bookCheckOut + ", headCount=" + headCount + ", price=" + price + ", memId="
-				+ memId + "]";
+		return "RevVO [bookNo=" + bookNo + ", bookDate=" + bookDate + ", roomNo=" + roomNo + ", roomName=" + roomName
+				+ ", bookCheck=" + bookCheck + ", bookCheckOut=" + bookCheckOut + ", headCount=" + headCount
+				+ ", price=" + price + ", memId=" + memId + "]";
 	}
+
+	
 
 }
