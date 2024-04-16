@@ -159,44 +159,54 @@ td, th {
 </head>
 
 <body>
+<div class="container">
 <jsp:include page="/include/Header.jsp" flush="false"/>
- <h1 class="cls1">마이페이지</h1>
-<form id="modify">
- <table align="center" >
-    <tr>
-     <td ><p align="right" >고객명</td>
-     <td ><input type="text" name="name" value="<c:out value="${MemOne.memName}"/>" onkeyup="chkword(this, 20)" required></td>
-   </tr>
-   <tr>
-     <td><p align="right" >아이디</td>
-     <td ><input type="text" name="id" value="<c:out value="${MemOne.memId}"/>" onkeyup="chkword(this, 20)" readonly></td>
-   </tr>
- <tr>
-     <td ><p align="right" >비밀번호</td>
-    <td>
-    	<input type="password" name="pwview" value="********" onkeyup="chkword(this, 20)" required onchange="updateValue(this, pw)">
-    	<input type="hidden" name="pw" value="${MemOne.memPw }">
-    </td>
-   </tr>
-   <tr>
-     <td><p align="right" >이메일</td>
-     <td ><input type="email" name="email"  value="<c:out value="${MemOne.memEmail}"/>" onkeyup="chkword(this, 20)" required></td>
-   </tr>
-   <tr>
-     <td ><p align="right" >전화번호</td>
-     <td><input type="text" name="call" value="<c:out value="${MemOne.memCall}"/>" onkeyup="chkword(this, 20)" required></td>
-   </tr>
-   <tr  >
-   		<td style="text-align: right;" colspan="2" align=center>
-       <input type="reset" value="다시입력" >
-       <button type="submit" >수정하기</button>
-       <button type="button" onclick="deleteId();">탈퇴하기</button> 
-      
-       
-      </td>
-   </tr>
- </table>
-</form>
+	<div class="row justify-content-center">
+		<div class="col-md-4"> 
+			<jsp:include page="/include/MemSidebar.jsp" flush="false"/>
+		</div>
+
+		<div class="rightside">
+			<h1 class="cls1">마이페이지</h1>
+				<form id="modify">
+				 <table align="center" >
+				    <tr>
+				     <td ><p align="right" >고객명</td>
+				     <td ><input type="text" name="name" value="<c:out value="${MemOne.memName}"/>" onkeyup="chkword(this, 20)" required></td>
+				   </tr>
+				   <tr>
+				     <td><p align="right" >아이디</td>
+				     <td ><input type="text" name="id" value="<c:out value="${MemOne.memId}"/>" onkeyup="chkword(this, 20)" readonly></td>
+				   </tr>
+				 <tr>
+				     <td ><p align="right" >비밀번호</td>
+				    <td>
+				    	<input type="password" name="pwview" value="********" onkeyup="chkword(this, 20)" required onchange="updateValue(this, pw)">
+				    	<input type="hidden" name="pw" value="${MemOne.memPw }">
+				    </td>
+				   </tr>
+				   <tr>
+				     <td><p align="right" >이메일</td>
+				     <td ><input type="email" name="email"  value="<c:out value="${MemOne.memEmail}"/>" onkeyup="chkword(this, 20)" required></td>
+				   </tr>
+				   <tr>
+				     <td ><p align="right" >전화번호</td>
+				     <td><input type="text" name="call" value="<c:out value="${MemOne.memCall}"/>" onkeyup="chkword(this, 20)" required></td>
+				   </tr>
+				   <tr  >
+				   		<td style="text-align: right;" colspan="2" align=center>
+				       <input type="reset" value="다시입력" >
+				       <button type="submit" >수정하기</button>
+				       <button type="button" onclick="deleteId();">탈퇴하기</button> 
+				      
+				      </td>
+				   </tr>
+				 </table>
+				</form>
+		</div>
+		
+	</div>
+</div>
 <jsp:include page="/include/Footer.jsp" flush="false"/>
 </body>
 </html>

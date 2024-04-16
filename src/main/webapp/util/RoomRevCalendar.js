@@ -8,7 +8,7 @@ function checkDate(date, revList) {
 		var endDate = moment(revDate.checkOut);
 		var currentDate = moment(date);
 		
-		if(currentDate >= startDate && current <= endDate)
+		if(currentDate >= startDate && currentDate <= endDate)
 			return true;
 		}
 		return false;
@@ -19,17 +19,14 @@ function checkDate(date, revList) {
 }
 
 $(function() {
-	var revList;
 	const startDate = moment().add(1, 'day');
     const endDate = moment().add(2, 'days');
 	
 	if(servletUrl != null) {
-		$.get(servletUrl, function(data) {
-		revList = data.revList;
-		
-		initializeDateRangePicker(revList);
-		});
+			initializeDateRangePicker(revList);
 	}
+		
+		
 	// 범위 날짜 선택 달력
 	function initializeDateRangePicker(revList) {
 		$('#roomRevDate').daterangepicker({

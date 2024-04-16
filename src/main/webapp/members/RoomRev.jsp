@@ -20,6 +20,7 @@
 <script>
 	const servletUrl = "${contextPath}/RevInsert";
 	const headCount = ${roomVO.headCount};
+	const revList = JSON.parse('${revList}');
 	
 </script>
 <script src="${contextPath}/util/RoomRevCalendar.js"></script>
@@ -223,6 +224,11 @@
 	    border: 1px solid #FFDAB9; /* 테두리 색상 */
 	    border-radius: 5px;
 	    width: 80%; /* 입력 필드 너비 */
+	}
+	
+	.daterangepicker .drp-calendar .calendar-table .table-condensed tbody tr .disabled {
+	    background-color: #f2f2f2; /* 선택 불가능한 날짜의 배경색 */
+	    color: #ccc; /* 선택 불가능한 날짜의 텍스트 색상 */
 	}
 </style>
 <script>

@@ -32,12 +32,19 @@ public class RevDetail extends HttpServlet {
 	 * @see 예약 상세 조회
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int revNum = Integer.parseInt(request.getParameter("revNo"));
+		int revNum = 0;
+		String temp = request.getParameter("revNo");
 		
-		RoomDAO roomDAO = new RoomDAO();
-		RoomVO roomVO = new RoomVO();
+		if(temp == null || temp.equals("")) {
+			response.sendRedirect(request.getContextPath() + "/LoginCheck");
+			return;
+		}
+		
+		revNum = Integer.parseInt(temp);
 		RevDAO revDAO = new RevDAO();
 		RevVO revVO = new RevVO();
+		RoomDAO roomDAO = new RoomDAO();
+		RoomVO roomVO = new RoomVO();
 		
 		revVO = revDAO.selectOne(revNum);
 		roomVO = roomDAO.selectOne(revVO.getRoomNo());

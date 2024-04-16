@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -128,6 +129,7 @@ td {
 				</c:when>
 			<c:otherwise>
 				<c:forEach var="rev" items="${revList}">
+				<fmt:formatDate value="${rev.revDate}" pattern="yyyy-MM-dd HH:mm:ss" var="formattedDate" />
 					<tr>
 						<td>
 							<a>${rev.revNo }</a>
@@ -139,7 +141,7 @@ td {
 						<td>${rev.roomName }</td>
 						<td>${rev.headCount }</td>
 						<td>${rev.price}</td>
-						<td>${rev.revDate }</td>
+						<td>${formattedDate }</td>
 					</tr>
 				</c:forEach>
 			</c:otherwise>

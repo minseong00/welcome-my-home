@@ -152,8 +152,8 @@ a {
           <td><a href="<c:url value='/admin/MemModify?id=${mem.memId}' /> "><c:out value="${mem.memName}"/></a></td>     
           <td><c:out value="${mem.memId }" /></td>
           <td>*****<input type="hidden" value="${mem.memPw }"></td>
-          <td><c:out value="${mem.memCall }" /></td>
           <td><c:out value="${mem.memEmail }" /></td>
+          <td><c:out value="${mem.memCall }" /></td>
        </tr>
      </c:forEach>
 </c:otherwise>
