@@ -112,6 +112,8 @@ td {
 				<th>아이디</th>
 				<th>체크인</th>
 				<th>체크아웃</th>
+				<th>룸넘버</th>
+				<th>룸이름</th>
 				<th>인원 수</th>
 				<th>금액</th>
 				<th>예약일</th>
@@ -121,7 +123,7 @@ td {
 			<c:choose>
 				<c:when test="${empty revList }">
 					<tr>
-						<td colspan="7">예약이 없습니다.</td>
+						<td colspan="8">예약이 없습니다.</td>
 					</tr>
 				</c:when>
 			<c:otherwise>
@@ -133,6 +135,8 @@ td {
 						<td>${rev.memId }</td>
 						<td>${rev.bookCheck }</td>
 						<td>${rev.bookCheckOut }</td>
+						<td>${rev.roomNo }</td>
+						<td>${rev.roomName }</td>
 						<td>${rev.headCount }</td>
 						<td>${rev.price}</td>
 						<td>${rev.bookDate }</td>

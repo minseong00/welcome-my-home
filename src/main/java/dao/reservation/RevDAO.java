@@ -152,6 +152,42 @@ public class RevDAO implements RevQuerys {
 	}
 	
 	/**
+		예약 테이블 조회 
+		@return
+	 **/
+	public ArrayList<RevVO> selectTableList() {
+		ArrayList<RevVO> revList = new ArrayList<RevVO>();
+		
+		try {
+			this.conn = DB.dbConnect();
+			this.pstmt = this.conn.prepareStatement(selectTableList);
+			this.rs = this.pstmt.executeQuery();
+			
+			while(this.rs.next()) {
+				RevVO revVO = new RevVO();
+				revVO.setBookNo(this.rs.getInt("bookNo"));
+				revVO.setBookDate(this.rs.getTimestamp("bookDate"));
+				revVO.setRoomNo(this.rs.getInt("roomNo"));
+				revVO.setBookCheck(this.rs.getDate("bookCheck"));
+				revVO.setBookCheckOut(this.rs.getDate("bookCheckOut"));
+				revVO.setHeadCount(this.rs.getInt("headCount"));
+				revVO.setPrice(this.rs.getInt("price"));
+				revVO.setMemId(this.rs.getString("memId"));
+				revVO.setRoomName(this.rs.getString("roomName"));
+				revList.add(revVO);
+			}
+		} catch (SQLException e) {
+			System.err.println("Rev SelectOne ERR : " + e.getMessage());
+		} finally {
+			DB.close(this.rs, this.pstmt, this.conn);
+		}
+		
+		return revList;
+	}
+	
+	
+	
+	/**
 	예약 delete
 	@param RevVO
 	@return
