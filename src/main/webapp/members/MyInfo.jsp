@@ -187,6 +187,6 @@ td, th {
    </tr>
  </table>
 </form>
-
+<jsp:include page="/include/Footer.jsp" flush="false"/>
 </body>
 </html>

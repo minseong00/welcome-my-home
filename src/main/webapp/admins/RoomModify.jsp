@@ -134,7 +134,7 @@ input[type="text"]:focus, textarea:focus, select:focus {
 						style="margin-left: 260px; font-size: px; font-weight: bold; font-family: arial, verdana,
 						HelveticaNeue, serif;">객실 수정</h4>
 					<form id="modify">
-						<div style="margin-left: 290px;">
+						<div style="margin-left: 10px;">
 							<div align="right">
 								<button type="submit" class="sky-blue-button">수정</button>
 								<button class="sky-blue-button" type="button" onclick="deleteRoom(${roomVO.roomNo})">삭제</button>

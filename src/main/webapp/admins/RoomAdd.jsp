@@ -29,7 +29,6 @@
 	    padding: 20px 30px;
 	    display: block;
 	    width: 300px;
-	    
 	    box-sizing: border-box;
 	}
 	.insert .file-list {
@@ -89,76 +88,65 @@
 <body>
 	<div class="container">
 		<jsp:include page="/include/Header.jsp" flush="false"/>
-		
-		<div class="row justify-content-center">
-		
-			<div class="col-md-4"> 
-				<jsp:include page="/include/AdminSidebar.jsp" flush="false"/>
-			</div>
-		
-			<div class="rightside">
-				<div>
-					<h4>객실 등록</h4>
-					<form id="roomAdd">
-						<div>
-							<label>객실 이름</label>
-							<input type="text" name="roomName">
-						</div>
-						<div>
-							<label>객실 타입</label>
-							<select name="roomType" required="required">
-								<option selected="selected">타입 선택</option>
-								<option value="Superior">슈페리어 룸</option>
-								<option value="Deluxe">디럭스 룸</option>
-								<option value="GrandDeluxe">그랜드 디럭스 룸</option>
-								<option value="JuniorSuite">주니어 스위트 룸</option>
-								<option value="CornerSuite">코너스 스위트 룸</option>
-								<option value="SuperiorSuite">슈페리어 스위트 룸</option>
-								<option value="RoyalSuite">로열 스위트 룸</option>
-								<option value="PresidentialSuite">프레지덴셜 스위트 룸</option>
-								<option value="Connecting">커넥팅 룸</option>
-							</select>
-						</div>
-						<div>
-							<label>수용 인원</label>
-							<select name="headCount" required="required">
-								<option selected="selected">인원 선택</option>
-								<option value="1">1 명</option>
-								<option value="2">2	명</option>
-								<option value="3">3 명</option>
-								<option value="4">4 명</option>
-								<option value="5">5 명</option>
-								<option value="6">6 명</option>
-								<option value="7">7 명</option>
-								<option value="8">8 명</option>
-								<option value="9">9 명</option>
-								<option value="10">10 명</option>
-								
-							</select>
-						</div>
-						<div>
-							<label>객실 가격</label>
-							<input class="roomCost" type="text" name="roomCost">원
-						</div>
-						<div>
-							<label>객실 설명</label>
-							<textarea rows="8" name = "detailText"></textarea>
-						</div>
-						<div class="insert">
-							<label>사진 업로드</label>
-							<input type="file" name="file" onchange="addFile(this);" multiple="multiple" />
-							<div class="file-list"></div>
-						</div>
-						<div>
-							<label>객실 설명 사진</label>
-							<input type="file" name="infoImg">
-						</div>
-						<button type="submit" >등록</button>
-					</form>
-				</div>
-			</div>
-		</div>
-	
-	</div>
+    <div class="row justify-content-center">    
+        <jsp:include page="/include/AdminSidebar.jsp" flush="false"/>
+        <div class="rightside">
+            <h4>객실 등록</h4>
+            <form id="roomAdd">
+                <div style="display: flex;">
+                    <!-- 객실 정보 입력 -->
+                    <div style="flex: 1;">
+                        <div>
+                            <label>객실 이름</label>
+                            <input type="text" name="roomName">
+                        </div>
+                        <div>
+                            <label>객실 타입</label>
+                            <select name="roomType" required="required">
+                                <option selected="selected">타입 선택</option>
+                                <option value="singleRoom">싱글 룸</option>
+                                <option value="twinRoom">트윈 룸</option>
+                                <option value="DoubleRoom">더블 룸</option>
+                                <option value="TripleRoom">트리플 룸</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label>수용 인원</label>
+                            <select name="headCount" required="required">
+                                <option selected="selected">인원 선택</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label>객실 가격</label>
+                            <input class="roomCost" type="text" name="roomCost">원
+                        </div>
+                        <div>
+                            <label>객실 설명</label>
+                            <textarea rows="8" name="detailText"></textarea>
+                        </div>
+                    </div>
+                    <!-- 사진 업로드 입력 -->
+                    <div style="flex: 1;">
+                        <div class="insert">
+                            <label>사진 업로드</label>
+                            <input type="file" name="file" onchange="addFile(this);" multiple="multiple" />
+                            <div class="file-list"></div>
+                        </div>
+                        <div>
+                            <label>객실 설명 사진</label>
+                            <input type="file" name="infoImg">
+                        </div>
+                    </div>
+                </div>
+                <button type="submit">등록</button>
+            </form>
+        </div>
+    </div>
+</div>
+
 </body>
 </html>

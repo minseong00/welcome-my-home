@@ -295,5 +295,6 @@
 			</div>
 		</div>
 	</div>
+    <jsp:include page="/include/Footer.jsp" flush="false"/>
 </body>
 </html>

@@ -1,11 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<c:set var="contextPath" value="${pageContext.request.contextPath }"></c:set>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>회원이 마이 페이지에서 내 예약 클릭 시</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+<!-- css 적용 -->
+<link rel="stylesheet" href="${contextPath }/style/css/flaticon.css">
+<link rel="stylesheet" href="${contextPath }/style/css/style.css">
 <style>
 <style type="text/css">
 	body{
@@ -37,12 +42,13 @@
 		<div class="col-md-4"> 
 			<jsp:include page="/include/MemSidebar.jsp" flush="false"/>
 		</div>
-		
+		x
 		<div class="rightside">
 
 		</div>
 		
 	</div>
 </div>
+ <jsp:include page="/include/Footer.jsp" flush="false"/>
 </body>
 </html>
