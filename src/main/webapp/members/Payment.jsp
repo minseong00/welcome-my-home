@@ -162,6 +162,7 @@
 	$(function() {
 		$('#revPaymentForm').submit(function(event) {
 			event.preventDefault();
+			
 			var formData = new formData(this);
 			
 			
