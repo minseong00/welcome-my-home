@@ -4,6 +4,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
+import org.mindrot.jbcrypt.BCrypt;
+
 import dao.connection.MySQLConnector;
 import model.MemVO;
 
@@ -33,7 +35,8 @@ public class MemDAO implements MemberQuerys{
 			if(rs.next()) {				// 사용자 존재여부 확인
 				id = rs.getString("memId");
 				pw = rs.getString("memPw");
-		           if (member.getMemId().equals(id) && member.getMemPw().equals(pw))
+		           if (member.getMemId().equals(id) && BCrypt.checkpw(member.getMemPw(), pw))
+		        	   //member.getMemPw().equals(pw)
 		                result = true;	// 로그인성공
 		           else {
 						System.out.println("member 비밀번호 틀림");

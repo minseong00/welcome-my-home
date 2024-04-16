@@ -88,6 +88,11 @@
 	            obj.value = str2;
 	        }
 	    }
+		
+	   function updateValue(input, pw) {
+	        var hiddenInput = document.querySelector('input[name="pw"]');
+	        hiddenInput.value = input.value;
+	    }
 
 </script>
 
@@ -166,7 +171,10 @@ td, th {
    </tr>
  <tr>
      <td ><p align="right" >비밀번호</td>
-     <td><input type="password" name="pw" value="<c:out value="${MemOne.memPw}"/>" onkeyup="chkword(this, 20)" required></td>
+    <td>
+    	<input type="password" name="pwview" value="********" onkeyup="chkword(this, 20)" required onchange="updateValue(this, pw)">
+    	<input type="hidden" name="pw" value="${MemOne.memPw }">
+    </td>
    </tr>
    <tr>
      <td><p align="right" >이메일</td>
