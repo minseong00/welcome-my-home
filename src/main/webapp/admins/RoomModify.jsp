@@ -177,17 +177,17 @@ input[type="text"]:focus, textarea:focus, select:focus {
 							</div>
 
 							<div>
-								<label>객실 타입 &nbsp;&nbsp;</label> <select name="roomType"
-									required="required">
-									<option>타입 선택</option>
-									<option value="singleRoom"
-										<c:if test="${ roomVO.roomType eq 'singleRoom' }"> selected = "selected"</c:if>>싱글 룸</option>
-									<option value="twinRoom"
-										<c:if test="${ roomVO.roomType eq 'twinRoom' }"> selected = "selected"</c:if>>트윈 룸</option>
-									<option value="DoubleRoom"
-										<c:if test="${ roomVO.roomType eq 'DoubleRoom' }"> selected = "selected"</c:if>>더블 룸</option>
-									<option value="TripleRoom"
-										<c:if test="${ roomVO.roomType eq 'TripleRoom' }"> selected = "selected"</c:if>>트리플 룸</option>
+								<label>객실 타입 &nbsp;&nbsp;</label> 
+								<select name="roomType" required="required">
+									<option value="Superior" <c:if test="${ roomVO.roomType eq 'Superior' }"> selected = "selected"</c:if>>슈페리어 룸</option>
+									<option value="Deluxe" <c:if test="${ roomVO.roomType eq 'Deluxe' }"> selected = "selected"</c:if>>디럭스 룸</option>
+									<option value="GrandDeluxe" <c:if test="${ roomVO.roomType eq 'GrandDeluxe' }"> selected = "selected"</c:if>>그랜드 디럭스 룸</option>
+									<option value="JuniorSuite" <c:if test="${ roomVO.roomType eq 'JuniorSuite' }"> selected = "selected"</c:if>>주니어 스위트 룸</option>
+									<option value="CornerSuite" <c:if test="${ roomVO.roomType eq 'CornerSuite' }"> selected = "selected"</c:if>>코너스 스위트 룸</option>
+									<option value="SuperiorSuite" <c:if test="${ roomVO.roomType eq 'SuperiorSuite' }"> selected = "selected"</c:if>>슈페리어 스위트 룸</option>
+									<option value="RoyalSuite" <c:if test="${ roomVO.roomType eq 'RoyalSuite' }"> selected = "selected"</c:if>>로열 스위트 룸</option>
+									<option value="PresidentialSuite" <c:if test="${ roomVO.roomType eq 'PresidentialSuite' }"> selected = "selected"</c:if>>프레지덴셜 스위트 룸</option>
+									<option value="Connecting" <c:if test="${ roomVO.roomType eq 'Connecting' }"> selected = "selected"</c:if>>커넥팅 룸</option>
 								</select>
 							</div>
 							<div>
@@ -195,13 +195,25 @@ input[type="text"]:focus, textarea:focus, select:focus {
 									required="required">
 									<option>인원 선택</option>
 									<option value="1"
-										<c:if test="${ roomVO.headCount eq 1 }"> selected = "selected"</c:if>>1</option>
+										<c:if test="${ roomVO.headCount eq 1 }"> selected = "selected"</c:if>>1 명</option>
 									<option value="2"
-										<c:if test="${ roomVO.headCount eq 2 }"> selected = "selected"</c:if>>2</option>
+										<c:if test="${ roomVO.headCount eq 2 }"> selected = "selected"</c:if>>2 명</option>
 									<option value="3"
-										<c:if test="${ roomVO.headCount eq 3 }"> selected = "selected"</c:if>>3</option>
+										<c:if test="${ roomVO.headCount eq 3 }"> selected = "selected"</c:if>>3 명</option>
 									<option value="4"
-										<c:if test="${ roomVO.headCount eq 4 }"> selected = "selected"</c:if>>4</option>
+										<c:if test="${ roomVO.headCount eq 4 }"> selected = "selected"</c:if>>4 명</option>
+									<option value="5"
+										<c:if test="${ roomVO.headCount eq 5 }"> selected = "selected"</c:if>>5 명</option>
+									<option value="6"
+										<c:if test="${ roomVO.headCount eq 6 }"> selected = "selected"</c:if>>6 명</option>
+									<option value="7"
+										<c:if test="${ roomVO.headCount eq 7 }"> selected = "selected"</c:if>>7 명</option>
+									<option value="8"
+										<c:if test="${ roomVO.headCount eq 8 }"> selected = "selected"</c:if>>8 명</option>
+									<option value="9"
+										<c:if test="${ roomVO.headCount eq 9 }"> selected = "selected"</c:if>>9 명</option>
+									<option value="10"
+										<c:if test="${ roomVO.headCount eq 10 }"> selected = "selected"</c:if>>10 명</option>
 
 								</select>
 							</div>
