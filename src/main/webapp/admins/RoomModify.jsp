@@ -106,6 +106,25 @@ input[type="text"]:focus, textarea:focus, select:focus {
          });
       });
    });
+	   function deleteRoom(roomNo){
+		   var confirmDelete = confirm("삭제 하시겠습니까?");
+		   
+		   if(confirmDelete) {
+				$.ajax({
+					type:"post",
+					url:"<c:url value='/admin/RoomDelete' />",
+					data: {roomNo : roomNo},
+					success:function(){
+						alert("삭제 되었습니다.");
+						window.location.replace("${contextPath}/admin/RoomList?type=admin");
+					},
+					error:function(data, status, error){
+							console.error("방 삭제 중 오류 발생 :", error);
+							alert("방 삭제 중 오류가 발생하였습니다.")
+					}
+				});   
+		   }
+	   }
    
     function updateHiddenValue(input, fileName) {
         var filename = input.value.split('\\').pop(); // 파일 경로에서 파일명만 추출
