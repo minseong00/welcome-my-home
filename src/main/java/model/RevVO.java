@@ -4,29 +4,29 @@ import java.sql.Date;
 import java.sql.Timestamp;
 
 public class RevVO {
-	private int bookNo = 0;
-	private Timestamp bookDate = null;
+	private int revNo = 0;
+	private Timestamp revDate = null;
 	private int roomNo = 0;
+	private Date checkIn = null;
+	private Date checkOut = null;
 	private String roomName = null;
-	private Date bookCheck = null;
-	private Date bookCheckOut = null;
 	private int headCount = 0;
 	private int price = 0;
 	private String memId = null;
 	public RevVO() {
 		
 	}
-	public int getBookNo() {
-		return bookNo;
+	public int getrevNo() {
+		return revNo;
 	}
-	public void setBookNo(int bookNo) {
-		this.bookNo = bookNo;
+	public void setrevNo(int revNo) {
+		this.revNo = revNo;
 	}
-	public Timestamp getBookDate() {
-		return bookDate;
+	public Timestamp getrevDate() {
+		return revDate;
 	}
-	public void setBookDate(Timestamp bookDate) {
-		this.bookDate = bookDate;
+	public void setrevDate(Timestamp revDate) {
+		this.revDate = revDate;
 	}
 	public int getRoomNo() {
 		return roomNo;
@@ -34,17 +34,17 @@ public class RevVO {
 	public void setRoomNo(int roomNo) {
 		this.roomNo = roomNo;
 	}
-	public Date getBookCheck() {
-		return bookCheck;
+	public Date getCheckIn() {
+		return checkIn;
 	}
-	public void setBookCheck(Date bookCheck) {
-		this.bookCheck = bookCheck;
+	public void setCheckIn(Date checkIn) {
+		this.checkIn = checkIn;
 	}
-	public Date getBookCheckOut() {
-		return bookCheckOut;
+	public Date getCheckOut() {
+		return checkOut;
 	}
-	public void setBookCheckOut(Date bookCheckOut) {
-		this.bookCheckOut = bookCheckOut;
+	public void setCheckOut(Date checkOut) {
+		this.checkOut = checkOut;
 	}
 	public int getHeadCount() {
 		return headCount;
@@ -75,9 +75,9 @@ public class RevVO {
 	
 	@Override
 	public String toString() {
-		return "RevVO [bookNo=" + bookNo + ", bookDate=" + bookDate + ", roomNo=" + roomNo + ", roomName=" + roomName
-				+ ", bookCheck=" + bookCheck + ", bookCheckOut=" + bookCheckOut + ", headCount=" + headCount
-				+ ", price=" + price + ", memId=" + memId + "]";
+		return "RevVO [revNo=" + revNo + ", revDate=" + revDate + ", roomNo=" + roomNo + ", checkIn=" + checkIn
+				+ ", checkOut=" + checkOut + ", headCount=" + headCount + ", price=" + price + ", memId="
+				+ memId + "]";
 	}
 
 	

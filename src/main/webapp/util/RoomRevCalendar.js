@@ -4,8 +4,8 @@
 function checkDate(date, revList) {
 	if(revList != null) {
 		for(var revDate of revList) {
-		var startDate = moment(revDate.bookCheck);
-		var endDate = moment(revDate.bookCheckOut);
+		var startDate = moment(revDate.checkIn);
+		var endDate = moment(revDate.checkOut);
 		var currentDate = moment(date);
 		
 		if(currentDate >= startDate && current <= endDate)

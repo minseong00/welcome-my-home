@@ -6,9 +6,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.List;
 
 import dao.connection.MySQLConnector;
+import model.OptionVO;
 import model.RoomVO;
 
 public class RoomDAO implements RoomQuerys {
@@ -79,7 +79,39 @@ public class RoomDAO implements RoomQuerys {
 			DB.close(this.rs, this.pstmt, this.conn);
 		}
 		return roomList;
-		
+	}
+	
+	/** 
+ 	모든 룸 인원수, 
+ 	@return
+	 **/
+	public ArrayList<OptionVO> selectCountType(int headCount, String roomType) {
+		ArrayList<OptionVO> optionList = null;
+		try {
+			conn = DB.dbConnect();
+			this.pstmt = conn.prepareStatement(selectMainFilter);
+			this.pstmt.setInt(1, headCount);
+			this.pstmt.setString(2, roomType);
+			this.rs = this.pstmt.executeQuery();
+			optionList = new ArrayList<OptionVO>();
+			
+			while (this.rs.next()) {
+				OptionVO optionVO = new OptionVO();
+				optionVO.setRoomNo(this.rs.getInt("roomNo"));
+				optionVO.setRoomType(this.rs.getString("roomType"));
+				optionVO.setHeadCount(this.rs.getInt("headCount"));
+				optionVO.setRoomCost(this.rs.getInt("roomCost"));
+				optionVO.setCheckIn(this.rs.getDate("checkIn"));
+				optionVO.setCheckOut(this.rs.getDate("checkOut"));
+				optionList.add(optionVO);
+			}
+			
+		} catch (SQLException e) {
+			System.err.println("Room SelectNoName ERR : " + e.getMessage());
+		} finally {
+			DB.close(this.rs, this.pstmt, this.conn);
+		}
+		return optionList;
 	}
 	
 	/**

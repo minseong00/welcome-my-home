@@ -281,7 +281,7 @@ h1, h2, h3, h4, h5, span, a, p, button {
 	
 	<!-- 메인 검색 폼 -->
 	<div class="searchbox">
-		<form action="">
+		<form action="${contextPath}/RoomList" method="get">
 			<div class="checkinbox">
 				<label>체크인</label><br>
 				<input type="text" name="checkIn" id="checkInDate" placeholder="체크인 날짜" readonly>
@@ -293,11 +293,15 @@ h1, h2, h3, h4, h5, span, a, p, button {
 			<div class="roombox">
 				<label>객실</label><br>
 				<select name="roomType">
-					<option value="">싱글 룸</option>
-					<option value="">더블 룸</option>
-					<option value="">슈페리얼 룸</option>
-					<option value="">슈페리얼 더블룸</option>
-					<option value="">럭셔리 룸</option>
+					<option value="Superior">슈페리어 룸</option>
+					<option value="Deluxe">디럭스 룸</option>
+					<option value="GrandDeluxe">그랜드 디럭스 룸</option>
+					<option value="JuniorSuite">주니어 스위트 룸</option>
+					<option value="CornerSuite">코너스 스위트 룸</option>
+					<option value="SuperiorSuite">슈페리어 스위트 룸</option>
+					<option value="RoyalSuite">로열 스위트 룸</option>
+					<option value="PresidentialSuite">프레지덴셜 스위트 룸</option>
+					<option value="Connecting">커넥팅 룸</option>
 				</select>
 			</div>
 			<div class="headCountbox">
@@ -315,7 +319,9 @@ h1, h2, h3, h4, h5, span, a, p, button {
 					<option value="10">10 명</option>
 				</select>
 			</div>
-			<button type="submit" class="searchbox_button">객실 검색</button>
+			<input type="hidden" name="type" value="main">
+			
+			<button type="submit" class="searchbox_button" >객실 검색</button>
 		</form>
 	</div>
 	<!-- 리조트 실행 --> 

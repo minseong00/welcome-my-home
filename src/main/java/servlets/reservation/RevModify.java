@@ -49,22 +49,22 @@ public class RevModify extends HttpServlet {
 		RevDAO revDAO = new RevDAO();
 		RevVO revVO = new RevVO();
 		
-		String bookCheck = request.getParameter("bookCheck");
-		String bookCheckOut = request.getParameter("bookCheckOut");
+		String checkIn = request.getParameter("checkIn");
+		String checkOut = request.getParameter("checkOut");
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd");
-		Date date_bookCheck = null;
-		Date date_bookCheckOut = null;
+		Date date_checkIn = null;
+		Date date_checkOut = null;
 		
 		try {
-			date_bookCheck = (Date) dateFormat.parse(bookCheck);
-			date_bookCheck = (Date) dateFormat.parse(bookCheckOut);
+			date_checkIn = (Date) dateFormat.parse(checkIn);
+			date_checkIn = (Date) dateFormat.parse(checkOut);
 		} catch (java.text.ParseException e) {
 			System.out.println("Rev Modify Parse ERR : " + e.getMessage());
 		}
 		
-		revVO.setBookNo(Integer.parseInt(request.getParameter("bookNo")));
-		revVO.setBookCheck(date_bookCheck);
-		revVO.setBookCheckOut(date_bookCheckOut);
+		revVO.setrevNo(Integer.parseInt(request.getParameter("revNo")));
+		revVO.setcheckIn(date_checkIn);
+		revVO.setcheckOut(date_checkOut);
 		revVO.setHeadCount(Integer.parseInt(request.getParameter("headCount")));
 		revVO.setPrice(Integer.parseInt(request.getParameter("price")));
 		

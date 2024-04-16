@@ -86,6 +86,11 @@ public class RevInsert extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		
 		String memId = (String)session.getAttribute("id");
+		String checkIn = request.getParameter("checkIn");
+		String checkOut = request.getParameter("checkOut");
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd");
+		Date date_CheckIn = null;
+		Date date_CheckOut = null;
 		
 		if(memId == null || memId.equals("")) {
 			out.print("null");
@@ -94,10 +99,10 @@ public class RevInsert extends HttpServlet {
 		
 		String checkDate = request.getParameter("checkDate");
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-		java.util.Date date_bookCheck = null;
-		java.util.Date date_bookCheckOut = null;
-		java.sql.Date sqlDate_bookCheck = null;
-		java.sql.Date sqlDate_bookCheckOut = null;
+		java.util.Date date_CheckIn = null;
+		java.util.Date date_CheckOut = null;
+		java.sql.Date sqlDate_CheckIn = null;
+		java.sql.Date sqlDate_CheckOut = null;
 		revVO = new RevVO();
 		revDAO = new RevDAO();
 		
@@ -106,12 +111,11 @@ public class RevInsert extends HttpServlet {
 		String bookCheckOut = cutDate[1];
 		
 		try {
-			date_bookCheck = dateFormat.parse(bookCheck);
-			date_bookCheckOut = dateFormat.parse(bookCheckOut);
+			date_CheckIn = dateFormat.parse(checkIn);
+			date_CheckOut = dateFormat.parse(checkOut);
 			
-			sqlDate_bookCheck = new java.sql.Date(date_bookCheck.getTime());
-		    sqlDate_bookCheckOut = new java.sql.Date(date_bookCheckOut.getTime());
-			
+			sqlDate_CheckIn = new java.sql.Date(date_CheckIn.getTime());
+		    sqlDate_CheckOut = new java.sql.Date(date_CheckOut.getTime());
 		} catch (java.text.ParseException e) {
 			System.out.println("Rev Insert Parse ERR : " + e.getMessage());
 		}
@@ -119,10 +123,11 @@ public class RevInsert extends HttpServlet {
 		LocalDateTime currentDateTime = LocalDateTime.now();
 		Timestamp timestamp = Timestamp.valueOf(currentDateTime);
 		
-		revVO.setBookDate(timestamp);
+		revVO.setrevDate(timestamp);
 		revVO.setRoomNo(Integer.parseInt(request.getParameter("roomNo")));
-		revVO.setBookCheck(sqlDate_bookCheck);
-		revVO.setBookCheckOut(sqlDate_bookCheckOut);
+
+		revVO.setCheckIn(sqlDate_CheckIn);
+		revVO.setCheckOut(sqlDate_CheckOut);
 		revVO.setHeadCount(Integer.parseInt(request.getParameter("headCount")));
 		revVO.setPrice(Integer.parseInt(request.getParameter("totalPrice")));
 		revVO.setMemId(memId);

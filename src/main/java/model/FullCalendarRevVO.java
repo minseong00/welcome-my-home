@@ -3,21 +3,21 @@ package model;
 import java.sql.Date;
 
 public class FullCalendarRevVO {
-	private int bookNo = 0;
+	private int revNo = 0;
 	private int roomNo = 0;
+	private Date checkIn = null;
+	private Date checkOut = null;
 	private String roomName = null;
-	private String bookCheck = null;
-	private String bookCheckOut = null;
 	private String backgroundColor = null;
 	
 	public FullCalendarRevVO() {
 	}
 		
-	public int getBookNo() {
-		return bookNo;
+	public int getrevNo() {
+		return revNo;
 	}
-	public void setBookNo(int bookNo) {
-		this.bookNo = bookNo;
+	public void setrevNo(int revNo) {
+		this.revNo = revNo;
 	}
 	public int getRoomNo() {
 		return roomNo;
@@ -25,21 +25,17 @@ public class FullCalendarRevVO {
 	public void setRoomNo(int roomNo) {
 		this.roomNo = roomNo;
 	}
-	
-	public String getBookCheck() {
-		return bookCheck;
+	public Date getCheckIn() {
+		return checkIn;
 	}
-
-	public void setBookCheck(String bookCheck) {
-		this.bookCheck = bookCheck;
+	public void setCheckIn(Date checkIn) {
+		this.checkIn = checkIn;
 	}
-
-	public String getBookCheckOut() {
-		return bookCheckOut;
+	public Date getCheckOut() {
+		return checkOut;
 	}
-
-	public void setBookCheckOut(String bookCheckOut) {
-		this.bookCheckOut = bookCheckOut;
+	public void setCheckOut(Date checkOut) {
+		this.checkOut = checkOut;
 	}
 
 	public String getBackgroundColor() {

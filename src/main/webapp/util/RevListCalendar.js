@@ -8,13 +8,13 @@ $(function() {
 		if(revList != null) {
 			console.log("예약 데이터 받기 완료");
 			for(var rev of revList) {
-				var newEvent = {
-					title: rev.roomName,
-					start: rev.bookCheck,
-					end: rev.bookCheckOut,
-					backgroundColor: rev.backgroundColor
-				}
-			events.push(newEvent);
+        var newEvent = {
+          title: rev.roomName,
+          start: rev.checkIn,
+          end: rev.checkOut,
+          backgroundColor: rev.backgroundColor
+        }
+        events.push(newEvent);
 			}
 		}else {
 			console.log("예약 데이터 없음");
