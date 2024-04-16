@@ -206,7 +206,7 @@
 										</tr>
 										<tr>
 											<td align="center">
-												<input type="button" value="Detail" onclick="location.href='<c:url value="/RoomDetail?roomNo=${room.roomNo }" />'" />
+												<input type="button" value="Detail" onclick="location.href='${contextPath }/RoomDetail?roomNo=${room.roomNo }'" />
 											</td>
 										</tr>
 										
@@ -251,9 +251,9 @@
 						<tr>
 							<td>
 								인원수<br>
-								<button type="button" id="downCount" onclick="downValue()"><b>-</b></button>
+								<button type="button" id="downCount" onclick="downValueFilter()"><b>-</b></button>
 								<input type="text" name="headCount" value="1" id="headCount" readonly>
-								<button type="button" id="upCount" onclick="upValue()"><b>+</b></button>
+								<button type="button" id="upCount" onclick="upValueFilter()"><b>+</b></button>
 							</td>
 						</tr>
 						<tr>

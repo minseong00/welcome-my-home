@@ -1,24 +1,48 @@
 /**
  * 인원수의 - + 버튼으로 값을 상승, 하락 시키는 함수
  */
-function downValue() {
+function downValueRoomRev() {
     updateHeadCount(-1); // 값 감소
 }
 
-function upValue() {
+function upValueRoomRev() {
 	updateHeadCount(1); // 값 증가
 }
 	
 function updateHeadCount(val) {
     // input 요소 가져오기
-    var inputElement = document.getElementById("headCount");
+    var inputHeadCount = document.getElementById("headCount");
+    var inputPrice = document.getElementById("price");
+	
+    // 현재 값 가져오기
+    var currentHeadCount = parseInt(inputHeadCount.value);
+	var currentPrice = parseInt(inputPrice.value);
+	
+	if(currentHeadCount + val >= 1 && (headCount + 2) > currentHeadCount) {
+		inputHeadCount.value = currentHeadCount + val;
+		if(headCount < currentPrice ) 
+			inputPrice.value = currentPrice + 15000;
+	}else {
+		alert("더 이상 인원 추가가 불가능합니다.");
+	}
+}
+
+function downValueFilter() {
+    updateCountFilter(-1); // 값 감소
+}
+
+function upValueFilter() {
+	updateCountFilter(1); // 값 증가
+}
+	
+function updateCountFilter(val) {
+    // input 요소 가져오기
+    var inputHeadCount = document.getElementById("headCount");
     
     // 현재 값 가져오기
-    var currentValue = parseInt(inputElement.value);
+    var currentValue = parseInt(inputHeadCount.value);
 
-	if(currentValue + val >= 1) {
-		inputElement.value = currentValue + val;
+	if(currentValue + val >= 1 && currentValue < 10)
+		inputHeadCount.value = currentValue + val;
 		
-		// 방의 인원을 초과할 경우 id = price 의 값을 인원 추가 가격에 맞게 더하기
-	}
 }

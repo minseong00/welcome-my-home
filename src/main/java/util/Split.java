@@ -20,5 +20,8 @@ public class Split {
 		return "";
 	}
 	
-	
+	public static String[] RangeDate(String date) {
+		String[] checkDate = date.split(" ~ ");
+		return checkDate;
+	}
 }
