@@ -88,9 +88,6 @@ public class RevInsert extends HttpServlet {
 		String memId = (String)session.getAttribute("id");
 		String checkIn = request.getParameter("checkIn");
 		String checkOut = request.getParameter("checkOut");
-		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd");
-		Date date_CheckIn = null;
-		Date date_CheckOut = null;
 		
 		if(memId == null || memId.equals("")) {
 			out.print("null");
@@ -107,12 +104,12 @@ public class RevInsert extends HttpServlet {
 		revDAO = new RevDAO();
 		
 		String[] cutDate = Split.RangeDate(checkDate);
-		String bookCheck = cutDate[0];
-		String bookCheckOut = cutDate[1];
+		String revCheckIn = cutDate[0];
+		String revCheckOut = cutDate[1];
 		
 		try {
-			date_CheckIn = dateFormat.parse(checkIn);
-			date_CheckOut = dateFormat.parse(checkOut);
+			date_CheckIn = dateFormat.parse(revCheckIn);
+			date_CheckOut = dateFormat.parse(revCheckOut);
 			
 			sqlDate_CheckIn = new java.sql.Date(date_CheckIn.getTime());
 		    sqlDate_CheckOut = new java.sql.Date(date_CheckOut.getTime());
@@ -123,7 +120,7 @@ public class RevInsert extends HttpServlet {
 		LocalDateTime currentDateTime = LocalDateTime.now();
 		Timestamp timestamp = Timestamp.valueOf(currentDateTime);
 		
-		revVO.setrevDate(timestamp);
+		revVO.setRevDate(timestamp);
 		revVO.setRoomNo(Integer.parseInt(request.getParameter("roomNo")));
 
 		revVO.setCheckIn(sqlDate_CheckIn);

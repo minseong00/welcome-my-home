@@ -5,18 +5,18 @@ import java.sql.Date;
 public class FullCalendarRevVO {
 	private int revNo = 0;
 	private int roomNo = 0;
-	private Date checkIn = null;
-	private Date checkOut = null;
+	private String checkIn = null;
+	private String checkOut = null;
 	private String roomName = null;
 	private String backgroundColor = null;
 	
 	public FullCalendarRevVO() {
 	}
 		
-	public int getrevNo() {
+	public int getRevNo() {
 		return revNo;
 	}
-	public void setrevNo(int revNo) {
+	public void setRevNo(int revNo) {
 		this.revNo = revNo;
 	}
 	public int getRoomNo() {
@@ -25,16 +25,16 @@ public class FullCalendarRevVO {
 	public void setRoomNo(int roomNo) {
 		this.roomNo = roomNo;
 	}
-	public Date getCheckIn() {
+	public String getCheckIn() {
 		return checkIn;
 	}
-	public void setCheckIn(Date checkIn) {
+	public void setCheckIn(String checkIn) {
 		this.checkIn = checkIn;
 	}
-	public Date getCheckOut() {
+	public String getCheckOut() {
 		return checkOut;
 	}
-	public void setCheckOut(Date checkOut) {
+	public void setCheckOut(String checkOut) {
 		this.checkOut = checkOut;
 	}
 
@@ -54,11 +54,6 @@ public class FullCalendarRevVO {
 		this.roomName = roomName;
 	}
 
-	@Override
-	public String toString() {
-		return "[bookNo : " + bookNo + ", roomNo=" + roomNo + ", bookCheck=" + bookCheck
-				+ ", bookCheckOut=" + bookCheckOut + ", backgroundColor=" + backgroundColor + "]";
-	}
 	
 }
 

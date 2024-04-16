@@ -18,7 +18,7 @@ public class CalendarForm {
 		for (RevVO revVO : revList) {
 			FullCalendarRevVO calendarRevVO = new FullCalendarRevVO();
 			int randomIndex = random.nextInt(13);
-			calendarRevVO.setrevNo(revVO.getrevNo());
+			calendarRevVO.setRevNo(revVO.getRevNo());
 			calendarRevVO.setRoomNo(revVO.getRoomNo());
 			calendarRevVO.setRoomName(revVO.getRoomName());
 			calendarRevVO.setCheckIn(revVO.getCheckIn().toString());
