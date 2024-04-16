@@ -1,6 +1,7 @@
 package servlets.member;
 
 import java.io.IOException;
+import java.util.Enumeration;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -52,7 +53,6 @@ public class MemModify extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		request.setCharacterEncoding("utf-8");
 		HttpSession session = request.getSession();
 		String idType = (String) session.getAttribute("idType");
 
@@ -61,7 +61,14 @@ public class MemModify extends HttpServlet {
 		String name = request.getParameter("name");
 		String call = request.getParameter("call");
 		String email = request.getParameter("email");
-
+		
+		Enumeration<String> parameterNames = request.getParameterNames();
+		while (parameterNames.hasMoreElements()) {
+		    String paramName = parameterNames.nextElement();
+		    String paramValue = request.getParameter(paramName);
+		    System.out.println(paramName + " / " + paramValue);
+		}
+		
 		MemVO memModel = new MemVO();
 		memModel.setMemId(n);
 		memModel.setMemPw(pw);
@@ -72,7 +79,7 @@ public class MemModify extends HttpServlet {
 		memDAO = new MemDAO();
 		memDAO.update(memModel);
 
-		System.out.println("========> MemListServlet doPost()");
+		System.out.println("========> MemModify doPost()");
 
 		RequestDispatcher dispatcher = null;
 		if (idType.equals("member")) {	//마이페이지 정보수정완료 시

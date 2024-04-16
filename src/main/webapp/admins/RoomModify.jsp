@@ -89,7 +89,7 @@ input[type="text"]:focus, textarea:focus, select:focus {
 	border-color: #87CEEB; /* 하늘색 테두리 */
 }
 </style>
-<script src="http://code.jquery.com/jquery-2.2.1.min.js"></script>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script type="text/javascript">
 	$(function(){
 		$('#modify').submit(function(event){
