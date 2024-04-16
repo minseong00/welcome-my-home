@@ -28,9 +28,8 @@
 	.insert {
 	    padding: 20px 30px;
 	    display: block;
-	    width: 600px;
-	    margin: 5vh auto;
-	    border: 1px solid #dbdbdb;
+	    width: 300px;
+	    
 	    box-sizing: border-box;
 	}
 	.insert .file-list {
