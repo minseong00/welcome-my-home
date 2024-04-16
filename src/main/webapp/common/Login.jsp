@@ -11,6 +11,9 @@
 <title>Insert title here</title>
 	<script src="http://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<!-- css 적용 -->
+<link rel="stylesheet" href="${contextPath }/style/css/flaticon.css">
+<link rel="stylesheet" href="${contextPath }/style/css/style.css">
 	<script>
 		/** 로그인 확인 **/
 		$(function() {

@@ -9,6 +9,9 @@
 <meta charset="UTF-8">
 <title>admin Room Add</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+<!-- css 적용 -->
+<link rel="stylesheet" href="${contextPath }/style/css/flaticon.css">
+<link rel="stylesheet" href="${contextPath }/style/css/style.css">
 
 <style type="text/css">
 	body{
