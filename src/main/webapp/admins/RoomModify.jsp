@@ -92,6 +92,7 @@ input[type="text"]:focus, textarea:focus, select:focus {
 }
 </style>
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+
 <script type="text/javascript">
 	$(function(){
 		$('#modify').submit(function(event){
@@ -114,8 +115,33 @@ input[type="text"]:focus, textarea:focus, select:focus {
 				}
 			});
 		});
+		
 	});
 	
+	function deleteRoom(roomNo) {
+		$.ajax({
+			type: "get",
+			async: false,
+			url: "<c:url value='/admin/RoomDelete' />",
+			data: {roomNo: roomNo},
+			dataType: "text",
+			success:function(data) {
+				if(data == "success") {
+					alert("삭제되었습니다.");
+					window.location.replace("${contextPath}/admin/RoomList?type=admin");
+				} else {
+					alert("삭제 되지 않았습니다.");
+					window.location.replace("${contextPath}/admin/RoomList?type=admin");
+					
+				}
+			},
+			error:function() {
+				alert("에러가 발생하였습니다.");
+				window.location.replace("${contextPath}/admin/RoomList?type=admin");
+			}
+		});
+	}
+
     function updateHiddenValue(input, fileName) {
         var filename = input.value.split('\\').pop(); // 파일 경로에서 파일명만 추출
         var hiddenInput = document.querySelector('input[name="' + fileName + '"]');
@@ -142,8 +168,7 @@ input[type="text"]:focus, textarea:focus, select:focus {
 						<div style="margin-left: 290px;">
 							<div align="right">
 								<button type="submit" class="sky-blue-button">수정</button>
-								<button class="sky-blue-button"
-									onclick="location.href='<c:url value="/abmin/RoomDelete?roomNo=${roomVO.roomNo }" /> '">삭제</button>
+								<button class="sky-blue-button" type="button" onclick="deleteRoom(${roomVO.roomNo})">삭제</button>
 							</div>
 							<div>
 								<label>객실 이름 &nbsp;&nbsp;</label> 
