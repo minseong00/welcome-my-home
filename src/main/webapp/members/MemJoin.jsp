@@ -9,6 +9,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>MemJoin : 회원가입 페이지</title>
    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 	<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
@@ -97,7 +98,44 @@
        	  
       });
 	 
+		/*회원가입 글자수 제한*/
+		function chkword(obj, maxByte) {
+		     var strValue = obj.value;
+		     var strLen = strValue.length;
+		     var totalByte = 0;
+		     var len = 0;
+		     var oneChar = "";
+		     var str2 = "";
+		
+		     for (var i = 0; i < strLen; i++) {
+		         oneChar = strValue.charAt(i);
+		         if (escape(oneChar).length > 4) {
+		             totalByte += 2; // 한글일 경우 2바이트 추가
+		         } else {
+		             totalByte++; // 영어 및 숫자는 1바이트 추가
+		         }
+		
+		         // 각 글자에 대한 바이트 수를 확인하여 한글은 6글자, 영어와 숫자는 20글자로 제한
+		         if (oneChar.match(/[가-힣]/)) { // 한글인 경우
+		             if (totalByte <= 12) { // 6글자 이내인 경우
+		                 len = i + 1;
+		             }
+		         } else { // 영어나 숫자인 경우
+		             if (totalByte <= maxByte) { // 20글자 이내인 경우
+		                 len = i + 1;
+		             }
+		         }
+		     }
+		
+		     // 제한된 글자 수를 초과하는 경우 잘라내고 경고 메시지 표시
+		     if (totalByte > maxByte) {
+		         alert("입력 가능한 글자 수를 초과하였습니다.");
+		         str2 = strValue.substr(0, len);
+		         obj.value = str2;
+		     }
+		 }
 	 </script>
+
 <style>
 	
 	body {
@@ -145,8 +183,9 @@ td, th {
 </head>
 
 <body>
-<div class="container">
-<jsp:include page="/include/Header.jsp" flush="false" />
+	<div class="container">
+		<jsp:include page="/include/Header.jsp" flush="false" />
+
 
 <div  style="width: 40%;  margin: auto;">
 <form   method="post" action="${contextPath}/Join">
@@ -156,7 +195,7 @@ td, th {
     <tr>
        <td  style="background-color:#73685d; color: #fff; width:200px; height: 70px; " ><span  style="text-align: right;">아이디</span></td>
        <td class="td-special">
-	       	<input type="text" name="id" id="t_id" required>
+	       	<input type="text" name="id" id="t_id" onkeyup="chkword(this, 20)" required>
 	       	<input type="button" value="중복확인" id="double" onclick="fn_process()">
 	       	<br>
 	       	<div id="message"></div>
@@ -164,25 +203,25 @@ td, th {
     </tr>
     <tr>
         <td  style="background-color:#73685d; color: #fff; height: 70px;"><span style="text-align: right;">비밀번호</span></td>
-        <td class="td-special"><input type="password"  name="pw" id="pw" required></td>
+        <td class="td-special"><input type="password"  name="pw" id="pw" onkeyup="chkword(this, 20)" required></td>
     </tr>
     <tr>
         <td  style="background-color:#73685d; color: #fff; height: 70px;"><span style="text-align: right;">비밀번호확인</span></td>
-        <td class="td-special"><input type="password"  name="pw_confirm" id="pw_confirm" required>
+        <td class="td-special"><input type="password"  name="pw_confirm" id="pw_confirm" onkeyup="chkword(this, 20)" required>
         				<div id="pw_message"></div>
         </td>
     </tr>
     <tr>
         <td  style="background-color:#73685d; color: #fff; height: 70px;"><span style="text-align: right;">이름</span></td>
-        <td class="td-special"><input type="text"  name="name" id="name" required></td>
+        <td class="td-special"><input type="text"  name="name" id="name" onkeyup="chkword(this, 20)" required></td>
     </tr>
     <tr>
         <td  style="background-color:#73685d; color: #fff; height: 70px;"><span style="text-align: right;">전화번호</span></td>
-        <td class="td-special" ><input type="text"  name="call" id="call" required></td>
+        <td class="td-special" ><input type="text"  name="call" id="call" onkeyup="chkword(this, 20)" required></td>
     </tr>
     <tr>
         <td  style="background-color:#73685d; color: #fff; height: 70px;"><span style="text-align: right;">이메일</span></td>
-        <td class="td-special"><input type="email"  name="email" id="email" required></td>
+        <td class="td-special"><input type="email"  name="email" id="email" onkeyup="chkword(this, 20)" required></td>
     </tr>
     <tr >
         <td align="right" class="td-special"colspan="2" style="height: 70px; ">

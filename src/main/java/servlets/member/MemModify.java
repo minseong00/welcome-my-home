@@ -62,13 +62,6 @@ public class MemModify extends HttpServlet {
 		String call = request.getParameter("call");
 		String email = request.getParameter("email");
 		
-		Enumeration<String> parameterNames = request.getParameterNames();
-		while (parameterNames.hasMoreElements()) {
-		    String paramName = parameterNames.nextElement();
-		    String paramValue = request.getParameter(paramName);
-		    System.out.println(paramName + " / " + paramValue);
-		}
-		
 		MemVO memModel = new MemVO();
 		memModel.setMemId(n);
 		memModel.setMemPw(pw);
