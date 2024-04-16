@@ -71,6 +71,7 @@ public class RevDAO implements RevQuerys {
 				revVO.setBookNo(this.rs.getInt("bookNo"));
 				revVO.setBookDate(this.rs.getTimestamp("bookDate"));
 				revVO.setRoomNo(this.rs.getInt("roomNo"));
+				revVO.setRoomName(this.rs.getString("roomName"));
 				revVO.setBookCheck(this.rs.getDate("bookCheck"));
 				revVO.setBookCheckOut(this.rs.getDate("bookCheckOut"));
 				revVO.setHeadCount(this.rs.getInt("headCount"));
