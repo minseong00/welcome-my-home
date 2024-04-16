@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>현재 모든 예약 상태를 캘린더 형태로 출력</title>
+<title>예약현황</title>
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <!-- css 적용 -->
 <link rel="stylesheet" href="${contextPath }/style/css/flaticon.css">
@@ -17,7 +17,7 @@
   <!-- fullcalendar 언어 CDN -->
   <script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.9.0/locales-all.min.js'></script>
 <script>
-	const servletUrl = "${contextPath}/RevList?type=calendar";
+	const revList = JSON.parse('${revList}');
 </script>
 <script src="${contextPath}/util/RevListCalendar.js"></script>
 
@@ -50,5 +50,6 @@
 		
 		</div>
 	</div>
+    <jsp:include page="/include/Footer.jsp" flush="false"/>
 </body>
 </html>

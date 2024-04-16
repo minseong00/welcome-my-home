@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>룸 목록</title>
+<title>객실타입</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <!-- css 적용 -->
@@ -162,8 +162,8 @@
 </script>
 </head>
 <body>
-	<div id="container"> <!-- 메인 컨테이너 -->
 		<jsp:include page="/include/Header.jsp" flush="false"/>
+	<div id="container"> <!-- 메인 컨테이너 -->
 		
 		<div class="row size-container">
 		<div id="leftDiv"> <!-- 왼쪽 컨테이너 -->
@@ -301,5 +301,6 @@
 			</div>
 		</div>
 	</div>
+    <jsp:include page="/include/Footer.jsp" flush="false"/>
 </body>
 </html>

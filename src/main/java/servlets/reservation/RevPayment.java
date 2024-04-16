@@ -70,7 +70,7 @@ public class RevPayment extends HttpServlet {
 		request.setAttribute("headCount", headCount);
 		request.setAttribute("totalPrice", price);
 		
-		request.getRequestDispatcher(request.getContextPath() + "/members/Payment.jsp").forward(request, response);
+		request.getRequestDispatcher("/members/Payment.jsp").forward(request, response);
 	}
 
 }

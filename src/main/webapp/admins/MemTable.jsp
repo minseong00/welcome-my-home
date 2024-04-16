@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>관리자홈 : 회원목록</title>
 <style>
 	body {
   padding:1.5em;

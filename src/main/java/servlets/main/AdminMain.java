@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import dao.member.MemDAO;
 import dao.reservation.RevDAO;
+import dao.room.RoomDAO;
 import model.MemVO;
 import model.RevVO;
 
@@ -31,7 +32,8 @@ public class AdminMain extends HttpServlet {
 		RevDAO revDAO = new RevDAO();
 		
 		List<MemVO> memList = memDAO.selectList();
-		List<RevVO> revList = revDAO.selectAll();
+		List<RevVO> revList = revDAO.selectTableList();
+		
 		
 		request.setAttribute("memList", memList);
 		request.setAttribute("revList", revList);

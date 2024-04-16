@@ -6,9 +6,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>관리자 예약 관리 눌렀을 때 나오는 테이블</title>
+<title>관리자 예약관리</title>
+<link rel="stylesheet" href="${contextPath }/style/css/flaticon.css">
+<link rel="stylesheet" href="${contextPath }/style/css/style.css">
 <style type="text/css">
-	body{
+
+    
+  		body{
 		line-height: normal;
 		display: flex;
 		 padding:1.5em;
@@ -57,7 +61,7 @@ a {
   color: #73685d;
 }
   
- @media all and (max-width: 768px) {
+ @media all and (max-width: 900px) {
     
   table, thead, tbody, th, td, tr {
     display: block;
@@ -105,6 +109,7 @@ a {
 </head>
 
 <body >
+
 <div class="container">
 	<jsp:include page="/include/Header.jsp" flush="false"/>
 	<div class="row justify-content-center">
@@ -174,6 +179,6 @@ a {
 		</div>
 	
 	</div>
-	
+	</div>
 </body>
 </html>

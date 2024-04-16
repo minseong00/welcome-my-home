@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.mindrot.jbcrypt.BCrypt;
+
 import dao.admin.AdminDAO;
 import dao.member.MemDAO;
 import model.MemVO;
@@ -53,7 +55,7 @@ public class Join extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		/* 회원가입 */
 		String id = request.getParameter("id");
-		String pw = request.getParameter("pw");
+		String pw = BCrypt.hashpw(request.getParameter("pw"), BCrypt.gensalt());
 		String name = request.getParameter("name");
 		String call = request.getParameter("call");
 		String email = request.getParameter("email");

@@ -1,6 +1,7 @@
 package servlets.reservation;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
@@ -9,6 +10,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 
 import dao.reservation.RevDAO;
 import dao.room.RoomDAO;
@@ -16,6 +21,7 @@ import model.FullCalendarRevVO;
 import model.RevVO;
 import model.RoomVO;
 import util.CalendarForm;
+import util.CreateJSON;
 
 /**
  * Servlet implementation class RevList
@@ -43,22 +49,26 @@ public class RevList extends HttpServlet {
 			response.sendRedirect(request.getContextPath() + "/LoginCheck");
 			return;
 		}
-
+		
 		if(!type.equals("myInfo"))
-			revList = revDAO.selectAll();
+			revList = revDAO.selectTableList();
+		
 		
 		switch (type) {
 		case "calendar":
 			dispatcher = request.getRequestDispatcher("/members/RevCalendar.jsp");
 			ArrayList<FullCalendarRevVO> fullCalRevList = null;
 			fullCalRevList = CalendarForm.FullCalendar(revList);
-			request.setAttribute("revList", fullCalRevList);
+			String json = CreateJSON.parseFullCalendarRevVOListToJSON(fullCalRevList);
+			request.setAttribute("revList", json);
 			break;
 		case "admin":
 			dispatcher = request.getRequestDispatcher("/admins/AdminRevList.jsp");
 			break;
 		case "myInfo": // roomNames, revMyRev
-			revList = revDAO.selectMyRev("id");
+			HttpSession session = request.getSession();
+			String _id = (String) session.getAttribute("id");
+			revList = revDAO.selectMyRev(_id);
 			dispatcher = request.getRequestDispatcher("/members/MyRev.jsp");
 			break;
 		default:
@@ -68,10 +78,7 @@ public class RevList extends HttpServlet {
 		
 		if(!type.equals("calendar"))
 			request.setAttribute("revList", revList);
-		
-		ArrayList<RoomVO> roomList = roomDAO.selectName();
-		request.setAttribute("roomNames", roomList);
-		
+
 		dispatcher.forward(request, response);
 	}
 

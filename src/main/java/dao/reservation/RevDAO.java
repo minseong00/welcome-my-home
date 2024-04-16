@@ -33,11 +33,11 @@ public class RevDAO implements RevQuerys {
 			
 			while (this.rs.next()) {
 				RevVO revVO = new RevVO();
-				revVO.setrevNo(this.rs.getInt("revNo"));
-				revVO.setrevDate(this.rs.getTimestamp("revDate"));
+				revVO.setRevNo(this.rs.getInt("revNo"));
+				revVO.setRevDate(this.rs.getTimestamp("revDate"));
 				revVO.setRoomNo(this.rs.getInt("roomNo"));
-				revVO.setcheckIn(this.rs.getDate("checkIn"));
-				revVO.setcheckOut(this.rs.getDate("checkOut"));
+				revVO.setCheckIn(this.rs.getDate("checkIn"));
+				revVO.setCheckOut(this.rs.getDate("checkOut"));
 				revVO.setHeadCount(this.rs.getInt("headCount"));
 				revVO.setPrice(this.rs.getInt("price"));
 				revVO.setMemId(this.rs.getString("memId"));
@@ -71,8 +71,9 @@ public class RevDAO implements RevQuerys {
 				revVO.setrevNo(this.rs.getInt("revNo"));
 				revVO.setrevDate(this.rs.getTimestamp("revDate"));
 				revVO.setRoomNo(this.rs.getInt("roomNo"));
-				revVO.setcheckIn(this.rs.getDate("checkIn"));
-				revVO.setcheckOut(this.rs.getDate("checkOut"));
+				revVO.setCheckIn(this.rs.getDate("checkIn"));
+				revVO.setCheckOut(this.rs.getDate("checkOut"));
+				revVO.setRoomName(this.rs.getString("roomName"));
 				revVO.setHeadCount(this.rs.getInt("headCount"));
 				revVO.setPrice(this.rs.getInt("price"));
 				revVO.setMemId(this.rs.getString("memId"));
@@ -103,8 +104,8 @@ public class RevDAO implements RevQuerys {
 			
 			while (this.rs.next()) {
 				RevVO revVO = new RevVO();
-				revVO.setcheckIn(this.rs.getDate("checkIn"));
-				revVO.setcheckOut(this.rs.getDate("checkOut"));
+				revVO.setCheckIn(this.rs.getDate("checkIn"));
+				revVO.setCheckOut(this.rs.getDate("checkOut"));
 				
 				revList.add(revVO);
 			}
@@ -136,8 +137,8 @@ public class RevDAO implements RevQuerys {
 				revVO.setrevNo(this.rs.getInt("revNo"));
 				revVO.setrevDate(this.rs.getTimestamp("revDate"));
 				revVO.setRoomNo(this.rs.getInt("roomNo"));
-				revVO.setcheckIn(this.rs.getDate("checkIn"));
-				revVO.setcheckOut(this.rs.getDate("checkOut"));
+				revVO.setCheckIn(this.rs.getDate("checkIn"));
+				revVO.setCheckOut(this.rs.getDate("checkOut"));
 				revVO.setHeadCount(this.rs.getInt("headCount"));
 				revVO.setPrice(this.rs.getInt("price"));
 				revVO.setMemId(this.rs.getString("memId"));
@@ -150,6 +151,42 @@ public class RevDAO implements RevQuerys {
 		
 		return revVO;
 	}
+	
+	/**
+		예약 테이블 조회 
+		@return
+	 **/
+	public ArrayList<RevVO> selectTableList() {
+		ArrayList<RevVO> revList = new ArrayList<RevVO>();
+		
+		try {
+			this.conn = DB.dbConnect();
+			this.pstmt = this.conn.prepareStatement(selectTableList);
+			this.rs = this.pstmt.executeQuery();
+			
+			while(this.rs.next()) {
+				RevVO revVO = new RevVO();
+				revVO.setRevNo(this.rs.getInt("revNo"));
+				revVO.setRevDate(this.rs.getTimestamp("revDate"));
+				revVO.setRoomNo(this.rs.getInt("roomNo"));
+				revVO.setCheckIn(this.rs.getDate("CheckIn"));
+				revVO.setCheckOut(this.rs.getDate("CheckOut"));
+				revVO.setHeadCount(this.rs.getInt("headCount"));
+				revVO.setPrice(this.rs.getInt("price"));
+				revVO.setMemId(this.rs.getString("memId"));
+				revVO.setRoomName(this.rs.getString("roomName"));
+				revList.add(revVO);
+			}
+		} catch (SQLException e) {
+			System.err.println("Rev SelectOne ERR : " + e.getMessage());
+		} finally {
+			DB.close(this.rs, this.pstmt, this.conn);
+		}
+		
+		return revList;
+	}
+	
+	
 	
 	/**
 	예약 delete
@@ -184,8 +221,8 @@ public class RevDAO implements RevQuerys {
 			this.pstmt = this.conn.prepareStatement(insertRev);
 			this.pstmt.setTimestamp(1, revVO.getrevDate());
 			this.pstmt.setInt(2, revVO.getRoomNo());
-			this.pstmt.setDate(3, revVO.getcheckIn());
-			this.pstmt.setDate(4, revVO.getcheckOut());
+			this.pstmt.setDate(3, revVO.getCheckIn());
+			this.pstmt.setDate(4, revVO.getCheckOut());
 			this.pstmt.setInt(5, revVO.getHeadCount());
 			this.pstmt.setInt(6, revVO.getPrice());
 			this.pstmt.setString(7, revVO.getMemId());
@@ -208,8 +245,8 @@ public class RevDAO implements RevQuerys {
 		try {
 			this.conn = DB.dbConnect();
 			this.pstmt = this.conn.prepareStatement(updateRev);
-			this.pstmt.setDate(1, revVO.getcheckIn());
-			this.pstmt.setDate(2, revVO.getcheckOut());
+			this.pstmt.setDate(1, revVO.getCheckIn());
+			this.pstmt.setDate(2, revVO.getCheckOut());
 			this.pstmt.setInt(3, revVO.getHeadCount());
 			this.pstmt.setInt(4, revVO.getPrice());
 			this.pstmt.setInt(5, revVO.getrevNo());

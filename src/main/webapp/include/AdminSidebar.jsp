@@ -6,7 +6,7 @@ pageEncoding="UTF-8"%>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>관리자홈 메뉴</title>
 <style>
 	.sidebar{
 		background-color: #FFFFFF;
@@ -77,7 +77,7 @@ pageEncoding="UTF-8"%>
 					</a>
 				</li>
 				<li>
-					<a href="#">
+					<a href="${contextPath }/admin/RevList?type=admin" class="nav-link">
 						<span>회원 예약</span>
 					</a>
 				</li>

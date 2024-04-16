@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta  charset="UTF-8">
-<title>AdminMemList.jsp : 전체회원목록</title>
+<title>관리자 회원관리</title>
 <!-- css 적용 -->
 <link rel="stylesheet" href="${contextPath }/style/css/flaticon.css">
 <link rel="stylesheet" href="${contextPath }/style/css/style.css">
@@ -128,7 +128,7 @@ a {
 			<col width="7%">
 		</colgroup>
 		<thead>
-      <tr >
+      <tr>
          <th>고객명</th>
          <th>아이디</th>
          <th>비밀번호</th>
@@ -151,7 +151,7 @@ a {
         <tr align="center">
           <td><a href="<c:url value='/admin/MemModify?id=${mem.memId}' /> "><c:out value="${mem.memName}"/></a></td>     
           <td><c:out value="${mem.memId }" /></td>
-          <td><c:out value="${mem.memPw }" /></td>
+          <td>*****<input type="hidden" value="${mem.memPw }"></td>
           <td><c:out value="${mem.memCall }" /></td>
           <td><c:out value="${mem.memEmail }" /></td>
        </tr>

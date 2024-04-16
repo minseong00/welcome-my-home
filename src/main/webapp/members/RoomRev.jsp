@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>RoomDetail에서 예약 버튼 클릭시 출력</title>
+<title>객실예약</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <!-- css 적용 -->
@@ -258,21 +258,6 @@
         });
         // 슬라이드 스크립트 끝
         
-		$('#roomRevForm').submit(function(event) {
-			event.preventDefault();
-            var formData = $(this).serialize(); 
-		    console.log("input roonNo : " + roomNo);
-			$.ajax({
-				method: 'post',
-				url: "<c:url value='/RevPayment' />",
-				data: formData,
-				async: false,
-				error: function (xhr, status, err) {
-					alert('에러가 발생 하였습니다. 다시 시도해주세요.');
-					console.log("err : " + err + " / " + status + " / " + xhr);
-				}
-			});
-		});
     });
 </script>
 
@@ -284,7 +269,7 @@
 		<jsp:include page="/include/Header.jsp" flush="false" />
 
 		<div class="row justify-content-center">
-			<form id="roomRevForm" method="get">
+			<form action="${contextPath }/RevPayment" method="post">
 				<input type="hidden" name="roomNo" value="${roomVO.roomNo }" />
 
 				<div id="leftDiv">

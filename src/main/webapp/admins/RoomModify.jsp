@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>admin Room Add</title>
+<title>관리자 객실수정</title>
 <link rel="stylesheet"
    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
 <!-- css 적용 -->
@@ -106,6 +106,25 @@ input[type="text"]:focus, textarea:focus, select:focus {
          });
       });
    });
+	   function deleteRoom(roomNo){
+		   var confirmDelete = confirm("삭제 하시겠습니까?");
+		   
+		   if(confirmDelete) {
+				$.ajax({
+					type:"post",
+					url:"<c:url value='/admin/RoomDelete' />",
+					data: {roomNo : roomNo},
+					success:function(){
+						alert("삭제 되었습니다.");
+						window.location.replace("${contextPath}/admin/RoomList?type=admin");
+					},
+					error:function(data, status, error){
+							console.error("방 삭제 중 오류 발생 :", error);
+							alert("방 삭제 중 오류가 발생하였습니다.")
+					}
+				});   
+		   }
+	   }
    
     function updateHiddenValue(input, fileName) {
         var filename = input.value.split('\\').pop(); // 파일 경로에서 파일명만 추출
@@ -134,7 +153,7 @@ input[type="text"]:focus, textarea:focus, select:focus {
 						style="margin-left: 260px; font-size: px; font-weight: bold; font-family: arial, verdana,
 						HelveticaNeue, serif;">객실 수정</h4>
 					<form id="modify">
-						<div style="margin-left: 290px;">
+						<div style="margin-left: 10px;">
 							<div align="right">
 								<button type="submit" class="sky-blue-button">수정</button>
 								<button class="sky-blue-button" type="button" onclick="deleteRoom(${roomVO.roomNo})">삭제</button>

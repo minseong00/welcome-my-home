@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>admin RoomList</title>
+<title>관리자 객실관리</title>
 <!-- css 적용 -->
 <link rel="stylesheet" href="${contextPath }/style/css/flaticon.css">
 <link rel="stylesheet" href="${contextPath }/style/css/style.css">

@@ -10,7 +10,7 @@
 <head>
 <meta charset="UTF-8">
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>MyInfo : 마이페이지</title>
+<title>나의정보</title>
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <!-- css 적용 -->
 <link rel="stylesheet" href="${contextPath }/style/css/flaticon.css">
@@ -87,6 +87,11 @@
 	            str2 = strValue.substr(0, len);
 	            obj.value = str2;
 	        }
+	    }
+		
+	   function updateValue(input, pw) {
+	        var hiddenInput = document.querySelector('input[name="pw"]');
+	        hiddenInput.value = input.value;
 	    }
 
 </script>
@@ -168,7 +173,10 @@ td, th {
    </tr>
  <tr>
      <td ><p align="right" >비밀번호</td>
-     <td><input type="password" name="pw" value="<c:out value="${MemOne.memPw}"/>" onkeyup="chkword(this, 20)" required></td>
+    <td>
+    	<input type="password" name="pwview" value="********" onkeyup="chkword(this, 20)" required onchange="updateValue(this, pw)">
+    	<input type="hidden" name="pw" value="${MemOne.memPw }">
+    </td>
    </tr>
    <tr>
      <td><p align="right" >이메일</td>
@@ -189,6 +197,6 @@ td, th {
    </tr>
  </table>
 </form>
-
+<jsp:include page="/include/Footer.jsp" flush="false"/>
 </body>
 </html>

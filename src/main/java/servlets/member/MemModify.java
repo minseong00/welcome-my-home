@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.mindrot.jbcrypt.BCrypt;
+
 import dao.member.MemDAO;
 import model.MemVO;
 
@@ -57,7 +59,8 @@ public class MemModify extends HttpServlet {
 		String idType = (String) session.getAttribute("idType");
 
 		String n = request.getParameter("id");
-		String pw = request.getParameter("pw");
+		String pw = BCrypt.hashpw(request.getParameter("pw"), BCrypt.gensalt());
+//		String pw = request.getParameter("pw");
 		String name = request.getParameter("name");
 		String call = request.getParameter("call");
 		String email = request.getParameter("email");

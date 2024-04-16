@@ -9,6 +9,7 @@ public class RevVO {
 	private int roomNo = 0;
 	private Date checkIn = null;
 	private Date checkOut = null;
+	private String roomName = null;
 	private int headCount = 0;
 	private int price = 0;
 	private String memId = null;
@@ -33,16 +34,16 @@ public class RevVO {
 	public void setRoomNo(int roomNo) {
 		this.roomNo = roomNo;
 	}
-	public Date getcheckIn() {
+	public Date getCheckIn() {
 		return checkIn;
 	}
-	public void setcheckIn(Date checkIn) {
+	public void setCheckIn(Date checkIn) {
 		this.checkIn = checkIn;
 	}
-	public Date getcheckOut() {
+	public Date getCheckOut() {
 		return checkOut;
 	}
-	public void setcheckOut(Date checkOut) {
+	public void setCheckOut(Date checkOut) {
 		this.checkOut = checkOut;
 	}
 	public int getHeadCount() {
@@ -65,11 +66,20 @@ public class RevVO {
 		this.memId = memId;
 	}
 
+	public String getRoomName() {
+		return roomName;
+	}
+	public void setRoomName(String roomName) {
+		this.roomName = roomName;
+	}
+	
 	@Override
 	public String toString() {
 		return "RevVO [revNo=" + revNo + ", revDate=" + revDate + ", roomNo=" + roomNo + ", checkIn=" + checkIn
 				+ ", checkOut=" + checkOut + ", headCount=" + headCount + ", price=" + price + ", memId="
 				+ memId + "]";
 	}
+
+	
 
 }
