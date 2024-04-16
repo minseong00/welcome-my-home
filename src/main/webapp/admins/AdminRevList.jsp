@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>관리자 예약 관리 눌렀을 때 나오는 테이블</title>
+<title>관리자 예약관리</title>
 <style type="text/css">
 	body{
 		line-height: normal;

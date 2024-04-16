@@ -10,7 +10,7 @@
 <head>
 <meta charset="UTF-8">
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>MyInfo : 마이페이지</title>
+<title>나의정보</title>
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <!-- css 적용 -->
 <link rel="stylesheet" href="${contextPath }/style/css/flaticon.css">

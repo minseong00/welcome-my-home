@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>방 상세 정보</title>
+<title>객실상세 정보</title>
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <!-- css 적용 -->
 <link rel="stylesheet" href="${contextPath }/style/css/flaticon.css">

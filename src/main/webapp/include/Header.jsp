@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Deluxe - Free Bootstrap 4 Template by Colorlib</title>
+<title>Header 고정</title>
     <meta charset="utf-8">
  
 </head>

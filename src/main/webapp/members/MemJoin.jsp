@@ -10,7 +10,7 @@
 <head>
 <meta charset="UTF-8">
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>MemJoin : 회원가입 페이지</title>
+<title>회원가입</title>
    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 	<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 <!-- css 적용 -->

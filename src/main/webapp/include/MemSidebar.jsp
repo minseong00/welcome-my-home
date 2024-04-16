@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>회원정보 메뉴</title>
 <style>
 	.sidebar{
 		background-color: #FFFFFF;

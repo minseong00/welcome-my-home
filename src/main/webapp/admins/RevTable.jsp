@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>관리자 메인화면에 나오는 예약 목록</title>
+<title>관리자홈 : 예약목록</title>
 <style>
 /* 기본 바디 스타일 설정 */
 body {

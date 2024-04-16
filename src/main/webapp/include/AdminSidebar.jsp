@@ -6,7 +6,7 @@ pageEncoding="UTF-8"%>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>관리자홈 메뉴</title>
 <style>
 	.sidebar{
 		background-color: #FFFFFF;
