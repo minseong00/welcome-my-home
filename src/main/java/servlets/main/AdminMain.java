@@ -15,6 +15,7 @@ import dao.reservation.RevDAO;
 import dao.room.RoomDAO;
 import model.MemVO;
 import model.RevVO;
+import util.Split;
 
 /**
  * Servlet implementation class adminMain
@@ -33,10 +34,10 @@ public class AdminMain extends HttpServlet {
 		
 		List<MemVO> memList = memDAO.selectList();
 		List<RevVO> revList = revDAO.selectTableList();
-		
+		List<RevVO> resultList = Split.cutRevDate(revList);
 		
 		request.setAttribute("memList", memList);
-		request.setAttribute("revList", revList);
+		request.setAttribute("revList", resultList);
 		
 		request.getRequestDispatcher("/admins/AdminMain.jsp").forward(request, response);
 	}

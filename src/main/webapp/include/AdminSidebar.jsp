@@ -73,22 +73,22 @@ pageEncoding="UTF-8"%>
 				</li>
 				<li>
 					<a href="${contextPath }/admin/MemList" class="nav-link">
-						<span>회원정보</span>
+						<span>회원 정보</span>
 					</a>
 				</li>
 				<li>
 					<a href="${contextPath }/admin/RevList?type=admin" class="nav-link">
-						<span>회원 예약</span>
+						<span>예약 목록</span>
 					</a>
 				</li>
 				<li>
 					<a href="${contextPath }/admin/RoomList?type=admin" class="nav-link">
-						<span>객실정보</span>
+						<span>객실 목록</span>
 					</a>
 				</li>
 				<li>
 					<a href="${contextPath }/admins/RoomAdd.jsp" class="nav=link">
-						<span>객실등록</span>
+						<span>객실 등록</span>
 					</a>
 				</li>
 			</ul>

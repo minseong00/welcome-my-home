@@ -73,7 +73,6 @@ public class RevDAO implements RevQuerys {
 				revVO.setRoomNo(this.rs.getInt("roomNo"));
 				revVO.setCheckIn(this.rs.getDate("checkIn"));
 				revVO.setCheckOut(this.rs.getDate("checkOut"));
-				revVO.setRoomName(this.rs.getString("roomName"));
 				revVO.setHeadCount(this.rs.getInt("headCount"));
 				revVO.setPrice(this.rs.getInt("price"));
 				revVO.setMemId(this.rs.getString("memId"));
@@ -82,7 +81,7 @@ public class RevDAO implements RevQuerys {
 			}
 			
 		} catch (SQLException e) {
-			System.err.println("Rev SelectAll ERR : " + e.getMessage());
+			System.err.println("Rev selectMyRev ERR : " + e.getMessage());
 		} finally {
 			DB.close(this.rs, this.pstmt, this.conn);
 		}
@@ -104,6 +103,7 @@ public class RevDAO implements RevQuerys {
 			
 			while (this.rs.next()) {
 				RevVO revVO = new RevVO();
+				revVO.setRevDate(this.rs.getTimestamp("revDate"));
 				revVO.setCheckIn(this.rs.getDate("checkIn"));
 				revVO.setCheckOut(this.rs.getDate("checkOut"));
 				
@@ -111,7 +111,7 @@ public class RevDAO implements RevQuerys {
 			}
 			
 		} catch (SQLException e) {
-			System.err.println("Rev SelectAll ERR : " + e.getMessage());
+			System.err.println("Rev selectRoomRev ERR : " + e.getMessage());
 		} finally {
 			DB.close(this.rs, this.pstmt, this.conn);
 		}
@@ -178,7 +178,7 @@ public class RevDAO implements RevQuerys {
 				revList.add(revVO);
 			}
 		} catch (SQLException e) {
-			System.err.println("Rev SelectOne ERR : " + e.getMessage());
+			System.err.println("Rev selectTableList ERR : " + e.getMessage());
 		} finally {
 			DB.close(this.rs, this.pstmt, this.conn);
 		}

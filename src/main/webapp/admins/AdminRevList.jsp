@@ -61,6 +61,7 @@ a {
   color: #73685d;
 }
   
+  
  @media all and (max-width: 900px) {
     
   table, thead, tbody, th, td, tr {
@@ -104,6 +105,10 @@ a {
   }
   
   
+  }
+  
+  #detail {
+  	cursor: pointer;
   }
 </style>
 </head>
@@ -154,18 +159,18 @@ a {
 						</tr>
 					</c:when>
 					<c:otherwise>
-						<c:forEach var="Rev" items="${revList }">
+						<c:forEach var="rev" items="${revList }">
 							<tr>
-								<td><!-- 예약 번호 --></td>
-								<td><!-- 예약 날짜 --></td>
-								<td><!-- 예약 회원 --></td>
-								<td><!-- 예약된 룸 --></td>
-								<td><!-- 체크인 --></td>
-								<td><!-- 체크아웃 --></td>
-								<td><!-- 인원 수 --></td>
-								<td><!-- 예약 가격 --></td>
+								<td>${rev.revNo }</td>
+								<td>${rev.revDate }</td>
+								<td>${rev.memId }</td>
+								<td>${rev.roomName }</td>
+								<td>${rev.checkIn }</td>
+								<td>${rev.checkOut }</td>
+								<td>${rev.headCount }</td>
+								<td>${rev.price }</td>
 								<td>
-									<span id="detail" onclick="location.href='${contextPath }/admin/RevDetail?roomNo=${Rev.revNo }' ">상세보기</span>
+									<span id="detail" onclick="location.href='${contextPath }/admin/RevDetail?revNo=${rev.revNo }' ">상세보기</span>
 								</td>
 							</tr>
 						</c:forEach>

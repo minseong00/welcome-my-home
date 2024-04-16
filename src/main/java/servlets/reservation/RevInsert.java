@@ -21,6 +21,7 @@ import dao.roomImg.RoomImgDAO;
 import model.RevVO;
 import model.RoomImgVO;
 import model.RoomVO;
+import util.CreateJSON;
 import util.Split;
 
 /**
@@ -43,12 +44,12 @@ public class RevInsert extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession(false);
 		String idType = (String)session.getAttribute("idType");
-		
+		System.out.println("진입");
 		if(session.getAttribute("id") == null || idType == null) {
 			response.sendRedirect(request.getContextPath() + "/common/Login.jsp");
 			return;
 		}
-		
+		System.out.println("진입1");
 		response.setContentType("text/html; charset=utf-8");
 		PrintWriter out = response.getWriter();
 		String tempNum = request.getParameter("roomNo");
@@ -56,7 +57,7 @@ public class RevInsert extends HttpServlet {
 			out.print("nullRoomNo");
 			return;
 		}
-		
+		System.out.println("진입2");
 		int roomNum = Integer.parseInt(tempNum);
 
 		revDAO = new RevDAO();
@@ -65,12 +66,13 @@ public class RevInsert extends HttpServlet {
 		RoomImgVO imgVO = new RoomImgVO();
 		RoomVO roomVO = new RoomVO();
 		ArrayList<RevVO> revList = new ArrayList<RevVO>();
-		
+
 		imgVO = imgDAO.selectOne(roomNum);
 		roomVO = roomDAO.selectOne(roomNum);
 		revList.addAll(revDAO.selectRoomRev(roomNum));
+		String json = CreateJSON.parseRevVOListToJSON(revList);
 		
-		request.setAttribute("revList", revList);
+		request.setAttribute("revList", json);
 		request.setAttribute("roomVO", roomVO);
 		request.setAttribute("imgVO", imgVO);
 		
@@ -119,7 +121,7 @@ public class RevInsert extends HttpServlet {
 		
 		LocalDateTime currentDateTime = LocalDateTime.now();
 		Timestamp timestamp = Timestamp.valueOf(currentDateTime);
-		
+		System.out.println("time : " +timestamp.toString());
 		revVO.setRevDate(timestamp);
 		revVO.setRoomNo(Integer.parseInt(request.getParameter("roomNo")));
 
