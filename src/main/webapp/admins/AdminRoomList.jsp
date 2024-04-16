@@ -8,6 +8,9 @@
 <head>
 <meta charset="UTF-8">
 <title>admin RoomList</title>
+<!-- css 적용 -->
+<link rel="stylesheet" href="${contextPath }/style/css/flaticon.css">
+<link rel="stylesheet" href="${contextPath }/style/css/style.css">
 <style type="text/css">
 body {
 	line-height: normal;
