@@ -43,6 +43,7 @@ $(function() {
     	"maxDate": "2024-12-31",
 		"opens": "center",
 		"showDropdowns": true,
+		"autoUpdateInput": false,
 		"drops": "down",
 		"minYear": 2024, 
         "maxYear": 2024 
@@ -62,6 +63,7 @@ $(function() {
 	        "maxDate": "2024-12-31",
 	        "opens": "center",
 	        "showDropdowns": true,
+			"autoUpdateInput": false,
 	        "drops": "down",
 	        "minYear": 2024, 
 	        "maxYear": 2024 
