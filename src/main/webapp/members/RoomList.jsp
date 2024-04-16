@@ -228,13 +228,13 @@
 						<tr>
 							<td>
 								체크인<br>
-								<input type="text" name="checkIn" id="checkInDate">
+								<input type="text" name="checkIn" id="checkInDate" readonly>
 							</td>
 						</tr>
 						<tr>
 							<td>
 								체크아웃<br>
-								<input type="text" name="checkOut" id="checkOutDate">
+								<input type="text" name="checkOut" id="checkOutDate" readonly>
 							</td>
 						</tr>
 						<tr>

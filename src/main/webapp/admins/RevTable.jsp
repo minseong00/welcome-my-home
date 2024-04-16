@@ -113,33 +113,31 @@ td {
 				<th>체크인</th>
 				<th>체크아웃</th>
 				<th>인원 수</th>
-				<th>객실이름</th>
-				<th>객실타입</th>
 				<th>금액</th>
 				<th>예약일</th>
 			</tr>
 		</thead>
 		<tbody>	
 			<c:choose>
-				<c:when test="${empty RevVO }">
+				<c:when test="${empty revList }">
 					<tr>
-						<td colspan="9">예약이 없습니다.</td>
+						<td colspan="7">예약이 없습니다.</td>
 					</tr>
 				</c:when>
 			<c:otherwise>
-				<tr>
-					<td>
-						<a><!-- 예약 번호 --></a>
-					</td>
-					<td><!-- 아이디 --></td>
-					<td><!-- 체크인 --></td>
-					<td><!-- 체크아웃 --></td>
-					<td><!-- 인원수 --></td>
-					<td><!-- 객실이름 --></td>
-					<td><!-- 객실타입 --></td>
-					<td><!-- 금액 --></td>
-					<td><!-- 예약일 --></td>
-				</tr>
+				<c:forEach var="rev" items="${revList}">
+					<tr>
+						<td>
+							<a>${rev.bookNo }</a>
+						</td>
+						<td>${rev.memId }</td>
+						<td>${rev.bookCheck }</td>
+						<td>${rev.bookCheckOut }</td>
+						<td>${rev.headCount }</td>
+						<td>${rev.price}</td>
+						<td>${rev.bookDate }</td>
+					</tr>
+				</c:forEach>
 			</c:otherwise>
 		</c:choose>
 		</tbody>

@@ -28,9 +28,8 @@
 	.insert {
 	    padding: 20px 30px;
 	    display: block;
-	    width: 600px;
-	    margin: 5vh auto;
-	    border: 1px solid #dbdbdb;
+	    width: 300px;
+	    
 	    box-sizing: border-box;
 	}
 	.insert .file-list {
@@ -109,20 +108,31 @@
 							<label>객실 타입</label>
 							<select name="roomType" required="required">
 								<option selected="selected">타입 선택</option>
-								<option value="singleRoom">싱글 룸</option>
-								<option value="twinRoom">트윈 룸</option>
-								<option value="DoubleRoom">더블 룸</option>
-								<option value="TripleRoom">트리플 룸</option>
+								<option value="Superior">슈페리어 룸</option>
+								<option value="Deluxe">디럭스 룸</option>
+								<option value="GrandDeluxe">그랜드 디럭스 룸</option>
+								<option value="JuniorSuite">주니어 스위트 룸</option>
+								<option value="CornerSuite">코너스 스위트 룸</option>
+								<option value="SuperiorSuite">슈페리어 스위트 룸</option>
+								<option value="RoyalSuite">로열 스위트 룸</option>
+								<option value="PresidentialSuite">프레지덴셜 스위트 룸</option>
+								<option value="Connecting">커넥팅 룸</option>
 							</select>
 						</div>
 						<div>
 							<label>수용 인원</label>
 							<select name="headCount" required="required">
 								<option selected="selected">인원 선택</option>
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
+								<option value="1">1 명</option>
+								<option value="2">2	명</option>
+								<option value="3">3 명</option>
+								<option value="4">4 명</option>
+								<option value="5">5 명</option>
+								<option value="6">6 명</option>
+								<option value="7">7 명</option>
+								<option value="8">8 명</option>
+								<option value="9">9 명</option>
+								<option value="10">10 명</option>
 								
 							</select>
 						</div>

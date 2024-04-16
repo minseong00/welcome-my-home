@@ -54,7 +54,6 @@ $(function() {
 			"opens": "cetner",
 			"showDropdowns": true,
 			"autoUpdateInput": false,
-			"linkedCalendars": true,
 			"isInvalidDate": function(date) {
 				return checkDate(date, revList);
 			},

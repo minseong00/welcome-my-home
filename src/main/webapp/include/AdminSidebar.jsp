@@ -15,7 +15,7 @@ pageEncoding="UTF-8"%>
 		font-weight: bold;
 		padding: 0;
 		width: 235px;
-		height: 40vh;
+		height: 320px;
 		z-index: 11;
 		box-shadow: 0 5px 10px 0 rgba(230, 230, 243, 0, 0.88);
 		border-radius: 6px;
@@ -68,7 +68,7 @@ pageEncoding="UTF-8"%>
 			<ul class="nav">
 				<li>
 					<a href="${contextPath }/admin/adminMain">
-						<span>관리자 홈</span>
+						<span style="margin-top: 45px;">관리자 홈</span>
 					</a>
 				</li>
 				<li>
