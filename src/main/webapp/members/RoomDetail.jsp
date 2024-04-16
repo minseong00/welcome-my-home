@@ -8,6 +8,9 @@
 <meta charset="UTF-8">
 <title>방 상세 정보</title>
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<!-- css 적용 -->
+<link rel="stylesheet" href="${contextPath }/style/css/flaticon.css">
+<link rel="stylesheet" href="${contextPath }/style/css/style.css">
 <!-- 캘린더 import -->
 <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>

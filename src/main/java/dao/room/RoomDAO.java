@@ -87,13 +87,12 @@ public class RoomDAO implements RoomQuerys {
  	@param int
  	@return
 	**/
-	public RoomVO selectOne(int roomNO) {
+	public RoomVO selectOne(int roomNo) {
 		RoomVO roomVO = null;
-		
 		try {
 			this.conn = DB.dbConnect();
 			this.pstmt = this.conn.prepareStatement(selectOne);
-			this.pstmt.setInt(1, roomNO);
+			this.pstmt.setInt(1, roomNo);
 			this.rs = this.pstmt.executeQuery();
 			
 			if (this.rs.next()) {
