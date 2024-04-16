@@ -1,6 +1,8 @@
 package servlets.reservation;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.Enumeration;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -27,15 +29,30 @@ public class RevPayment extends HttpServlet {
 	 * @see 페이지 이동
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doPost(request, response);
+		doHandle(request, response);
 	}
 
 	/**
 	 * @see Payment 페이지로 이동
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		doHandle(request, response);
+	}
+
+	protected void doHandle(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
-		int roomNo = Integer.parseInt(request.getParameter("roomNo"));
+		
+		response.setContentType("text/html; charset=utf-8");
+		PrintWriter out = response.getWriter();
+		String tempNum = request.getParameter("roomNo");
+		System.out.println("roomNo 데이터 : " + tempNum);
+		if(tempNum == null || tempNum.equals("")) {
+			out.print("nullRoomNo");
+			System.out.println("roomNo 데이터 없음 : " + tempNum);
+			return;
+		}
+		
+		int roomNo = Integer.parseInt(tempNum);
 		String roomName = request.getParameter("roomName");
 		String revDate = request.getParameter("checkDate");
 		int headCount = Integer.parseInt(request.getParameter("headCount"));

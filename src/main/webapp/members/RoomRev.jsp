@@ -20,6 +20,7 @@
 <script>
 	const servletUrl = "${contextPath}/RevInsert";
 	const headCount = ${roomVO.headCount};
+	
 </script>
 <script src="${contextPath}/util/RoomRevCalendar.js"></script>
 <script src="${contextPath}/util/CountHead.js"></script>
@@ -225,6 +226,8 @@
 	}
 </style>
 <script>
+	const roomNo = ${roomVO.roomNo };
+
     $(function() {
     	// 슬라이드 스크립트
         $(".visual_img li:last").prependTo(
@@ -257,17 +260,20 @@
         
 		$('#roomRevForm').submit(function(event) {
 			event.preventDefault();
-			var formData = new formData(this);
+            var formData = $(this).serialize(); 
+		    console.log("input roonNo : " + roomNo);
 			$.ajax({
 				method: 'post',
 				url: "<c:url value='/RevPayment' />",
 				data: formData,
 				async: false,
-		        processData: false,
-				contentType: false,
+				success: function(data) {
+					alert("전송완료 : " + data);
+					
+				},
 				error: function (xhr, status, err) {
 					alert('에러가 발생 하였습니다. 다시 시도해주세요.');
-					console.log("err : " + err);
+					console.log("err : " + err + " / " + status + " / " + xhr);
 				}
 			});
 		});
@@ -282,7 +288,8 @@
 		<jsp:include page="/include/Header.jsp" flush="false" />
 
 		<div class="row justify-content-center">
-			<form id="roomRevForm">
+			<form id="roomRevForm" method="get">
+				<input type="hidden" name="roomNo" value="${roomVO.roomNo }" />
 
 				<div id="leftDiv">
 					<!-- 왼쪽 컨테이너 -->
@@ -331,7 +338,7 @@
 							</td>
 						</tr>
 						<tr>
-							<td>예약 가능한 날짜<br> <input type="text" name="checkDate" id="roomRevDate">
+							<td>예약 가능한 날짜<br> <input type="text" name="checkDate" id="roomRevDate" required>
 							</td>
 						</tr>
 						<tr>
@@ -341,22 +348,19 @@
 							<td id="headTd">
 								<button type="button" id="downCount" onclick="downValueRoomRev()">
 									<b>-</b>
-								</button> <input type="text" name="headCount" value="1" id="headCount"
-								readonly>
+								</button> <input type="text" name="headCount" value="1" id="headCount" readonly required>
 								<button type="button" id="upCount" onclick="upValueRoomRev()">
 									<b>+</b>
 								</button>
 							</td>
 						</tr>
 						<tr>
-							<td>총 가격<br> <input type="text" name="price"
-								value="${roomVO.roomCost }" id="price" readonly>
+							<td>총 가격<br> <input type="text" name="price" value="${roomVO.roomCost }" id="price" readonly>
 							</td>
 						</tr>
 						<tr>
 						
 							<td align="center">
-								<input type="hidden" name="roomNo" value="${roomVO.roomNo }" />
 								<input type="submit" value="예약하기" />
 							</td>
 						</tr>
