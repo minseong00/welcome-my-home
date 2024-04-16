@@ -261,10 +261,7 @@
 		$('#roomRevForm').submit(function(event) {
 			event.preventDefault();
             var formData = $(this).serialize(); 
-		   // console.log("roomNo : " + formData.get("roomNo"));
 		    console.log("input roonNo : " + roomNo);
-		    //var test = formData.get("roomNo");
-		   // console.log("test : " + test);
 			$.ajax({
 				method: 'post',
 				url: "<c:url value='/RevPayment' />",
