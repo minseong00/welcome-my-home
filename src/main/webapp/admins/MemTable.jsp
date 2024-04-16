@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<c:set var="contextPath" value="${pageContext.request.contextPath }"></c:set>
 <!DOCTYPE html>
 <html>
 <head>
@@ -115,19 +116,21 @@ a {
 		</thead>
 		<tbody>
 			<c:choose>
-				<c:when test="${empty memVO }">
+				<c:when test="${empty memList }">
 					<tr>
 						<td colspan="5">등록된 회원이 없습니다.</td>
 					</tr>
 				</c:when>
 			<c:otherwise>
-				<tr>
-					<td><!-- 고객명 --></td>
-					<td><!-- 아이디 --></td>
-					<td><!-- 이메일 --></td>
-					<td><!-- 전화번호 --></td>
-					<td><input type="button" value="상세보기"></td>
-				</tr>
+				<c:forEach var="mem" items="${memList}">
+					<tr>
+						<td>${mem.memName }</td>
+						<td>${mem.memId }</td>
+						<td>${mem.memEmail }</td>
+						<td>${mem.memCall }</td>
+						<td><input type="button" value="상세보기" onclick="location.href='${contextPath}/admin/MemModify?id=${mem.memId }'"></td>
+					</tr>
+				</c:forEach>
 			</c:otherwise>
 		</c:choose>
 		</tbody>
