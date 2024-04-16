@@ -162,8 +162,33 @@
 	$(function() {
 		$('#revPaymentForm').submit(function(event) {
 			event.preventDefault();
-			
-			var formData = new formData(this);
+			var check1 = document.querySelector('[name=agree3]').checked;
+			var check2 = document.querySelector('[name=agree4]').checked;
+			if(check1 && check2) {
+				var formData = $(this).serialize();
+				$.ajax({
+					method: "post",
+					url: "<c:url value='/RevInsert'/>",
+					data: formData,
+					dataType: "text",
+					success:function(data) {
+						if(data == "success") {
+							alert("예약이 완료 되었습니다.");
+							window.location.replace("${contextPath}/RevList?type=myInfo");
+						} else{
+							alert("예약 과정에서 오류가 발생했습니다. 잠시 후 다시 시도해주세요.");
+							window.history.back();
+						}
+					},
+					error:function() {
+						alert("오류가 발생했습니다 잠시 후 다시 시도해주세요.");
+						window.history.back();
+					}
+				});
+				
+			} else {
+				alert("모든 약관에 동의해야 합니다.");
+			}
 			
 			
 		});
@@ -211,7 +236,7 @@
                         </tr>
                         <tr>
                             <td colspan="2">
-                                <label class="terms-label" onclick="event.preventDefault();">
+                                <label class="terms-label">
                                     <span>예약 취소 정책.</span>&nbsp;<button style="width:26%;"onclick="openModal('${contextPath}/clauses/RevCancellation.jsp')">약관 보기</button><br>
                                     <input type="checkbox" name="agree3" value="yes" style="margin-left: 30px"  onclick="document.querySelector('[name=disagree3]').checked = false;"> 동의합니다.
                                     &nbsp;&nbsp;&nbsp;&nbsp;
@@ -221,7 +246,7 @@
                         </tr>
                         <tr>
                             <td colspan="2">
-                                <label class="terms-label" onclick="event.preventDefault();">
+                                <label class="terms-label">
                                     <span>환불 정책.</span><button style="width:26%;"onclick="openModal('${contextPath}/clauses/Refund.jsp')">약관 보기</button><br>
                                     <input type="checkbox" name="agree4" value="yes" style="margin-left: 30px"  onclick="document.querySelector('[name=disagree4]').checked = false;"> 동의합니다.
                                     &nbsp;&nbsp;&nbsp;&nbsp;

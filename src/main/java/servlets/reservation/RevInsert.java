@@ -21,6 +21,7 @@ import dao.roomImg.RoomImgDAO;
 import model.RevVO;
 import model.RoomImgVO;
 import model.RoomVO;
+import util.Split;
 
 /**
  * Servlet implementation class RevInsert
@@ -81,19 +82,36 @@ public class RevInsert extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
+		response.setContentType("text/html; charset=utf-8");
+		PrintWriter out = response.getWriter();
 		
 		String memId = (String)session.getAttribute("id");
-		String bookCheck = request.getParameter("bookCheck");
-		String bookCheckOut = request.getParameter("bookCheckOut");
-		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd");
-		Date date_bookCheck = null;
-		Date date_bookCheckOut = null;
+		
+		if(memId == null || memId.equals("")) {
+			out.print("null");
+			return;
+		}
+		
+		String checkDate = request.getParameter("checkDate");
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		java.util.Date date_bookCheck = null;
+		java.util.Date date_bookCheckOut = null;
+		java.sql.Date sqlDate_bookCheck = null;
+		java.sql.Date sqlDate_bookCheckOut = null;
 		revVO = new RevVO();
 		revDAO = new RevDAO();
 		
+		String[] cutDate = Split.RangeDate(checkDate);
+		String bookCheck = cutDate[0];
+		String bookCheckOut = cutDate[1];
+		
 		try {
-			date_bookCheck = (Date) dateFormat.parse(bookCheck);
-			date_bookCheck = (Date) dateFormat.parse(bookCheckOut);
+			date_bookCheck = dateFormat.parse(bookCheck);
+			date_bookCheckOut = dateFormat.parse(bookCheckOut);
+			
+			sqlDate_bookCheck = new java.sql.Date(date_bookCheck.getTime());
+		    sqlDate_bookCheckOut = new java.sql.Date(date_bookCheckOut.getTime());
+			
 		} catch (java.text.ParseException e) {
 			System.out.println("Rev Insert Parse ERR : " + e.getMessage());
 		}
@@ -103,16 +121,13 @@ public class RevInsert extends HttpServlet {
 		
 		revVO.setBookDate(timestamp);
 		revVO.setRoomNo(Integer.parseInt(request.getParameter("roomNo")));
-		revVO.setBookCheck(date_bookCheck);
-		revVO.setBookCheckOut(date_bookCheckOut);
+		revVO.setBookCheck(sqlDate_bookCheck);
+		revVO.setBookCheckOut(sqlDate_bookCheckOut);
 		revVO.setHeadCount(Integer.parseInt(request.getParameter("headCount")));
-		revVO.setPrice(Integer.parseInt(request.getParameter("price")));
+		revVO.setPrice(Integer.parseInt(request.getParameter("totalPrice")));
 		revVO.setMemId(memId);
 		
 		int result = revDAO.insertRev(revVO);
-		
-		response.setContentType("text/html; charset=utf-8");
-		PrintWriter out = response.getWriter();
 		
 		if(result == 1) 
 			out.print("success");
