@@ -28,8 +28,12 @@ public class MemDelete extends HttpServlet {
 		String idType = (String) session.getAttribute("idType");
 		String n=request.getParameter("id");
 		
+		MemVO memModel=new MemVO();
+   		memModel.setMemId(n);
+		
 		memDAO=new MemDAO();
 		memDAO.delete(n);
+		
 		
 		RequestDispatcher dispatcher = null;
 			if (idType.equals("member")) {
