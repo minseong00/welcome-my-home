@@ -16,40 +16,47 @@
 <link rel="stylesheet" href="${contextPath }/style/css/flaticon.css">
 <link rel="stylesheet" href="${contextPath }/style/css/style.css">
 <script type="text/javascript">
-	$(function(){
-		$('#modify').submit(function(event){
-			event.preventDefault();
-			var formData = $(this).serialize();
-			$.ajax({
-				type: "post",
-				async: false,
-				url: "<c:url value='/MemModify'/>",
-				data: formData,
-				success:function(){
-					alert("수정되었습니다.");
-					window.location.replace("${contextPath}/MemModify?id=${MemOne.memId}");
-				},
-				error:function(){
-					alert("수정이 취소되었습니다.");
-				}
-			});
-			
+$(function(){
+	$('#MyInfoModify').submit(function(event){
+		event.preventDefault();
+		var formData = $(this).serialize();
+		$.ajax({
+			type: "post",
+			async: false,
+			url: "<c:url value='/MemModify'/>",
+			data: formData,
+			success:function(){
+				alert("수정되었습니다.");
+				window.location.replace("${contextPath}/MemModify");
+			},
+			error:function(){
+				alert("수정이 취소되었습니다.");
+			}
 		});
 		
 	});
 	
-	function deleteId(){
-		var confirmDelete = confirm("탈퇴하시겠습니까?");
-		
-		if(confirmDelete){
-			window.location.href="${contextPath}/MemDelete?id=${MemOne.memId}";
-			
-			alert("탈퇴되었습니다.");
-		} else{
-			
-			alert("탈퇴가 취소되었습니다.");
-		}
-	}
+});
+
+function MyInfoDelete(id){
+	var confirmDelete = confirm("삭제 하시겠습니까?");
+		   if(confirmDelete) {
+				$.ajax({
+					type:"post",
+					url:"<c:url value='/MemDelete' />",
+					data: {id : id},
+					success:function(){
+						alert("삭제 되었습니다.");
+						window.location.replace("${contextPath}/Login");
+					},
+					error:function(data, status, error){
+							console.error("내정보 삭제 중 오류 발생 :", error);
+							alert("내정보 삭제 중 오류가 발생하였습니다.")
+					}
+				});
+		   }
+	   }
+	
 	
 	
 		/*마이페이지 글자수 제한*/
@@ -168,7 +175,7 @@ td, th {
 
 		<div class="rightside">
 			<h1 class="cls1">마이페이지</h1>
-				<form id="modify">
+				<form id="MyInfoModify">
 				 <table align="center" >
 				    <tr>
 				     <td ><p align="right" >고객명</td>
@@ -196,8 +203,8 @@ td, th {
 				   <tr  >
 				   		<td style="text-align: right;" colspan="2" align=center>
 				       <input type="reset" value="다시입력" >
-				       <button type="submit" >수정하기</button>
-				       <button type="button" onclick="deleteId();">탈퇴하기</button> 
+    				   <button type="submit" >수정하기</button>
+      				 <button type="button" onclick="MyInfoDelete('${MemOne.memId}')">탈퇴하기</button> 
 				      
 				      </td>
 				   </tr>

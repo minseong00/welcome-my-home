@@ -35,16 +35,15 @@ public class MemDelete extends HttpServlet {
 		memDAO.delete(n);
 		
 		
-		session.invalidate();
 		RequestDispatcher dispatcher = null;
 			if (idType.equals("member")) {
-				response.sendRedirect(request.getContextPath() + "/Login");
-			}else
-				response.sendRedirect(request.getContextPath() + "/MemList");
+				session.invalidate();
 			}
+		}
 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		doGet(request, response);
 	}
 
 }
