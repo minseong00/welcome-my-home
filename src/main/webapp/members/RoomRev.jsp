@@ -40,12 +40,14 @@
 		margin-left: auto;
 		max-width: 1100px;
 	}
+	
 	#rightDiv {
         background-color: #fff;
         border-radius: 10px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
         margin: 0 10px;
         padding: 20px;
+        align-items: flex-start; 
     }
 	#leftDiv {
 		display: flex;
@@ -53,13 +55,12 @@
 		flex: 0 0 calc(60% - 10px); /* 부모 컨테이너 너비의 60%에서 10px를 뺀 값으로 설정합니다. */
 		padding: 10px;
 		margin-right: 10px;
-		align-items: center; /* 내부 요소를 오른쪽으로 정렬합니다. */
+		
 	}
 	
 	.leftTable {
-		margin-top: 40px;
-		width: 100%;
-		text-align: center;
+		margin-top: 0 auto;
+		float: left;
 	
 	}
 	.leftTable td {
@@ -67,8 +68,15 @@
 	    font-weight: bold; /* 글씨를 진하게 */
 	    font-size: 1.2em; /* 글씨 크기를 상대적으로 20% 증가 */
 	    color: #333; /* 글씨 색상을 진한 회색으로 */
+	    float: left;
 	}
-	
+	.leftimg{
+		float: left;
+		width: auto;
+		display: block;
+   		margin-left: auto;
+    	margin-right: right;
+	}
 	
 	.rightTable {
 	font-weight: bold;
@@ -76,6 +84,7 @@
 		border-collapse: separate;
 		border-spacing: 10px;
 		padding: 10px;
+		float: left;
 	}
 	
 	#price-range-slider {
@@ -122,7 +131,7 @@
 	}
 	
 	.slider {
-		width: 600px; /* 슬라이드의 너비 */
+		width: 800px; /* 슬라이드의 너비 */
 		overflow: hidden; /* 넘치는 이미지 숨김 */
 		position: relative; /* 상대 위치 지정 */
 	}
@@ -371,11 +380,11 @@ background-color: #73685d;
 						<tr>
 							<td>룸 정보 : ${roomVO.roomDetail }<hr></td>						
 						</tr>
-						
-						
+						<table class=leftimg>
 						<tr>
 							<td> <img src="${contextPath}/data/${imgVO.infoImg}" alt="image" style="width:100%; max-width:300px;"></td>
 						</tr>
+						</table>
 					</table>
 				</div>
 
