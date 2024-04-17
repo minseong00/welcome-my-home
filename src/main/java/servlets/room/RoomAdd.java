@@ -5,6 +5,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -90,7 +91,7 @@ public class RoomAdd extends HttpServlet {
 		roomVO.setRoomCost(Integer.parseInt(request.getParameter("roomCost")));
 		roomVO.setRoomDetail(request.getParameter("detailText"));
 		
-		imgVO.setRoomNo(roomDAO.insertRoomData(roomVO));  
+		//imgVO.setRoomNo(roomDAO.insertRoomData(roomVO));  
 		
 		imgVO.setInfoImg(list.size() > 0 ? list.get(0) : null);
 		imgVO.setImg1(list.size() > 1 ? list.get(1) : null);
@@ -100,6 +101,16 @@ public class RoomAdd extends HttpServlet {
 		imgVO.setImg5(list.size() > 5 ? list.get(5) : null);
 		
 		imgDAO.insertRoomImg(imgVO);
+		
+		int result = roomDAO.insertRoomData(roomVO);
+		
+		response.setContentType("text/html; charset=utf-8");
+		PrintWriter out = response.getWriter();
+		
+		if(result == 1) 
+			out.print("success");
+		else
+			out.print("fail");
 		
 		
 //		System.out.println(roomImg.toString());

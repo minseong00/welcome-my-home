@@ -9,6 +9,7 @@
 <meta charset="UTF-8">
 <title>관리자 예약목록 수정</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="http://code.jquery.com/jquery-2.2.1.min.js"></script>
 <!-- css 적용 -->
 <link rel="stylesheet" href="${contextPath }/style/css/flaticon.css">
@@ -21,6 +22,37 @@
 <script src="${contextPath}/util/RevModifyCalendar.js"></script>
 <script src="${contextPath}/util/CountHead.js"></script>
 <script type="text/javascript">
+	
+	/*서버에서 반환한 결과를 받음*/
+	function fn_process(){
+	$.ajax({
+	   type:"get",
+	   async:true,  
+	   url:"<c:url value='/RevModify'/>",
+	   dataType:"text",
+	   data: {revNo:revNo},
+	   
+	   success:function (data,textStatus) {
+	      if(data=='usable') {
+	    	  swal.fire('사용할 수 있는 일정입니다.');
+	    	  checkId = true;
+	      }else {
+	    	  swal.fire('사용할 수 없는 일정입니다.');
+	    	  checkId = false;
+	       	  $('#submit').prop("disabled", true);
+	      }
+	   },
+	   error:function(data,textStatus){
+	      alert("잘못 입력했습니다.");
+	   },
+	   complete:function(data,textStatus){
+		   
+	   }
+	});  // ajax() END	 
+	
+	}	// fn_process() END
+
+	/*예약수정*/
 	$(function(){
 		$('#RevModify').submit(function(event){
 			event.preventDefault();
@@ -30,9 +62,14 @@
 				async: false,
 				url: "<c:url value='/RevModify'/>",
 				data: formData,
-				success:function(){
-					alert("수정되었습니다.");
-					window.location.replace("${contextPath}/admin/RevList");
+				dataType: "text",
+				success:function(data){
+					if(data == "success") {
+						alert("수정되었습니다.");
+						window.location.replace("${contextPath}/admin/RevList?type=admin");
+					} else {
+						alert("수정 과정 중 오류가 발생했습니다. 다시 시도해주세요.");
+					}
 				},
 				error:function(){
 					alert("수정이 취소되었습니다.");
@@ -50,6 +87,7 @@
 						type:"post",
 						url:"<c:url value='/admin/RevDelete'/>",
 						data: {revNo : revNo},
+						dataType: "text",
 						success:function(){
 							alert("삭제 되었습니다.");
 							window.location.replace("${contextPath}/admin/RevList");
@@ -187,8 +225,8 @@ text-align: center;
 
 					<tr>
 						<td  style="height: 70px;"align="right"  colspan="2">
-					  		 <button type="submit" class="btn_css">수정 </button>
-                       <button type="button" class="btn_css" onclick="location.href='<c:url value="/admin/RevDelete?id=${revVO.revNo}" />'" >삭제</button>
+					  	<button type="submit" class="btn_css">수정 </button>
+                        <button type="button" class="btn_css" onclick="RevDelete('${revVO.revNo}')">삭제</button>
 
 						</td>
 					</tr>
