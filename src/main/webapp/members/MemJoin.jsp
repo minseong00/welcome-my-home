@@ -186,16 +186,16 @@ td, th {
     width: 50%; /* 전체 너비로 조절 */
 }
 .btn_css {
--webkit-border-radius: 13px;
+
 -moz-border-radius: 13px;
-border-radius: 13px;
+border-radius: 5px;
 
 border : 0px;
 color: #FFFFFF;
 font-family: Arial;
 font-size: 15px;
 font-weight: 100;
-padding: 10px;
+padding: 5px;
 background-color: #73685d;
 text-decoration: none;
 display: inline-block;
@@ -212,6 +212,12 @@ background-color: ##FFB6C1;
 }
 .doulebtn{
 	
+      font-size: 15px; /* 버튼 내 텍스트 크기 */
+       text-align: center; /* 텍스트 중앙 정렬 */
+        vertical-align: middle; /* 세로 방향 중앙 정렬 */
+         line-height: 30px; /* 버튼 내 줄 높이를 버튼의 높이와 일치시킴 */
+      
+    border: 1px solid #ccc; /* 테두리 스타일 */
 	    background-color:#decfa6; /* 연한 복숭아색 */
 	    color: #fff;
 	    border: none;
