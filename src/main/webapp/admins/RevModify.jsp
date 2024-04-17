@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <c:set var="contextPath" value="${pageContext.request.contextPath }"></c:set>
 <!DOCTYPE html>
@@ -19,8 +20,12 @@
 <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
-<script src="${contextPath}/util/RevModifyCalendar.js"></script>
+<script>
+	const revList = JSON.parse('${revList}');
+</script>
 <script src="${contextPath}/util/CountHead.js"></script>
+<script src="${contextPath}/util/RevModifyCalendar.js"></script>
+
 <script type="text/javascript">
 	
 	/*서버에서 반환한 결과를 받음*/
@@ -212,8 +217,9 @@ countbtn:hover {
 						<td><input type="text" name="memId" value="<c:out value="${revVO.memId }"/>" readonly ></td>
 					</tr>
 					<tr>
+					<fmt:formatDate value="${rev.revDate}" pattern="yyyy-MM-dd HH:mm:ss" var="formattedDate" />
 						<td style="background-color:#73685d; color: #fff; width:200px; height: 70px; " >예약일</td>
-						<td><input id="revDate" type ="text" name="revDate" value="<c:out value="${revVO.revDate}"/>" readonly></td>
+						<td><input id="revDate" type ="text" name="revDate" value="<c:out value="${formattedDate }"/>" readonly></td>
 					</tr>
 					<tr>
 						<td style="background-color:#73685d; color: #fff; width:200px; height: 70px; " >체크인</td>

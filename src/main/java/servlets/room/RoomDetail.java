@@ -37,8 +37,6 @@ public class RoomDetail extends HttpServlet {
 		roomVO = roomDAO.selectOne(roomNum);
 		imgVO = imgDAO.selectOne(roomNum);
 		
-//		System.out.println(imgVO.toString());
-//		System.out.println(roomVO.toString());
 		
 		request.setAttribute("roomVO", roomVO);
 		request.setAttribute("imgVO", imgVO);

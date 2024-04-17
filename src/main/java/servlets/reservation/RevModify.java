@@ -52,6 +52,10 @@ public class RevModify extends HttpServlet {
 		String checkIn = request.getParameter("checkIn");
 		String checkOut = request.getParameter("checkOut");
 		
+		if(checkIn == null && checkIn.isEmpty()) {
+			response.sendRedirect(request.getContextPath() + "/adminMain");
+			return;
+		}
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 		java.util.Date date_CheckIn = null;
 		java.util.Date date_CheckOut = null;
