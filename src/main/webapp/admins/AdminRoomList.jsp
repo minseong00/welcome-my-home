@@ -94,6 +94,9 @@ a {
 		border-bottom: 1px solid #e5e5e5;
 	}
 }
+	#detail {
+		cursor: pointer;
+	}
 </style>
 </head>
 

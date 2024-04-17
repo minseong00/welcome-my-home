@@ -18,6 +18,7 @@
   <script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.9.0/locales-all.min.js'></script>
 <script>
 	const revList = JSON.parse('${revList}');
+	console.log(${revList});
 </script>
 <script src="${contextPath}/util/RevListCalendar.js"></script>
 

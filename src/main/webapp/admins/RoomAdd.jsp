@@ -149,18 +149,18 @@ background-color: #73685d;
                         </div>
                         <div>
                             <label>객실 타입</label>
-                            <select name="roomType" required="required">
-                            	<option selected="selected">타입 선택</option>
-                                <option value="Superior" >슈페리어 룸</option>
-								<option value="Deluxe" >디럭스 룸</option>
-								<option value="GrandDeluxe" >그랜드 디럭스 룸</option>
-								<option value="JuniorSuite" >주니어 스위트 룸</option>
-								<option value="CornerSuite" >코너스 스위트 룸</option>
-								<option value="SuperiorSuite" >슈페리어 스위트 룸</option>
-								<option value="RoyalSuite" >로열 스위트 룸</option>
-								<option value="PresidentialSuite" >프레지덴셜 스위트 룸</option>
-								<option value="Connecting">커넥팅 룸</option>
-                            </select>
+						<select name="roomType" required>
+                            <option selected="selected">타입 선택</option>
+							<option value="Superior">슈페리어 룸</option>
+							<option value="Deluxe">디럭스 룸</option>
+							<option value="GrandDeluxe">그랜드 디럭스 룸</option>
+							<option value="JuniorSuite">주니어 스위트 룸</option>
+							<option value="CornerSuite">코너스 스위트 룸</option>
+							<option value="SuperiorSuite">슈페리어 스위트 룸</option>
+							<option value="RoyalSuite">로열 스위트 룸</option>
+							<option value="PresidentialSuite">프레지덴셜 스위트 룸</option>
+							<option value="Connecting">커넥팅 룸</option>
+						</select>
                         </div>
                         <div>
                             <label>수용 인원</label>

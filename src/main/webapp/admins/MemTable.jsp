@@ -89,6 +89,9 @@ thead {
   
   
   }
+	#detail {
+		cursor: pointer;
+	}
 </style>
 </head>
 <body>
@@ -126,7 +129,7 @@ thead {
 						<td>${mem.memId }</td>
 						<td>${mem.memEmail }</td>
 						<td>${mem.memCall }</td>
-						<td><input type="button" value="상세보기" onclick="location.href='${contextPath}/admin/MemModify?id=${mem.memId }'"></td>
+						<td><span id="detail" onclick="location.href='${contextPath}/admin/MemModify?id=${mem.memId }'">상세보기</span></td>
 					</tr>
 				</c:forEach>
 			</c:otherwise>

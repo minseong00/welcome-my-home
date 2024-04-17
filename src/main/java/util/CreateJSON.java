@@ -18,8 +18,9 @@ public class CreateJSON {
 			jsonObject.put("revNo", data.getRevNo());
 			jsonObject.put("roomNo", data.getRoomNo());
 			jsonObject.put("roomName", data.getRoomName());
-			jsonObject.put("CheckIn", data.getCheckIn());
-			jsonObject.put("CheckOut", data.getCheckOut());
+			jsonObject.put("roomType", data.getRoomType());
+			jsonObject.put("checkIn", data.getCheckIn());
+			jsonObject.put("checkOut", data.getCheckOut());
 			jsonObject.put("backgroundColor", data.getBackgroundColor());
 			jsonArray.add(jsonObject);
 		}
