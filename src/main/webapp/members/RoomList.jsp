@@ -224,7 +224,6 @@ background-color: #73685d;
 </style>
 <script>
 	const servletUrl = "${contextPath}/";
-	console.log(${imgList[7].img1});
 </script>
 <c:choose>
 	<c:when test="${empty headCount }">
@@ -262,7 +261,7 @@ background-color: #73685d;
 									<table class="leftTable">
 										<tr>
 											<td>
-												<img alt="" src="${contextPath }/data/${imgList[loop.index].img1}" style="width: 350px;">
+												<img alt="" src="${contextPath }/data/${room.img1}" style="width: 150px;">
 											</td>
 										</tr>
 										<tr>
@@ -348,8 +347,8 @@ background-color: #73685d;
 								        $("#price-range-slider").slider({
 								            range: true,
 								            min: 0,
-								            max: 120,
-								            values: [0, 120], // 초기값 설정
+								            max: 1600,
+								            values: [0, 1600], // 초기값 설정
 								            slide: function(event, ui) {// 가격 범위 업데이트
 								                $("#price-min").val(ui.values[0]*10000);
 								                $("#price-max").val(ui.values[1]*10000);
