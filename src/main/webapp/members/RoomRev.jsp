@@ -409,7 +409,7 @@ background-color: #73685d;
         <tr>
             <td>
                 <strong>예약 가능한 날짜</strong><br>
-                <input type="text" name="checkDate" id="roomRevDate" required readonly>
+                <input type="text" name="checkDate" id="roomRevDate" value="" required readonly>
             </td>
         </tr>
         <tr>

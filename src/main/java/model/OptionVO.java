@@ -7,6 +7,7 @@ public class OptionVO {
 	private String roomName = null;
 	private int headCount = 0;
 	private int roomCost = 0;
+	private String roomType = null;
 	private Date checkIn = null;
 	private Date checkOut = null;
 	private String img1 = null;
@@ -53,13 +54,20 @@ public class OptionVO {
 	public void setCheckOut(Date checkOut) {
 		this.checkOut = checkOut;
 	}
-	
-	
+	public String getRoomType() {
+		return roomType;
+	}
+	public void setRoomType(String roomType) {
+		this.roomType = roomType;
+	}
 	@Override
 	public String toString() {
 		return "OptionVO [roomNo=" + roomNo + ", roomName=" + roomName + ", headCount=" + headCount + ", roomCost="
-				+ roomCost + ", checkIn=" + checkIn + ", checkOut=" + checkOut + ", img1=" + img1 + "]";
+				+ roomCost + ", roomType=" + roomType + ", checkIn=" + checkIn + ", checkOut=" + checkOut + ", img1="
+				+ img1 + "]";
 	}
+	
+	
 	
 	
 	
