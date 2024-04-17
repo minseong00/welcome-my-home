@@ -41,12 +41,16 @@
 	                <div>
 	                    <jsp:include page="/admins/MemTable.jsp" flush="false"/>
 	                </div>
-	                <div class="include-gap">
+	                <div class="include-gap" style="margin-top: 50px;">
 	                    <jsp:include page="/admins/RevTable.jsp" flush="false"/>
 	                </div>
+	               
 	            </div>
 	        </div>
    		</div>
 	</div>
+	
+	                
+	               
 </body>
 </html>

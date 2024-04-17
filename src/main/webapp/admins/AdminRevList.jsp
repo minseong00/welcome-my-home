@@ -123,7 +123,7 @@ a {
 		</div>
 		<div class="rightside">
 			 <div class="include-gap" >
-		<h3>관리자 예약관리 시스템</h3>
+		<h3 style="font-weight: bold;">관리자 예약관리 시스템</h3>
 		<table summary="예약 내역" border="1">
 			<colgroup>
 				<col width="7%">
@@ -184,6 +184,6 @@ a {
 		</div>
 	
 	</div>
-	</div>
+	
 </body>
 </html>

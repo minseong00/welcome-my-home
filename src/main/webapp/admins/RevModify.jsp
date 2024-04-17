@@ -23,20 +23,9 @@
 <script src="${contextPath}/util/CountHead.js"></script>
 
 <style>
-     .cls1 {
-       
-       text-align:center;
-       margin-bottom: 60px; 
-       margin-top: 50px;
-      
-     }
-    
-     .cls2 {
-       font-size:20px;
-       text-align:center;
-     }
+  
        body {
-    
+    padding:1.5em;
   background: #f5f5f5; /* 배경색 설정 */
    font-weight: bold; /* 헤더 폰트를 굵게 */
 }
@@ -52,12 +41,9 @@ table {
 }
 td, th {
   border: 1px solid #a39485; /* 각 셀의 테두리 스타일 */
-  padding: 8px; /* 각 셀의 안쪽 여백 */
+  padding: 7px; /* 각 셀의 안쪽 여백 */
 }
-.ftco-footer ftco-bg-dark ftco-section{
-   height: 50px; /* 원하는 높이로 조절 */
-    width: 50%; /* 전체 너비로 조절 */
-}
+
 .sky-blue-button {
    padding: 7px 15px;
    font-size: 16px;
@@ -71,13 +57,22 @@ td, th {
 .sky-blue-button:hover {
    background-color: #00BFFF;
 }
-.sidebar-custom {
-    position: relative;
-    left: -125px; /* 왼쪽으로 20px 이동 */
-}
-.td-special {
-    width: 300px; /* 특정 셀의 너비를 200px로 설정 */
-}
+
+.rightside{
+			display: flex;
+			flex-direction: column;
+			flex-grow: 1;
+			
+		}
+	.include-gap {
+	/*     margin-left: 100px; /* 원하는 만큼의 간격을 설정합니다. */ */
+	}
+	.td-special {
+	    width: 300px; /* 특정 셀의 너비를 200px로 설정 */
+	    
+	}
+
+
 #headCount {
 	width: 50px;
 }
@@ -90,9 +85,12 @@ td, th {
 		<div class="col-md-4"> 
 			<jsp:include page="/include/AdminSidebar.jsp" flush="false"/>
 		</div>
+		<div class="rightside">
+		<div class="include-gap">
 		<form action="${contextPath}/admin/MemModify" method="post">
 			<h3 style=" margin-bottom: 60px; font-weight: bold; margin-left:105px;">관리자 예약 수정</h3>
-			<table summary="관리자 예약 수정 " border="1" >
+		<table summary="관리자 예약 수정 " border="1" >
+		
 				<tbody>
 					<tr>
 						<td style="background-color:#73685d; color: #fff; width:200px; height: 70px; " >예약 번호</td>
@@ -147,7 +145,8 @@ td, th {
 			</table>
 		</form>
 		</div>
-	
+	</div>
+	</div>
 	</div>
 </body>
 </html>

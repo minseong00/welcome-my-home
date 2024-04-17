@@ -118,7 +118,7 @@ a {
 		</div>
 		<div class="rightside">
 	            <div class="include-gap" >
- <h3>회원목록</h3>
+ <h3 style="font-weight: bold">회원목록</h3>
    <table  summary="전체 회원" border="1" >
    	<colgroup>
 			<col width="7%">

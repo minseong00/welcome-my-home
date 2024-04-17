@@ -15,6 +15,7 @@
 
 <style type="text/css">
 	body{
+	 padding:1.5em;
 		line-height: normal;
 		display: flex;
 	}
@@ -88,10 +89,12 @@
 <body>
 	<div class="container">
 		<jsp:include page="/include/Header.jsp" flush="false"/>
-    <div class="row justify-content-center">    
+    <div class="row justify-content-center">   
+    <div class="col-md-4">  
         <jsp:include page="/include/AdminSidebar.jsp" flush="false"/>
+        	</div>
         <div class="rightside">
-            <h4>객실 등록</h4>
+            <h3 style="font-weight: bold;  margin-bottom: 60px; margin-left:105px;">객실 등록</h3>
             <form id="roomAdd">
                 <div style="display: flex;">
                     <!-- 객실 정보 입력 -->

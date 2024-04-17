@@ -124,7 +124,7 @@ td {
 			<c:choose>
 				<c:when test="${empty revList }">
 					<tr>
-						<td colspan="8">예약이 없습니다.</td>
+						<td colspan="9">예약이 없습니다.</td>
 					</tr>
 				</c:when>
 			<c:otherwise>
