@@ -20,7 +20,10 @@ MySQLConnector DB = null;
 	public RoomImgDAO() {
 		DB = new MySQLConnector();
 	}
-	
+	/**
+ 	roomImg 전체 조회
+ 	@return ArrayList
+	**/
 	public ArrayList<RoomImgVO> selectAll() {
 		ArrayList<RoomImgVO> imgList = null;
 		try {
@@ -52,9 +55,9 @@ MySQLConnector DB = null;
 	}
 	
 	/**
- 	룸 이미지 조회
+ 	roomNo 조건과 일치하는 roomImg 조회
  	@param int
- 	@return
+ 	@return ArrayList
 	**/
 	public RoomImgVO selectOne(int roomNO) {
 		RoomImgVO imgVO = null;
