@@ -16,7 +16,6 @@
 	padding: 0;
 	width: 235px;
 	height: 20vh;
-	z-index: 11;
 	box-shadow: 0 2px 5px rgba(0,0,0,.25); /* 테이블에 그림자 효과 */
 	border-radius: 10px;
 	
