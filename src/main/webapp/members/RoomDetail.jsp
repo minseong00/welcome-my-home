@@ -25,6 +25,7 @@
     margin: 0;
     padding: 0;
 	}
+	
 	#container {
 		width: 100%;
 	    padding-right: 15px;
@@ -41,10 +42,14 @@
 	    height: 100vh; /* 세로 길이를 브라우저 높이에 맞춤 */
 	}
 	
+	.sliderouter{
+		margin: 20px auto;
+		width: 1100px;
+		height: 1000px;
+	}
 	.slider {
-	 margin: auto; /* 가운데 정렬 */
-	width: 700px; /* 슬라이드의 너비 */
-	
+	width: 100%;
+	height: 100%;
 	overflow: hidden; /* 넘치는 이미지 숨김 */
 	position: relative; /* 상대 위치 지정 */
 }
@@ -53,7 +58,7 @@
 	list-style-type: none; /* 리스트 스타일 제거 */
 	margin: 0; /* 마진 제거 */
 	padding: 0; /* 패딩 제거 */
-	width: 3500px; /* 모든 이미지 너비의 합 */
+/*  	width: calc(1100px * liCount); /* 모든 이미지 너비의 합 */  */
 	
 	justify-content:center;
 	display: flex;
@@ -66,6 +71,7 @@
 	position: absolute; /* 절대 위치 지정 */
 	top: 50%; /* 상단 여백 */
 	transform: translateY(-50%); /* 수직 정렬 */
+	transition: width 0.5s ease;
 	background-color: rgba(0, 0, 0, 0.5); /* 배경색 */
 	color: white; /* 글자색 */
 	padding: 10px; /* 안쪽 여백 */
@@ -84,8 +90,8 @@
 }
 
 .image-container {
-	width: 700px; /* 이미지 컨테이너의 너비를 설정합니다. */
-	height: 300px; /* 이미지 컨테이너의 높이를 설정합니다. */
+/* 	width: 700px; /* 이미지 컨테이너의 너비를 설정합니다. */ */
+/* 	height: 500px; /* 이미지 컨테이너의 높이를 설정합니다. */ */
 	overflow: hidden; /* 이미지가 넘치는 경우를 처리합니다. */
 }
 
@@ -98,22 +104,32 @@
 	#infoContainer {
 	    display: flex;
 	    justify-content: center; /* 가로 중앙 정렬 */
-	    width: 95%;
-	    max-width: 800px; /* imgContainer에 맞춤 */
+	   
+	   
 	}
 	
 	#info1 {
-	    width: 60%;
+	    
 	    flex-grow: 1; /* 가변적인 세로 길이를 위해 */
-	    border: 1px solid #000; /* 테스트용 보더 */
+/* 	    border: 1px solid #000; /* 테스트용 보더 */ */
 	}
 	
 	#info2 {
-	    width: 40%;
+		background-color: #FFFFFF;
+	    width: 30%;
 	    flex-grow: 1; /* 가변적인 세로 길이를 위해 */
-	    border: 1px solid #000; /* 테스트용 보더 */
 	    max-width: 300px; /* 최대 너비 설정 */
 	    height: 500px;
+	    
+	    box-shadow: 0 2px 5px rgba(0, 0, 0, .25); /* 테이블에 그림자 효과 */
+	    border-radius: 10px;
+	    border-collapse: collapse; /* 테이블의 보더 라인을 하나로 합침 */
+	    margin-left: 20px;
+	}
+	#info2 table {
+		width: 80%;
+		margin: 10px auto;
+		text-align: center;
 	}
 	
 	#revBtn {
@@ -121,59 +137,69 @@
 	    height: 50px; /* 예약 버튼의 높이 */
 	}
 	.btn_css {
--webkit-border-radius: 13px;
--moz-border-radius: 13px;
-border-radius: 13px;
-
-border : 0px;
-color: #FFFFFF;
-font-family: Arial;
-font-size: 15px;
-font-weight: 100;
-padding: 10px;
-background-color: #8D703B;
-text-decoration: none;
-display: inline-block;
-cursor: pointer;
-text-align: center;
-}
-
-.btn_css:hover {
-background-color: #73685d;
-}
+	-webkit-border-radius: 13px;
+	-moz-border-radius: 13px;
+	border-radius: 13px;
+	
+	border : 0px;
+	color: #FFFFFF;
+	font-family: Arial;
+	font-size: 15px;
+	font-weight: 100;
+	padding: 10px;
+	background-color: #8D703B;
+	text-decoration: none;
+	display: inline-block;
+	cursor: pointer;
+	text-align: center;
+	}
+	
+	.btn_css:hover {
+	background-color: #73685d;
+	}
+	
+	hr {
+        border: none;
+        border-top: 1px solid #ccc;
+        margin-top: 10px ;
+        width: 70%;
+    }
 </style>
 	<!-- 슬라이드 스크립트 -->
-						<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script>
-    $(function() {
-        $(".visual_img li:last").prependTo(
-            ".visual_img");
-
-        $(".next").click(function() {
-            $(".visual_img").animate({
-                marginLeft : "-=600px"
-            },
-            function() {
-                $(".visual_img li:first").appendTo(".visual_img");
-                $(".visual_img").css({
-                    marginLeft : 0
-                });
-            });
-        });
-
-        $(".prev").click(function() {
-            $(".visual_img").animate({
-                marginLeft : "+=600px"
-            },
-            function() {
-                $(".visual_img li:last").prependTo(".visual_img");
-                $(".visual_img").css({
-                    marginLeft : 0
-                });
+$(function() {
+    $(".prev").click(function() {
+        $(".visual_img").animate({
+            marginLeft: "1100px"
+        },
+        function() {
+            $(".visual_img li:last").prependTo(".visual_img");
+            $(".visual_img").css({
+                marginLeft: 0
             });
         });
     });
-</script>
+
+    $(".next").click(function() {
+        $(".visual_img").animate({
+            marginLeft: "-1100px"
+        },
+        function() {
+            $(".visual_img li:first").appendTo(".visual_img");
+            $(".visual_img").css({
+                marginLeft: 0
+            });
+        });
+    });
+});
+window.onload = function() {
+    var slider = document.querySelector('.visual_img');
+    var liCount = slider.querySelectorAll('li').length; // li 요소의 개수를 가져옵니다.
+    var sliderWidth = 1100 * liCount; // 슬라이더의 너비를 계산합니다.
+    slider.style.width = sliderWidth + 'px'; // 슬라이더의 너비를 설정합니다.
+};
+</script> 
 
 </head>
 <body>
@@ -183,23 +209,31 @@ background-color: #73685d;
 <div class="row justify-content-center">
 
 	<div id="mainContainer">
-		
+		<div class="sliderouter">
             <div class="slider">
                 <div class="prev">&lt;</div>
-                <ul class="visual_img">
-                    <li class="image-container"><img 
-                    	src="${contextPath}/style/images/airport.jpg" alt="Image 1" /></li>
-                    <li class="image-container"><img 
-                    	src="${contextPath}/data/${imgVO.img2}" alt="Image 2" /></li>
-                    <li class="image-container"><img 
-                    	src="${contextPath}/data/${imgVO.img3}" alt="Image 3" /></li>
-                    <li class="image-container"><img
-                    	src="${contextPath}/data/${imgVO.img4}" alt="Image 4" /></li>
-                    <li class="image-container"><img 
-                    	src="${contextPath}/data/${imgVO.img5}" alt="Image 5" /></li>
-                </ul>
+               <ul class="visual_img">
+				    <c:if test="${not empty imgVO}">
+				            <c:if test="${not empty imgVO.img1}">
+				                <li class="image-container"><img src="${contextPath}/data/${imgVO.img1}" alt="Image 1" /></li>
+				            </c:if>
+				            <c:if test="${not empty imgVO.img2}">
+				                <li class="image-container"><img src="${contextPath}/data/${imgVO.img2}" alt="Image 2" /></li>
+				            </c:if>
+				            <c:if test="${not empty imgVO.img3}">
+				                <li class="image-container"><img src="${contextPath}/data/${imgVO.img3}" alt="Image 3" /></li>
+				            </c:if>
+				            <c:if test="${not empty imgVO.img4}">
+				                <li class="image-container"><img src="${contextPath}/data/${imgVO.img4}" alt="Image 4" /></li>
+				            </c:if>
+				            <c:if test="${not empty imgVO.img5}">
+				                <li class="image-container"><img src="${contextPath}/data/${imgVO.img5}" alt="Image 5" /></li>
+				            </c:if>
+				    </c:if>
+				</ul>
                 <div class="next">&gt;</div>
             </div>
+          </div>
 		<div id="infoContainer">
 			<div id="info1">
 				<img alt="" src="${contextPath }/data/${imgVO.infoImg }" style="width: 100%"><!-- 룸 설명 이미지 -->
@@ -207,32 +241,35 @@ background-color: #73685d;
 			<div id="info2"  style="text-align: center;">
 				<table>
 					<tr>
-						<td>
-						${roomVO.roomName }
+						<td style="font-size: 20pt; text-align: left; font-weight: bold;">
+							${roomVO.roomName }
 						</td>
 					</tr>
 					<tr>
-						<td>
-						${roomVO.roomType }
+						<td style="text-align: left; font-size: 14pt">
+							${roomVO.roomType }
+							
 						</td>
 					</tr>
 					<tr>
-						<td>
-						${roomVO.headCount } <!-- 최대 가능 인원 수 -->
-						</td>
-					</tr>
-					<tr>
-						<td>
-						${roomVO.roomCost } 
+						<td style="font-size: 16pt; font-weight: bold; text-align: right;">
+						<span style="font-size: 10pt; font-weight: bold;">KRW  </span>${roomVO.roomCost }~ 
 						</td>
 					</tr> 
+					<tr>
+						<td style="text-align: right; font-size: 8pt">
+						기준 ${roomVO.headCount }인 <!-- 최대 가능 인원 수 -->
+						</td>
+					</tr>
 				</table>
-				예약 가능한 캘린더 표시
+				<hr>
+				예약 가능한 캘린더 표시<br>
 				<button class="btn_css" id="revBtn" onclick="location.href='${contextPath}/RevInsert?roomNo=${roomVO.roomNo }'">예약하기</button> <!-- 예약 버튼 클릭시 세션값 확인 -->
 			</div>
 		</div>
 	</div>
 </div>
 </div>
+<jsp:include page="/include/Footer.jsp" flush="false"></jsp:include>
 </body>
 </html>
