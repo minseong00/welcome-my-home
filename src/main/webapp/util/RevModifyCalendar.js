@@ -1,6 +1,22 @@
 /**
  * 관리자 RevModify 전용 캘린더
  */
+function checkDate(date, revList) {
+	if(revList != null) {
+		for(var revDate of revList) {
+		var startDate = moment(revDate.checkIn);
+		var endDate = moment(revDate.checkOut);
+		var currentDate = moment(date);
+		if(currentDate >= startDate && currentDate <= endDate)
+			return true;
+		}
+		return false;
+	} else {
+		console.log("예약 데이터 없음");
+		return false;
+	}
+}
+
 const locale = {
 	        "format": "YYYY-MM-DD",
 	        "separator": " ~ ",
@@ -15,6 +31,7 @@ const locale = {
 	        "monthNames": ["1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"],
 	        "firstDay": 1,
 	    }
+
 $(function() {
 	const startDate = moment().add(1, 'day');
 	// 체크인 날짜 선택 달력
@@ -28,6 +45,9 @@ $(function() {
 		"showDropdowns": true,
 		"autoUpdateInput": false,
 		"linkedCalendars": true,
+		"isInvalidDate": function(date) {
+			return checkDate(date, revList);
+		},
 		"drops": "down",
 		"minYear": 2024, 
         "maxYear": 2024 
@@ -48,6 +68,9 @@ $(function() {
 	        "maxDate": "2024-12-31",
 	        "opens": "center",
 	        "showDropdowns": true,
+			"isInvalidDate": function(date) {
+				return checkDate(date, revList);
+			},
 	        "drops": "down",
 	        "minYear": 2024, 
 	        "maxYear": 2024 
@@ -72,6 +95,9 @@ $(function() {
 		"showDropdowns": true,
 		"autoUpdateInput": false,
 		"linkedCalendars": true,
+		"isInvalidDate": function(date) {
+			return checkDate(date, revList);
+		},
 		"drops": "down",
 		"minYear": 2024, 
         "maxYear": 2024 

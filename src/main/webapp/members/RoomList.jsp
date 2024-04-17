@@ -39,7 +39,7 @@
 	#leftDiv {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 40px;
+    gap: 60px;
     align-items: start;
     padding: 20px;
     width:65%;
@@ -96,7 +96,8 @@
 	    background-color: #fff;
         border-radius: 10px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-        margin-left : 150px;
+        margin-left : 30px;
+        margin-top: 52px;
         padding: 20px;
 	}
 
@@ -109,7 +110,7 @@
 		padding: 10px; 
 	}
 	#price-range-slider {
-		width: 140px;
+		width: 75%;
 		margin-left: 5px;
 	}
 	.filter {
@@ -220,7 +221,10 @@ background-color: #73685d;
 	    border-radius: 5px;
 	    width: 80%; /* 입력 필드 
 	}
-	
+	#hr-line {
+		margin-left: 10px;
+		width: 80px;
+	}
 </style>
 <script>
 	const servletUrl = "${contextPath}/";
@@ -261,22 +265,23 @@ background-color: #73685d;
 									<table class="leftTable">
 										<tr>
 											<td>
-												<img alt="" src="${contextPath }/data/${room.img1}" style="width: 150px;">
+												<img alt="" src="${contextPath }/data/${room.img1}" style="width: 350px;">
 											</td>
 										</tr>
 										<tr>
 											<td>
 												${room.roomName }
+												<hr id="hr-line">
 											</td>
 										</tr>
 										<tr>
 											<td>
-												${room.roomCost }
+												KRW - ${room.roomCost }
 											</td>
 										</tr>
 										<tr>
 											<td>
-												${room.headCount }
+												최대 ${room.headCount } 명
 											</td>
 										</tr>
 										<tr>
@@ -340,7 +345,7 @@ background-color: #73685d;
 						</tr>
 						<tr>
 							<td>
-								<p>가격</p>
+								가격<br><br> 
 								<div id="price-range-slider"></div>
 								<script>
 								    $(document).ready(function() {
