@@ -81,10 +81,11 @@
         display: flex; /* 플렉스 박스 사용 */
         align-items: center; /* 수직 정렬 */
         font-size: 13px; /* 폰트 사이즈 조절 */
+    
     }
     .terms-label > span {
         flex: 1; /* 유동적인 공간을 활용하여 약관 텍스트를 확장 */
-        font-size: 11px; /* 원하는 크기로 설정 */
+        font-size: 15px; /* 원하는 크기로 설정 */
     }
     /* 모달 스타일 */
     .modal {
@@ -235,9 +236,9 @@
                             <td><input type="text" name="memCall" value="${memVO.memCall }" readonly></td>
                         </tr>
                         <tr>
-                            <td colspan="2">
-                                <label class="terms-label">
-                                    <span>예약 취소 정책.</span>&nbsp;<button style="width:26%;"onclick="openModal('${contextPath}/clauses/RevCancellation.jsp')">약관 보기</button><br>
+                            <td colspan="2"><hr>
+                                <label class="terms-label" style="margin-top: 50px;">
+                                    <span >예약 취소 정책.</span>&nbsp;<button style="width:26%;"onclick="openModal('${contextPath}/clauses/RevCancellation.jsp')">약관 보기</button><br>
                                     <input type="checkbox" name="agree3" value="yes" style="margin-left: 30px"  onclick="document.querySelector('[name=disagree3]').checked = false;"> 동의합니다.
                                     &nbsp;&nbsp;&nbsp;&nbsp;
                                     <input type="checkbox" name="disagree3" value="no"  onclick="document.querySelector('[name=agree3]').checked = false;"> 동의하지 않습니다.
@@ -246,7 +247,7 @@
                         </tr>
                         <tr>
                             <td colspan="2">
-                                <label class="terms-label">
+                                <label class="terms-label" style="margin-top: 20px;">
                                     <span>환불 정책.</span><button style="width:26%;"onclick="openModal('${contextPath}/clauses/Refund.jsp')">약관 보기</button><br>
                                     <input type="checkbox" name="agree4" value="yes" style="margin-left: 30px"  onclick="document.querySelector('[name=disagree4]').checked = false;"> 동의합니다.
                                     &nbsp;&nbsp;&nbsp;&nbsp;
@@ -290,10 +291,10 @@
                                 <td colspan="2"><hr></td>
                             </tr>
                             <tr>
-                                <td align="right" colspan="2">
+                                <td align="right" colspan="2" style="text-align: center;">
                                 	<input type="hidden" name="roomNo" value="${roomNo }" />
-                                    <button class="payment-btn" type="button" onclick="window.history.back()">돌아가기</button>
-                                    <button type="submit" class="payment-btn">결제</button>
+                                    <button class="payment-btn" type="button"  onclick="window.history.back()" style="width: 50%; margin-bottom: 15px; ">돌아가기</button>
+                                    <button type="submit" class="payment-btn" style="width: 50%;">결제</button>
                                 </td>
                             </tr>
                         </table>

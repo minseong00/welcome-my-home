@@ -48,18 +48,26 @@
 	    margin-left: 5px;
 	}
 	
-.sky-blue-button {
-   padding: 7px 15px;
-   font-size: 16px;
-   background-color: #87CEEB;
-   color: #fff; /* 버튼 텍스트 색상 */
-   transition: background-color 0.3s ease;
-   border: none;
-   border-radius: 50px;
+.btn_css {
+-webkit-border-radius: 13px;
+-moz-border-radius: 13px;
+border-radius: 13px;
+
+border : 0px;
+color: #FFFFFF;
+font-family: Arial;
+font-size: 15px;
+font-weight: 100;
+padding: 10px;
+background-color: #8D703B;
+text-decoration: none;
+display: inline-block;
+cursor: pointer;
+text-align: center;
 }
 
-.sky-blue-button:hover {
-   background-color: #00BFFF;
+.btn_css:hover {
+background-color: #73685d;
 }
 
 .rightside{
@@ -192,7 +200,7 @@
                         </div>
                     </div>
                 </div>
-                <button type="submit">등록</button>
+                <button  class="btn_css" type="submit">등록</button>
             </form>
         </div>
     </div>

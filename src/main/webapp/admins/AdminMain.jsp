@@ -9,13 +9,16 @@
 <head>
 <meta charset="UTF-8">
 <title>관리자 메인</title>
+<link rel="stylesheet"
+   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
 <!-- css 적용 -->
 <link rel="stylesheet" href="${contextPath }/style/css/flaticon.css">
 <link rel="stylesheet" href="${contextPath }/style/css/style.css">
 <style type="text/css">
 	body{
-		line-height: normal;
-		display: flex;
+		padding:1.5em;
+		background: #f5f5f5;
+  		font-weight: bold; /* 헤더 폰트를 굵게 */
 	}
 	.rightside{
 		display: flex;

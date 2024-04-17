@@ -117,9 +117,30 @@
 	}
 	
 	#revBtn {
-	    width: 100%;
+	    width: 50%;
 	    height: 50px; /* 예약 버튼의 높이 */
 	}
+	.btn_css {
+-webkit-border-radius: 13px;
+-moz-border-radius: 13px;
+border-radius: 13px;
+
+border : 0px;
+color: #FFFFFF;
+font-family: Arial;
+font-size: 15px;
+font-weight: 100;
+padding: 10px;
+background-color: #8D703B;
+text-decoration: none;
+display: inline-block;
+cursor: pointer;
+text-align: center;
+}
+
+.btn_css:hover {
+background-color: #73685d;
+}
 </style>
 	<!-- 슬라이드 스크립트 -->
 						<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -183,7 +204,7 @@
 			<div id="info1">
 				<img alt="" src="${contextPath }/data/${imgVO.infoImg }" style="width: 100%"><!-- 룸 설명 이미지 -->
 			</div>
-			<div id="info2">
+			<div id="info2"  style="text-align: center;">
 				<table>
 					<tr>
 						<td>
@@ -204,10 +225,10 @@
 						<td>
 						${roomVO.roomCost } 
 						</td>
-					</tr>
+					</tr> 
 				</table>
 				예약 가능한 캘린더 표시
-				<button id="revBtn" onclick="location.href='${contextPath}/RevInsert?roomNo=${roomVO.roomNo }'">예약하기</button> <!-- 예약 버튼 클릭시 세션값 확인 -->
+				<button class="btn_css" id="revBtn" onclick="location.href='${contextPath}/RevInsert?roomNo=${roomVO.roomNo }'">예약하기</button> <!-- 예약 버튼 클릭시 세션값 확인 -->
 			</div>
 		</div>
 	</div>

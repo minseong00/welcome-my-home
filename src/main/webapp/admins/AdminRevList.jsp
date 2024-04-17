@@ -13,8 +13,7 @@
 
     
   		body{
-		line-height: normal;
-		display: flex;
+		font-weight:bold;
 		 padding:1.5em;
   		background: #f5f5f5;
 	}
@@ -57,9 +56,6 @@ thead {
   background: #fff;
 }
 
-a {
-  color: #73685d;
-}
   
   
  @media all and (max-width: 900px) {

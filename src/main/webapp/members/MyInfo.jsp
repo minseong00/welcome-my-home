@@ -139,19 +139,28 @@ td, th {
    height: 50px; /* 원하는 높이로 조절 */
     width: 50%; /* 전체 너비로 조절 */
 }
-.sky-blue-button {
-   padding: 7px 15px;
-   font-size: 16px;
-   background-color: #87CEEB;
-   color: #fff; /* 버튼 텍스트 색상 */
-   transition: background-color 0.3s ease;
-   border: none;
-   border-radius: 50px;
+.btn_css {
+-webkit-border-radius: 13px;
+-moz-border-radius: 13px;
+border-radius: 13px;
+
+border : 0px;
+color: #FFFFFF;
+font-family: Arial;
+font-size: 15px;
+font-weight: 100;
+padding: 10px;
+background-color: #8D703B;
+text-decoration: none;
+display: inline-block;
+cursor: pointer;
+text-align: center;
 }
 
-.sky-blue-button:hover {
-   background-color: #00BFFF;
+.btn_css:hover {
+background-color: #73685d;
 }
+
 .sidebar-custom {
     position: relative;
     left: -125px; /* 왼쪽으로 20px 이동 */
@@ -202,9 +211,10 @@ td, th {
 				   </tr>
 				   <tr  >
 				   		<td style="text-align: right;" colspan="2" align=center>
-				       <input type="reset" value="다시입력" >
-    				   <button type="submit" >수정하기</button>
-      				 <button type="button" onclick="MyInfoDelete('${MemOne.memId}')">탈퇴하기</button> 
+				             <input class="btn_css" type="reset" value="다시입력" >
+                   <button class="btn_css"  type="submit"  >수정하기</button>
+                   <button  class="btn_css" type="button" onclick="deleteId();">탈퇴하기</button> 
+
 				      
 				      </td>
 				   </tr>

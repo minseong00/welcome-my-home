@@ -122,20 +122,27 @@
 	  padding: 7px; /* 각 셀의 안쪽 여백 */
 	}
 	
-	.sky-blue-button {
-		padding: 7px 15px;
-		font-size: 16px;
-		background-color: #87CEEB;
-		color: #fff; /* 버튼 텍스트 색상 */
-		transition: background-color 0.3s ease;
-		border: none;
-		border-radius: 50px;
-		
-	}
+	.btn_css {
+   -webkit-border-radius: 13px;
+   -moz-border-radius: 13px;
+   border-radius: 13px;
+   border: 0px;
+   color: #FFFFFF;
+   font-family: Arial;
+   font-size: 15px;
+   font-weight: 100;
+   padding: 10px;
+   background-color: #8D703B;
+   text-decoration: none;
+   display: inline-block;
+   cursor: pointer;
+   text-align: center;
+}
 
-	.sky-blue-button:hover {
-		background-color: #00BFFF;
-	}
+.btn_css:hover {
+   background-color: #73685d;
+}
+
 	
 	.rightside{
 			display: flex;
@@ -195,8 +202,9 @@
 		
 		<tr>
 		<td  style="height: 70px;"align="right"  colspan="2">
-  		<button type="submit" class="sky-blue-button">수정 </button>
- 		<button type="button" class="sky-blue-button" onclick="deletedata('${MemOne.memId}')">삭제</button>
+  		 <button type="submit" class="btn_css">수정 </button>
+        <button type="button" class="btn_css" onclick="location.href='<c:url value="/admin/MemDelete?id=${MemOne.memId}" />'" >삭제</button>
+
 		</td>
 		</tr>
 
