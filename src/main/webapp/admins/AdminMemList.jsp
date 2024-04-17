@@ -18,7 +18,7 @@
   		body{
 		padding:1.5em;
   		background: #f5f5f5;
-  		font-weight: bold; /* 헤더 폰트를 굵게 */
+  		
 	}
 	.rightside {
    /* 배경색 설정 */
@@ -120,15 +120,15 @@ thead {
 		<div class="rightside">
 	            <div class="include-gap" >
  <h3 style="font-weight: bold">회원목록</h3>
-   <table  summary="전체 회원" border="1" >
-   	<colgroup>
+   <table  summary="전체 회원" border="1"  >
+   	<colgroup  >
 			<col width="7%">
 			<col width="7%">
 			<col width="7%">
 			<col width="7%">
 			<col width="7%">
 		</colgroup>
-		<thead>
+		<thead  >
       <tr>
          <th>고객명</th>
          <th>아이디</th>

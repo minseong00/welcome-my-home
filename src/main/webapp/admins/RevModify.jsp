@@ -164,6 +164,18 @@ text-align: center;
 #headCount {
 	width: 50px;
 }
+.countbtn{
+	
+	    background-color:#decfa6; /* 연한 복숭아색 */
+	    color: #fff;
+	    border: none;
+	    border-radius: 5px;
+	    cursor: pointer;
+	    transition: background-color 0.3s ease;
+}
+countbtn:hover {
+	    background-color: #FFB6C1; /* 더 밝은 살색으로 호버 효과 */
+	}
   </style>
 </head>
 <body style="background-color: #f5f5f5;">
@@ -205,9 +217,9 @@ text-align: center;
 					<tr>
 						<td style="background-color:#73685d; color: #fff; width:200px; height: 70px; " >인원 수</td>
 						<td>
-							<button type="button" id="downCount" onclick="downValueFilter()" ><b>-</b></button>
+							<button type="button"class="countbtn" id="downCount" onclick="downValueFilter()" ><b>-</b></button>
 							<input id="headCount" type ="text" name= "headCount" value="<c:out value="${revVO.headCount}"/>" required>
-							<button type="button" id="upCount" onclick="upValueFilter()"><b>+</b></button>
+							<button type="button" class="countbtn" id="upCount" onclick="upValueFilter()"><b>+</b></button>
 						</td>
 					</tr>
 					<tr>
