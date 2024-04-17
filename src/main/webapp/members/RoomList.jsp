@@ -32,45 +32,75 @@
 	    padding-left: 15px;
 	    margin-right: auto;
 	    margin-left: auto;
-	    max-width: 1100px;
+	   
 	    margin-bottom: 100px;
 	}
 	
 	#leftDiv {
-	    flex-direction: column; /* 내부 요소를 세로로 정렬합니다. */
-	    flex: 0 0 calc(70% - 10px); /* 부모 컨테이너 너비의 60%에서 10px를 뺀 값으로 설정합니다. */
-	    padding: 20px;
-	    margin-right: 10px;
-	    align-items: flex-end; /* 내부 요소를 오른쪽으로 정렬합니다. */
-	}
-	
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 40px;
+    align-items: start;
+    padding: 20px;
+    width:65%;
+    margin-left : 70px;
+}
+
+.lineDiv {
+    
+    grid-template-columns: repeat(3, 1fr); /* 한 줄에 방 3개씩 표시 */
+    gap: 20px; /* 방 사이의 간격 */
+}
+
+.room_ {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 15px;
+    transition: transform 0.3s ease-in-out;
+    margin-bottom:20px;
+    color: black;
+    font-weight: bold;
+    font-size: 17px;
+}
+
+.room_:hover {
+    transform: scale(1.05); /* 호버 시 약간 확대 */
+}
+
+.leftTable {
+    width: 100%; /* 테이블 너비 전체 사용 */
+    text-align: center;
+}
+
+.leftTable img {
+    width: 100%; /* 이미지 너비를 테이블 너비에 맞춤 */
+    height: auto;
+    border-radius: 5px; /* 이미지 모서리 둥글게 */
+}
+
+.leftTable td {
+    padding: 8px;
+}
 	#rightDiv {
 	    display: flex;
 	    flex-direction: column; /* 내부 요소를 세로로 정렬합니다. */
-	    flex: 1; /* rightDiv가 부모 컨테이너 내에서 적절한 공간을 차지할 수 있도록 설정합니다. */
+	    flex: none; /* rightDiv가 부모 컨테이너 내에서 적절한 공간을 차지할 수 있도록 설정합니다. */
+	    width:18%;
+	    height: 20%;
 	    background-color: #fff;
         border-radius: 10px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-        margin: 0 10px;
+        margin-left : 150px;
         padding: 20px;
 	}
-	.room_ {
-		width: 200px;
-		margin-left: 20px;
-		align-items: right;
-	}
-	.lineDiv {
-		flex: 1;
-	    display: flex;
-	    justify-content: flex-end; /* 내부 요소들 사이의 간격을 조절합니다. */
-	    margin-bottom: 20px; /* 각 lineDiv 사이의 여백을 조절합니다. */
-	    width: 100%;
-	    height: 300px;
-	}
-	.leftTable {
-		width:100%;
-		text-align: center;
-	}
+
+	
 	.rightTable {
 		font-weight: bold;
 		width: 200px;
@@ -251,7 +281,7 @@ background-color: #73685d;
 										</tr>
 										<tr>
 											<td align="center">
-												<input type="button" value="Detail" onclick="location.href='${contextPath }/RoomDetail?roomNo=${room.roomNo }'" />
+												<input type="button" value="상세보기" class="btn_css" onclick="location.href='${contextPath }/RoomDetail?roomNo=${room.roomNo }'" />
 											</td>
 										</tr>
 										
