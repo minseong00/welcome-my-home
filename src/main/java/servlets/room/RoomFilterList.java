@@ -14,7 +14,6 @@ import dao.room.RoomDAO;
 import dao.roomImg.RoomImgDAO;
 import model.OptionVO;
 import model.RoomImgVO;
-import model.RoomVO;
 import util.FilterRoom;
 
 @WebServlet("/RoomFilterList")
@@ -34,9 +33,8 @@ public class RoomFilterList extends HttpServlet {
 		imgDAO = new RoomImgDAO();
 		imgList = imgDAO.selectAll();
 		String type = request.getParameter("type");
-		String roomType = null;
-		
-		request.setAttribute("imgList", imgList);
+		String roomType = request.getParameter("roomType");;
+		ArrayList<OptionVO> optionList = null;
 	
 		RequestDispatcher dispatcher = null;
 		if(type == null) {
@@ -45,34 +43,29 @@ public class RoomFilterList extends HttpServlet {
 		} else {
 			switch (type) {
 			case "main":
-				String checkInDate = request.getParameter("checkIn");
-				String checkOutDate = request.getParameter("checkOut");
-				roomType = request.getParameter("roomType");
+				String checkIn = request.getParameter("checkIn");
+				String checkOut = request.getParameter("checkOut");
 				int headCount = Integer.parseInt(request.getParameter("headCount"));
 				
-				ArrayList<OptionVO> optionList = null;
 				optionList = (roomType.equals("default")) ? roomDAO.selectCount(headCount) : roomDAO.selectCountType(headCount, roomType);
-				
-				request.setAttribute("checkInDate", checkInDate);
-	            request.setAttribute("checkOutDate", checkOutDate);
-	            request.setAttribute("roomType", roomType);
+
+				request.setAttribute("checkInDate", checkIn);
+	            request.setAttribute("checkOutDate", checkOut);
 	            request.setAttribute("headCount", headCount);
-				request.setAttribute("roomVO", optionList);
 				dispatcher = request.getRequestDispatcher("/members/RoomList.jsp");
 				break;
 			case "mainImg":
-				roomType = request.getParameter("roomType");
-				
-				ArrayList<RoomVO> roomTypeList = roomDAO.selectType(roomType);
-				
-				request.setAttribute("roomVO", roomTypeList);
-				request.setAttribute("roomType", roomType);
+				optionList = roomDAO.selectType(roomType);
 				dispatcher = request.getRequestDispatcher("/members/RoomList.jsp");
 				break;
-	
 			default:
-				break;
+				response.sendRedirect(request.getContextPath() + "/LoginCheck");
+				return;
 			}
+			optionList = FilterRoom.insertOptionList(imgList, optionList);
+
+			request.setAttribute("roomType", roomType);
+			request.setAttribute("roomVO", optionList);
 			dispatcher.forward(request, response);
 		}
 	}
@@ -90,10 +83,12 @@ public class RoomFilterList extends HttpServlet {
 		int priceMax = Integer.parseInt(request.getParameter("priceMax"));
 		ArrayList<OptionVO> optionList = null;
 		optionList = (roomType.equals("default")) ? roomDAO.selectCount(headCount) : roomDAO.selectCountType(headCount, roomType);
+		System.out.println("servlet roomFIlterList4 : " + optionList.toString());
 		
-		ArrayList<OptionVO> resultList = FilterRoom.resultFilterRoom(imgList, optionList, checkInDate, checkOutDate, priceMin, priceMax);
-		
-		request.setAttribute("roomVO", resultList);
+		optionList = FilterRoom.resultFilterRoom(imgList, optionList, checkInDate, checkOutDate, priceMin, priceMax);
+
+		System.out.println("servlet roomFIlterList5 : " + optionList.toString());
+		request.setAttribute("roomVO", optionList);
 		request.setAttribute("checkInDate", checkInDate);
         request.setAttribute("checkOutDate", checkOutDate);
         request.setAttribute("priceMin", priceMin);

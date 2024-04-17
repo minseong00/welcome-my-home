@@ -20,14 +20,13 @@
 	}
 	
 	.rightside {
-		/* 배경색 설정 */
-		display: flex;
-		flex-direction: column;
-		flex-grow: 1;
-		margin-left: 0.5rem;
-		width: calc(100vh - 235px);
-	}
-	
+   /* 배경색 설정 */
+   display: flex;
+   flex-direction: column;
+   flex-grow: 1;
+  margin-left: 0.5rem;
+   width: calc(70vh - 235px); 
+  }
 	.include-gap {
 		margin-bottom: 100px; /* 원하는 만큼의 간격을 설정합니다. */
 	}

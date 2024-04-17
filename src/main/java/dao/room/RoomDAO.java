@@ -81,72 +81,6 @@ public class RoomDAO implements RoomQuerys {
 		return roomList;
 	}
 	
-	/** 
- 	headCount, roomType을 조건으로 일치하는 모든 룸 조회
- 	@param int headCount, String roomType
- 	@return ArrayList
-	 **/
-	public ArrayList<OptionVO> selectCountType(int headCount, String roomType) {
-		ArrayList<OptionVO> optionList = null;
-		try {
-			conn = DB.dbConnect();
-			this.pstmt = conn.prepareStatement(selectFilterCountType);
-			this.pstmt.setInt(1, headCount);
-			this.pstmt.setString(2, roomType);
-			this.rs = this.pstmt.executeQuery();
-			optionList = new ArrayList<OptionVO>();
-			
-			while (this.rs.next()) {
-				OptionVO optionVO = new OptionVO();
-				optionVO.setRoomNo(this.rs.getInt("roomNo"));
-				optionVO.setRoomName(this.rs.getString("roomName"));
-				optionVO.setHeadCount(this.rs.getInt("headCount"));
-				optionVO.setRoomCost(this.rs.getInt("roomCost"));
-				optionVO.setCheckIn(this.rs.getDate("checkIn"));
-				optionVO.setCheckOut(this.rs.getDate("checkOut"));
-				optionList.add(optionVO);
-			}
-			
-		} catch (SQLException e) {
-			System.err.println("Room SelectNoName ERR : " + e.getMessage());
-		} finally {
-			DB.close(this.rs, this.pstmt, this.conn);
-		}
-		return optionList;
-	}
-	
-	/** 
- 	headCount를 조건으로 일치하는 모든 룸 조회
- 	@param int headCount
- 	@return ArrayList
-	 **/
-	public ArrayList<OptionVO> selectCount(int headCount) {
-		ArrayList<OptionVO> optionList = null;
-		try {
-			conn = DB.dbConnect();
-			this.pstmt = conn.prepareStatement(selectFilterCount);
-			this.pstmt.setInt(1, headCount);
-			this.rs = this.pstmt.executeQuery();
-			optionList = new ArrayList<OptionVO>();
-			
-			while (this.rs.next()) {
-				OptionVO optionVO = new OptionVO();
-				optionVO.setRoomNo(this.rs.getInt("roomNo"));
-				optionVO.setRoomName(this.rs.getString("roomName"));
-				optionVO.setHeadCount(this.rs.getInt("headCount"));
-				optionVO.setRoomCost(this.rs.getInt("roomCost"));
-				optionVO.setCheckIn(this.rs.getDate("checkIn"));
-				optionVO.setCheckOut(this.rs.getDate("checkOut"));
-				optionList.add(optionVO);
-			}
-			
-		} catch (SQLException e) {
-			System.err.println("Room SelectNoName ERR : " + e.getMessage());
-		} finally {
-			DB.close(this.rs, this.pstmt, this.conn);
-		}
-		return optionList;
-	}
 	
 	/**
  	roomNo를 조건으로 조회
@@ -263,28 +197,95 @@ public class RoomDAO implements RoomQuerys {
 	@param roomType
 	@return
 	**/
-	public ArrayList<RoomVO> selectType(String roomType){
-		ArrayList<RoomVO> roomList = new ArrayList<RoomVO>();
+	public ArrayList<OptionVO> selectType(String roomType){
+		ArrayList<OptionVO> optionList = null;
 		try {
 			this.conn = DB.dbConnect();
-			this.pstmt = this.conn.prepareStatement(selectType);
+			this.pstmt = this.conn.prepareStatement(selectFilterType);
 			this.pstmt.setString(1, roomType);
 			this.rs = this.pstmt.executeQuery();
 			while(this.rs.next()){
-				RoomVO roomVO = new RoomVO();
-				roomVO.setRoomNo(this.rs.getInt("roomNo"));
-				roomVO.setRoomName(this.rs.getString("roomName"));
-				roomVO.setRoomType(this.rs.getString("roomType"));
-				roomVO.setRoomDetail(this.rs.getString("roomDetail"));
-				roomVO.setHeadCount(this.rs.getInt("headCount"));
-				roomVO.setRoomCost(this.rs.getInt("roomCost"));
+				OptionVO optionVO = new OptionVO();
+				optionVO.setRoomNo(this.rs.getInt("roomNo"));
+				optionVO.setRoomName(this.rs.getString("roomName"));
+				optionVO.setHeadCount(this.rs.getInt("headCount"));
+				optionVO.setRoomCost(this.rs.getInt("roomCost"));
+				optionVO.setCheckIn(this.rs.getDate("checkIn"));
+				optionVO.setCheckOut(this.rs.getDate("checkOut"));
 				
-				roomList.add(roomVO);
+				optionList.add(optionVO);
 			}
 		} catch (SQLException e) {
-			System.err.println("select Type main ERR : " + e.getMessage());
+			System.err.println("selectType() ERR : " + e.getMessage());
 		}
-		return roomList;
+		return optionList;
+	}
+	
+	/** 
+ 	headCount, roomType을 조건으로 일치하는 모든 룸 조회
+ 	@param int headCount, String roomType
+ 	@return ArrayList
+	 **/
+	public ArrayList<OptionVO> selectCountType(int headCount, String roomType) {
+		ArrayList<OptionVO> optionList = null;
+		try {
+			conn = DB.dbConnect();
+			this.pstmt = conn.prepareStatement(selectFilterCountType);
+			this.pstmt.setInt(1, headCount);
+			this.pstmt.setString(2, roomType);
+			this.rs = this.pstmt.executeQuery();
+			optionList = new ArrayList<OptionVO>();
+			
+			while (this.rs.next()) {
+				OptionVO optionVO = new OptionVO();
+				optionVO.setRoomNo(this.rs.getInt("roomNo"));
+				optionVO.setRoomName(this.rs.getString("roomName"));
+				optionVO.setHeadCount(this.rs.getInt("headCount"));
+				optionVO.setRoomCost(this.rs.getInt("roomCost"));
+				optionVO.setCheckIn(this.rs.getDate("checkIn"));
+				optionVO.setCheckOut(this.rs.getDate("checkOut"));
+				optionList.add(optionVO);
+			}
+			
+		} catch (SQLException e) {
+			System.err.println("selectCountType() ERR : " + e.getMessage());
+		} finally {
+			DB.close(this.rs, this.pstmt, this.conn);
+		}
+		return optionList;
+	}
+	
+	/** 
+ 	headCount를 조건으로 일치하는 모든 룸 조회
+ 	@param int headCount
+ 	@return ArrayList
+	 **/
+	public ArrayList<OptionVO> selectCount(int headCount) {
+		ArrayList<OptionVO> optionList = null;
+		try {
+			conn = DB.dbConnect();
+			this.pstmt = conn.prepareStatement(selectFilterCount);
+			this.pstmt.setInt(1, headCount);
+			this.rs = this.pstmt.executeQuery();
+			optionList = new ArrayList<OptionVO>();
+			
+			while (this.rs.next()) {
+				OptionVO optionVO = new OptionVO();
+				optionVO.setRoomNo(this.rs.getInt("roomNo"));
+				optionVO.setRoomName(this.rs.getString("roomName"));
+				optionVO.setHeadCount(this.rs.getInt("headCount"));
+				optionVO.setRoomCost(this.rs.getInt("roomCost"));
+				optionVO.setCheckIn(this.rs.getDate("checkIn"));
+				optionVO.setCheckOut(this.rs.getDate("checkOut"));
+				optionList.add(optionVO);
+			}
+			
+		} catch (SQLException e) {
+			System.err.println("selectCount() ERR : " + e.getMessage());
+		} finally {
+			DB.close(this.rs, this.pstmt, this.conn);
+		}
+		return optionList;
 	}
 	
 }
