@@ -14,7 +14,7 @@
 
     
   		body{
-		font-weight:bold;
+		
 		 padding:1.5em;
   		background: #f5f5f5;
 	}
@@ -42,7 +42,7 @@ th {
 }
   
 thead {
-  font-weight: bold;
+  
   color: #fff;
   background: #73685d;
 }
