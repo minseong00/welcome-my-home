@@ -228,6 +228,23 @@ h1, h2, h3, h4, h5, span, a, p, button {
 	text-decoration: none;
 	cursor: pointer;
 }
+.playicon {
+	border-radius:0%;
+    display: block;
+    width: 100%; /* 적절한 크기로 조절 */
+    height: 50%;
+    padding-top: 56.25%; /* 16:9 비율 */
+    background-size: cover;
+    position: relative;
+}
+
+.fa-play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 48px; /* 아이콘 크기 조절 가능 */
+}
 </style>
 <script type="text/javascript">
 document.addEventListener("DOMContentLoaded", function() {
@@ -250,6 +267,10 @@ document.addEventListener("DOMContentLoaded", function() {
 			video.src = "";
 		}
 	}
+});
+
+document.getElementById("modalBtn").addEventListener("click", function(event) {
+    event.preventDefault();
 });
 </script>
 
@@ -386,12 +407,15 @@ document.addEventListener("DOMContentLoaded", function() {
 	</div>
 	<!-- 리조트 실행 --> 
 	<section class="main_1">
-		<div class="leftside">
-			<a class="playicon" id="modalBtn">
-				<i class="fa-solid fa-play fa-xl" style="color: #ffffff;"></i>
-			</a>
-		</div>
-		<div class="rightside">
+    <div class="leftside">
+        <a class="playicon" id="modalBtn" href="#" style="background-image:url('${contextPath}/style/images/some.jpg');">
+            <i class="fa-solid fa-play fa-xl" style="color: #ffffff;"></i>
+        </a>
+    </div>
+	
+  
+	
+		<div style=" margin-left: 70px;" class="rightside" >
 			<div>
 				<span class="eng">Welcome to OurHome Hotel</span>
 				<h2>색다른 경험이 될, <br>우리집 리조트</h2>
