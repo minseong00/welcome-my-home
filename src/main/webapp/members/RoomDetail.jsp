@@ -11,11 +11,14 @@
 <!-- css 적용 -->
 <link rel="stylesheet" href="${contextPath }/style/css/flaticon.css">
 <link rel="stylesheet" href="${contextPath }/style/css/style.css">
-<!-- 캘린더 import -->
-<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
-<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+<!-- fullcalendar CDN -->
+<link href='https://cdn.jsdelivr.net/npm/fullcalendar@5.9.0/main.min.css' rel='stylesheet' />
+<script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.9.0/main.min.js'></script>
+<!-- fullcalendar 언어 CDN -->
+<script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.9.0/locales-all.min.js'></script>
+<script>
+	const revList = JSON.parse('${revList}');
+</script>
 <script src="${contextPath}/util/RoomDetailCalendar.js"></script>
 <style>
 	div {
@@ -171,6 +174,11 @@
     	background-color: #f2f2f2; /* 배경색은 필요에 따라 조정 */
     	padding: 20px 0; /* 필요에 따라 내용 여백 조정 */
     }
+    #calendar {
+    	font-size: 12pt;
+    	width: 100%;
+    	height: auto;
+    }
 </style>
 	<!-- 슬라이드 스크립트 -->
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
@@ -271,7 +279,7 @@ window.onload = function() {
 					</tr>
 				</table>
 				<hr>
-				예약 가능한 캘린더 표시<br>
+				<div id="calendar"></div>
 				<button class="btn_css" id="revBtn" onclick="location.href='${contextPath}/RevInsert?roomNo=${roomVO.roomNo }'">예약하기</button> <!-- 예약 버튼 클릭시 세션값 확인 -->
 			</div>
 		</div>
