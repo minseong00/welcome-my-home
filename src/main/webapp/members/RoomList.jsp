@@ -182,6 +182,14 @@ background-color: #73685d;
 	const servletUrl = "${contextPath}/";
 	console.log(${imgList[7].img1});
 </script>
+<c:choose>
+	<c:when test="${empty headCount }">
+		<c:set var="head" value="1" />
+	</c:when>
+	<c:otherwise>
+		<c:set var="head" value="${headCount }" />
+	</c:otherwise>
+</c:choose>
 </head>
 <body>
 		<jsp:include page="/include/Header.jsp" flush="false"/>
@@ -215,7 +223,7 @@ background-color: #73685d;
 										</tr>
 										<tr>
 											<td>
-												${room.roomType }
+												${room.roomName }
 											</td>
 										</tr>
 										<tr>
@@ -247,7 +255,7 @@ background-color: #73685d;
 			
 		<div id="rightDiv"> <!-- 사이드바 컨테이너 -->
 		
-			<form>
+			<form action="${contextPath }/RoomFilterList" method="post">
 				<table class="rightTable">
 						<tr>
 							<td>
@@ -265,23 +273,24 @@ background-color: #73685d;
 							<td>
 								종류<br>
 								  <select class="filter_select" name="roomType" >
-            <option value ="Superior" <c:if test="${roomType eq 'Superior'}">selected</c:if>>슈페리어 룸</option>
-            <option value ="Deluxe" <c:if test="${roomType eq 'Deluxe'}">selected</c:if>>디럭스 룸</option>
-            <option value ="GrandDeluxe" <c:if test="${roomType eq 'GrandDeluxe'}">selected</c:if>>그랜드 디럭스 룸</option>
-            <option value ="JuniorSuite" <c:if test="${roomType eq 'JuniorSuite'}">selected</c:if>>주니어 스위트 룸</option>
-            <option value ="CornerSuite" <c:if test="${roomType eq 'CornerSuite'}">selected</c:if>>코너스 스위트 룸</option>
-            <option value ="SuperiorSuite" <c:if test="${roomType eq 'SuperiorSuite'}">selected</c:if>>슈페리어 스위트 룸</option>
-            <option value ="RoyalSuite" <c:if test="${roomType eq 'RoyalSuite'}">selected</c:if>>로열 스위트 룸</option>
-            <option value ="PresidentialSuite" <c:if test="${roomType eq 'PresidentialSuite'}">selected</c:if>>프레지덴셜 스위트 룸</option>
-            <option value ="Connecting" <c:if test="${roomType eq 'Connecting'}">selected</c:if>>커넥팅 룸</option>
-        </select>
+									  <option value="default" <c:if test="${roomType eq 'default'}">selected</c:if>>선택</option>
+							          <option value ="Superior" <c:if test="${roomType eq 'Superior'}">selected</c:if>>슈페리어 룸</option>
+							          <option value ="Deluxe" <c:if test="${roomType eq 'Deluxe'}">selected</c:if>>디럭스 룸</option>
+							          <option value ="GrandDeluxe" <c:if test="${roomType eq 'GrandDeluxe'}">selected</c:if>>그랜드 디럭스 룸</option>
+							          <option value ="JuniorSuite" <c:if test="${roomType eq 'JuniorSuite'}">selected</c:if>>주니어 스위트 룸</option>
+							          <option value ="CornerSuite" <c:if test="${roomType eq 'CornerSuite'}">selected</c:if>>코너스 스위트 룸</option>
+							          <option value ="SuperiorSuite" <c:if test="${roomType eq 'SuperiorSuite'}">selected</c:if>>슈페리어 스위트 룸</option>
+							          <option value ="RoyalSuite" <c:if test="${roomType eq 'RoyalSuite'}">selected</c:if>>로열 스위트 룸</option>
+							          <option value ="PresidentialSuite" <c:if test="${roomType eq 'PresidentialSuite'}">selected</c:if>>프레지덴셜 스위트 룸</option>
+							          <option value ="Connecting" <c:if test="${roomType eq 'Connecting'}">selected</c:if>>커넥팅 룸</option>
+						        </select>
 							</td>
 						</tr>
 						<tr>
 							<td>
 								인원수<br>
 								<button type="button" id="downCount" onclick="downValueFilter()" ><b>-</b></button>
-								<input type="text" name="headCount"  id="headCount" readonly value="${headCount}" >
+								<input type="text" name="headCount"  id="headCount" readonly value="${head }" >
 								<button type="button" id="upCount" onclick="upValueFilter()"><b>+</b></button>
 								
 							</td>
@@ -295,8 +304,8 @@ background-color: #73685d;
 								        $("#price-range-slider").slider({
 								            range: true,
 								            min: 0,
-								            max: 30,
-								            values: [0, 30], // 초기값 설정
+								            max: 120,
+								            values: [0, 120], // 초기값 설정
 								            slide: function(event, ui) {// 가격 범위 업데이트
 								                $("#price-min").val(ui.values[0]*10000);
 								                $("#price-max").val(ui.values[1]*10000);

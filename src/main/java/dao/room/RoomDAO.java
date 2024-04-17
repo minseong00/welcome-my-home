@@ -82,14 +82,15 @@ public class RoomDAO implements RoomQuerys {
 	}
 	
 	/** 
- 	모든 룸 인원수, 
- 	@return
+ 	headCount, roomType을 조건으로 일치하는 모든 룸 조회
+ 	@param int headCount, String roomType
+ 	@return ArrayList
 	 **/
 	public ArrayList<OptionVO> selectCountType(int headCount, String roomType) {
 		ArrayList<OptionVO> optionList = null;
 		try {
 			conn = DB.dbConnect();
-			this.pstmt = conn.prepareStatement(selectMainFilter);
+			this.pstmt = conn.prepareStatement(selectFilterCountType);
 			this.pstmt.setInt(1, headCount);
 			this.pstmt.setString(2, roomType);
 			this.rs = this.pstmt.executeQuery();
@@ -98,7 +99,40 @@ public class RoomDAO implements RoomQuerys {
 			while (this.rs.next()) {
 				OptionVO optionVO = new OptionVO();
 				optionVO.setRoomNo(this.rs.getInt("roomNo"));
-				optionVO.setRoomType(this.rs.getString("roomType"));
+				optionVO.setRoomName(this.rs.getString("roomName"));
+				optionVO.setHeadCount(this.rs.getInt("headCount"));
+				optionVO.setRoomCost(this.rs.getInt("roomCost"));
+				optionVO.setCheckIn(this.rs.getDate("checkIn"));
+				optionVO.setCheckOut(this.rs.getDate("checkOut"));
+				optionList.add(optionVO);
+			}
+			
+		} catch (SQLException e) {
+			System.err.println("Room SelectNoName ERR : " + e.getMessage());
+		} finally {
+			DB.close(this.rs, this.pstmt, this.conn);
+		}
+		return optionList;
+	}
+	
+	/** 
+ 	headCount를 조건으로 일치하는 모든 룸 조회
+ 	@param int headCount
+ 	@return ArrayList
+	 **/
+	public ArrayList<OptionVO> selectCount(int headCount) {
+		ArrayList<OptionVO> optionList = null;
+		try {
+			conn = DB.dbConnect();
+			this.pstmt = conn.prepareStatement(selectFilterCount);
+			this.pstmt.setInt(1, headCount);
+			this.rs = this.pstmt.executeQuery();
+			optionList = new ArrayList<OptionVO>();
+			
+			while (this.rs.next()) {
+				OptionVO optionVO = new OptionVO();
+				optionVO.setRoomNo(this.rs.getInt("roomNo"));
+				optionVO.setRoomName(this.rs.getString("roomName"));
 				optionVO.setHeadCount(this.rs.getInt("headCount"));
 				optionVO.setRoomCost(this.rs.getInt("roomCost"));
 				optionVO.setCheckIn(this.rs.getDate("checkIn"));
@@ -115,7 +149,7 @@ public class RoomDAO implements RoomQuerys {
 	}
 	
 	/**
- 	룸 상세 조회
+ 	roomNo를 조건으로 조회
  	@param int
  	@return
 	**/
@@ -225,7 +259,7 @@ public class RoomDAO implements RoomQuerys {
 		return roomNo;
 	}
 	/**
-	룸 Type 검색
+	roomType을 조건으로 일치하는 모든 룸 조회
 	@param roomType
 	@return
 	**/

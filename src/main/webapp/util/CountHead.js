@@ -42,7 +42,7 @@ function updateCountFilter(val) {
     // 현재 값 가져오기
     var currentValue = parseInt(inputHeadCount.value);
 
-	if(currentValue + val >= 1 && currentValue < 10)
+	if(currentValue + val >= 1 && currentValue + val <= 10)
 		inputHeadCount.value = currentValue + val;
 		
 }
