@@ -12,4 +12,5 @@ public interface RoomQuerys {
 	String insertData = "insert into room (roomName, roomType, roomDetail, headCount, roomCost) "
 			+ "values (?, ?, ?, ?, ?)";
 	String update = "update room set roomName = ?, roomType = ?, roomDetail=?, headCount = ?, roomCost = ? where roomNo = ?";
+	String selectType = "select * from room where roomType = ? ";
 }

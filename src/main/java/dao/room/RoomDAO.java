@@ -224,5 +224,33 @@ public class RoomDAO implements RoomQuerys {
 		}
 		return roomNo;
 	}
+	/**
+	룸 Type 검색
+	@param roomType
+	@return
+	**/
+	public ArrayList<RoomVO> selectType(String roomType){
+		ArrayList<RoomVO> roomList = new ArrayList<RoomVO>();
+		try {
+			this.conn = DB.dbConnect();
+			this.pstmt = this.conn.prepareStatement(selectType);
+			this.pstmt.setString(1, roomType);
+			this.rs = this.pstmt.executeQuery();
+			while(this.rs.next()){
+				RoomVO roomVO = new RoomVO();
+				roomVO.setRoomNo(this.rs.getInt("roomNo"));
+				roomVO.setRoomName(this.rs.getString("roomName"));
+				roomVO.setRoomType(this.rs.getString("roomType"));
+				roomVO.setRoomDetail(this.rs.getString("roomDetail"));
+				roomVO.setHeadCount(this.rs.getInt("headCount"));
+				roomVO.setRoomCost(this.rs.getInt("roomCost"));
+				
+				roomList.add(roomVO);
+			}
+		} catch (SQLException e) {
+			System.err.println("select Type main ERR : " + e.getMessage());
+		}
+		return roomList;
+	}
 	
 }

@@ -35,7 +35,7 @@ public class RoomList extends HttpServlet {
 		String type = request.getParameter("type");
 		List<RoomVO> roomList = roomDAO.selectAll();
 		List<RoomImgVO> imgList = imgDAO.selectAll();
-	
+		String roomType = null;
 		
 		request.setAttribute("imgList", imgList);
 	
@@ -57,7 +57,7 @@ public class RoomList extends HttpServlet {
 			case "main":
 				String checkInDate = request.getParameter("checkIn");
 				String checkOutDate = request.getParameter("checkOut");
-				String roomType = request.getParameter("roomType");
+				roomType = request.getParameter("roomType");
 				int headCount = Integer.parseInt(request.getParameter("headCount"));
 				
 				System.out.println("checkin : " + checkInDate);
@@ -72,11 +72,20 @@ public class RoomList extends HttpServlet {
 				request.setAttribute("roomVO", optionList);
 				dispatcher = request.getRequestDispatcher("/members/RoomList.jsp");
 				break;
-
+			case "mainImg":
+				roomType = request.getParameter("roomType");
+				System.out.println("roomType : " + roomType);
+				
+				ArrayList<RoomVO> roomTypeList = roomDAO.selectType(roomType);
+				request.setAttribute("roomVO", roomTypeList);
+				request.setAttribute("roomType", roomType);
+				dispatcher = request.getRequestDispatcher("/members/RoomList.jsp");
+				break;
+				
 			default:
 				break;
 			}
-			if(!type.equals("main"))
+			if(!type.equals("main") && (!type.equals("mainImg")))
 				request.setAttribute("roomVO", roomList);
 			
 			dispatcher.forward(request, response);
