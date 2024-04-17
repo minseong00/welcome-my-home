@@ -104,22 +104,10 @@ function MyInfoDelete(id){
 </script>
 
 <style>
-     .cls1 {
+  body {
        
-       text-align:center;
-       margin-bottom: 60px; 
-       margin-top: 50px;
-      
-     }
-    
-     .cls2 {
-       font-size:20px;
-       text-align:center;
-     }
-       body {
-    
   background: #f5f5f5; /* 배경색 설정 */
-   font-weight: bold; /* 헤더 폰트를 굵게 */
+   font-weight: bold; 
 }
 table {
   border: 1px #a39485 solid; /* 테이블의 외곽선 스타일 */
@@ -131,14 +119,18 @@ table {
   overflow: hidden; /* 내용이 넘칠 경우 숨김 처리 */
   
 }
+.container {
+        width: 100%;
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 20px 15px;
+        box-sizing: border-box;
+    }
 td, th {
   border: 1px solid #a39485; /* 각 셀의 테두리 스타일 */
-  padding: 8px; /* 각 셀의 안쪽 여백 */
+  padding: 7px; /* 각 셀의 안쪽 여백 */
 }
-.ftco-footer ftco-bg-dark ftco-section{
-   height: 50px; /* 원하는 높이로 조절 */
-    width: 50%; /* 전체 너비로 조절 */
-}
+
 .btn_css {
 -webkit-border-radius: 13px;
 -moz-border-radius: 13px;
@@ -156,10 +148,15 @@ display: inline-block;
 cursor: pointer;
 text-align: center;
 }
-
-.btn_css:hover {
-background-color: #73685d;
+.rightside{
+			display: flex;
+			flex-direction: column;
+			flex-grow: 1;
 }
+.btn_css:hover {
+   background-color: #73685d;
+}
+
 
 .sidebar-custom {
     position: relative;
@@ -177,53 +174,57 @@ background-color: #73685d;
 <body>
 <div class="container">
 <jsp:include page="/include/Header.jsp" flush="false"/>
-	<div class="row justify-content-center">
+<div class="row justify-content-center" style="margin-bottom: 90px;" >
 		<div class="col-md-4"> 
 			<jsp:include page="/include/MemSidebar.jsp" flush="false"/>
 		</div>
-
 		<div class="rightside">
-			<h1 class="cls1">마이페이지</h1>
-				<form id="MyInfoModify">
-				 <table align="center" >
+	
+		<form id="MyInfoModify">
+			<h3 style=" margin-bottom: 60px; font-weight: bold; margin-left:180px;">마이페이지</h3>
+				
+			<table summary="나의 정보" border="1" >
+			
+			<tbody>
 				    <tr>
-				     <td ><p align="right" >고객명</td>
-				     <td ><input type="text" name="name" value="<c:out value="${MemOne.memName}"/>" onkeyup="chkword(this, 20)" required></td>
+				     <td style="background-color:#73685d; color: #fff; width:200px; height: 70px; "  >고객명</td>
+				     <td class="td-special" ><input type="text" name="name" value="<c:out value="${MemOne.memName}"/>" onkeyup="chkword(this, 20)" required></td>
 				   </tr>
 				   <tr>
-				     <td><p align="right" >아이디</td>
+				     <td style="background-color:#73685d; color: #fff; width:200px; height: 70px; " >아이디</td>
 				     <td ><input type="text" name="id" value="<c:out value="${MemOne.memId}"/>" onkeyup="chkword(this, 20)" readonly></td>
 				   </tr>
 				 <tr>
-				     <td ><p align="right" >비밀번호</td>
+				     <td style="background-color:#73685d; color: #fff; width:200px; height: 70px; " >비밀번호</td>
 				    <td>
 				    	<input type="password" name="pwview" value="********" onkeyup="chkword(this, 20)" required onchange="updateValue(this, pw)">
 				    	<input type="hidden" name="pw" value="${MemOne.memPw }">
 				    </td>
 				   </tr>
 				   <tr>
-				     <td><p align="right" >이메일</td>
+				     <td style="background-color:#73685d; color: #fff; width:200px; height: 70px; " >이메일</td>
 				     <td ><input type="email" name="email"  value="<c:out value="${MemOne.memEmail}"/>" onkeyup="chkword(this, 20)" required></td>
 				   </tr>
 				   <tr>
-				     <td ><p align="right" >전화번호</td>
+				     <td style="background-color:#73685d; color: #fff; width:200px; height: 70px; "  >전화번호</td>
 				     <td><input type="text" name="call" value="<c:out value="${MemOne.memCall}"/>" onkeyup="chkword(this, 20)" required></td>
 				   </tr>
-				   <tr  >
+				   <tr >
 				   		<td style="text-align: right;" colspan="2" align=center>
-				             <input class="btn_css" type="reset" value="다시입력" >
-                   <button class="btn_css"  type="submit"  >수정하기</button>
-                   <button  class="btn_css" type="button" onclick="deleteId();">탈퇴하기</button> 
+                   <button class="btn_css"  type="submit"  >수정</button>
+                   <button  class="btn_css" type="button" onclick="deleteId();">탈퇴</button> 
 
 				      
 				      </td>
 				   </tr>
+				   </tbody>
 				 </table>
 				</form>
+				</div>
 		</div>
-		
-	</div>
-</div>
-<jsp:include page="/include/Footer.jsp" flush="false"/>
+		</div>
+	
+
 </body>
+<jsp:include page="/include/Footer.jsp" flush="false"  />
 </html>

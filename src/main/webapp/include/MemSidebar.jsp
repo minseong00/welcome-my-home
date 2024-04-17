@@ -15,12 +15,12 @@
 	font-weight: bold;
 	padding: 0;
 	width: 235px;
-	height: 40vh;
-	z-index: 11;
-	box-shadow: 0 5px 10px 0 rgba(230, 230, 243, 0, 0.88);
-	border-radius: 6px;
-	border: 5px solid;
-	border-color: goldenrod;
+	height: 20vh;
+	box-shadow: 0 2px 5px rgba(0,0,0,.25); /* 테이블에 그림자 효과 */
+	border-radius: 10px;
+	
+	
+	 border-collapse: collapse; /* 테이블의 보더 라인을 하나로 합침 */
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -37,7 +37,7 @@
 	.sidebar .nav {
 		flex-wrap: nowrap;
 	flex-direction: column;
-	margin-bottom: 60px;
+	margin-bottom: 5px;
 	}
 	.sidebar .nav li a {
 		display: flex;
@@ -61,7 +61,11 @@
 	.sidebar .nav li a span {
 		text-shadow: none;
 	}
-	
+	 hr {
+        border: none;
+        border-top: 1px solid #ccc;
+        margin-top: 10px ;
+    }
 </style>
 </head>
 <body>
@@ -72,6 +76,7 @@
 				<span>내 정보</span>
 			</a>
 		</li>
+		<hr>
 		<li>
 			<a href="${contextPath}/RevList?type=myInfo">
 				<span>내 예약 내역</span>
