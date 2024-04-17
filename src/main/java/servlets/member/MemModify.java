@@ -2,7 +2,6 @@ package servlets.member;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.Enumeration;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -37,7 +36,6 @@ public class MemModify extends HttpServlet {
 		if(session.getAttribute("id").equals("admin")) {
 			id = request.getParameter("id");			//관리자
 		} else {id=(String)session.getAttribute("id");	// 회원
-		
 	}
 		
 		memDAO = new MemDAO();
@@ -45,7 +43,6 @@ public class MemModify extends HttpServlet {
 		memOne = memDAO.selectOne(id);
 
 		request.setAttribute("MemOne", memOne);
-		// System.out.println("========> MemModifyServlet doGet()");
 
 		RequestDispatcher dispatcher = null;
 		if (idType.equals("member")) {	//마이페이지 정보수정
@@ -83,10 +80,5 @@ public class MemModify extends HttpServlet {
 			out.print("success");
 		else
 			out.print("fail");
-		
-		
-		System.out.println("========> MemModify doPost()");
-
 	}
-
 }

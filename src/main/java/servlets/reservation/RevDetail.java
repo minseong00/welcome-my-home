@@ -14,15 +14,10 @@ import dao.room.RoomDAO;
 import model.RevVO;
 import model.RoomVO;
 
-/**
- * Servlet implementation class RevDetail
- */
 @WebServlet("/RevDetail")
 public class RevDetail extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-	
-	
     public RevDetail() {
         super();
         

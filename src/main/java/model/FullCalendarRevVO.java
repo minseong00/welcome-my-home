@@ -1,7 +1,5 @@
 package model;
 
-import java.sql.Date;
-
 public class FullCalendarRevVO {
 	private int revNo = 0;
 	private int roomNo = 0;

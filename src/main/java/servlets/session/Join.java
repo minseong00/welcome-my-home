@@ -36,19 +36,14 @@ public class Join extends HttpServlet {
 		boolean overlappedID = adminDAO.overlappedID(id);
 
 		if (overlappedID) {	// 관리자 아이디 체크
-			System.out.println("관리자 아이디 중복");
 			writer.print("not_usable");
 		} else {
 			overlappedID = memberDAO.overlappedID(id);
-			if(overlappedID) {
-				// 회원 아이디 체크
-				System.out.println("멤버 아이디 중복");
+			if(overlappedID) {	// 회원 아이디 체크
 				writer.print("not_usable");
 			} else {
-				System.out.println("사용가능 아이디");
 				writer.print("usable");
 			}
-
 		}
 	}
 
@@ -78,10 +73,5 @@ public class Join extends HttpServlet {
 			out.print("success");
 		else
 			out.print("fail");
-		
-		System.out.println("========> Join.jsp doPost()");
-		
 	}
 }
-
-

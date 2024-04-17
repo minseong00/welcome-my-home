@@ -16,9 +16,6 @@ import model.OptionVO;
 import model.RoomImgVO;
 import util.FilterRoom;
 
-/**
- * Servlet implementation class RoomFilterList
- */
 @WebServlet("/RoomFilterList")
 public class RoomFilterList extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -29,12 +26,8 @@ public class RoomFilterList extends HttpServlet {
 	
     public RoomFilterList() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		roomDAO = new RoomDAO();
 		imgDAO = new RoomImgDAO();
@@ -77,9 +70,6 @@ public class RoomFilterList extends HttpServlet {
 		}
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		roomDAO = new RoomDAO();
 		imgDAO = new RoomImgDAO();
@@ -108,5 +98,4 @@ public class RoomFilterList extends HttpServlet {
         
         request.getRequestDispatcher("/members/RoomList.jsp").forward(request, response);
 	}
-
 }

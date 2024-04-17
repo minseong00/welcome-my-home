@@ -12,23 +12,15 @@ import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 
-/**
- * Servlet Filter implementation class EncoderFilters
- */
 @WebFilter(description = "한글 인코딩 필터", urlPatterns = { "/*" })
 public class EncoderFilter implements Filter {
-    /**
-     * Default constructor. 
-     */
+    
     public EncoderFilter() {
-        // TODO Auto-generated constructor stub
+    
     }
 
-	/**
-	 * @see Filter#destroy()
-	 */
 	public void destroy() {
-		// TODO Auto-generated method stub
+	
 	}
 
 	/**

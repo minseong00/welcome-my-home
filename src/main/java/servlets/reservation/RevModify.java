@@ -13,30 +13,18 @@ import javax.servlet.http.HttpServletResponse;
 import dao.reservation.RevDAO;
 import model.RevVO;
 
-/**
- * Servlet implementation class RevModify
- */
 @WebServlet("/RevModify")
 public class RevModify extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-	
 	
     public RevModify() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see doHandle(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doHandle(request, response);
 	}
 
-	/**
-	 * @see doHandle(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doHandle(request, response);
 	}
