@@ -33,6 +33,7 @@
 	    margin-right: auto;
 	    margin-left: auto;
 	    max-width: 1100px;
+	    margin-bottom: 100px;
 	}
 	
 	#leftDiv {
@@ -47,8 +48,11 @@
 	    display: flex;
 	    flex-direction: column; /* 내부 요소를 세로로 정렬합니다. */
 	    flex: 1; /* rightDiv가 부모 컨테이너 내에서 적절한 공간을 차지할 수 있도록 설정합니다. */
-	    padding: 20px;
-	    box-sizing: border-box; /* 패딩을 요소의 크기에 포함시킵니다. */
+	    background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        margin: 0 10px;
+        padding: 20px;
 	}
 	.room_ {
 		width: 200px;
@@ -115,9 +119,7 @@
 	.rightTable {
 	    width: 100%; /* 테이블의 너비를 전체로 설정 */
 	    border-collapse: collapse; /* 셀 사이 공간 없애기 */
-	    background-color: #FFDAB9 ; /* 연한 살색 배경색 */
-	    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 그림자 효과 추가 */
-	    border-radius: 10px; /* 모서리 둥글게 */
+	 
 	    overflow: hidden; /* 둥근 모서리에 컨텐츠가 넘치는 것을 숨김 */
 	    margin: 20px 0; /* 상하 여백 설정 */
 	}
@@ -157,7 +159,7 @@ background-color: #73685d;
 	/* 버튼 스타일 */
 	button {
 	    padding: 10px 15px;
-	    background-color: brown; /* 연한 복숭아색 */
+	    background-color:#decfa6; /* 연한 복숭아색 */
 	    color: #fff;
 	    border: none;
 	    border-radius: 5px;
