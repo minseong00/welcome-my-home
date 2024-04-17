@@ -2,14 +2,8 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:set var="contextPath" value="${pageContext.request.contextPath }"></c:set>
-<!DOCTYPE html>
-<html>
-<head>
-<title>Header 고정</title>
-    <meta charset="utf-8">
- 
-</head>
-<body>
+
+
 	<nav class="navbar" id="ftco-navbar">
     <div class="container-fluid" align="right">
         <a class="navbar-brand" href="${contextPath}/members/MainForm.jsp" style="color: #8d703b;">MyHome</a>
@@ -40,5 +34,3 @@
         </div>
     </div>
 </nav>
-</body>
-</html>
