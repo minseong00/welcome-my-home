@@ -2,7 +2,6 @@ package servlets.room;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -16,6 +15,7 @@ import dao.roomImg.RoomImgDAO;
 import model.OptionVO;
 import model.RoomImgVO;
 import model.RoomVO;
+import util.FilterRoom;
 
 /**
  * Servlet implementation class RoomListController
@@ -33,11 +33,10 @@ public class RoomList extends HttpServlet {
 	    RoomDAO roomDAO = new RoomDAO();
 		RoomImgDAO imgDAO = new RoomImgDAO();
 		String type = request.getParameter("type");
-		List<RoomVO> roomList = roomDAO.selectAll();
-		List<RoomImgVO> imgList = imgDAO.selectAll();
-		
-		request.setAttribute("imgList", imgList);
-	
+		ArrayList<RoomVO> roomList = roomDAO.selectAll();
+		ArrayList<RoomImgVO> imgList = imgDAO.selectAll();
+		ArrayList<OptionVO> optionList = FilterRoom.insertRoomList(imgList, roomList);
+		request.setAttribute("roomVO", optionList);
 		
 		RequestDispatcher dispatcher = null;
 		
@@ -52,11 +51,10 @@ public class RoomList extends HttpServlet {
 			case "admin":
 				dispatcher = request.getRequestDispatcher("/admins/AdminRoomList.jsp");
 				break;
-				
 			default:
-				break;
+				response.sendRedirect(request.getContextPath() + "/LoginCheck");
+				return;
 			}
-			request.setAttribute("roomVO", roomList);
 			dispatcher.forward(request, response);
 		}
 	}
