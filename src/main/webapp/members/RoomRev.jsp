@@ -48,27 +48,27 @@
         margin: 0 10px;
         padding: 20px;
         align-items: flex-start; 
+        width: 30%;
     }
 	#leftDiv {
 		display: flex;
 		flex-direction: column; /* 내부 요소를 세로로 정렬합니다. */
-		flex: 0 0 calc(60% - 10px); /* 부모 컨테이너 너비의 60%에서 10px를 뺀 값으로 설정합니다. */
+		flex: 0 0 calc(70% - 10px); /* 부모 컨테이너 너비의 60%에서 10px를 뺀 값으로 설정합니다. */
 		padding: 10px;
 		margin-right: 10px;
-		
+		width: 70%;
 	}
 	
 	.leftTable {
+		width: 100%;
 		margin-top: 0 auto;
 		float: left;
 	
 	}
 	.leftTable td {
-	    padding-right: 250px; /* 셀 내용을 왼쪽으로 살짝 옮김 */
-	    font-weight: bold; /* 글씨를 진하게 */
-	    font-size: 1.2em; /* 글씨 크기를 상대적으로 20% 증가 */
-	    color: #333; /* 글씨 색상을 진한 회색으로 */
-	    float: left;
+ 	    font-weight: bold; /* 글씨를 진하게 */ 
+ 	    font-size: 15pt; /* 글씨 크기를 상대적으로 20% 증가 */ 
+ 	    color: #333; /* 글씨 색상을 진한 회색으로 */ 
 	}
 	.leftimg{
 		float: left;
@@ -78,14 +78,14 @@
     	margin-right: right;
 	}
 	
-	.rightTable {
-	font-weight: bold;
-		width: 200px;
-		border-collapse: separate;
-		border-spacing: 10px;
-		padding: 10px;
-		float: left;
-	}
+/* 	.rightTable { */
+/* 	font-weight: bold; */
+/* 		width: 200px; */
+/* 		border-collapse: separate; */
+/* 		border-spacing: 10px; */
+/* 		padding: 10px; */
+/* 		float: left; */
+/* 	} */
 	
 	#price-range-slider {
 		width: 140px;
@@ -125,13 +125,18 @@
 		font-size: 15pt;
 	}
 	
-	img {
-		width: 300px;
-		height: auto; /* 이미지의 가로 세로 비율을 유지하면서 가로 너비를 300px로 지정 */
+/* 	img { */
+/* 		width: 300px; */
+/* 		height: auto; /* 이미지의 가로 세로 비율을 유지하면서 가로 너비를 300px로 지정 */ */
+/* 	} */
+	.sliderouter{
+		margin: 20px auto;
+		width: 700px;
+		height: 500px;
 	}
 	
 	.slider {
-		width: 800px; /* 슬라이드의 너비 */
+		width: 700px; /* 슬라이드의 너비 */
 		overflow: hidden; /* 넘치는 이미지 숨김 */
 		position: relative; /* 상대 위치 지정 */
 	}
@@ -140,15 +145,13 @@
 		list-style-type: none; /* 리스트 스타일 제거 */
 		margin: 0; /* 마진 제거 */
 		padding: 0; /* 패딩 제거 */
-		width: 3000px; /* 모든 이미지 너비의 합 */
-		
-		justify-content:center;
 		display: flex;
 	}
 	
 	.slider ul li {
-		float: left; /* 왼쪽으로 정렬 */
-		width: 600px; /* 이미지 너비 */
+		
+/* 		float: left; /* 왼쪽으로 정렬 */ */
+		width: 100%; /* 이미지 너비 */
 	}
 	/* 이전/다음 버튼 스타일 */
 	.prev, .next {
@@ -156,6 +159,7 @@
 		position: absolute; /* 절대 위치 지정 */
 		top: 50%; /* 상단 여백 */
 		transform: translateY(-50%); /* 수직 정렬 */
+		transition: width 0.5s ease;
 		background-color: rgba(0, 0, 0, 0.5); /* 배경색 */
 		color: white; /* 글자색 */
 		padding: 10px; /* 안쪽 여백 */
@@ -171,14 +175,14 @@
 	}
 	.visual_img {
 		 display: flex;
-		  width: 4000px; /* 모든 이미지 너비의 합, 동적으로 계산 필요 */
+/* 		  width: 4000px; /* 모든 이미지 너비의 합, 동적으로 계산 필요 */ */
 	        margin: 0;
 	        padding: 0;
 	}
 	
 	.image-container {
-		width: 600px; /* 이미지 컨테이너의 너비를 설정합니다. */
-		height: 200px; /* 이미지 컨테이너의 높이를 설정합니다. */
+/* 		width: 600px; /* 이미지 컨테이너의 너비를 설정합니다. */ */
+/* 		height: 400px; /* 이미지 컨테이너의 높이를 설정합니다. */ */
 		overflow: hidden; /* 이미지가 넘치는 경우를 처리합니다. */
 	}
 	
@@ -287,7 +291,7 @@ background-color: #73685d;
 
         $(".next").click(function() {
             $(".visual_img").animate({
-                marginLeft : "-=600px"
+                marginLeft : "-700px"
             },
             function() {
                 $(".visual_img li:first").appendTo(".visual_img");
@@ -299,7 +303,7 @@ background-color: #73685d;
 
         $(".prev").click(function() {
             $(".visual_img").animate({
-                marginLeft : "+=600px"
+                marginLeft : "+1400px"
             },
             function() {
                 $(".visual_img li:last").prependTo(".visual_img");
@@ -339,7 +343,12 @@ background-color: #73685d;
 	    });  // ajax() END	 
 	    
 	 }	// fn_process() END
-
+	 window.onload = function() {
+		    var slider = document.querySelector('.visual_img');
+		    var liCount = slider.querySelectorAll('li').length; // li 요소의 개수를 가져옵니다.
+		    var sliderWidth = 700 * liCount; // 슬라이더의 너비를 계산합니다.
+		    slider.style.width = sliderWidth + 'px'; // 슬라이더의 너비를 설정합니다.
+	};
     
 </script>
 
@@ -356,44 +365,49 @@ background-color: #73685d;
 
 				<div id="leftDiv">
 					<!-- 왼쪽 컨테이너 -->
-					<table class="leftTable">
-						<div class="slider">
-							<div class="prev">&lt;</div>
-							<ul class="visual_img">
-								<!-- 이미지 리스트 -->
-							
-								<li class="image-container"><img
-									src="${contextPath }/data/${imgVO.img1}" alt="Image 1"></li>
-								<li class="image-container"><img
-									src="${contextPath }/data/${imgVO.img2}" alt="Image 2"></li>
-								<li class="image-container"><img
-									src="${contextPath }/data/${imgVO.img3}" alt="Image 3"></li>
-								<li class="image-container"><img
-									src="${contextPath }/data/${imgVO.img4}" alt="Image 4"></li>
-								<li class="image-container"><img
-									src="${contextPath }/data/${imgVO.img5}" alt="Image 5"></li>
-								
-							</ul>
-							<div class="next">&gt;</div>
+					
+						<div class="sliderouter">
+							<div class="slider">
+								<div class="prev">&lt;</div>
+								<ul class="visual_img">
+									<!-- 이미지 리스트 -->
+								 <c:if test="${not empty imgVO}">
+							            <c:if test="${not empty imgVO.img1}">
+							                <li class="image-container"><img src="${contextPath}/data/${imgVO.img1}" alt="Image 1" /></li>
+							            </c:if>
+							            <c:if test="${not empty imgVO.img2}">
+							                <li class="image-container"><img src="${contextPath}/data/${imgVO.img2}" alt="Image 2" /></li>
+							            </c:if>
+							            <c:if test="${not empty imgVO.img3}">
+							                <li class="image-container"><img src="${contextPath}/data/${imgVO.img3}" alt="Image 3" /></li>
+							            </c:if>
+							            <c:if test="${not empty imgVO.img4}">
+							                <li class="image-container"><img src="${contextPath}/data/${imgVO.img4}" alt="Image 4" /></li>
+							            </c:if>
+							            <c:if test="${not empty imgVO.img5}">
+							                <li class="image-container"><img src="${contextPath}/data/${imgVO.img5}" alt="Image 5" /></li>
+							            </c:if>
+							    </c:if>
+								</ul>
+								<div class="next">&gt;</div>
+							</div>
 						</div>
 						<!-- 이전/다음 버튼 -->
+						<table class="leftTable" style="text-align: center;">
+						<colgroup>
+							<col width="30%" >
+							<col width="70%" >
+						</colgroup>
 						<tr>
-							<td>이름 : ${roomVO.roomName }<hr></td>
+							<td>
+							<span style="font-size: 18pt">${roomVO.roomName }</span><hr>
+							<span style="font-size: 10pt; ">KRW  </span>
+							<span >${roomVO.roomCost }~</span><hr>
+							</td>
+							<td rowspan=""> <img src="${contextPath}/data/${imgVO.infoImg}" alt="image" style="width:100%;">
 						</tr>
 						
 						
-						<tr>
-							<td>가격 : ${roomVO.roomCost }<hr></td>
-						</tr>
-						
-						<tr>
-							<td>룸 정보 : ${roomVO.roomDetail }<hr></td>						
-						</tr>
-						<table class=leftimg>
-						<tr>
-							<td> <img src="${contextPath}/data/${imgVO.infoImg}" alt="image" style="width:100%; max-width:300px;"></td>
-						</tr>
-						</table>
 					</table>
 				</div>
 
