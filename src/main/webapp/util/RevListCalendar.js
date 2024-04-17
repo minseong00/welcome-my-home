@@ -3,26 +3,27 @@
  */
 
 $(function() {
-	var events = [];
+		var events = [];
 	
 		if(revList != null) {
 			console.log("예약 데이터 받기 완료");
 			for(var rev of revList) {
-        var newEvent = {
-          title: rev.roomName,
-          start: rev.checkIn,
-          end: rev.checkOut,
-          backgroundColor: rev.backgroundColor
-        }
-        events.push(newEvent);
+	        	var newEvent = {
+		    	title: rev.roomName,
+		    	start: rev.checkIn,
+				end: rev.checkOut,
+				backgroundColor: rev.backgroundColor,
+				subTitle: rev.roomType // fullCalendar 엔 없는 확장된 속성
+		        }
+		        events.push(newEvent);
 			}
+			initializeCalendar(events);
 		}else {
 			console.log("예약 데이터 없음");
 		}
-		initializeCalendar();
 	
 	
-	function initializeCalendar() {
+	function initializeCalendar(events) {
 	    var calendarEl = document.getElementById('calendar');
 	    var calendar = new FullCalendar.Calendar(calendarEl, {
 	    	locale: 'ko',
@@ -36,10 +37,16 @@ $(function() {
 	      	nowIndicator: true,
 	      	dayMaxEvents: true,
 	      	editable: false,
-	      	events: events
+	      	events: events,
+			eventContent: function(info) {
+				var content = '<b>' + info.event.title + '</b>';
+				if (info.event.extendedProps.subTitle) {
+			    	content += '<br>' + info.event.extendedProps.subTitle; // 서브 타이틀 추가 정보
+			    }
+				return { html: content }; 
+			}
 	    });
 	    calendar.render();
 	}
-
 });
 

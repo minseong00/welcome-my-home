@@ -61,7 +61,7 @@ public class RevDAO implements RevQuerys {
 		ArrayList<RevVO> revList = null;
 		try {
 			conn = DB.dbConnect();
-			this.pstmt = conn.prepareStatement(selectMyRev);
+			this.pstmt = conn.prepareStatement(selectTableOne);
 			this.pstmt.setString(1, _id);
 			this.rs = this.pstmt.executeQuery();
 			revList = new ArrayList<RevVO>();
@@ -73,9 +73,9 @@ public class RevDAO implements RevQuerys {
 				revVO.setRoomNo(this.rs.getInt("roomNo"));
 				revVO.setCheckIn(this.rs.getDate("checkIn"));
 				revVO.setCheckOut(this.rs.getDate("checkOut"));
+				revVO.setRoomName(this.rs.getString("roomName"));
 				revVO.setHeadCount(this.rs.getInt("headCount"));
 				revVO.setPrice(this.rs.getInt("price"));
-				revVO.setMemId(this.rs.getString("memId"));
 				
 				revList.add(revVO);
 			}
@@ -154,7 +154,7 @@ public class RevDAO implements RevQuerys {
 	
 	/**
 		예약 테이블 조회 
-		@return
+		@return ArrayList
 	 **/
 	public ArrayList<RevVO> selectTableList() {
 		ArrayList<RevVO> revList = new ArrayList<RevVO>();
@@ -175,6 +175,7 @@ public class RevDAO implements RevQuerys {
 				revVO.setPrice(this.rs.getInt("price"));
 				revVO.setMemId(this.rs.getString("memId"));
 				revVO.setRoomName(this.rs.getString("roomName"));
+				revVO.setRoomType(this.rs.getString("roomType"));
 				revList.add(revVO);
 			}
 		} catch (SQLException e) {

@@ -332,7 +332,7 @@ background-color: #73685d;
 						
 						</tr>
 						<tr>
-							<td> <img src="${contextPath}/style//data/${imgVO.infoImg}" alt="image" style="width:100%; max-width:300px;"></td>
+							<td> <img src="${contextPath}/data/${imgVO.infoImg}" alt="image" style="width:100%; max-width:300px;"></td>
 						</tr>
 					</table>
 				</div>

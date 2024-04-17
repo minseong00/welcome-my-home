@@ -27,7 +27,7 @@
          
           <div class="col">
              <div class="ftco-footer-widget mb-4">
-              <h2 class="ftco-heading-2">&nbsp;접속</h2>
+              <h2 class="ftco-heading-2">&nbsp;정책</h2>
               <ul class="list-unstyled">
                 <li><a href="" onclick="window.open('${contextPath}/clauses/Utilization.jsp', '이용약관', 'width=600, height= 400'); return false;"  class="py-2 d-block">이용약관</a></li>
                 <li><a href="" onclick="window.open('${contextPath}/clauses/InfoProtection.jsp', '개인정보 보호정책', 'width=600, height= 400'); return false;" class="py-2 d-block">개인정보 보호 정책</a></li>

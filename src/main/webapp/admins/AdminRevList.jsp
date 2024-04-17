@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <c:set var="contextPath" value="${pageContext.request.contextPath }"></c:set>
 <!DOCTYPE html>
 <html>
@@ -156,9 +157,10 @@ thead {
 					</c:when>
 					<c:otherwise>
 						<c:forEach var="rev" items="${revList }">
+						<fmt:formatDate value="${rev.revDate}" pattern="yyyy-MM-dd HH:mm:ss" var="formattedDate" />
 							<tr>
 								<td>${rev.revNo }</td>
-								<td>${rev.revDate }</td>
+								<td>${formattedDate }</td>
 								<td>${rev.memId }</td>
 								<td>${rev.roomName }</td>
 								<td>${rev.checkIn }</td>

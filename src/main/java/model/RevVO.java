@@ -10,6 +10,7 @@ public class RevVO {
 	private Date checkIn = null;
 	private Date checkOut = null;
 	private String roomName = null;
+	private String roomType = null;
 	private int headCount = 0;
 	private int price = 0;
 	private String memId = null;
@@ -73,12 +74,20 @@ public class RevVO {
 		this.roomName = roomName;
 	}
 	
+	public String getRoomType() {
+		return roomType;
+	}
+	public void setRoomType(String roomType) {
+		this.roomType = roomType;
+	}
 	@Override
 	public String toString() {
 		return "RevVO [revNo=" + revNo + ", revDate=" + revDate + ", roomNo=" + roomNo + ", checkIn=" + checkIn
-				+ ", checkOut=" + checkOut + ", headCount=" + headCount + ", price=" + price + ", memId="
-				+ memId + "]";
+				+ ", checkOut=" + checkOut + ", roomName=" + roomName + ", roomType=" + roomType + ", headCount="
+				+ headCount + ", price=" + price + ", memId=" + memId + "]";
 	}
+	
+	
 
 	
 

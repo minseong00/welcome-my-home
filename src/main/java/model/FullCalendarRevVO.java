@@ -8,6 +8,7 @@ public class FullCalendarRevVO {
 	private String checkIn = null;
 	private String checkOut = null;
 	private String roomName = null;
+	private String roomType = null;
 	private String backgroundColor = null;
 	
 	public FullCalendarRevVO() {
@@ -52,6 +53,14 @@ public class FullCalendarRevVO {
 
 	public void setRoomName(String roomName) {
 		this.roomName = roomName;
+	}
+
+	public String getRoomType() {
+		return roomType;
+	}
+
+	public void setRoomType(String roomType) {
+		this.roomType = roomType;
 	}
 
 	
