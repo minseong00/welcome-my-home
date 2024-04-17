@@ -12,7 +12,8 @@ function downValueRoomRev() {
 	
     if(currentHeadCount > 1){
 		inputHeadCount.value = currentHeadCount -1;
-		inputPrice.value = currentPrice - 15000;
+		if(!(headCount+1 > currentHeadCount) && !(price > currentPrice))
+			inputPrice.value = currentPrice - 15000;
 	}else{
 		alert("더 이상 인원을 감소 할 수 없습니다.");
 	} // 값 감소
@@ -28,7 +29,8 @@ function upValueRoomRev() {
 	
 	if(currentHeadCount < (headCount +2)){
 		inputHeadCount.value = currentHeadCount +1 ;
-		inputPrice.value = currentPrice + 15000;
+		if(!(headCount > currentHeadCount) && !(price > currentPrice))
+			inputPrice.value = currentPrice + 15000;
 			
 	}else{
 		alert("더 이상 인원을 추가가 불가능합니다.");

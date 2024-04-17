@@ -198,7 +198,7 @@ public class RoomDAO implements RoomQuerys {
 	@return
 	**/
 	public ArrayList<OptionVO> selectType(String roomType){
-		ArrayList<OptionVO> optionList = null;
+		ArrayList<OptionVO> optionList = new ArrayList<OptionVO>();
 		try {
 			this.conn = DB.dbConnect();
 			this.pstmt = this.conn.prepareStatement(selectFilterType);
