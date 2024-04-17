@@ -46,25 +46,31 @@ public class RevModify extends HttpServlet {
 	 * @see 관리자 예약 정보 수정 처리
 	 */
 	protected void doHandle(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		RevDAO revDAO = new RevDAO();
 		RevVO revVO = new RevVO();
 		
 		String checkIn = request.getParameter("checkIn");
 		String checkOut = request.getParameter("checkOut");
-		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd");
-		Date date_checkIn = null;
-		Date date_checkOut = null;
 		
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		java.util.Date date_CheckIn = null;
+		java.util.Date date_CheckOut = null;
+		java.sql.Date sqlDate_CheckIn = null;
+		java.sql.Date sqlDate_CheckOut = null;
 		try {
-			date_checkIn = (Date) dateFormat.parse(checkIn);
-			date_checkIn = (Date) dateFormat.parse(checkOut);
+			date_CheckIn =  dateFormat.parse(checkIn);
+			date_CheckOut =  dateFormat.parse(checkOut);
+			
+			sqlDate_CheckIn = new java.sql.Date(date_CheckIn.getTime());
+			sqlDate_CheckOut = new java.sql.Date(date_CheckOut.getTime());
 		} catch (java.text.ParseException e) {
 			System.out.println("Rev Modify Parse ERR : " + e.getMessage());
 		}
 		
 		revVO.setRevNo(Integer.parseInt(request.getParameter("revNo")));
-		revVO.setCheckIn(date_checkIn);
-		revVO.setCheckOut(date_checkOut);
+		revVO.setCheckIn(sqlDate_CheckIn);
+		revVO.setCheckOut(sqlDate_CheckOut);
 		revVO.setHeadCount(Integer.parseInt(request.getParameter("headCount")));
 		revVO.setPrice(Integer.parseInt(request.getParameter("price")));
 		

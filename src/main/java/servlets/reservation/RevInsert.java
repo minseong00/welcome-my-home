@@ -88,8 +88,6 @@ public class RevInsert extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		
 		String memId = (String)session.getAttribute("id");
-		String checkIn = request.getParameter("checkIn");
-		String checkOut = request.getParameter("checkOut");
 		
 		if(memId == null || memId.equals("")) {
 			out.print("null");
