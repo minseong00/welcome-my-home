@@ -9,6 +9,7 @@
 <meta charset="UTF-8">
 <title>나의예약</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <!-- css 적용 -->
 <link rel="stylesheet" href="${contextPath }/style/css/flaticon.css">
 <link rel="stylesheet" href="${contextPath }/style/css/style.css">
@@ -25,7 +26,7 @@
 						success:function(data){
 							if(data == "success") {
 								alert("삭제 되었습니다.");
-								window.location.replace("${contextPath}/RevDelete");
+								window.location.replace("${contextPath}/RevList?type=myInfo");
 							} else {
 								alert("삭제 중 오류 발생하였습니다. 다시 시도해주세요.");
 								window.history.back();
