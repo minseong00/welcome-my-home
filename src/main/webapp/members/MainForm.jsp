@@ -201,7 +201,29 @@ h1, h2, h3, h4, h5, span, a, p, button {
 	/*footer*/
 	
 </style>
-
+<script type="text/javascript">
+document.addEventListener("DOMContentLoaded", function() {
+	var modalBtn = document.getElementById("modalBtn"); // HTML에 modalBtn ID를 가진 요소 추가해야 함
+	var modal = document.getElementById("myModal"); // HTML에 myModal ID를 가진 요소 추가해야 함
+	var closeBtn = document.getElementsByClassName("close")[0]; // closeBtn을 클래스로 찾는 것으로 수정
+	
+	modalBtn.onclick = function(){
+		modal.style.display = "block";
+		video.src = "https://www.youtube.com/embed/f2yvUavQ_ZY?autoplay=1";
+	}
+	
+	closeBtn.onclick = function(){
+		modal.style.display = "none";
+		video.src = "";
+	}
+	window.onclick = function(event) {
+		if(event.target == modal){
+			modal.style.display = "none";
+			video.src = "";
+		}
+	}
+});
+</script>
 
 </head>
 <body>
@@ -323,6 +345,15 @@ h1, h2, h3, h4, h5, span, a, p, button {
 			
 			<button type="submit" class="searchbox_button" >객실 검색</button>
 		</form>
+	</div>
+	<!-- 모달창 -->
+	<div id="myModal" class="modal">
+		<div class="modal-content">
+			<span class="close">&times;</span>
+			
+			<iframe width="100%"  style="aspect-ratio: 16 / 9;" id="video" src="https://www.youtube.com/embed/f2yvUavQ_ZY?autoplay=1" frameborder="0" allowfullscreen ></iframe>
+			
+		</div>
 	</div>
 	<!-- 리조트 실행 --> 
 	<section class="main_1">

@@ -15,9 +15,9 @@
 
 <style type="text/css">
 	body{
-	 padding:1.5em;
-		line-height: normal;
-		display: flex;
+		padding:1.5em;
+		background: #f5f5f5; /* 배경색 설정 */
+   		font-weight: bold; /* 헤더 폰트를 굵게 */
 	}
 	.rightside{
 		display: flex;
@@ -47,6 +47,40 @@
 	    color: #ff5353;
 	    margin-left: 5px;
 	}
+	
+.sky-blue-button {
+   padding: 7px 15px;
+   font-size: 16px;
+   background-color: #87CEEB;
+   color: #fff; /* 버튼 텍스트 색상 */
+   transition: background-color 0.3s ease;
+   border: none;
+   border-radius: 50px;
+}
+
+.sky-blue-button:hover {
+   background-color: #00BFFF;
+}
+
+.rightside{
+			display: flex;
+			flex-direction: column;
+			flex-grow: 1;
+			
+		}
+	.include-gap {
+	/*     margin-left: 100px; /* 원하는 만큼의 간격을 설정합니다. */ */
+	}
+	.td-special {
+	    width: 300px; /* 특정 셀의 너비를 200px로 설정 */
+	    
+	}
+
+
+#headCount {
+	width: 50px;
+}
+	
 </style>
 <script src="http://code.jquery.com/jquery-2.2.1.min.js"></script>
 <script type="text/javascript" src="${contextPath }/util/fileUpload.js"></script>
@@ -94,8 +128,10 @@
         <jsp:include page="/include/AdminSidebar.jsp" flush="false"/>
         	</div>
         <div class="rightside">
+        <div class="include-gap">
+        <form id="roomAdd">
             <h3 style="font-weight: bold;  margin-bottom: 60px; margin-left:105px;">객실 등록</h3>
-            <form id="roomAdd">
+            
                 <div style="display: flex;">
                     <!-- 객실 정보 입력 -->
                     <div style="flex: 1;">
@@ -106,11 +142,16 @@
                         <div>
                             <label>객실 타입</label>
                             <select name="roomType" required="required">
-                                <option selected="selected">타입 선택</option>
-                                <option value="singleRoom">싱글 룸</option>
-                                <option value="twinRoom">트윈 룸</option>
-                                <option value="DoubleRoom">더블 룸</option>
-                                <option value="TripleRoom">트리플 룸</option>
+                            	<option selected="selected">타입 선택</option>
+                                <option value="Superior" >슈페리어 룸</option>
+								<option value="Deluxe" >디럭스 룸</option>
+								<option value="GrandDeluxe" >그랜드 디럭스 룸</option>
+								<option value="JuniorSuite" >주니어 스위트 룸</option>
+								<option value="CornerSuite" >코너스 스위트 룸</option>
+								<option value="SuperiorSuite" >슈페리어 스위트 룸</option>
+								<option value="RoyalSuite" >로열 스위트 룸</option>
+								<option value="PresidentialSuite" >프레지덴셜 스위트 룸</option>
+								<option value="Connecting">커넥팅 룸</option>
                             </select>
                         </div>
                         <div>
@@ -121,6 +162,12 @@
                                 <option value="2">2</option>
                                 <option value="3">3</option>
                                 <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
                             </select>
                         </div>
                         <div>
@@ -150,6 +197,6 @@
         </div>
     </div>
 </div>
-
+</div>
 </body>
 </html>

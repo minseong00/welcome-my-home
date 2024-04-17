@@ -29,8 +29,9 @@
 }
 
 body {
-   line-height: normal;
-   display: flex;
+  		padding:1.5em;
+		background: #f5f5f5; /* 배경색 설정 */
+   		font-weight: bold; /* 헤더 폰트를 굵게 */
 }
 
 
@@ -51,7 +52,7 @@ body {
    display: flex;
    flex-direction: column;
    flex-grow: 1;
-/*    margin-left: 0.5rem; */
+  margin-left: 0.5rem;
    width: calc(100vh - 235px);
 }
 
@@ -140,19 +141,14 @@ input[type="text"]:focus, textarea:focus, select:focus {
 <body style="background-color: #f5f5f5;">
 	<div class="container">
 		<jsp:include page="/include/Header.jsp" flush="false" />
-		<div class="row">
-
-
+		<div class="row justify-content-center">
 			<div class="col-md-4"> 
 			<jsp:include page="/include/AdminSidebar.jsp" flush="false"/>
 		</div>
 			<div class="rightside">
-				<div style="width: 75%;">
-
-					<h4
-						style="margin-left: 260px; font-size: px; font-weight: bold; font-family: arial, verdana,
-						HelveticaNeue, serif;">객실 수정</h4>
+			 <div class="include-gap">	
 					<form id="modify">
+					<h3 style="font-weight: bold;  margin-bottom: 60px; margin-left:105px;">객실 수정</h3>
 						<div style="margin-left: 10px;">
 							<div align="right">
 								<button type="submit" class="sky-blue-button">수정</button>
@@ -214,7 +210,8 @@ input[type="text"]:focus, textarea:focus, select:focus {
 								<label style="vertical-align: top;">객실 설명 &nbsp;&nbsp;</label>
 								<textarea rows="5" name="detailText" style="width: 38%">${roomVO.roomDetail }</textarea>
 							</div>
-						
+							</div>
+						</form>
 						</div>
 
                      <div>
@@ -257,8 +254,9 @@ input[type="text"]:focus, textarea:focus, select:focus {
                      </div>
                   
                   </div>
-                  </form>
+          
                   </div>
+                          
                   <form id="tableForm">
                   <table style="margin-top: 70px;  margin-left: 0;">
                   <tbody >
