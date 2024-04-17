@@ -18,7 +18,7 @@
 	body{
 		padding:1.5em;
 		background: #f5f5f5;
-  		font-weight: bold; /* 헤더 폰트를 굵게 */
+  		
 	}
 	.rightside{
 		display: flex;

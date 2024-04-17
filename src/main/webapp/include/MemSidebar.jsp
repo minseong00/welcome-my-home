@@ -18,8 +18,6 @@
 	height: 20vh;
 	box-shadow: 0 2px 5px rgba(0,0,0,.25); /* 테이블에 그림자 효과 */
 	border-radius: 10px;
-	
-	
 	 border-collapse: collapse; /* 테이블의 보더 라인을 하나로 합침 */
 	display: flex;
 	justify-content: center;
