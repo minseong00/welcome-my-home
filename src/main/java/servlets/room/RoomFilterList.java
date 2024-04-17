@@ -104,7 +104,7 @@ public class RoomFilterList extends HttpServlet {
 		ArrayList<OptionVO> optionList = null;
 		optionList = (roomType.equals("default")) ? roomDAO.selectCount(headCount) : roomDAO.selectCountType(headCount, roomType);
 		
-		ArrayList<OptionVO> resultList = FilterRoom.resultFilterRoom(imgList, optionList, checkInDate, checkOutDate);
+		ArrayList<OptionVO> resultList = FilterRoom.resultFilterRoom(imgList, optionList, checkInDate, checkOutDate, priceMin, priceMax);
 		
 		request.setAttribute("roomVO", resultList);
 		request.setAttribute("checkInDate", checkInDate);
