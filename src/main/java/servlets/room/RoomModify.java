@@ -22,9 +22,6 @@ import model.RoomImgVO;
 import model.RoomVO;
 import util.Split;
 
-/**
- * Servlet implementation class RoomModifyController
- */
 @WebServlet("/RoomModify")
 @MultipartConfig
 public class RoomModify extends HttpServlet {
@@ -36,13 +33,8 @@ public class RoomModify extends HttpServlet {
     RoomVO roomVO = null;
     RoomImgVO imgVO = null;
     
-  
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
     public RoomModify() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
@@ -86,7 +78,6 @@ public class RoomModify extends HttpServlet {
 		for (Part part : parts) {
 			if(part.getContentType() != null) {
 				String fileName = Split.FileName(part);
-				System.out.println(fileName);
 				String savePath = UPLOAD + File.separator + fileName;
 				try {
 					InputStream inputStream = part.getInputStream();
@@ -98,8 +89,6 @@ public class RoomModify extends HttpServlet {
 					if ((bytesRead = inputStream.read(buffer)) != -1) {
 						outputStream.write(buffer, 0, bytesRead);
 					}
-					System.out.println("파일이 저장 되었습니다." + savePath);
-					
 					outputStream.close();
 					inputStream.close();
 				} catch (IOException e) {
@@ -115,8 +104,6 @@ public class RoomModify extends HttpServlet {
 		roomVO.setRoomCost(Integer.parseInt(request.getParameter("roomCost")));
 		roomVO.setRoomDetail(request.getParameter("detailText"));
 		
-		//roomDAO.roomUpdate(roomVO);
-		
 		imgVO.setRoomNo(Integer.parseInt(request.getParameter("roomNo")));
 
 		imgVO.setInfoImg(request.getParameter("infoImg_name"));
@@ -127,7 +114,6 @@ public class RoomModify extends HttpServlet {
 		imgVO.setImg5(request.getParameter("file5_name"));
 	
 		imgDAO.updateImg(imgVO);
-		System.out.println(imgVO.toString());
 		
 		int result = roomDAO.roomUpdate(roomVO);
 		
@@ -138,12 +124,5 @@ public class RoomModify extends HttpServlet {
 			out.print("success");
 		else
 			out.print("fail");
-		
-		System.out.println("========> Join.jsp doPost()");
-		
-		
-		
-		
-		
 	}
 }

@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dao.member.MemDAO;
-import model.MemVO;
 
 @WebServlet("/MemDelete")
 public class MemDelete extends HttpServlet {
@@ -45,13 +44,8 @@ public class MemDelete extends HttpServlet {
 				out.print("success");
 		else
 				out.print("fail");	
-			
-			
-			
+	
 		}
-	
-	
-
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);

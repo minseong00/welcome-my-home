@@ -1,7 +1,6 @@
 package servlets.room;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -13,13 +12,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import dao.room.RoomDAO;
 import dao.roomImg.RoomImgDAO;
-import model.OptionVO;
 import model.RoomImgVO;
 import model.RoomVO;
 
-/**
- * Servlet implementation class RoomListController
- */
 @WebServlet("/RoomList")
 public class RoomList extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -28,7 +23,6 @@ public class RoomList extends HttpServlet {
         super();
     }
 
-	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	    RoomDAO roomDAO = new RoomDAO();
 		RoomImgDAO imgDAO = new RoomImgDAO();
@@ -38,7 +32,6 @@ public class RoomList extends HttpServlet {
 		
 		request.setAttribute("imgList", imgList);
 	
-		
 		RequestDispatcher dispatcher = null;
 		
 		if(type == null) {
@@ -64,5 +57,4 @@ public class RoomList extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);
 	}
-
 }

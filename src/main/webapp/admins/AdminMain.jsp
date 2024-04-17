@@ -18,7 +18,6 @@
 	body{
 		padding:1.5em;
 		background: #f5f5f5;
-  		
 	}
 	.rightside{
 		display: flex;
@@ -51,9 +50,6 @@
 	            </div>
 	        </div>
    		</div>
-	</div>
-	
-	                
-	               
+	</div>	                         
 </body>
 </html>

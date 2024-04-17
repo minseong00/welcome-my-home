@@ -12,9 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 import dao.room.RoomDAO;
 import dao.roomImg.RoomImgDAO;
 
-/**
- * Servlet implementation class RoomDelete
- */
 @WebServlet("/RoomDelete")
 public class RoomDelete extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -42,18 +39,11 @@ public class RoomDelete extends HttpServlet {
 			out.print("success");
 			imgDAO.deleteRoomImg(roomNo);
 		}else {
-			System.out.println("RoomDelete ERR : 방 또는 방 이미지 레코드 중 하나가 삭제되지않았습니다. - 결과 값 : " + result);
 			out.print("fail");
 		}
-			
-		
 	}
 
-	/**
-	 * 
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);
 	}
-
 }

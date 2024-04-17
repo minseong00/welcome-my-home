@@ -39,11 +39,9 @@ public class RoomAdd extends HttpServlet {
         super();
     }
 
-	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 	}
-
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
@@ -73,13 +71,12 @@ public class RoomAdd extends HttpServlet {
 					}
 					outputStream.close();
 					inputStream.close();
-					System.out.println("파일이 저장 되었습니다. " + filePath);
 				} catch (IOException e) {
 					System.err.println("파일 저장 중 오류 발생 : " + e.getMessage());
 				}
 			}
 		}
-		// System.out.println(list.get(0)+ list.get(1) + list.get(2));
+
 		this.roomDAO = new RoomDAO();
 		this.imgDAO = new RoomImgDAO();
 		this.roomVO = new RoomVO();
@@ -90,9 +87,7 @@ public class RoomAdd extends HttpServlet {
 		roomVO.setHeadCount(Integer.parseInt(request.getParameter("headCount")));
 		roomVO.setRoomCost(Integer.parseInt(request.getParameter("roomCost")));
 		roomVO.setRoomDetail(request.getParameter("detailText"));
-		
-		//imgVO.setRoomNo(roomDAO.insertRoomData(roomVO));  
-		
+			
 		imgVO.setInfoImg(list.size() > 0 ? list.get(0) : null);
 		imgVO.setImg1(list.size() > 1 ? list.get(1) : null);
 		imgVO.setImg2(list.size() > 2 ? list.get(2) : null);
@@ -111,10 +106,5 @@ public class RoomAdd extends HttpServlet {
 			out.print("success");
 		else
 			out.print("fail");
-		
-		
-//		System.out.println(roomImg.toString());
-		
-	
 	}	
 }
