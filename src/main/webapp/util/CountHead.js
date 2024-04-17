@@ -26,7 +26,7 @@ function upValueRoomRev() {
 	var currentHeadCount = parseInt(inputHeadCount.value);
 	var currentPrice = parseInt(inputPrice.value);
 	
-	if((currentHeadCount+1) <= headCount){
+	if(currentHeadCount < (headCount +2)){
 		inputHeadCount.value = currentHeadCount +1 ;
 		inputPrice.value = currentPrice + 15000;
 			
