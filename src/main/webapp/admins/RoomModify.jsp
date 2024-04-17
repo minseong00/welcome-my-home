@@ -98,7 +98,7 @@ input[type="text"]:focus, textarea:focus, select:focus {
          $.ajax({
             type: "post",
             async: false,
-            url: "<c:url value='/RoomModify' />",
+            url: "<c:url value='/RoomModify' />",/*admin 붙이지 말것 part값 안넘어가요*/
             data : formData,
             enctype:'multipart/form-data',
             processData: false,
@@ -134,8 +134,9 @@ input[type="text"]:focus, textarea:focus, select:focus {
 	   }
    
     function updateHiddenValue(input, fileName) {
-        var file = document.querySelector('input[name="' + fileName + '"]');
-        file.value = input.value;
+        var filename = input.value.split('\\').pop(); // 파일 경로에서 파일명만 추출
+        var hiddenInput = document.querySelector('input[name="' + fileName + '"]');
+        hiddenInput.value = filename;
     }
     function submitForms() {
         document.getElementById("modify").submit(); // 첫 번째 폼 제출
@@ -146,13 +147,13 @@ input[type="text"]:focus, textarea:focus, select:focus {
 <body style="background-color: #f5f5f5;">
 	<div class="container">
 		<jsp:include page="/include/Header.jsp" flush="false" />
+		<form id="modify">
 		<div class="row justify-content-center">
 			<div class="col-md-4"> 
 			<jsp:include page="/include/AdminSidebar.jsp" flush="false"/>
 		</div>
 			<div class="rightside">
 			 <div class="include-gap">	
-					<form id="modify">
 					<h3 style="font-weight: bold;  margin-bottom: 60px; margin-left:105px;">객실 수정</h3>
 						<div style="margin-left: 10px;">
 							<div style="margin-left: 500px;">
@@ -216,21 +217,19 @@ input[type="text"]:focus, textarea:focus, select:focus {
 								<textarea rows="5" name="detailText" style="width: 38%">${roomVO.roomDetail }</textarea>
 							</div>
 							</div>
-						</form>
 						</div>
 
                      </div>
           
                   </div>
                           
-                  <form id="tableForm">
                   <table style="margin-top: 70px;  margin-left: 0;">
                   <tbody >
                      <tr>
                         <td>
                            <div class="insert">
                               <label>사진 업로드 &nbsp;&nbsp;</label>
-                              <input type="file" name="infoImg" onchange="updateHiddenValue(infoImg, 'infoImg_name')" />
+                              <input type="file" name="infoImg" onchange="updateHiddenValue(this, 'infoImg_name')" />
                               <input type="hidden" name = "infoImg_name" value="${imgVO.infoImg }">
                               <div class="file-list"></div>
                               <img src="${contextPath }/data/${imgVO.infoImg }" width="400" height="400">
