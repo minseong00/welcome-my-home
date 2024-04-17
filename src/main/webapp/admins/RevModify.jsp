@@ -19,8 +19,50 @@
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
 <script src="${contextPath}/util/RevModifyCalendar.js"></script>
-
 <script src="${contextPath}/util/CountHead.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$('#RevModify').submit(function(event){
+			event.preventDefault();
+			var formData = $(this).serialize();
+			$.ajax({
+				type: "post",
+				async: false,
+				url: "<c:url value='/admin/RevModify'/>",
+				data: formData,
+				success:function(){
+					alert("수정되었습니다.");
+					window.location.replace("${contextPath}/admin/RevList");
+				},
+				error:function(){
+					alert("수정이 취소되었습니다.");
+				}
+			});
+			
+		});
+		
+	});
+	
+	function RevDelete(id){
+		var confirmDelete = confirm("삭제 하시겠습니까?");
+			   if(confirmDelete) {
+					$.ajax({
+						type:"post",
+						url:"<c:url value='/admin/RevDelete'/>",
+						data: {id : id},
+						success:function(){
+							alert("삭제 되었습니다.");
+							window.location.replace("${contextPath}/admin/RevList");
+						},
+						error:function(data, status, error){
+								console.error("예약정보 삭제 중 오류 발생 :", error);
+								alert("예약정보 삭제 중 오류가 발생하였습니다.")
+						}
+					});
+			   }
+		   }
+</script>
+
 
 <style>
   
@@ -87,7 +129,7 @@ td, th {
 		</div>
 		<div class="rightside">
 		<div class="include-gap">
-		<form action="${contextPath}/admin/MemModify" method="post">
+		<form id ="MemModify">
 			<h3 style=" margin-bottom: 60px; font-weight: bold; margin-left:105px;">관리자 예약 수정</h3>
 		<table summary="관리자 예약 수정 " border="1" >
 		
@@ -138,7 +180,7 @@ td, th {
 					<tr>
 						<td  style="height: 70px;"align="right"  colspan="2">
 					  		<button type="submit" class="sky-blue-button">수정 </button>
-					 		 <button type="button" class="sky-blue-button" onclick="location.href='<c:url value="/admin/RevDelete?id=${revVO.revNo}" />'" >삭제</button>
+					 		 <button type="button" class="sky-blue-button" onclick="RevDelete('${revVO.revNo}')">삭제</button>
 						</td>
 					</tr>
 				</tbody>

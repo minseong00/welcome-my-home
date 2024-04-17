@@ -55,12 +55,9 @@ public class MemModify extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		HttpSession session = request.getSession();
-		String idType = (String) session.getAttribute("idType");
 
 		String n = request.getParameter("id");
 		String pw = BCrypt.hashpw(request.getParameter("pw"), BCrypt.gensalt());
-//		String pw = request.getParameter("pw");
 		String name = request.getParameter("name");
 		String call = request.getParameter("call");
 		String email = request.getParameter("email");
@@ -77,13 +74,6 @@ public class MemModify extends HttpServlet {
 
 		System.out.println("========> MemModify doPost()");
 
-		RequestDispatcher dispatcher = null;
-		if (idType.equals("member")) {	//마이페이지 정보수정완료 시
-			response.sendRedirect(request.getContextPath() + "/MemModify");
-		} else {						//관리자 정보수정완료 시
-			response.sendRedirect(request.getContextPath() + "/MemList");
-
-		}
 	}
 
 }

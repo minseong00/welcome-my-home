@@ -9,11 +9,53 @@
 <meta charset="UTF-8">
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>관리자 회원정보 수정</title>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <!-- css 적용 -->
 <link rel="stylesheet" href="${contextPath }/style/css/flaticon.css">
 <link rel="stylesheet" href="${contextPath }/style/css/style.css">
 <script type="text/javascript">
+	$(function(){
+		$('#MemModify').submit(function(event){
+			event.preventDefault();
+			var formData = $(this).serialize();
+			$.ajax({
+				type: "post",
+				async: false,
+				url: "<c:url value='/admin/MemModify'/>",
+				data: formData,
+				success:function(){
+					alert("수정되었습니다.");
+					window.location.replace("${contextPath}/admin/MemList");
+				},
+				error:function(){
+					alert("수정이 취소되었습니다.");
+				}
+			});
+			
+		});
+		
+	});
+	
+	function deletedata(id){
+		var confirmDelete = confirm("삭제 하시겠습니까?");
+			   if(confirmDelete) {
+					$.ajax({
+						type:"post",
+						url:"<c:url value='/admin/MemDelete'/>",
+						data: {id : id},
+						success:function(){
+							alert("삭제 되었습니다.");
+							window.location.replace("${contextPath}/admin/MemList");
+						},
+						error:function(data, status, error){
+								console.error("회원정보 삭제 중 오류 발생 :", error);
+								alert("회원정보 삭제 중 오류가 발생하였습니다.")
+						}
+					});
+			   }
+		   }
 
+	
 	/*회원정보수정 글자수 제한*/
 	function chkword(obj, maxByte) {
 	     var strValue = obj.value;
@@ -55,6 +97,7 @@
         var hiddenInput = document.querySelector('input[name="pw"]');
         hiddenInput.value = input.value;
     }
+
 </script>
 
 <style>
@@ -111,22 +154,21 @@
   
 </head>
 <body>
-
-	<div class="container">
-		<jsp:include page="/include/Header.jsp" flush="false"/>
+		<div class="container">
+			<jsp:include page="/include/Header.jsp" flush="false"/>
 		<div class="row justify-content-center" >
 		<div class="col-md-4"> 
 			<jsp:include page="/include/AdminSidebar.jsp" flush="false"/>
 		</div>
 		<div class="rightside">
 		<div class="include-gap">
-	<form action="${contextPath}/admin/MemModify" method="post">
-		<h3 style=" margin-bottom: 60px; font-weight: bold; margin-left:105px;">관리자 회원 정보수정</h3>
-	<table summary="관리자 회원 정보수정 " border="1" >
+		<form id ="MemModify">
+			<h3 style=" margin-bottom: 60px; font-weight: bold; margin-left:105px;">관리자 회원 정보수정</h3>
+		<table summary="관리자 회원 정보수정 " border="1" >
 	
 			
 	<tbody>
-		
+
 		<tr>
 			<td style="background-color:#73685d; color: #fff; width:200px; height: 70px; " >고객명</td>
 			<td class="td-special"><input type="text"  name="name" value="<c:out value="${MemOne.memName}" />" onkeyup="chkword(this, 20)" required></td>
@@ -154,9 +196,10 @@
 		<tr>
 		<td  style="height: 70px;"align="right"  colspan="2">
   		<button type="submit" class="sky-blue-button">수정 </button>
- 		 <button type="button" class="sky-blue-button" onclick="location.href='<c:url value="/admin/MemDelete?id=${MemOne.memId}" />'" >삭제</button>
+ 		<button type="button" class="sky-blue-button" onclick="deletedata('${MemOne.memId}')">삭제</button>
 		</td>
 		</tr>
+
 	</tbody>
 	</table>
 	</form>
