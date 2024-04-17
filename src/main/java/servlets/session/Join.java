@@ -54,27 +54,34 @@ public class Join extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		/* 회원가입 */
+		MemDAO memDAO = new MemDAO();
+		MemVO memVO = new MemVO();
+		
 		String id = request.getParameter("id");
 		String pw = BCrypt.hashpw(request.getParameter("pw"), BCrypt.gensalt());
 		String name = request.getParameter("name");
 		String call = request.getParameter("call");
 		String email = request.getParameter("email");
 		
-		MemVO memVO = new MemVO();
 		memVO.setMemId(id);
 		memVO.setMemPw(pw);
 		memVO.setMemName(name);
 		memVO.setMemCall(call);
 		memVO.setMemEmail(email);
-		memDAO.insert(memVO);
 		
-		System.out.println("========> MainForm.jsp doPost()");
+		int result = memDAO.insert(memVO);
 		
+		response.setContentType("text/html; charset=utf-8");
+		PrintWriter out = response.getWriter();
 		
-		response.sendRedirect(request.getContextPath()  + "/members/MainForm.jsp");
+		if(result == 1) 
+			out.print("success");
+		else
+			out.print("fail");
+		
+		System.out.println("========> Join.jsp doPost()");
+		
 	}
-	
-
 }
 
 

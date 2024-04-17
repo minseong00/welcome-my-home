@@ -12,7 +12,35 @@
 <!-- css 적용 -->
 <link rel="stylesheet" href="${contextPath }/style/css/flaticon.css">
 <link rel="stylesheet" href="${contextPath }/style/css/style.css">
-<style>
+<script type="text/javascript">
+
+	function MyRevDelete(revNo){
+		var confirmDelete = confirm("삭제 하시겠습니까?");
+			   if(confirmDelete) {
+					$.ajax({
+						type:"post",
+						url:"<c:url value='/RevDelete' />",
+						data: {revNo : revNo},
+						dataType: "text",
+						success:function(data){
+							if(data == "success") {
+								alert("삭제 되었습니다.");
+								window.location.replace("${contextPath}/RevDelete");
+							} else {
+								alert("삭제 중 오류 발생하였습니다. 다시 시도해주세요.");
+								window.history.back();
+							}
+						},
+						error:function(data, status, error){
+								console.error("삭제 중 오류 발생 :", error);
+								alert("삭제 중 오류가 발생하였습니다.");
+								window.history.back();
+						}
+					});
+			   }
+		   }
+
+</script>
 <style type="text/css">
 
     
@@ -156,7 +184,7 @@ thead {
 						<td>${rev.roomName }</td>
 						<td>${rev.headCount }</td>
 						<td>${rev.price}</td>
-						<td><span id="detail" onclick="location.href='${contextPath }/admin/RevDelete?id=${rev.revNo}'" >삭제</span>
+						<td><span id="detail" onclick="MyRevDelete('${rev.revNo}')">삭제</span>
 					</tr>
 				</c:forEach>
 			</c:otherwise>

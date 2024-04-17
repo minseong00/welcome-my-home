@@ -80,8 +80,10 @@ public class MemDAO implements MemberQuerys{
 
 	/**
 	 * 회원가입
+	 * @return 
 	 **/
-	public void insert(MemVO memModel) {
+	public int insert(MemVO memModel) {
+		int result = 0;
 		try {
 			conn = DB.dbConnect();
 			pstmt = conn.prepareStatement(insertMem);
@@ -90,13 +92,14 @@ public class MemDAO implements MemberQuerys{
 			pstmt.setString(3, memModel.getMemName());
 			pstmt.setString(4, memModel.getMemEmail());
 			pstmt.setString(5, memModel.getMemPw());
-			pstmt.executeUpdate();
+			result = pstmt.executeUpdate();
 			
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			DB.close(rs, pstmt, conn);
+			DB.close(null, pstmt, conn);
 		}
+		return result;
 	}
 	
 	/**
@@ -159,7 +162,8 @@ public class MemDAO implements MemberQuerys{
 	/**
 	 * 회원정보 수정
 	 **/
-	public void update(MemVO memModel) {
+	public int update(MemVO memModel) {
+		int result = 0;
 		try {
 			conn = DB.dbConnect();
 			pstmt = conn.prepareStatement(updateMem);
@@ -168,10 +172,9 @@ public class MemDAO implements MemberQuerys{
 			pstmt.setString(3, memModel.getMemCall());
 			pstmt.setString(4, memModel.getMemEmail());
 			pstmt.setString(5, memModel.getMemId());
+			result = pstmt.executeUpdate();
 			
-			
-			int n = pstmt.executeUpdate();
-			if(n>0) {
+			if(result>0) {
 				System.out.println("UPDATE SUCCESS!!");
 			}
 		} catch (Exception e) {
@@ -179,18 +182,21 @@ public class MemDAO implements MemberQuerys{
 		} finally {
 			DB.close(null, pstmt, conn);
 		}
+		return result;
 	}
 	
 	/**
 	 * 회원정보 삭제
 	 **/
-	public void delete(String id) {
+	public int delete(String id) {
+		int result = 0;
 		try {
 			conn = DB.dbConnect();
 			pstmt = this.conn.prepareStatement(deleteMem);
 			pstmt.setString(1, id);
-			int n = pstmt.executeUpdate();
-			if(n>0) {
+			result = pstmt.executeUpdate();
+			
+			if(result>0) {
 				System.out.println("=>DELETE SUCCESS!!");
 			}
 		} catch (Exception e) {
@@ -198,7 +204,7 @@ public class MemDAO implements MemberQuerys{
 		} finally {
 			DB.close(null, pstmt, conn);
 		}
-		
+		return result;
 	}
 
 }

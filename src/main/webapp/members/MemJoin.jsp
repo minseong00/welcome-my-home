@@ -32,8 +32,8 @@
 	    	swal.fire('영문 또는 숫자만 가능합니다.');
 	        return;
 	    }
-		
-	
+	    
+		/*서버에서 반환한 결과를 받음*/
 	    $.ajax({
 	       type:"get",
 	       async:true,  
@@ -60,6 +60,33 @@
 	    });  // ajax() END	 
 	    
 	 }	// fn_process() END
+	 
+	    /* 회원가입 */
+		$(function(){
+			$('#MemJoin').submit(function(event){
+				event.preventDefault();
+				var formData = $(this).serialize();
+				$.ajax({
+					type: "post",
+					async: false,
+					url: "<c:url value='/Join'/>",
+					data: formData,
+					dataType: "text",
+					success:function(data){
+						if(data == "success") {
+							alert("회원가입되었습니다.");
+							window.location.replace("${contextPath}/LoginCheck");
+						} else {
+							alert("회원가입에 실패하였습니다. 다시시도해주세요.");
+							window.history.back();
+						}
+					},
+					error:function(){
+						alert("잘못된 정보를 입력하였습니다.");
+					}
+				});
+			});
+		});
 	 
 	
 	 /* 비밀번호 확인 함수 */
@@ -92,10 +119,7 @@
 		  $('input[type=text]').keyup(function() {
 			  if(checkId && checkPw) 
 				  $('#submit').prop("disabled", false);
-          });
-
-       	  
-       	  
+          }); 
       });
 	 
 		/*회원가입 글자수 제한*/
@@ -195,7 +219,7 @@ background-color: #73685d;
 
 
 <div  style="width: 40%;  margin: auto;">
-<form   method="post" action="${contextPath}/Join">
+<form id ="MemJoin">
 <h2 style="text-align:center; margin-bottom: 60px; font-weight: bold;">회원 가입</h2>
 <table style="border:1; margin: auto; " >
 <tbody >
@@ -232,8 +256,7 @@ background-color: #73685d;
     </tr>
     <tr >
         <td align="right" class="td-special"colspan="2" style="height: 70px; ">
-	       <input type="submit" id="submit" class="btn_css"value="가입하기">
-	      
+	       <button type="submit" class="btn_css">가입하기</button>
 	       <input type="reset" class="btn_css"value="다시입력">
     </td>
     </tr>

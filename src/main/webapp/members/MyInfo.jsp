@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" isELIgnored="false"%>
-
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>  
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt"  prefix="fmt"%>    
 <c:set var="contextPath" value="${pageContext.request.contextPath}"  />
@@ -11,11 +10,13 @@
 <meta charset="UTF-8">
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>나의정보</title>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <!-- css 적용 -->
 <link rel="stylesheet" href="${contextPath }/style/css/flaticon.css">
 <link rel="stylesheet" href="${contextPath }/style/css/style.css">
 <script type="text/javascript">
+
 $(function(){
 	$('#MyInfoModify').submit(function(event){
 		event.preventDefault();
@@ -25,9 +26,14 @@ $(function(){
 			async: false,
 			url: "<c:url value='/MemModify'/>",
 			data: formData,
-			success:function(){
-				alert("수정되었습니다.");
-				window.location.replace("${contextPath}/MemModify");
+			dataType: "text",
+			success:function(data){
+				if(data == "success") {
+					alert("수정되었습니다.");
+					window.location.replace("${contextPath}/MemModify");
+				} else {
+					alert("수정에 실패하였습니다. 잠시 후 다시 시도 해주세요.");
+				}
 			},
 			error:function(){
 				alert("수정이 취소되었습니다.");
@@ -45,13 +51,18 @@ function MyInfoDelete(id){
 					type:"post",
 					url:"<c:url value='/MemDelete' />",
 					data: {id : id},
-					success:function(){
-						alert("삭제 되었습니다.");
-						window.location.replace("${contextPath}/Login");
+					dataType: "text",
+					success:function(data){
+						if(data == "success") {
+							alert("삭제 되었습니다.");
+							window.location.replace("${contextPath}/Login");
+						} else {
+							alert("삭제에 실패했습니다. 다시 시도해주세요.");
+						}
 					},
 					error:function(data, status, error){
-							console.error("내정보 삭제 중 오류 발생 :", error);
-							alert("내정보 삭제 중 오류가 발생하였습니다.")
+							console.error("나의정보 삭제 중 오류 발생 :", error);
+							alert("나의정보 삭제 중 오류가 발생하였습니다.")
 					}
 				});
 		   }

@@ -293,6 +293,36 @@ background-color: #73685d;
         // 슬라이드 스크립트 끝
         
     });
+	    
+    function fn_process(){
+	    /*서버에서 반환한 결과를 받음*/
+	    $.ajax({
+	       type:"get",
+	       async:true,  
+	       url:"<c:url value='/RevPayment' />",
+	       dataType:"text",
+	       data: {roomNo:roomNo},
+	       success:function (data,textStatus) {
+	          if(data=='usable') {
+	        	  swal.fire('예약할 수 있는 객실입니다.');
+	        	  checkId = true;
+	          }else {
+	        	  swal.fire('예약할 수 없는 객실입니다.');
+	        	  checkId = false;
+		       	  $('#submit').prop("disabled", true);
+	          }
+	       },
+	       error:function(data,textStatus){
+	          alert("잘못 입력했습니다.");
+	       },
+	       complete:function(data,textStatus){
+	    	   
+	       }
+	    });  // ajax() END	 
+	    
+	 }	// fn_process() END
+
+    
 </script>
 
 </head>

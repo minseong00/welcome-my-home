@@ -1,6 +1,7 @@
 package servlets.member;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Enumeration;
 
 import javax.servlet.RequestDispatcher;
@@ -21,6 +22,8 @@ public class MemModify extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	private MemDAO memDAO = null;
+
+	private MemVO memVO;
 
 	public MemModify() {
 		super();
@@ -55,23 +58,33 @@ public class MemModify extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
+		/*회원정보삭제*/
+		memDAO = new MemDAO();
+		MemVO memModel = new MemVO();
+		
 		String n = request.getParameter("id");
 		String pw = BCrypt.hashpw(request.getParameter("pw"), BCrypt.gensalt());
 		String name = request.getParameter("name");
 		String call = request.getParameter("call");
 		String email = request.getParameter("email");
 		
-		MemVO memModel = new MemVO();
 		memModel.setMemId(n);
 		memModel.setMemPw(pw);
 		memModel.setMemName(name);
 		memModel.setMemCall(call);
 		memModel.setMemEmail(email);
 
-		memDAO = new MemDAO();
-		memDAO.update(memModel);
-
+		int result = memDAO.update(memModel);
+		
+		response.setContentType("text/html; charset=utf-8");
+		PrintWriter out = response.getWriter();
+		
+		if(result == 1) 
+			out.print("success");
+		else
+			out.print("fail");
+		
+		
 		System.out.println("========> MemModify doPost()");
 
 	}

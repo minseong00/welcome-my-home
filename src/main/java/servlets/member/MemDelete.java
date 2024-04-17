@@ -1,6 +1,7 @@
 package servlets.member;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -29,13 +30,27 @@ public class MemDelete extends HttpServlet {
 		String n=request.getParameter("id");
 		
 		memDAO=new MemDAO();
-		memDAO.delete(n);
 		
 		RequestDispatcher dispatcher = null;
 			if (idType.equals("member")) {
 				session.invalidate();
 			}
+			
+		int result = memDAO.delete(n);
+			
+		response.setContentType("text/html; charset=utf-8");
+		PrintWriter out = response.getWriter();
+			
+		if(result >= 1) 
+				out.print("success");
+		else
+				out.print("fail");	
+			
+			
+			
 		}
+	
+	
 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

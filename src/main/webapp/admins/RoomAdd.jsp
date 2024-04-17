@@ -8,6 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <title>관리자 객실등록</title>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
 <!-- css 적용 -->
 <link rel="stylesheet" href="${contextPath }/style/css/flaticon.css">
@@ -137,40 +138,46 @@ background-color: #73685d;
 <script src="http://code.jquery.com/jquery-2.2.1.min.js"></script>
 <script type="text/javascript" src="${contextPath }/util/fileUpload.js"></script>
 <script type="text/javascript">
-    $(function(){
-        $("#roomAdd").submit(function(event){
-            event.preventDefault();
-            // 폼데이터 담기
-            var form = document.querySelector("form");
-            var formData = new FormData(form);
-            for (var i = 0; i < filesArr.length; i++) {
-                // 삭제되지 않은 파일만 폼데이터에 담기
-                if (!filesArr[i].is_delete) {
-                    formData.append("attach_file", filesArr[i]);
-                }
-            }
-        
-            $.ajax({
-                method: 'POST',
-                url: "<c:url value='/RoomAdd' />",
-                data: formData,
-                async: false,
-                enctype:'multipart/form-data',
-                processData: false,
-                contentType: false,
-                success: function () {
-                    alert("파일업로드 성공");
-                    window.location.replace("${contextPath}/admin/RoomList?type=admin");
-                },
-                error: function (data, desc, err) {
-                    alert('에러가 발생 하였습니다.');
-                    return;
-                }
-            });
-            
-        });
-    });
-</script>
+	$(function(){
+		$("#roomAdd").submit(function(event){
+			event.preventDefault();
+		    // 폼데이터 담기
+		    var form = document.querySelector("form");
+		    var formData = new FormData(form);
+		    for (var i = 0; i < filesArr.length; i++) {
+		        // 삭제되지 않은 파일만 폼데이터에 담기
+		        if (!filesArr[i].is_delete) {
+		            formData.append("attach_file", filesArr[i]);
+		        }
+		    }
+		
+		    $.ajax({
+		        method: 'POST',
+		        url: "<c:url value='/RoomAdd' />",
+		        data: formData,
+		        async: false,
+		        dataType: "text",
+		        enctype:'multipart/form-data',
+		        processData: false,
+				contentType: false,
+		        success: function (data) {
+		        	if(data == "success") {
+			            alert("파일업로드 성공");
+			            window.location.replace("${contextPath}/admin/RoomList?type=admin");
+		        	} else {
+		        		alert("파일 업로드에 실패하였습니다. 다시 시도해주세요.");
+		        		window.history.back();
+		        	}
+		        },
+		        error: function (data, desc, err) {
+		            alert('에러가 발생 하였습니다.');
+		            return;
+		        }
+			});
+		    
+	    });
+	});
+	</script>
 </head>
 <body>
     <div class="container">

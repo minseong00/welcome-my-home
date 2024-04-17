@@ -5,6 +5,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.io.PrintWriter;
 import java.util.Collection;
 
 import javax.servlet.ServletException;
@@ -68,7 +69,6 @@ public class RoomModify extends HttpServlet {
 	 * @see 관리자 룸 수정
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=utf-8");
 		
 		roomDAO = new RoomDAO();
@@ -115,7 +115,7 @@ public class RoomModify extends HttpServlet {
 		roomVO.setRoomCost(Integer.parseInt(request.getParameter("roomCost")));
 		roomVO.setRoomDetail(request.getParameter("detailText"));
 		
-		roomDAO.roomUpdate(roomVO);
+		//roomDAO.roomUpdate(roomVO);
 		
 		imgVO.setRoomNo(Integer.parseInt(request.getParameter("roomNo")));
 
@@ -128,6 +128,20 @@ public class RoomModify extends HttpServlet {
 	
 		imgDAO.updateImg(imgVO);
 		System.out.println(imgVO.toString());
+		
+		int result = roomDAO.roomUpdate(roomVO);
+		
+		response.setContentType("text/html; charset=utf-8");
+		PrintWriter out = response.getWriter();
+		
+		if(result == 1) 
+			out.print("success");
+		else
+			out.print("fail");
+		
+		System.out.println("========> Join.jsp doPost()");
+		
+		
 		
 		
 		

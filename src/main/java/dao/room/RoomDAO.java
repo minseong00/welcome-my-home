@@ -233,7 +233,7 @@ public class RoomDAO implements RoomQuerys {
 	@param roomVO
 	**/
 	public int roomUpdate(RoomVO roomVO) {
-		int roomNo = 0;
+		int result = 0;
 		try {
 			this.conn = DB.dbConnect();
 			this.pstmt = this.conn.prepareStatement(update, Statement.RETURN_GENERATED_KEYS);
@@ -243,8 +243,8 @@ public class RoomDAO implements RoomQuerys {
 			this.pstmt.setInt(4, roomVO.getHeadCount());
 			this.pstmt.setInt(5, roomVO.getRoomCost());
 			this.pstmt.setInt(6, roomVO.getRoomNo());
-			int result = this.pstmt.executeUpdate();
-			if(result < 0) {
+			result = this.pstmt.executeUpdate();
+			if(result <= 0) {
 				System.err.println("update room rs err!! ");
 			}
 			// Img 삽입을 위한 roomNo 추출
@@ -256,7 +256,7 @@ public class RoomDAO implements RoomQuerys {
 		} finally {
 			DB.close(this.rs, this.pstmt, this.conn);
 		}
-		return roomNo;
+		return result;
 	}
 	/**
 	roomType을 조건으로 일치하는 모든 룸 조회
