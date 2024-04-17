@@ -39,7 +39,7 @@ public class RevDelete extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		
 		if(result == 1) 
-			out.print("succecss");
+			out.print("success");
 		else
 			out.print("fail");
 		

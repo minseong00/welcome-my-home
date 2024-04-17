@@ -28,7 +28,7 @@
 			$.ajax({
 				type: "post",
 				async: false,
-				url: "<c:url value='/admin/RevModify'/>",
+				url: "<c:url value='/RevModify'/>",
 				data: formData,
 				success:function(){
 					alert("수정되었습니다.");
@@ -43,13 +43,13 @@
 		
 	});
 	
-	function RevDelete(id){
+	function RevDelete(revNo){
 		var confirmDelete = confirm("삭제 하시겠습니까?");
 			   if(confirmDelete) {
 					$.ajax({
 						type:"post",
 						url:"<c:url value='/admin/RevDelete'/>",
-						data: {id : id},
+						data: {revNo : revNo},
 						success:function(){
 							alert("삭제 되었습니다.");
 							window.location.replace("${contextPath}/admin/RevList");
@@ -129,7 +129,7 @@ td, th {
 		</div>
 		<div class="rightside">
 		<div class="include-gap">
-		<form id ="MemModify">
+		<form id ="RevModify">
 			<h3 style=" margin-bottom: 60px; font-weight: bold; margin-left:105px;">관리자 예약 수정</h3>
 		<table summary="관리자 예약 수정 " border="1" >
 		
