@@ -29,7 +29,7 @@
     }
     .row {
         display: flex;
-        justify-content: center;
+        
     }
     #leftDiv, #rightDiv {
         background-color: #fff;
@@ -210,9 +210,9 @@
       </div>
     </div>
 
-    <div class="container">
+    <div class="container" style="margin-bottom: 50px;">
         <jsp:include page="/include/Header.jsp" flush="false"/>
-        <div class="row" style="margin-top: 50px;">
+        <div class="row" style="margin-top: 50px; justify-content: center;">
             <div id="leftDiv">
                 <div class="table-container">
                     <table id="payment-table">

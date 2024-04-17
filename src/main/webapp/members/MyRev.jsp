@@ -17,9 +17,9 @@
 
     
   		body{
-		line-height: normal;
-		display: flex;
-		 padding:1.5em;
+  		font-family: 'Roboto', sans-serif;
+        margin: 0;
+        padding: 0;
   		background: #f5f5f5;
 	}
 	.rightside{
@@ -61,9 +61,7 @@ thead {
   background: #fff;
 }
 
-a {
-  color: #73685d;
-}
+
   
   
  @media all and (max-width: 900px) {
@@ -113,14 +111,12 @@ a {
 	  #detail {
 	  	cursor: pointer;
 	  }
-	  .container {
-	  	margin-bottom: 100px;
-	  }
+	  
 </style>
 </head>
 
 <body >
-<div class="container">
+<div class="container"  style="margin-bottom: 300px;" >
 	<jsp:include page="/include/Header.jsp" flush="false"/>
 	<div class="row justify-content-center">
 		<div class="col-md-4"> 
@@ -171,6 +167,7 @@ a {
 		
 	</div>
 </div>
- <jsp:include page="/include/Footer.jsp" flush="false"/>
+
 </body>
+ <jsp:include page="/include/Footer.jsp" flush="false"/>
 </html>
