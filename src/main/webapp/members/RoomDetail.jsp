@@ -39,7 +39,7 @@
 	    flex-direction: column;
 	    align-items: center; /* 세로 중앙 정렬 */
 	    width: 100%;
-	    height: 140vh; /* 세로 길이를 브라우저 높이에 맞춤 */
+	    height: 170vh; /* 세로 길이를 브라우저 높이에 맞춤 */
 	}
 	
 	.sliderouter{
