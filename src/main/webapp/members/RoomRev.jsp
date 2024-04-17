@@ -60,6 +60,7 @@
 		margin-top: 40px;
 		width: 100%;
 		text-align: center;
+	
 	}
 	.leftTable td {
 	    padding-right: 250px; /* 셀 내용을 왼쪽으로 살짝 옮김 */
@@ -250,6 +251,13 @@ background-color: #73685d;
 	    background-color: #f2f2f2; /* 선택 불가능한 날짜의 배경색 */
 	    color: #ccc; /* 선택 불가능한 날짜의 텍스트 색상 */
 	}
+	hr {
+        border: none;
+        border-top: 1px solid #ccc;
+      
+          width: 50%; /* 수정된 부분: 수평선의 길이를 50%로 설정 */
+    margin: 10px auto;
+    }
 </style>
 <script>
 	const roomNo = ${roomVO.roomNo };
@@ -322,15 +330,19 @@ background-color: #73685d;
 						</div>
 						<!-- 이전/다음 버튼 -->
 						<tr>
-							<td>이름 : ${roomVO.roomName }</td>
+							<td>이름 : ${roomVO.roomName }<hr></td>
 						</tr>
-						<tr>
-							<td>가격 : ${roomVO.roomCost }</td>
-						</tr>
-						<tr>
-							<td>룸 정보 : ${roomVO.roomDetail }</td>
 						
+						
+						<tr>
+							<td>가격 : ${roomVO.roomCost }<hr></td>
 						</tr>
+						
+						<tr>
+							<td>룸 정보 : ${roomVO.roomDetail }<hr></td>						
+						</tr>
+						
+						
 						<tr>
 							<td> <img src="${contextPath}/data/${imgVO.infoImg}" alt="image" style="width:100%; max-width:300px;"></td>
 						</tr>
