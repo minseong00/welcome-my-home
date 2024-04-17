@@ -257,7 +257,7 @@
 							<td>
 								인원수<br>
 								<button type="button" id="downCount" onclick="downValueFilter()" ><b>-</b></button>
-								<input type="text" name="headCount" value="1" id="headCount" readonly >
+								<input type="text" name="headCount"  id="headCount" readonly value="${headCount}" >
 								<button type="button" id="upCount" onclick="upValueFilter()"><b>+</b></button>
 								
 							</td>

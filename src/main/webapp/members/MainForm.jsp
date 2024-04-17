@@ -319,7 +319,7 @@ h1, h2, h3, h4, h5, span, a, p, button {
 					<option value="10">10 명</option>
 				</select>
 			</div>
-			<input type="hidden" name="type" value="main">
+			<input type="hidden" name="type" value="main" >
 			
 			<button type="submit" class="searchbox_button" >객실 검색</button>
 		</form>
