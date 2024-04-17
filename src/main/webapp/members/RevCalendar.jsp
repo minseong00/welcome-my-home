@@ -23,13 +23,13 @@
 <script src="${contextPath}/util/RevListCalendar.js"></script>
 
 <style>
-	.container {
+	#container {
 		width: 100%;
 	    padding-right: 15px;
 	    padding-left: 15px;
 	    margin-right: auto;
 	    margin-left: auto;
-	    max-width: 1100px;
+	    margin-bottom: 200px;
 	}
 	#calendar {
 		width: 90%;

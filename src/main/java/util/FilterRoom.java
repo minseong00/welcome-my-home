@@ -25,7 +25,7 @@ public class FilterRoom {
 						System.out.println("checkIn : " + checkIn + "\ncheckOut : " + checkOut);
 						checkInDate = java.sql.Date.valueOf(checkIn);
 						checkOutDate = java.sql.Date.valueOf(checkOut);
-						if(checkInDate.before(data.getCheckIn()) && checkOutDate.after(data.getCheckOut())) {
+						if(checkInDate.before(data.getCheckIn()) || checkOutDate.after(data.getCheckOut())) {
 							optionVO = insertVOList(imgList, data);
 							resultList.add(optionVO);
 							continue;

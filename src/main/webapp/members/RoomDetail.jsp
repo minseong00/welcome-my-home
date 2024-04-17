@@ -183,7 +183,8 @@ $(function() {
         function() {
             $(".visual_img li:last").prependTo(".visual_img");
             $(".visual_img").css({
-                marginLeft: 0
+            	marginLeft: 0,
+            	marginRight: 0
             });
         });
     });
