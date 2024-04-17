@@ -43,9 +43,7 @@ thead {
   background: #fff;
 }
 
-a {
-  color: #73685d;
-}
+
   
  @media all and (max-width: 768px) {
     

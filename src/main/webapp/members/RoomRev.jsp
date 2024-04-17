@@ -202,7 +202,27 @@
 	.rightTable tr:last-child td {
 	    border-bottom: none;
 	}
-	
+	.btn_css {
+-webkit-border-radius: 13px;
+-moz-border-radius: 13px;
+border-radius: 13px;
+
+border : 0px;
+color: #FFFFFF;
+font-family: Arial;
+font-size: 15px;
+font-weight: 100;
+padding: 10px;
+background-color: #8D703B;
+text-decoration: none;
+display: inline-block;
+cursor: pointer;
+text-align: center;
+}
+
+.btn_css:hover {
+background-color: #73685d;
+}
 	/* 버튼 스타일 */
 	button {
 	    padding: 10px 15px;
@@ -348,7 +368,7 @@
 						<tr>
 						
 							<td align="center">
-								<input type="submit" value="예약하기" />
+								<input class="btn_css" type="submit" value="예약하기" />
 							</td>
 						</tr>
 					</table>

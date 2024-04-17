@@ -14,20 +14,27 @@
 <link rel="stylesheet" href="${contextPath }/style/css/flaticon.css">
 <link rel="stylesheet" href="${contextPath }/style/css/style.css">
 <style type="text/css">
-.sky-blue-button {
-   padding: 7px 15px;
-   font-size: 16px;
-   background-color: #87CEEB;
-   color: #fff; /* 버튼 텍스트 색상 */
-   transition: background-color 0.3s ease;
-   border: none;
-   border-radius: 50px;
+.btn_css {
+-webkit-border-radius: 13px;
+-moz-border-radius: 13px;
+border-radius: 13px;
+
+border : 0px;
+color: #FFFFFF;
+font-family: Arial;
+font-size: 15px;
+font-weight: 100;
+padding: 10px;
+background-color: #8D703B;
+text-decoration: none;
+display: inline-block;
+cursor: pointer;
+text-align: center;
 }
 
-.sky-blue-button:hover {
-   background-color: #00BFFF;
+.btn_css:hover {
+background-color: #73685d;
 }
-
 body {
   		padding:1.5em;
 		background: #f5f5f5; /* 배경색 설정 */
@@ -36,15 +43,6 @@ body {
 
 
 
-
-.nav {
-   display: inline-block;
-   flex-wrap: wrap;
-   padding-left: 0;
-   margin-bottom: 0;
-   list-style: none;
-   align-items: center;
-}
 
 
 .rightside {
@@ -56,10 +54,18 @@ body {
    width: calc(100vh - 235px);
 }
 
+	.include-gap {
+	/*     margin-left: 100px; /* 원하는 만큼의 간격을 설정합니다. */ */
+	}
+	.td-special {
+	    width: 300px; /* 특정 셀의 너비를 200px로 설정 */
+	    
+	}
 .insert {
    width: 100%;
    margin-left: 20%;
 }
+
 
 td {
    padding: 20px;
@@ -150,9 +156,9 @@ input[type="text"]:focus, textarea:focus, select:focus {
 					<form id="modify">
 					<h3 style="font-weight: bold;  margin-bottom: 60px; margin-left:105px;">객실 수정</h3>
 						<div style="margin-left: 10px;">
-							<div align="right">
-								<button type="submit" class="sky-blue-button">수정</button>
-								<button class="sky-blue-button" type="button" onclick="deleteRoom(${roomVO.roomNo})">삭제</button>
+							<div style="margin-left: 500px;">
+								<button type="submit" class="btn_css">수정</button>
+								<button class="btn_css" type="button" onclick="deleteRoom(${roomVO.roomNo})">삭제</button>
 							</div>
 							<div>
 								<label>객실 이름 &nbsp;&nbsp;</label> 
@@ -214,46 +220,7 @@ input[type="text"]:focus, textarea:focus, select:focus {
 						</form>
 						</div>
 
-                     <div>
-                        <label>객실 타입 &nbsp;&nbsp;</label> <select name="roomType"
-                           required="required">
-                           <option>타입 선택</option>
-                           <option value="singleRoom"
-                              <c:if test="${ roomVO.roomType eq 'singleRoom' }"> selected = "selected"</c:if>>싱글 룸</option>
-                           <option value="twinRoom"
-                              <c:if test="${ roomVO.roomType eq 'twinRoom' }"> selected = "selected"</c:if>>트윈 룸</option>
-                           <option value="DoubleRoom"
-                              <c:if test="${ roomVO.roomType eq 'DoubleRoom' }"> selected = "selected"</c:if>>더블 룸</option>
-                           <option value="TripleRoom"
-                              <c:if test="${ roomVO.roomType eq 'TripleRoom' }"> selected = "selected"</c:if>>트리플 룸</option>
-                        </select>
                      </div>
-                     <div>
-                        <label>수용 인원 &nbsp;&nbsp;</label> <select name="headCount"
-                           required="required">
-                           <option>인원 선택</option>
-                           <option value="1"
-                              <c:if test="${ roomVO.headCount eq 1 }"> selected = "selected"</c:if>>1</option>
-                           <option value="2"
-                              <c:if test="${ roomVO.headCount eq 2 }"> selected = "selected"</c:if>>2</option>
-                           <option value="3"
-                              <c:if test="${ roomVO.headCount eq 3 }"> selected = "selected"</c:if>>3</option>
-                           <option value="4"
-                              <c:if test="${ roomVO.headCount eq 4 }"> selected = "selected"</c:if>>4</option>
-
-                        </select>
-                     </div>
-                     <div>
-                        <label>객실 가격 &nbsp;&nbsp;</label> <input class="roomCost"
-                           type="text" width="30%" name="roomCost"
-                           value="${roomVO.roomCost }">원
-                     </div>
-                     <div>
-                        <label style="vertical-align: top;">객실 설명 &nbsp;&nbsp;</label>
-                        <textarea rows="5" name="detailText" style="width: 38%">${roomVO.roomDetail }</textarea>
-                     </div>
-                  
-                  </div>
           
                   </div>
                           
@@ -327,7 +294,7 @@ input[type="text"]:focus, textarea:focus, select:focus {
             
          </div>
       
-</div>
+
 
 </body>
 

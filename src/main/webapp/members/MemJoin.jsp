@@ -161,19 +161,26 @@ td, th {
 	height: 50px; /* 원하는 높이로 조절 */
     width: 50%; /* 전체 너비로 조절 */
 }
-.sky-blue-button {
-	padding: 7px 15px;
-	font-size: 16px;
-	background-color: #87CEEB;
-	color: #fff; /* 버튼 텍스트 색상 */
-	transition: background-color 0.3s ease;
-	border: none;
-	border-radius: 50px;
-	
+.btn_css {
+-webkit-border-radius: 13px;
+-moz-border-radius: 13px;
+border-radius: 13px;
+
+border : 0px;
+color: #FFFFFF;
+font-family: Arial;
+font-size: 15px;
+font-weight: 100;
+padding: 10px;
+background-color: #8D703B;
+text-decoration: none;
+display: inline-block;
+cursor: pointer;
+text-align: center;
 }
 
-.sky-blue-button:hover {
-	background-color: #00BFFF;
+.btn_css:hover {
+background-color: #73685d;
 }
  .td-special {
     width: 300px; /* 특정 셀의 너비를 200px로 설정 */
@@ -225,9 +232,9 @@ td, th {
     </tr>
     <tr >
         <td align="right" class="td-special"colspan="2" style="height: 70px; ">
-	       <input type="submit" id="submit" class="sky-blue-button"value="가입하기">
+	       <input type="submit" id="submit" class="btn_css"value="가입하기">
 	      
-	       <input type="reset" class="sky-blue-button"value="다시입력">
+	       <input type="reset" class="btn_css"value="다시입력">
     </td>
     </tr>
     </tbody>
