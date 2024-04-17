@@ -89,6 +89,7 @@ public class FilterRoom {
 				if(optionVO.getRoomNo() == imgVO.getRoomNo())
 					resultVO.setImg1(imgVO.getImg1());
 			}
+			resultList.add(resultVO);
 		}
 		return resultList;
 	}

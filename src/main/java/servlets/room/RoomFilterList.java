@@ -55,7 +55,7 @@ public class RoomFilterList extends HttpServlet {
 				int headCount = Integer.parseInt(request.getParameter("headCount"));
 				
 				optionList = (roomType.equals("default")) ? roomDAO.selectCount(headCount) : roomDAO.selectCountType(headCount, roomType);
-				
+
 				request.setAttribute("checkInDate", checkIn);
 	            request.setAttribute("checkOutDate", checkOut);
 	            request.setAttribute("headCount", headCount);
@@ -70,6 +70,7 @@ public class RoomFilterList extends HttpServlet {
 				return;
 			}
 			optionList = FilterRoom.insertOptionList(imgList, optionList);
+
 			request.setAttribute("roomType", roomType);
 			request.setAttribute("roomVO", optionList);
 			dispatcher.forward(request, response);
@@ -92,9 +93,11 @@ public class RoomFilterList extends HttpServlet {
 		int priceMax = Integer.parseInt(request.getParameter("priceMax"));
 		ArrayList<OptionVO> optionList = null;
 		optionList = (roomType.equals("default")) ? roomDAO.selectCount(headCount) : roomDAO.selectCountType(headCount, roomType);
+		System.out.println("servlet roomFIlterList4 : " + optionList.toString());
 		
 		optionList = FilterRoom.resultFilterRoom(imgList, optionList, checkInDate, checkOutDate, priceMin, priceMax);
-		
+
+		System.out.println("servlet roomFIlterList5 : " + optionList.toString());
 		request.setAttribute("roomVO", optionList);
 		request.setAttribute("checkInDate", checkInDate);
         request.setAttribute("checkOutDate", checkOutDate);
