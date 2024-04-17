@@ -15,7 +15,6 @@ import dao.member.MemDAO;
 import model.AdminVO;
 import model.MemVO;
 
-
 @WebServlet("/Login")
 public class Login extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -24,7 +23,6 @@ public class Login extends HttpServlet {
 	
     public Login() {
         super();
-        
     }
 
 	/**
@@ -34,8 +32,6 @@ public class Login extends HttpServlet {
     	session = request.getSession();
     	session.invalidate();
     	response.sendRedirect(request.getContextPath() + "/LoginCheck");
-
-
     }
 
     /**
@@ -81,9 +77,7 @@ public class Login extends HttpServlet {
         	out.close();
         	return;
     	}
-    	
     	out.print("fail"); // 로그인실패
     	out.close();
     }
-
 }

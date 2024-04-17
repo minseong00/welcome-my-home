@@ -13,9 +13,6 @@ import javax.servlet.http.HttpServletResponse;
 import dao.member.MemDAO;
 import model.MemVO;
 
-/**
- * Servlet implementation class MemList
- */
 @WebServlet("/MemList")
 public class MemList extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -24,7 +21,6 @@ public class MemList extends HttpServlet {
 	
     public MemList() {
         super();
-        
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)

@@ -14,9 +14,6 @@ import javax.servlet.http.HttpSession;
 import dao.member.MemDAO;
 import model.MemVO;
 
-/**
- * Servlet implementation class RevPayment
- */
 @WebServlet("/RevPayment")
 public class RevPayment extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -45,10 +42,9 @@ public class RevPayment extends HttpServlet {
 		response.setContentType("text/html; charset=utf-8");
 		PrintWriter out = response.getWriter();
 		String tempNum = request.getParameter("roomNo");
-		System.out.println("roomNo 데이터 : " + tempNum);
+		
 		if(tempNum == null || tempNum.equals("")) {
 			out.print("nullRoomNo");
-			System.out.println("roomNo 데이터 없음 : " + tempNum);
 			return;
 		}
 		

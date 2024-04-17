@@ -23,6 +23,7 @@
 		flex-direction: column;
 		flex-grow: 1;
 		margin-left: 0.5rem;
+		width: 65%;
 	}
 	.include-gap {
     margin-bottom: 100px; /* 원하는 만큼의 간격을 설정합니다. */

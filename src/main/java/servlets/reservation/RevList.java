@@ -18,9 +18,6 @@ import model.RevVO;
 import util.CalendarForm;
 import util.CreateJSON;
 
-/**
- * Servlet implementation class RevList
- */
 @WebServlet("/RevList")
 public class RevList extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -47,7 +44,6 @@ public class RevList extends HttpServlet {
 		
 		if(!type.equals("myInfo"))
 			revList = revDAO.selectTableList();
-		
 		
 		switch (type) {
 		case "calendar":

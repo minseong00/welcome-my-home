@@ -24,9 +24,6 @@ import model.RoomVO;
 import util.CreateJSON;
 import util.Split;
 
-/**
- * Servlet implementation class RevInsert
- */
 @WebServlet("/RevInsert")
 public class RevInsert extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -44,12 +41,10 @@ public class RevInsert extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession(false);
 		String idType = (String)session.getAttribute("idType");
-		System.out.println("진입");
 		if(session.getAttribute("id") == null || idType == null) {
 			response.sendRedirect(request.getContextPath() + "/common/Login.jsp");
 			return;
 		}
-		System.out.println("진입1");
 		response.setContentType("text/html; charset=utf-8");
 		PrintWriter out = response.getWriter();
 		String tempNum = request.getParameter("roomNo");
@@ -57,7 +52,6 @@ public class RevInsert extends HttpServlet {
 			out.print("nullRoomNo");
 			return;
 		}
-		System.out.println("진입2");
 		int roomNum = Integer.parseInt(tempNum);
 
 		revDAO = new RevDAO();
@@ -119,7 +113,7 @@ public class RevInsert extends HttpServlet {
 		
 		LocalDateTime currentDateTime = LocalDateTime.now();
 		Timestamp timestamp = Timestamp.valueOf(currentDateTime);
-		System.out.println("time : " +timestamp.toString());
+
 		revVO.setRevDate(timestamp);
 		revVO.setRoomNo(Integer.parseInt(request.getParameter("roomNo")));
 
