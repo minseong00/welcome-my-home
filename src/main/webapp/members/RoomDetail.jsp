@@ -16,7 +16,7 @@
 <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
-<script src="${contextPath}/util/Calendar.js"></script>
+<script src="${contextPath}/util/RoomDetailCalendar.js"></script>
 <style>
 	div {
 	
@@ -39,7 +39,7 @@
 	    flex-direction: column;
 	    align-items: center; /* 세로 중앙 정렬 */
 	    width: 100%;
-	    height: 140vh; /* 세로 길이를 브라우저 높이에 맞춤 */
+	    height: auto;
 	}
 	
 	.sliderouter{

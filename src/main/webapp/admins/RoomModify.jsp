@@ -49,7 +49,7 @@ body {
 	flex-direction: column;
 	flex-grow: 1;
 	margin-left: 0.5rem;
-	width: calc(100vh - 235px);
+	width: calc(70vh - 235px);
 }
 
 .include-gap {
