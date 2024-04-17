@@ -2,7 +2,6 @@ package servlets.room;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -100,7 +99,6 @@ public class RoomFilterList extends HttpServlet {
 		int headCount = Integer.parseInt(request.getParameter("headCount"));
 		int priceMin = Integer.parseInt(request.getParameter("priceMin"));
 		int priceMax = Integer.parseInt(request.getParameter("priceMax"));
-		
 		ArrayList<OptionVO> optionList = null;
 		optionList = (roomType.equals("default")) ? roomDAO.selectCount(headCount) : roomDAO.selectCountType(headCount, roomType);
 		
@@ -109,6 +107,8 @@ public class RoomFilterList extends HttpServlet {
 		request.setAttribute("roomVO", resultList);
 		request.setAttribute("checkInDate", checkInDate);
         request.setAttribute("checkOutDate", checkOutDate);
+        request.setAttribute("priceMin", priceMin);
+        request.setAttribute("priceMax", priceMax);
         request.setAttribute("roomType", roomType);
         request.setAttribute("headCount", headCount);
         

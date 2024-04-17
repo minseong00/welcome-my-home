@@ -14,27 +14,35 @@ public class FilterRoom {
 		java.sql.Date checkOutDate = null;
 		for (OptionVO data : optionList) {
 			if(data.getRoomCost() >= priceMin && data.getRoomCost() <= priceMax) {
-				if((checkIn == null && checkOut == null) || data.getCheckIn() == null) {
+				if((checkIn == null && checkOut == null) || (checkIn.equals("") && checkOut.equals("")) || data.getCheckIn() == null) {
 					optionVO = insertVOList(imgList, data);
 					resultList.add(optionVO);
 					continue;
 				}
-				
-				if(checkIn != null) {
-					checkInDate = java.sql.Date.valueOf(checkIn);
-					checkOutDate = java.sql.Date.valueOf(checkOut);
-					if(checkInDate.before(data.getCheckIn()) && checkOutDate.after(data.getCheckOut())) {
-						optionVO = insertVOList(imgList, data);
-						resultList.add(optionVO);
-						continue;
+				try {
+					
+					if((checkIn != null && !checkIn.isEmpty()) && (checkOut != null && !checkOut.isEmpty())) {
+						System.out.println("checkIn : " + checkIn + "\ncheckOut : " + checkOut);
+						checkInDate = java.sql.Date.valueOf(checkIn);
+						checkOutDate = java.sql.Date.valueOf(checkOut);
+						if(checkInDate.before(data.getCheckIn()) && checkOutDate.after(data.getCheckOut())) {
+							optionVO = insertVOList(imgList, data);
+							resultList.add(optionVO);
+							continue;
+						}
+					} 
+
+
+					if ((checkOut != null) || !checkOut.equals("") || !checkOut.equals(" ")) {
+						checkOutDate = java.sql.Date.valueOf(checkOut);
+						if(checkOutDate.after(data.getCheckOut())) {
+							optionVO = insertVOList(imgList, data);
+							resultList.add(optionVO);
+							continue;
+						}
 					}
-				} else if (checkOut != null) {
-					checkOutDate = java.sql.Date.valueOf(checkOut);
-					if(checkOutDate.after(data.getCheckOut())) {
-						optionVO = insertVOList(imgList, data);
-						resultList.add(optionVO);
-						continue;
-					}
+				} catch (Exception e) {
+					System.out.println("resultFilterRoom() ERR : " + e.getMessage());
 				}
 			}
 		}

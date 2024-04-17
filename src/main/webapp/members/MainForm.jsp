@@ -478,7 +478,7 @@ document.getElementById("modalBtn").addEventListener("click", function(event) {
 			</div>
 			<div class="roompack">
 				<div class="room">
-    				<a href="${contextPath }/RoomList?type=mainImg&roomType=Superior" class="img d-flex justify-content-center align-items-center" style="background-image: url(${contextPath}/data/Superior-1.jpg);"> <!-- 방 이미지 출력 -->
+    				<a href="${contextPath }/RoomFilterList?type=mainImg&roomType=Superior" class="img d-flex justify-content-center align-items-center" style="background-image: url(${contextPath}/data/Superior-1.jpg);"> <!-- 방 이미지 출력 -->
     					<div class="icon d-flex justify-content-center align-items-center">
     						<span><i class="fa-solid fa-magnifying-glass fa-sm"></i></span>
     					</div>
