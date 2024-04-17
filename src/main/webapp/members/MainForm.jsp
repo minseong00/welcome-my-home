@@ -331,7 +331,7 @@ document.addEventListener("DOMContentLoaded", function() {
 	
 	<!-- 메인 검색 폼 -->
 	<div class="searchbox">
-		<form action="${contextPath}/RoomList" method="get">
+		<form action="${contextPath}/RoomFilterList?type=main" method="get">
 			<div class="checkinbox">
 				<label>체크인</label><br>
 				<input type="text" name="checkIn" id="checkInDate" placeholder="체크인 날짜" readonly>
@@ -343,6 +343,7 @@ document.addEventListener("DOMContentLoaded", function() {
 			<div class="roombox">
 				<label>객실</label><br>
 				<select name="roomType">
+					<option value="default" selected>선택</option>
 					<option value="Superior">슈페리어 룸</option>
 					<option value="Deluxe">디럭스 룸</option>
 					<option value="GrandDeluxe">그랜드 디럭스 룸</option>
@@ -358,7 +359,7 @@ document.addEventListener("DOMContentLoaded", function() {
 				<label>인원 수</label><br>
 				<select name="headCount">
 					<option value="1">1 명</option>
-					<option value="2" selected="selected">2 명</option>
+					<option value="2" selected>2 명</option>
 					<option value="3">3 명</option>
 					<option value="4">4 명</option>
 					<option value="5">5 명</option>
@@ -459,79 +460,79 @@ document.addEventListener("DOMContentLoaded", function() {
     					</div>
     				</a>
     				<div class="text p-3 text-center">
-    					<h3 class="mb-3"><a href="${contextPath }/RoomList?type=mainImg&roomType=Superior"> 슈페리어 </a></h3>
+    					<h3 class="mb-3"><a href="${contextPath }/RoomFilterList?type=mainImg&roomType=Superior"> 슈페리어 </a></h3>
     					<p><span class="price mr-3">200,000원</span> <span class="per"> 1박 </span></p>
     					<hr>
-    					<p class="pt-1"><a href="${contextPath }/RoomList?type=mainImg&roomType=Superior" class="btn-custom">방 상세보기<span> <i class="fa-solid fa-arrow-right-long fa-sm"></i></span></a></p>
+    					<p class="pt-1"><a href="${contextPath }/RoomFilterList?type=mainImg&roomType=Superior" class="btn-custom">방 상세보기<span> <i class="fa-solid fa-arrow-right-long fa-sm"></i></span></a></p>
     				</div>
     			</div>
 				<div class="room">
-    				<a href="${contextPath }/RoomList?type=mainImg&roomType=Deluxe" class="img d-flex justify-content-center align-items-center" style="background-image: url(${contextPath}/data/Deluxe-1.jpg);"> <!-- 방 이미지 출력 -->
+    				<a href="${contextPath }/RoomFilterList?type=mainImg&roomType=Deluxe" class="img d-flex justify-content-center align-items-center" style="background-image: url(${contextPath}/data/Deluxe-1.jpg);"> <!-- 방 이미지 출력 -->
     					<div class="icon d-flex justify-content-center align-items-center">
     						<span><i class="fa-solid fa-magnifying-glass fa-sm"></i></span>
     					</div>
     				</a>
     				<div class="text p-3 text-center">
-    					<h3 class="mb-3"><a href="${contextPath }/RoomList?type=mainImg&roomType=Deluxe"> 디럭스 </a></h3>
+    					<h3 class="mb-3"><a href="${contextPath }/RoomFilterList?type=mainImg&roomType=Deluxe"> 디럭스 </a></h3>
     					<p><span class="price mr-3">260,000원</span> <span class="per"> 1박</span></p>
     					<hr>
-    					<p class="pt-1"><a href="${contextPath }/RoomList?type=mainImg&roomType=Deluxe" class="btn-custom">방 상세보기<span> <i class="fa-solid fa-arrow-right-long fa-sm"></i></span></a></p>
+    					<p class="pt-1"><a href="${contextPath }/RoomFilterList?type=mainImg&roomType=Deluxe" class="btn-custom">방 상세보기<span> <i class="fa-solid fa-arrow-right-long fa-sm"></i></span></a></p>
     				</div>
     			</div>
 			</div>
 			<div class="roompack">
 				<div class="room">
-    				<a href="${contextPath }/RoomList?type=mainImg&roomType=GrandDeluxe" class="img d-flex justify-content-center align-items-center" style="background-image: url(${contextPath}/data/GrandDeluxe-1.jpg);"> <!-- 방 이미지 출력 -->
+    				<a href="${contextPath }/RoomFilterList?type=mainImg&roomType=GrandDeluxe" class="img d-flex justify-content-center align-items-center" style="background-image: url(${contextPath}/data/GrandDeluxe-1.jpg);"> <!-- 방 이미지 출력 -->
     					<div class="icon d-flex justify-content-center align-items-center">
     						<span><i class="fa-solid fa-magnifying-glass fa-sm"></i></span>
     					</div>
     				</a>
     				<div class="text p-3 text-center">
-    					<h3 class="mb-3"><a href="${contextPath }/RoomList?type=mainImg&roomType=GrandDeluxe"> 그랜드 디럭스 </a></h3>
+    					<h3 class="mb-3"><a href="${contextPath }/RoomFilterList?type=mainImg&roomType=GrandDeluxe"> 그랜드 디럭스 </a></h3>
     					<p><span class="price mr-3">640,000원</span> <span class="per"> 1박</span></p>
     					<hr>
-    					<p class="pt-1"><a href="${contextPath }/RoomList?type=mainImg&roomType=GrandDeluxe" class="btn-custom">방 상세보기<span> <i class="fa-solid fa-arrow-right-long fa-sm"></i></span></a></p>
+    					<p class="pt-1"><a href="${contextPath }/RoomFilterList?type=mainImg&roomType=GrandDeluxe" class="btn-custom">방 상세보기<span> <i class="fa-solid fa-arrow-right-long fa-sm"></i></span></a></p>
     				</div>
     			</div>
 				<div class="room">
-    				<a href="${contextPath }/RoomList?type=mainImg&roomType=JuniorSuite" class="img d-flex justify-content-center align-items-center" style="background-image: url(${contextPath}/data/JuniorSuite-1.jpg);"> <!-- 방 이미지 출력 -->
+    				<a href="${contextPath }/RoomFilterList?type=mainImg&roomType=JuniorSuite" class="img d-flex justify-content-center align-items-center" style="background-image: url(${contextPath}/data/JuniorSuite-1.jpg);"> <!-- 방 이미지 출력 -->
     					<div class="icon d-flex justify-content-center align-items-center">
     						<span><i class="fa-solid fa-magnifying-glass fa-sm"></i></span>
     					</div>
     				</a>
     				<div class="text p-3 text-center">
-    					<h3 class="mb-3"><a href="${contextPath }/RoomList?type=mainImg&roomType=JuniorSuite"> 주니어 스위트 </a></h3>
+    					<h3 class="mb-3"><a href="${contextPath }/RoomFilterList?type=mainImg&roomType=JuniorSuite"> 주니어 스위트 </a></h3>
     					<p><span class="price mr-3">440,000원</span> <span class="per"> 1박</span></p>
     					<hr>
-    					<p class="pt-1"><a href="${contextPath }/RoomList?type=mainImg&roomType=JuniorSuite" class="btn-custom">방 상세보기<span> <i class="fa-solid fa-arrow-right-long fa-sm"></i></span></a></p>
+    					<p class="pt-1"><a href="${contextPath }/RoomFilterList?type=mainImg&roomType=JuniorSuite" class="btn-custom">방 상세보기<span> <i class="fa-solid fa-arrow-right-long fa-sm"></i></span></a></p>
     				</div>
     			</div>
 			</div>
 			<div class="roompack">
 				<div class="room">
-    				<a href="${contextPath }/RoomList?type=mainImg&roomType=CornerSuite" class="img d-flex justify-content-center align-items-center" style="background-image: url(${contextPath}/data/CornerSuite-1.jpg);"> <!-- 방 이미지 출력 -->
+    				<a href="${contextPath }/RoomFilterList?type=mainImg&roomType=CornerSuite" class="img d-flex justify-content-center align-items-center" style="background-image: url(${contextPath}/data/CornerSuite-1.jpg);"> <!-- 방 이미지 출력 -->
     					<div class="icon d-flex justify-content-center align-items-center">
     						<span><i class="fa-solid fa-magnifying-glass fa-sm"></i></span>
     					</div>
     				</a>
     				<div class="text p-3 text-center">
-    					<h3 class="mb-3"><a href="${contextPath }/RoomList?type=mainImg&roomType=CornerSuite"> 코너스 스위트 </a></h3>
+    					<h3 class="mb-3"><a href="${contextPath }/RoomFilterList?type=mainImg&roomType=CornerSuite"> 코너스 스위트 </a></h3>
     					<p><span class="price mr-3">420,000원</span> <span class="per"> 1박</span></p>
     					<hr>
-    					<p class="pt-1"><a href="${contextPath }/RoomList?type=mainImg&roomType=CornerSuite" class="btn-custom">방 상세보기<span> <i class="fa-solid fa-arrow-right-long fa-sm"></i></span></a></p>
+    					<p class="pt-1"><a href="${contextPath }/RoomFilterList?type=mainImg&roomType=CornerSuite" class="btn-custom">방 상세보기<span> <i class="fa-solid fa-arrow-right-long fa-sm"></i></span></a></p>
     				</div>
     			</div>
 				<div class="room">
-    				<a href="${contextPath }/RoomList?type=mainImg&roomType=SuperiorSuite" class="img d-flex justify-content-center align-items-center" style="background-image: url(${contextPath}/data/SuperiorSuite-1.jpg);"> <!-- 방 이미지 출력 -->
+    				<a href="${contextPath }/RoomFilterList?type=mainImg&roomType=SuperiorSuite" class="img d-flex justify-content-center align-items-center" style="background-image: url(${contextPath}/data/SuperiorSuite-1.jpg);"> <!-- 방 이미지 출력 -->
     					<div class="icon d-flex justify-content-center align-items-center">
     						<span><i class="fa-solid fa-magnifying-glass fa-sm"></i></span>
     					</div>
     				</a>
     				<div class="text p-3 text-center">
-    					<h3 class="mb-3"><a href="${contextPath }/RoomList?type=mainImg&roomType=SuperiorSuite"> 슈페리어 스위트 </a></h3>
+    					<h3 class="mb-3"><a href="${contextPath }/RoomFilterList?type=mainImg&roomType=SuperiorSuite"> 슈페리어 스위트 </a></h3>
     					<p><span class="price mr-3">510,000원</span> <span class="per"> 1박</span></p>
     					<hr>
-    					<p class="pt-1"><a href="${contextPath }/RoomList?type=mainImg&roomType=SuperiorSuite" class="btn-custom">방 상세보기<span> <i class="fa-solid fa-arrow-right-long fa-sm"></i></span></a></p>
+    					<p class="pt-1"><a href="${contextPath }/RoomFilterList?type=mainImg&roomType=SuperiorSuite" class="btn-custom">방 상세보기<span> <i class="fa-solid fa-arrow-right-long fa-sm"></i></span></a></p>
     				</div>
     			</div>
 			</div>

@@ -35,7 +35,6 @@ public class RoomList extends HttpServlet {
 		String type = request.getParameter("type");
 		List<RoomVO> roomList = roomDAO.selectAll();
 		List<RoomImgVO> imgList = imgDAO.selectAll();
-		String roomType = null;
 		
 		request.setAttribute("imgList", imgList);
 	
@@ -51,49 +50,15 @@ public class RoomList extends HttpServlet {
 				dispatcher = request.getRequestDispatcher("/members/RoomList.jsp");
 				break;
 			case "admin":
-				System.out.println("진입 admin");
 				dispatcher = request.getRequestDispatcher("/admins/AdminRoomList.jsp");
-				break;
-			case "main":
-				String checkInDate = request.getParameter("checkIn");
-				String checkOutDate = request.getParameter("checkOut");
-				roomType = request.getParameter("roomType");
-				int headCount = Integer.parseInt(request.getParameter("headCount"));
-				
-				System.out.println("checkin : " + checkInDate);
-				System.out.println("checkOut : " + checkOutDate);
-				System.out.println("roomType : " + roomType);
-				System.out.println("headCount : " + headCount);
-				ArrayList<OptionVO> optionList = roomDAO.selectCountType(headCount, roomType);
-				request.setAttribute("checkInDate", checkInDate);
-                request.setAttribute("checkOutDate", checkOutDate);
-                request.setAttribute("roomType", roomType);
-                request.setAttribute("headCount", headCount);
-				request.setAttribute("roomVO", optionList);
-				dispatcher = request.getRequestDispatcher("/members/RoomList.jsp");
-				break;
-			case "mainImg":
-				roomType = request.getParameter("roomType");
-				System.out.println("roomType : " + roomType);
-				
-				ArrayList<RoomVO> roomTypeList = roomDAO.selectType(roomType);
-				request.setAttribute("roomVO", roomTypeList);
-				request.setAttribute("roomType", roomType);
-				dispatcher = request.getRequestDispatcher("/members/RoomList.jsp");
 				break;
 				
 			default:
 				break;
 			}
-			if(!type.equals("main") && (!type.equals("mainImg")))
-				request.setAttribute("roomVO", roomList);
-			
+			request.setAttribute("roomVO", roomList);
 			dispatcher.forward(request, response);
 		}
-
-		
-		
-		
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

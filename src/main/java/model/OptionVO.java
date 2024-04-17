@@ -3,24 +3,25 @@ package model;
 import java.sql.Date;
 
 public class OptionVO {
-	private int roomNo;
-	private String roomType;
-	private int headCount;
-	private int roomCost;
-	private Date checkIn;
-	private Date checkOut;
-	private String img1;
+	private int roomNo = 0;
+	private String roomName = null;
+	private int headCount = 0;
+	private int roomCost = 0;
+	private Date checkIn = null;
+	private Date checkOut = null;
+	private String img1 = null;
+	
 	public int getRoomNo() {
 		return roomNo;
 	}
 	public void setRoomNo(int roomNo) {
 		this.roomNo = roomNo;
 	}
-	public String getRoomType() {
-		return roomType;
+	public String getRoomName() {
+		return roomName;
 	}
-	public void setRoomType(String roomType) {
-		this.roomType = roomType;
+	public void setRoomName(String roomName) {
+		this.roomName = roomName;
 	}
 	public int getHeadCount() {
 		return headCount;
@@ -34,6 +35,12 @@ public class OptionVO {
 	public void setRoomCost(int roomCost) {
 		this.roomCost = roomCost;
 	}
+	public String getImg1() {
+		return img1;
+	}
+	public void setImg1(String img1) {
+		this.img1 = img1;
+	}
 	public Date getCheckIn() {
 		return checkIn;
 	}
@@ -46,17 +53,17 @@ public class OptionVO {
 	public void setCheckOut(Date checkOut) {
 		this.checkOut = checkOut;
 	}
-	public String getImg1() {
-		return img1;
-	}
-	public void setImg1(String img1) {
-		this.img1 = img1;
-	}
+	
+	
 	@Override
 	public String toString() {
-		return "OptionVO [roomNo=" + roomNo + ", roomType=" + roomType + ", headCount=" + headCount + ", roomCost="
+		return "OptionVO [roomNo=" + roomNo + ", roomName=" + roomName + ", headCount=" + headCount + ", roomCost="
 				+ roomCost + ", checkIn=" + checkIn + ", checkOut=" + checkOut + ", img1=" + img1 + "]";
 	}
+	
+	
+	
+	
 	
 	
 }
