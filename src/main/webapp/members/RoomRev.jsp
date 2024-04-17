@@ -237,15 +237,24 @@ text-align: center;
 .btn_css:hover {
 background-color: #73685d;
 }
+#downCount, #upCount {
+    width: 30px; /* 버튼의 너비 */
+    height: 30px; /* 버튼의 높이 */
+    font-size: 20px; /* 버튼 내 텍스트 크기 */
+    text-align: center; /* 텍스트 중앙 정렬 */
+    vertical-align: middle; /* 세로 방향 중앙 정렬 */
+    line-height: 30px; /* 버튼 내 줄 높이를 버튼의 높이와 일치시킴 */
+    margin: 0; /* 마진 제거 */
+    padding: 0; /* 패딩 제거 */
+    border: 1px solid #ccc; /* 테두리 스타일 */
+ 
+}
 	/* 버튼 스타일 */
-	button {
-	    padding: 10px 15px;
+	button {	 
 	    background-color: #decfa6; /* 연한 복숭아색 */
-	    color: #fff;
-	    border: none;
+	    color: #fff;	
 	    border-radius: 5px;
 	    cursor: pointer;
-	    transition: background-color 0.3s ease;
 	}
 	
 	button:hover {
@@ -414,7 +423,7 @@ background-color: #73685d;
         <tr>
             <td>
                 <strong>예약 가능한 날짜</strong><br>
-                <input type="text" name="checkDate" id="roomRevDate" required readonly>
+                <input type="text" name="checkDate" id="roomRevDate" value="" required readonly>
             </td>
         </tr>
         <tr>

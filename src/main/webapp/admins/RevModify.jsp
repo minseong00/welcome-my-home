@@ -123,7 +123,18 @@ td, th {
   border: 1px solid #a39485; /* 각 셀의 테두리 스타일 */
   padding: 7px; /* 각 셀의 안쪽 여백 */
 }
-
+#downCount, #upCount {
+    width: 30px; /* 버튼의 너비 */
+    height: 30px; /* 버튼의 높이 */
+    font-size: 20px; /* 버튼 내 텍스트 크기 */
+    text-align: center; /* 텍스트 중앙 정렬 */
+    vertical-align: middle; /* 세로 방향 중앙 정렬 */
+    line-height: 30px; /* 버튼 내 줄 높이를 버튼의 높이와 일치시킴 */
+    margin: 0; /* 마진 제거 */
+    padding: 0; /* 패딩 제거 */
+    border: 1px solid #ccc; /* 테두리 스타일 */
+ 
+}
 .btn_css {
 -webkit-border-radius: 13px;
 -moz-border-radius: 13px;
@@ -164,6 +175,18 @@ text-align: center;
 #headCount {
 	width: 50px;
 }
+.countbtn{
+	
+	    background-color:#decfa6; /* 연한 복숭아색 */
+	    color: #fff;
+	    border: none;
+	    border-radius: 5px;
+	    cursor: pointer;
+	    transition: background-color 0.3s ease;
+}
+countbtn:hover {
+	    background-color: #FFB6C1; /* 더 밝은 살색으로 호버 효과 */
+	}
   </style>
 </head>
 <body style="background-color: #f5f5f5;">
@@ -205,9 +228,9 @@ text-align: center;
 					<tr>
 						<td style="background-color:#73685d; color: #fff; width:200px; height: 70px; " >인원 수</td>
 						<td>
-							<button type="button" id="downCount" onclick="downValueFilter()" ><b>-</b></button>
+							<button type="button"class="countbtn" id="downCount" onclick="downValueFilter()" ><b>-</b></button>
 							<input id="headCount" type ="text" name= "headCount" value="<c:out value="${revVO.headCount}"/>" required>
-							<button type="button" id="upCount" onclick="upValueFilter()"><b>+</b></button>
+							<button type="button" class="countbtn" id="upCount" onclick="upValueFilter()"><b>+</b></button>
 						</td>
 					</tr>
 					<tr>

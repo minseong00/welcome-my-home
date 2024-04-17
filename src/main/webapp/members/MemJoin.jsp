@@ -186,17 +186,17 @@ td, th {
     width: 50%; /* 전체 너비로 조절 */
 }
 .btn_css {
--webkit-border-radius: 13px;
+
 -moz-border-radius: 13px;
-border-radius: 13px;
+border-radius: 5px;
 
 border : 0px;
 color: #FFFFFF;
 font-family: Arial;
 font-size: 15px;
 font-weight: 100;
-padding: 10px;
-background-color: #8D703B;
+padding: 5px;
+background-color: #73685d;
 text-decoration: none;
 display: inline-block;
 cursor: pointer;
@@ -204,12 +204,30 @@ text-align: center;
 }
 
 .btn_css:hover {
-background-color: #73685d;
+background-color: ##FFB6C1;
 }
  .td-special {
     width: 300px; /* 특정 셀의 너비를 200px로 설정 */
     
 }
+.doulebtn{
+	
+      font-size: 15px; /* 버튼 내 텍스트 크기 */
+       text-align: center; /* 텍스트 중앙 정렬 */
+        vertical-align: middle; /* 세로 방향 중앙 정렬 */
+         line-height: 30px; /* 버튼 내 줄 높이를 버튼의 높이와 일치시킴 */
+      
+    border: 1px solid #ccc; /* 테두리 스타일 */
+	    background-color:#decfa6; /* 연한 복숭아색 */
+	    color: #fff;
+	    border: none;
+	    border-radius: 5px;
+	    cursor: pointer;
+	    transition: background-color 0.3s ease;
+}
+doublebtn:hover {
+	    background-color: #FFB6C1; /* 더 밝은 살색으로 호버 효과 */
+	}
 </style>
 </head>
 
@@ -227,7 +245,7 @@ background-color: #73685d;
        <td  style="background-color:#73685d; color: #fff; width:200px; height: 70px; " ><span  style="text-align: right;">아이디</span></td>
        <td class="td-special">
 	       	<input type="text" name="id" id="t_id" onkeyup="chkword(this, 20)" required>
-	       	<input type="button" value="중복확인" id="double" onclick="fn_process()">
+	       	<input type="button" class="doulebtn" value="중복확인" id="double" onclick="fn_process()">
 	       	<br>
 	       	<div id="message"></div>
     	</td>
