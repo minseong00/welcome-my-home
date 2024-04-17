@@ -98,7 +98,7 @@ input[type="text"]:focus, textarea:focus, select:focus {
          $.ajax({
             type: "post",
             async: false,
-            url: "<c:url value='/admin/RoomModify' />",
+            url: "<c:url value='/RoomModify' />",
             data : formData,
             enctype:'multipart/form-data',
             processData: false,
@@ -134,9 +134,8 @@ input[type="text"]:focus, textarea:focus, select:focus {
 	   }
    
     function updateHiddenValue(input, fileName) {
-        var filename = input.value.split('\\').pop(); // 파일 경로에서 파일명만 추출
-        var hiddenInput = document.querySelector('input[name="' + fileName + '"]');
-        hiddenInput.value = filename;
+        var file = document.querySelector('input[name="' + fileName + '"]');
+        file.value = input.value;
     }
     function submitForms() {
         document.getElementById("modify").submit(); // 첫 번째 폼 제출
@@ -231,7 +230,7 @@ input[type="text"]:focus, textarea:focus, select:focus {
                         <td>
                            <div class="insert">
                               <label>사진 업로드 &nbsp;&nbsp;</label>
-                              <input type="file" name="infoImg" onchange="updateHiddenValue(this, 'infoImg_name')" />
+                              <input type="file" name="infoImg" onchange="updateHiddenValue(infoImg, 'infoImg_name')" />
                               <input type="hidden" name = "infoImg_name" value="${imgVO.infoImg }">
                               <div class="file-list"></div>
                               <img src="${contextPath }/data/${imgVO.infoImg }" width="400" height="400">
