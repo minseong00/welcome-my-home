@@ -180,6 +180,7 @@ background-color: #73685d;
 </style>
 <script>
 	const servletUrl = "${contextPath}/";
+	console.log(${imgList[7].img1});
 </script>
 </head>
 <body>
@@ -194,15 +195,17 @@ background-color: #73685d;
 					<p>현재 선택 가능한 객실이 존재하지 않습니다.</p>
 					</div>
 				</c:when>
-				
 				<c:otherwise>
-				    <c:forEach var="line" begin="0" end="${roomVO.size() / 3 + 1}">
+				    <c:forEach var="line" begin="0" end="${roomVO.size() / 3}">
 				        <div class="lineDiv"><!-- 첫번째 라인 -->
+				        
 				            <c:set var="endIndex" value="${roomVO.size()}"/>
+				            
 				            <c:if test="${endIndex > (line + 1) * 3}">
 				                <c:set var="endIndex" value="${(line + 1) * 3}" />
 				            </c:if>
-				            <c:forEach var="room" items="${roomVO }" begin="${line*3 }" end="${endIndex - 1}" varStatus="loop">
+				            
+				            <c:forEach var="room" items="${roomVO }" begin="${line*3 }" end="${endIndex-1}" varStatus="loop">
 								<div class="room_"> <!-- 첫번째 요소 -->
 									<table class="leftTable">
 										<tr>

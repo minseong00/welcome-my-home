@@ -39,13 +39,13 @@
 	    flex-direction: column;
 	    align-items: center; /* 세로 중앙 정렬 */
 	    width: 100%;
-	    height: 100vh; /* 세로 길이를 브라우저 높이에 맞춤 */
+	    height: 140vh; /* 세로 길이를 브라우저 높이에 맞춤 */
 	}
 	
 	.sliderouter{
 		margin: 20px auto;
 		width: 1100px;
-		height: 1000px;
+		height: 650px;
 	}
 	.slider {
 	width: 100%;
@@ -116,7 +116,7 @@
 	
 	#info2 {
 		background-color: #FFFFFF;
-	    width: 30%;
+	    width: 35%;
 	    flex-grow: 1; /* 가변적인 세로 길이를 위해 */
 	    max-width: 300px; /* 최대 너비 설정 */
 	    height: 500px;
@@ -163,6 +163,13 @@
         border-top: 1px solid #ccc;
         margin-top: 10px ;
         width: 70%;
+    }
+    #footer{
+   		display: block;
+    	
+    	width: 100%;
+    	background-color: #f2f2f2; /* 배경색은 필요에 따라 조정 */
+    	padding: 20px 0; /* 필요에 따라 내용 여백 조정 */
     }
 </style>
 	<!-- 슬라이드 스크립트 -->
@@ -270,6 +277,8 @@ window.onload = function() {
 	</div>
 </div>
 </div>
-<jsp:include page="/include/Footer.jsp" flush="false"></jsp:include>
+
+	<jsp:include page="/include/Footer.jsp" ></jsp:include>
+
 </body>
 </html>

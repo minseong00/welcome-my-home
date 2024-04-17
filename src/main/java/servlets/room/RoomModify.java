@@ -82,14 +82,12 @@ public class RoomModify extends HttpServlet {
 		if(!uploadDir.exists()) {
 			uploadDir.mkdirs();
 		}
-		
 		Collection<Part> parts = request.getParts();
 		for (Part part : parts) {
 			if(part.getContentType() != null) {
 				String fileName = Split.FileName(part);
-				
+				System.out.println(fileName);
 				String savePath = UPLOAD + File.separator + fileName;
-				
 				try {
 					InputStream inputStream = part.getInputStream();
 					OutputStream outputStream = new FileOutputStream(savePath);
