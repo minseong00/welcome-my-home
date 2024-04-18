@@ -1,0 +1,55 @@
+insert into room (roomName, roomType, roomDetail, headCount, roomCost)
+values('슈페리어', 'Superior', null, 2, 200000);
+
+insert into roomImg
+values('1', 'Superior-1.jpg', 'Superior-2.jpg', 'Superior-3.jpg', 'Superior-4.jpg', 'Superior-5.jpg', 'roomdetail-2.PNG');
+
+insert into room (roomName, roomType, roomDetail, headCount, roomCost)
+values('디럭스', 'Deluxe', null, 2, 260000);
+
+insert into roomImg
+values('2', 'Deluxe-1.jpg', 'Deluxe-2.jpg', 'Deluxe-3.jpg', 'Deluxe-4.jpg', '', 'roomdetail-2.PNG');
+
+insert into room (roomName, roomType, roomDetail, headCount, roomCost)
+values('그랜드 디럭스', 'GrandDeluxe', null, 4, 640000);
+
+insert into roomImg
+values('3', 'GrandDeluxe-1.jpg', 'GrandDeluxe-2.jpg', 'GrandDeluxe-3.jpg', '', '', 'roomdetail-4.jpg');
+
+insert into room (roomName, roomType, roomDetail, headCount, roomCost)
+values('주니어 스위트', 'JuniorSuite', null, 4, 440000);
+
+insert into roomImg
+values('4', 'JuniorSuite-1.jpg', 'JuniorSuite-2.jpg', 'JuniorSuite-3.jpg', 'JuniorSuite-4.jpg', 'JuniorSuite-5.jpg', 'roomdetail-4.jpg');
+
+insert into room (roomName, roomType, roomDetail, headCount, roomCost)
+values('코너스 스위트', 'CornerSuite', null, 3, 420000);
+
+insert into roomImg
+values('5', 'CornerSuite-1.jpg', 'CornerSuite-2.jpg', 'CornerSuite-3.jpg', 'CornerSuite-4.jpg', 'CornerSuite-5.jpg', 'roomdetail-3.jpg');
+
+insert into room (roomName, roomType, roomDetail, headCount, roomCost)
+values('슈페리어 스위트', 'SuperiorSuite', null, 3, 510000);
+
+insert into roomImg
+values('6', 'SuperiorSuite-1.jpg', 'SuperiorSuite-2.jpg', 'SuperiorSuite-3.jpg', 'SuperiorSuite-4.jpg', 'SuperiorSuite-5.jpg', 'roomdetail-3.jpg');
+
+insert into room (roomName, roomType, roomDetail, headCount, roomCost)
+values('로열 스위트', 'RoyalSuite', null, 4, 980000);
+
+insert into roomImg
+values('7', 'RoyalSuite-1.jpg', 'RoyalSuite-2.jpg', 'RoyalSuite-3.jpg', 'RoyalSuite-4.jpg', 'RoyalSuite-5.jpg', 'roomdetail-4.jpg');
+
+insert into room (roomName, roomType, roomDetail, headCount, roomCost)
+values('프레지덴셜 스위트', 'PresidentialSuite', null, 2, 16000000);
+
+insert into roomImg
+values('8', 'Presidential-1.jpg', 'Presidential-2.jpg', 'Presidential-3.jpg', 'Presidential-4.jpg', 'Presidential-5.jpg', 'roomdetail-2.PNG');
+
+insert into room (roomName, roomType, roomDetail, headCount, roomCost)
+values('커넥팅 룸', 'Connecting', null, 4, 1600000);
+
+insert into roomImg
+values('9', 'Connecting-1.jpg', 'Connecting-2.jpg', 'Connecting-3.jpg', 'Connecting-4.jpg', 'Connecting-5.jpg', 'roomdetail-4.jpg');
+
+insert into admin (adminId, adminPw) values('admin', '1234');
