@@ -217,7 +217,7 @@ countbtn:hover {
 						<td><input type="text" name="memId" value="<c:out value="${revVO.memId }"/>" readonly ></td>
 					</tr>
 					<tr>
-					<fmt:formatDate value="${rev.revDate}" pattern="yyyy-MM-dd HH:mm:ss" var="formattedDate" />
+					<fmt:formatDate value="${revVO.revDate}" pattern="yyyy-MM-dd HH:mm:ss" var="formattedDate" />
 						<td style="background-color:#73685d; color: #fff; width:200px; height: 70px; " >예약일</td>
 						<td><input id="revDate" type ="text" name="revDate" value="<c:out value="${formattedDate }"/>" readonly></td>
 					</tr>
