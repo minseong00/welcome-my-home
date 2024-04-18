@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import dao.room.RoomDAO;
 import dao.roomImg.RoomImgDAO;
+import model.OptionVO;
 import model.RoomImgVO;
 import model.RoomVO;
 import util.FilterRoom;
