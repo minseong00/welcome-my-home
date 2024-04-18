@@ -1,0 +1,45 @@
+create database myhome;
+
+create table member (
+memNo int(10) NOT NULL auto_increment,
+memId varchar(20) NOT NULL,
+memCall varchar(15) NOT NULL,
+memName varchar(20) NOT NULL,
+memEmail varchar(30) NOT NULL,
+memPw varchar(64) NOT NULL,
+PRIMARY KEY(memNo, memId)
+);
+
+create table admin (
+adminId varchar(20) PRIMARY KEY,
+adminPw varchar(20) NOT NULL
+);
+create table room (
+roomNo int(10) PRIMARY KEY auto_increment,
+roomName varchar(20) NOT NULL,
+roomType varchar(20) NOT NULL,
+roomDetail text NULL, 
+headCount int(5) NOT NULL,
+roomCost int(10) NOT NULL
+);
+
+create table roomImg (
+roomNo int(10) PRIMARY KEY,
+img1 varchar(20) NOT NULL,
+img2 varchar(20) NULL,
+img3 varchar(20) NULL,
+img4 varchar(20) NULL,
+img5 varchar(20) NULL,
+infoImg varchar(20) NOT NULL
+);
+
+create table reservation (
+revNo int(10) PRIMARY KEY auto_increment,
+revDate datetime NOT NULL,
+roomNo int(10) NOT NULL,
+checkIn date NOT NULL,
+checkOut date NOT NULL,
+headCount int(4) NOT NULL,
+price int(10) NOT NULL,
+memId varchar(20) NOT NULL
+);
