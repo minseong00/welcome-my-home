@@ -174,11 +174,6 @@
     	background-color: #f2f2f2; /* 배경색은 필요에 따라 조정 */
     	padding: 20px 0; /* 필요에 따라 내용 여백 조정 */
     }
-    #calendar {
-    	font-size: 12pt;
-    	width: 100%;
-    	height: auto;
-    }
 </style>
 	<!-- 슬라이드 스크립트 -->
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
@@ -279,7 +274,6 @@ window.onload = function() {
 					</tr>
 				</table>
 				<hr>
-				<div id="calendar"></div>
 				<button class="btn_css" id="revBtn" onclick="location.href='${contextPath}/RevInsert?roomNo=${roomVO.roomNo }'">예약하기</button> <!-- 예약 버튼 클릭시 세션값 확인 -->
 			</div>
 		</div>
