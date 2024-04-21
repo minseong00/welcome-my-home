@@ -44,12 +44,11 @@
         margin: 0 10px;
         padding: 20px;
     }
-    #leftDiv {
-        width: 35%;
+    #leftDiv{
+    	width: 60%;
     }
-    #rightDiv {
-        width: 35%;
-       
+    #rightDiv{
+    	width: 40%;
     }
     .table-container {
         margin-bottom: 20px;
@@ -133,6 +132,11 @@ background-color: #73685d;
 #headCount {
     width: 50px;
 }
+#roomAdd{
+	display: flex;
+	justify-content: space-between;
+	width: 70%;
+}
     
 </style>
 <script src="http://code.jquery.com/jquery-2.2.1.min.js"></script>
@@ -186,95 +190,81 @@ background-color: #73685d;
             <div class="col-md-3"  style="margin-left: 100px;">  
                 <jsp:include page="/include/AdminSidebar.jsp" flush="false"/>
             </div>
-            <div id="leftDiv">
-                <div class="table-container">
-                    <h3 style="font-weight: bold; margin-bottom: 30px;margin-top: 30px; margin-left:80px;">객실 등록</h3>
-                    <form id="roomAdd">
-                        <table id="payment-table">
-                            <!-- 객실 정보 입력 -->
-                            <tr>
-                                <td>
-                                    <label>객실 이름</label>
-                                    <input type="text" name="roomName">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <label>객실 타입</label>
-                                    <select name="roomType" required>
-                                        <option selected="selected">타입 선택</option>
-                                        <option value="Superior">슈페리어 룸</option>
-                                        <option value="Deluxe">디럭스 룸</option>
-                                        <option value="GrandDeluxe">그랜드 디럭스 룸</option>
-                                        <option value="JuniorSuite">주니어 스위트 룸</option>
-                                        <option value="CornerSuite">코너스 스위트 룸</option>
-                                        <option value="SuperiorSuite">슈페리어 스위트 룸</option>
-                                        <option value="RoyalSuite">로열 스위트 룸</option>
-                                        <option value="PresidentialSuite">프레지덴셜 스위트 룸</option>
-                                        <option value="Connecting">커넥팅 룸</option>
-                                    </select>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <label>수용 인원</label>
-                                    <select name="headCount" required="required">
-                                        <option selected="selected">인원 선택</option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                        <option value="6">6</option>
-                                        <option value="7">7</option>
-                                        <option value="8">8</option>
-                                        <option value="9">9</option>
-                                        <option value="10">10</option>
-                                    </select>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <label>객실 가격</label>
-                                    <input class="roomCost" type="text" name="roomCost">원
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <label  style="display: block;">객실 설명</label>
-                                    <textarea  name="detailText" style="width:264px; height:180px; "></textarea>
-                                </td>
-                            </tr>
-                        </table>
-                    </form>
-                </div>
-            </div>
-            <div id="rightDiv" >
-                <div class="table-container">
-                    <!-- 사진 업로드 입력 -->
-                    <form id="roomAdd">
-                        <table id="payment-table">
-                            <tr>
-                                <td>
-                                    <label>사진 업로드</label>
-                                    <input type="file" name="file" onchange="addFile(this);" multiple="multiple" />
-                                    <div class="file-list"></div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <label>객실 설명 사진</label>
-                                    <input type="file" name="infoImg">
-                                </td>
-                            </tr>
-                        </table>
-                        <div style="text-align:center;">
-                        <button class="btn_css" type="submit" style="width:50%;">등록</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
+			<form id="roomAdd">
+				<div id="leftDiv">
+					<div class="table-container">
+						<h3
+							style="font-weight: bold; margin-bottom: 30px; margin-top: 30px; margin-left: 80px;">객실
+							등록</h3>
+						<table id="payment-table">
+							<!-- 객실 정보 입력 -->
+							<tr>
+								<td><label>객실 이름</label> <input type="text" name="roomName">
+								</td>
+							</tr>
+							<tr>
+								<td><label>객실 타입</label> <select name="roomType" required>
+										<option selected="selected">타입 선택</option>
+										<option value="Superior">슈페리어 룸</option>
+										<option value="Deluxe">디럭스 룸</option>
+										<option value="GrandDeluxe">그랜드 디럭스 룸</option>
+										<option value="JuniorSuite">주니어 스위트 룸</option>
+										<option value="CornerSuite">코너스 스위트 룸</option>
+										<option value="SuperiorSuite">슈페리어 스위트 룸</option>
+										<option value="RoyalSuite">로열 스위트 룸</option>
+										<option value="PresidentialSuite">프레지덴셜 스위트 룸</option>
+										<option value="Connecting">커넥팅 룸</option>
+								</select></td>
+							</tr>
+							<tr>
+								<td><label>수용 인원</label> <select name="headCount"
+									required="required">
+										<option selected="selected">인원 선택</option>
+										<option value="1">1</option>
+										<option value="2">2</option>
+										<option value="3">3</option>
+										<option value="4">4</option>
+										<option value="5">5</option>
+										<option value="6">6</option>
+										<option value="7">7</option>
+										<option value="8">8</option>
+										<option value="9">9</option>
+										<option value="10">10</option>
+								</select></td>
+							</tr>
+							<tr>
+								<td><label>객실 가격</label> <input class="roomCost"
+									type="text" name="roomCost">원</td>
+							</tr>
+							<tr>
+								<td><label style="display: block;">객실 설명</label> <textarea
+										name="detailText" style="width: 264px; height: 180px;"></textarea>
+								</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+				<div id="rightDiv">
+					<div class="table-container">
+						<!-- 사진 업로드 입력 -->
+						<table id="payment-table">
+							<tr>
+								<td><label>사진 업로드</label> <input type="file" name="file"
+									onchange="addFile(this);" multiple="multiple" />
+									<div class="file-list"></div></td>
+							</tr>
+							<tr>
+								<td><label>객실 설명 사진</label> <input type="file"
+									name="infoImg"></td>
+							</tr>
+						</table>
+						<div style="text-align: center;">
+							<button class="btn_css" type="submit" style="width: 50%;">등록</button>
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
     </div>
 </body>
 </html>
