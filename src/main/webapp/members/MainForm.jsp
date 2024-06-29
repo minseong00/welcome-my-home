@@ -52,6 +52,7 @@ h1, h2, h3, h4, h5, span, a, p, button {
   		font-weight: 400;
   		font-style: normal;
 	}
+	
 /* 검색 폼 */
 	.searchbox{
 		width: 90%;
@@ -245,6 +246,12 @@ h1, h2, h3, h4, h5, span, a, p, button {
     transform: translate(-50%, -50%);
     font-size: 48px; /* 아이콘 크기 조절 가능 */
 }
+#carouselouter{
+	width: 100%;
+	height: 800px;
+	overflow: hidden;
+}
+
 </style>
 <script type="text/javascript">
 document.addEventListener("DOMContentLoaded", function() {
@@ -278,76 +285,78 @@ document.getElementById("modalBtn").addEventListener("click", function(event) {
 <body>
 	<jsp:include page="/include/Header.jsp" flush="false"></jsp:include>
 	<!-- END nav -->
-	<div id="carouselExampleCaptions" class="carousel slide" style="width: 80%; margin: 0 auto;">
-		<div class="carousel-indicators">
-			<button type="button" data-bs-target="#carouselExampleCaptions"
-				data-bs-slide-to="0" class="active" aria-current="true"
-				aria-label="Slide 1"></button>
-			<button type="button" data-bs-target="#carouselExampleCaptions"
-				data-bs-slide-to="1" aria-label="Slide 2"></button>
-			<button type="button" data-bs-target="#carouselExampleCaptions"
-				data-bs-slide-to="2" aria-label="Slide 3"></button>
-			<button type="button" data-bs-target="#carouselExampleCaptions"
-				data-bs-slide-to="3" aria-label="Slide 4"></button>
-			<button type="button" data-bs-target="#carouselExampleCaptions"
-				data-bs-slide-to="4" aria-label="Slide 5"></button>
-			<button type="button" data-bs-target="#carouselExampleCaptions"
-				data-bs-slide-to="5" aria-label="Slide 6"></button>
+	<div id="carouselouter">
+		<div id="carouselExampleCaptions" class="carousel slide" style="width: 80%; margin: 0 auto; height: 100% ">
+			<div class="carousel-indicators">
+				<button type="button" data-bs-target="#carouselExampleCaptions"
+					data-bs-slide-to="0" class="active" aria-current="true"
+					aria-label="Slide 1"></button>
+				<button type="button" data-bs-target="#carouselExampleCaptions"
+					data-bs-slide-to="1" aria-label="Slide 2"></button>
+				<button type="button" data-bs-target="#carouselExampleCaptions"
+					data-bs-slide-to="2" aria-label="Slide 3"></button>
+				<button type="button" data-bs-target="#carouselExampleCaptions"
+					data-bs-slide-to="3" aria-label="Slide 4"></button>
+				<button type="button" data-bs-target="#carouselExampleCaptions"
+					data-bs-slide-to="4" aria-label="Slide 5"></button>
+				<button type="button" data-bs-target="#carouselExampleCaptions"
+					data-bs-slide-to="5" aria-label="Slide 6"></button>
+			</div>
+			<div class="carousel-inner">
+				<div class="carousel-item active" data-bs-interval="10000">
+					<img alt="" src="${contextPath}/style/images/testroom-1.jpg" width="100%" >
+					<div class="carousel-caption d-none d-md-block">
+						<h5>우리집에 놀러와</h5>
+						<p class="eng">Hotels & Resorts</p>
+					</div>
+				</div>
+				<div class="carousel-item">
+					<img alt="" src="${contextPath }/style/images/testroom-2.jpg" width="100%" >
+					<div class="carousel-caption d-none d-md-block">
+						<h5>나만의 숲 속 아지트, 우리집에서 삶의 쉼표를 찾아 보세요.</h5>
+						<p class="eng">Hotels & Resorts</p>
+					</div>
+				</div>
+				<div class="carousel-item" >
+					<img alt="" src="${contextPath }/style/images/testroom-3.jpg" width="100%" >
+					<div class="carousel-caption d-none d-md-block">
+						<h5>감각적 인테리어와 최신의 테크놀로지가 선보이는 <br>새로운 라이프 스타일 트렌드를 경험하세요.</h5>
+						<p class="eng">Hotels & Resorts</p>
+					</div>
+				</div>
+					<div class="carousel-item" >
+					<img alt="" src="${contextPath }/style/images/testroom-4.jpg" width="100%" >
+					<div class="carousel-caption d-none d-md-block">
+						<h5>생동감 넘치는 색다른 여행의 시작.</h5>
+						<p class="eng">Hotels & Resorts</p>
+					</div>
+				</div>
+					<div class="carousel-item" >
+					<img alt="" src="${contextPath }/style/images/testroom-5.jpg" width="100%" >
+					<div class="carousel-caption d-none d-md-block">
+						<h5>자연의 편안함과 감동적인 서비스가 마음까지 따뜻해지는 행복한 경험을 선사합니다.</h5>
+						<p class="eng">Hotels & Resorts</p>
+					</div>
+				</div>
+					<div class="carousel-item" >
+					<img alt="" src="${contextPath }/style/images/testroom-6.jpg" width="100%" >
+					<div class="carousel-caption d-none d-md-block">
+						<h5>최고의 순간을 경험하세요</h5>
+						<p class="eng">Hotels & Resorts</p>
+					</div>
+				</div>
+			</div>
+			<button class="carousel-control-prev" type="button"
+				data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+				<span class="carousel-control-prev-icon" aria-hidden="true"></span> <span
+					class="visually-hidden">Previous</span>
+			</button>
+			<button class="carousel-control-next" type="button"
+				data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+				<span class="carousel-control-next-icon" aria-hidden="true"></span> <span
+					class="visually-hidden">Next</span>
+			</button>
 		</div>
-		<div class="carousel-inner">
-			<div class="carousel-item active" data-bs-interval="10000">
-				<img alt="" src="${contextPath }/style/images/mainRoom-1.jpg" width="100%" >
-				<div class="carousel-caption d-none d-md-block">
-					<h5>우리집에 놀러와</h5>
-					<p class="eng">Hotels & Resorts</p>
-				</div>
-			</div>
-			<div class="carousel-item">
-				<img alt="" src="${contextPath }/style/images/mainRoom-2.jpg" width="100%" >
-				<div class="carousel-caption d-none d-md-block">
-					<h5>나만의 숲 속 아지트, 우리집에서 삶의 쉼표를 찾아 보세요.</h5>
-					<p class="eng">Hotels & Resorts</p>
-				</div>
-			</div>
-			<div class="carousel-item" >
-				<img alt="" src="${contextPath }/style/images/mainRoom-3.jpg" width="100%" >
-				<div class="carousel-caption d-none d-md-block">
-					<h5>감각적 인테리어와 최신의 테크놀로지가 선보이는 <br>새로운 라이프 스타일 트렌드를 경험하세요.</h5>
-					<p class="eng">Hotels & Resorts</p>
-				</div>
-			</div>
-				<div class="carousel-item" >
-				<img alt="" src="${contextPath }/style/images/mainRoom-4.jpg" width="100%" >
-				<div class="carousel-caption d-none d-md-block">
-					<h5>생동감 넘치는 색다른 여행의 시작.</h5>
-					<p class="eng">Hotels & Resorts</p>
-				</div>
-			</div>
-				<div class="carousel-item" >
-				<img alt="" src="${contextPath }/style/images/mainRoom-5.jpg" width="100%" >
-				<div class="carousel-caption d-none d-md-block">
-					<h5>자연의 편안함과 감동적인 서비스가 마음까지 따뜻해지는 행복한 경험을 선사합니다.</h5>
-					<p class="eng">Hotels & Resorts</p>
-				</div>
-			</div>
-				<div class="carousel-item" >
-				<img alt="" src="${contextPath }/style/images/mainRoom-6.jpg" width="100%" >
-				<div class="carousel-caption d-none d-md-block">
-					<h5>최고의 순간을 경험하세요</h5>
-					<p class="eng">Hotels & Resorts</p>
-				</div>
-			</div>
-		</div>
-		<button class="carousel-control-prev" type="button"
-			data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-			<span class="carousel-control-prev-icon" aria-hidden="true"></span> <span
-				class="visually-hidden">Previous</span>
-		</button>
-		<button class="carousel-control-next" type="button"
-			data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-			<span class="carousel-control-next-icon" aria-hidden="true"></span> <span
-				class="visually-hidden">Next</span>
-		</button>
 	</div>
 	
 	<!-- 메인 검색 폼 -->
