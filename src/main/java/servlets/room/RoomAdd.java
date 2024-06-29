@@ -87,9 +87,7 @@ public class RoomAdd extends HttpServlet {
 		roomVO.setHeadCount(Integer.parseInt(request.getParameter("headCount")));
 		roomVO.setRoomCost(Integer.parseInt(request.getParameter("roomCost")));
 		roomVO.setRoomDetail(request.getParameter("detailText"));
-		int result = roomDAO.insertRoomData(roomVO);
-		
-		imgVO.setRoomNo(result);
+			
 		imgVO.setInfoImg(list.size() > 0 ? list.get(0) : null);
 		imgVO.setImg1(list.size() > 1 ? list.get(1) : null);
 		imgVO.setImg2(list.size() > 2 ? list.get(2) : null);
@@ -99,11 +97,12 @@ public class RoomAdd extends HttpServlet {
 		
 		imgDAO.insertRoomImg(imgVO);
 		
+		int result = roomDAO.insertRoomData(roomVO);
 		
 		response.setContentType("text/html; charset=utf-8");
 		PrintWriter out = response.getWriter();
 		
-		if(result > 0) 
+		if(result == 1) 
 			out.print("success");
 		else
 			out.print("fail");
